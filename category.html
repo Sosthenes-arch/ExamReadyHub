@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Dynamically updated by category.js -->
+  <title>Category Practice Tests — ExamReadyHub</title>
+  <meta name="description" content="Free practice tests with instant feedback and detailed explanations. No login required.">
+  <link rel="canonical" href="https://www.examreadyhub.com/category.html" id="canonical-tag">
+
+  <!-- Open Graph — updated dynamically by category.js -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.examreadyhub.com/category.html" id="og-url">
+  <meta property="og:title" content="Category Practice Tests — ExamReadyHub" id="og-title">
+  <meta property="og:description" content="Free multiple-choice practice tests with instant feedback. No login required." id="og-desc">
+  <meta property="og:image" content="https://www.examreadyhub.com/logo.png">
+  <meta property="og:site_name" content="ExamReadyHub">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="category-page">
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">ExamReady<span>Hub</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span id="breadcrumb-category">Category</span>
+      </nav>
+
+      <div id="category-container">
+        <!-- Populated by category.js -->
+        <div style="text-align:center;padding:60px 0">
+          <p style="color:var(--text-muted)">Loading&hellip;</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">ExamReady<span>Hub</span></a>
+          <p>Free exam practice for everyone.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Site</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-links">
+          <h4>Popular Exams</h4>
+          <a href="exam.html?id=dmv">DMV Permit Test</a>
+          <a href="exam.html?id=comptia-security">CompTIA Security+</a>
+          <a href="exam.html?id=usmle">USMLE Step 1</a>
+          <a href="exam.html?id=lsat">LSAT</a>
+        </div>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 ExamReadyHub. For practice purposes only &mdash;
+        not affiliated with or endorsed by any official testing organisation.
+      </p>
+    </div>
+  </footer>
+
+  <script src="data/exams.js"></script>
+  <script src="js/category.js"></script>
+</body>
+</html>

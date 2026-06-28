@@ -1,5 +1,5 @@
 /* ============================================================
-   PassMark — Global Styles
+   ExamReadyHub — Global Styles
    Design: Deep navy + teal accent, clean study-app aesthetic
    ============================================================ */
 
@@ -705,3 +705,169 @@ h4 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.06em; colo
   .results-table th:last-child,
   .results-table td:last-child { display: none; }
 }
+
+/* --- Search Bar ----------------------------------------- */
+.search-section {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+  position: sticky;
+  top: 64px;
+  z-index: 40;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.search-wrap {
+  position: relative;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+  opacity: .55;
+  line-height: 1;
+}
+
+.search-wrap input[type="search"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 44px 13px 46px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  -webkit-appearance: none;
+}
+
+.search-wrap input[type="search"]:focus {
+  outline: none;
+  border-color: var(--teal);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(28,169,160,.15);
+}
+
+/* hide browser's built-in clear button */
+.search-wrap input[type="search"]::-webkit-search-cancel-button { display: none; }
+
+.search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--border);
+  border: none;
+  color: var(--text-muted);
+  font-size: .78rem;
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: 20px;
+  line-height: 1.5;
+  transition: background var(--transition), color var(--transition);
+}
+
+.search-clear:hover { background: var(--navy); color: #fff; }
+
+.search-status {
+  text-align: center;
+  font-size: .82rem;
+  color: var(--teal);
+  font-weight: 600;
+  margin-top: 6px;
+  min-height: 18px;
+}
+
+/* --- No Results ----------------------------------------- */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.no-results h3 {
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.no-results p { color: var(--text-muted); font-size: .9rem; }
+
+.no-results .btn-ghost {
+  background: none;
+  border: none;
+  color: var(--teal);
+  font-size: .9rem;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  text-decoration: underline;
+}
+
+/* --- Category Page -------------------------------------- */
+.category-page-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 32px;
+  padding-bottom: 22px;
+  border-bottom: 2px solid var(--border);
+}
+
+.category-page-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--teal-light);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.85rem;
+  flex-shrink: 0;
+}
+
+.category-page-title {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.category-page-count {
+  font-size: .9rem;
+  color: var(--text-muted);
+}
+
+/* Clickable category name on homepage */
+.category-name-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.category-name-link:hover { color: var(--teal); }
+
+/* "View all →" link in category header */
+.view-all-link {
+  margin-left: auto;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--teal);
+  white-space: nowrap;
+  letter-spacing: .01em;
+}
+
+.view-all-link:hover { text-decoration: underline; }
+
+/* --- Search responsive ---------------------------------- */
+@media (max-width: 600px) {
+  .search-section { top: 58px; padding: 12px 0; }
+  .search-wrap input[type="search"] { font-size: .93rem; padding: 11px 40px 11px 42px; }
+}
+
+/* --- Category page main --------------------------------- */
+.category-page main { padding: 32px 0 64px; }

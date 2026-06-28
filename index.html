@@ -96,8 +96,35 @@
       </div>
     </section>
 
+    <!-- Sticky search bar -->
+    <section class="search-section" aria-label="Exam search">
+      <div class="container">
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">&#128269;</span>
+          <input
+            type="search"
+            id="exam-search"
+            placeholder="Search 150+ exams — e.g. CISSP, USMLE, Abitur&#8230;"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Search exams"
+          >
+          <button class="search-clear" id="search-clear" aria-label="Clear search" hidden>&#x2715;</button>
+        </div>
+        <p class="search-status" id="search-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
     <section id="categories" class="categories-section" aria-label="Exam categories">
       <div class="container">
+        <div id="no-results" class="no-results" hidden>
+          <h3>No exams found for &ldquo;<strong></strong>&rdquo;</h3>
+          <p>Try a different search term, or
+            <button class="btn-ghost" onclick="document.getElementById('exam-search').value='';document.getElementById('exam-search').dispatchEvent(new Event('input'))">
+              clear the search
+            </button>.
+          </p>
+        </div>
         <div id="category-list"></div>
       </div>
     </section>

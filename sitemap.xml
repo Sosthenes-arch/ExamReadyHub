@@ -206,4 +206,21 @@
   <url><loc>https://www.examreadyhub.com/exam.html?id=rrb</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.examreadyhub.com/exam.html?id=ctet</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
+  <!-- Category pages -->
+  <url><loc>https://www.examreadyhub.com/category.html?id=driving</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=it-tech</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=academic</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=medical</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=citizenship</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=finance</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=law</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=teaching</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=aviation</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=government</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=project-management</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=engineering-trades</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=europe-national</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=east-asia</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=india</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
 </urlset>
