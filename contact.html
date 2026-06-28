@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — PassMark</title>
+  <meta name="description" content="Contact PassMark to report a question error, suggest an exam, or ask a question.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="static-page">
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Pass<span>Mark</span></a>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-card">
+        <h1>Contact Us</h1>
+
+        <p>
+          Found an error in a question or explanation? Want to suggest an exam we should add?
+          Fill out the form below and we'll get back to you.
+        </p>
+
+        <!-- Connect this form to a backend/service (e.g. Formspree, Netlify Forms, EmailJS) -->
+        <form class="contact-form" id="contact-form" novalidate>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            autocomplete="name"
+            required
+            aria-label="Your name"
+          >
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email address"
+            autocomplete="email"
+            required
+            aria-label="Email address"
+          >
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject (e.g. 'Error in USMLE Q3')"
+            aria-label="Subject"
+          >
+          <textarea
+            name="message"
+            placeholder="Your message…"
+            required
+            aria-label="Message"
+          ></textarea>
+          <div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+          <p id="form-status" style="font-size:0.88rem;color:var(--text-muted);display:none"></p>
+        </form>
+
+        <h2 style="margin-top:32px">Other ways to reach us</h2>
+        <p>
+          You can also email us directly at
+          <strong>hello@passmark.example.com</strong>
+          <!-- Replace with your real email address before publishing -->
+          or find us on social media.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Pass<span>Mark</span></a>
+          <p>Free exam practice for everyone.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Site</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Popular</h4>
+          <a href="exam.html?id=dmv">DMV Permit Test</a>
+          <a href="exam.html?id=sat">SAT</a>
+          <a href="exam.html?id=asvab">ASVAB</a>
+        </div>
+      </div>
+      <p class="footer-copy">
+        &copy; 2024 PassMark. For practice purposes only &mdash;
+        not affiliated with any official testing organization.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-toggle')?.addEventListener('click', function () {
+      document.querySelector('.site-nav').classList.toggle('open');
+    });
+
+    // Stub form handler — replace with real backend integration
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      status.textContent = 'Thanks for reaching out! We\'ll be in touch shortly.';
+      status.style.display = 'block';
+      status.style.color = 'var(--success)';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
