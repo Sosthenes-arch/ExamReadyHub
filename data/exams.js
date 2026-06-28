@@ -4339,6 +4339,203 @@ const EXAMS = {
         answer: 1,
         explanation: "The CPA (Concrete–Pictorial–Abstract) approach, advocated by Jerome Bruner and central to NCF 2005 and NCERT pedagogy: start with hands-on physical objects (folding, cutting, sharing food equally), progress to pictures/diagrams (fraction bars, number lines), then introduce symbolic notation (½, ¾). CTET pedagogy questions consistently favour constructivist, child-centred, activity-based learning over rote or direct-instruction methods for primary mathematics." }
     ]
+  },
+
+  // ── China Exams ────────────────────────────────────────────────────────
+  "gaokao": {
+    id: "gaokao", title: "Gaokao (高考) — National College Entrance Exam",
+    description: "Practice for China's Gaokao, the national college entrance examination taken by millions of students each June. Questions cover the exam's structure, compulsory subjects, scoring system, and administration — knowledge essential for students, parents, and educators.",
+    category: "china",
+    questions: [
+      { q: "The Gaokao is held nationally in which month each year?",
+        options: ["March", "June — on June 7–8 (some provinces extend to June 9–10)", "September", "December"],
+        answer: 1,
+        explanation: "The Gaokao (高考) is administered simultaneously across China on June 7–8 (with some provinces running a third day on June 9–10 for additional subjects). Results are released in late June. It is the primary pathway to undergraduate university admissions in mainland China." },
+      { q: "Which three subjects are compulsory for ALL Gaokao candidates regardless of their chosen track?",
+        options: ["History, Geography, and Politics", "Chinese Language & Literature (语文), Mathematics (数学), and a Foreign Language (外语, typically English)", "Biology, Chemistry, and Physics", "Mathematics, Physics, and English only"],
+        answer: 1,
+        explanation: "All Gaokao candidates must sit Chinese (语文, 150 marks), Mathematics (数学, 150 marks), and a Foreign Language (外语, 150 marks — most choose English). Beyond these three compulsory papers, students under the '3+1+2' or '3+3' reform models choose elective subjects from sciences, humanities, and social sciences." },
+      { q: "Under the traditional Gaokao model, what is the maximum possible total score?",
+        options: ["600 points", "750 points", "800 points", "900 points"],
+        answer: 1,
+        explanation: "The traditional Gaokao total is 750 points: Chinese (150) + Mathematics (150) + Foreign Language (150) + three elective subjects (300 total, 100 each). Reform provinces vary slightly in structure, but 750 remains the standard national benchmark used for university admission thresholds." },
+      { q: "Gaokao scores are used primarily for:",
+        options: ["Directly qualifying for civil service positions in government ministries", "University admissions — universities set annual score thresholds and students are allocated places based on their provincial score and subject choices", "Qualifying for the Kaoyan (postgraduate entrance) examination", "Professional licensing in fields such as medicine and law"],
+        answer: 1,
+        explanation: "Gaokao scores determine undergraduate university admissions. Each province publishes annual 本科控制线 (undergraduate score lines) and universities set their own admission thresholds above these. Students submit a voluntary preferences form (志愿) listing universities and programmes; places are allocated by score. Civil service entry uses the Guokao; postgraduate entry uses the Kaoyan." },
+      { q: "Which national body oversees and develops the Gaokao examination?",
+        options: ["The National People's Congress Standing Committee", "The National Education Examinations Authority (NEEA, 教育部考试中心) under the Ministry of Education (教育部)", "The Chinese Academy of Sciences (中国科学院)", "The National Development and Reform Commission (NDRC)"],
+        answer: 1,
+        explanation: "The National Education Examinations Authority (NEEA, 教育部考试中心) develops national examination papers and policy under the Ministry of Education (教育部). Individual provincial education departments administer the exam locally. Some provinces — including Beijing, Shanghai, Tianjin, Shandong, Hainan, and Zhejiang — use modified local examination versions rather than the national paper." }
+    ]
+  },
+
+  "hsk": {
+    id: "hsk", title: "HSK (汉语水平考试) — Chinese Proficiency Test",
+    description: "Practice for the HSK, the international Chinese language proficiency test for non-native speakers. Questions cover the exam's levels, vocabulary thresholds, format, administering body, and how scores are used for university admissions in China.",
+    category: "china",
+    questions: [
+      { q: "HSK stands for which Chinese phrase, and what does the test assess?",
+        options: ["汉字书写考试 — a test of Chinese character handwriting for primary school students", "汉语水平考试 (Hànyǔ Shuǐpíng Kǎoshì) — Chinese Proficiency Test, assessing non-native speakers' Mandarin ability in daily life, study, and professional contexts", "汉语写作考试 — a written composition test for native Chinese speakers in mainland universities", "海外学生考试 — a test designed only for overseas Chinese (华侨) returning to study in China"],
+        answer: 1,
+        explanation: "HSK (汉语水平考试) is the official international Chinese language proficiency test for non-native speakers (外国人、华侨及海外华人). Developed by Hanban and now managed by the Chinese International Chinese Education Foundation (CIEF, 中国国际中文教育基金会) under the Ministry of Education. It has been used since 1990 and is accepted by universities, employers, and immigration authorities worldwide." },
+      { q: "Under the legacy HSK framework (Levels 1–6), how many vocabulary words must a candidate know for HSK Level 4?",
+        options: ["300 words", "600 words", "1,200 words", "2,500 words"],
+        answer: 2,
+        explanation: "Legacy HSK vocabulary thresholds: HSK 1 = 150 words, HSK 2 = 300, HSK 3 = 600, HSK 4 = 1,200, HSK 5 = 2,500, HSK 6 = 5,000+. HSK 4 corresponds roughly to CEFR B2 (upper-intermediate) and is the minimum required by most Chinese universities for international undergraduate students studying programmes taught in Mandarin." },
+      { q: "Which HSK level is the minimum typically required for international students to pursue undergraduate studies in Mandarin at Chinese universities?",
+        options: ["HSK 2", "HSK 4", "HSK 6", "HSK 1"],
+        answer: 1,
+        explanation: "Most Chinese universities require a minimum of HSK 4 for undergraduate admission to Mandarin-taught programmes. Competitive universities or programmes (medicine, law, Chinese literature) may require HSK 5 (2,500 words, C1 equivalent). For postgraduate study (Master's), most programmes require HSK 5 or above. HSK 6 (5,000+ words) represents near-native proficiency." },
+      { q: "HSK is administered globally by which organisation?",
+        options: ["The British Council, through its partnership Confucius Institutes", "Confucius Institute Headquarters (汉办) / Chinese International Chinese Education Foundation (CIEF), under China's Ministry of Education", "UNESCO's International Institute for Educational Planning (IIEP)", "China's Ministry of Foreign Affairs, via Chinese embassies"],
+        answer: 1,
+        explanation: "HSK is developed and administered by the Chinese International Chinese Education Foundation (CIEF, 中国国际中文教育基金会), which took over from Hanban (汉办) in 2020 while maintaining Ministry of Education oversight. Exams are delivered at authorised Confucius Institutes and designated test centres in 140+ countries." },
+      { q: "Which component does HSK Level 5 NOT test?",
+        options: ["Listening Comprehension", "Reading Comprehension", "Speaking / Oral Production", "Writing"],
+        answer: 2,
+        explanation: "HSK 5 tests three skills: Listening (100 questions), Reading (100 questions), and Writing (10 questions including a short essay). Total: 300 marks, 125 minutes; pass = 180. HSK does not test speaking production — the separate HSKK (汉语水平口语考试) assesses oral Mandarin proficiency at three levels: Elementary, Intermediate, and Advanced." }
+    ]
+  },
+
+  "cet46": {
+    id: "cet46", title: "CET-4 / CET-6 — College English Test",
+    description: "Practice for China's College English Test (大学英语四、六级考试). CET-4 is taken by undergraduate students typically after Year 2; CET-6 tests higher-level proficiency. Questions cover the exam's format, scoring, administration, and purpose.",
+    category: "china",
+    questions: [
+      { q: "What is the primary purpose of the CET-4 and CET-6 examinations?",
+        options: ["To assess English proficiency of non-Chinese speakers wishing to study in China", "To assess English proficiency of Chinese undergraduate university students — CET-4 after approximately Year 2, CET-6 for those who pass CET-4", "To replace TOEFL and IELTS for Chinese applicants to overseas universities", "To test English of civil service examination candidates"],
+        answer: 1,
+        explanation: "The College English Test (大学英语四、六级考试) is administered by the National College English Testing Committee (全国大学英语四六级考试委员会) under the Ministry of Education. CET-4 is a prerequisite for graduation or degree conferral at many Chinese universities. CET-6 tests higher proficiency and is sat by CET-4 qualifiers seeking a stronger English credential." },
+      { q: "CET-4 and CET-6 each consist of which four tested sections?",
+        options: ["Grammar, Vocabulary, Translation, and Writing", "Listening Comprehension (35%), Reading Comprehension (35%), Integrated Testing/Translation (15%), and Writing (15%)", "Speaking, Reading, Writing, and Cultural Knowledge", "Grammar, Sentence Transformation, Conversation, and Oral Presentation"],
+        answer: 1,
+        explanation: "Both CET-4 and CET-6 follow the same four-section format on a 710-point scale: (1) Listening Comprehension (35%, 248.5 marks) — news reports, interviews, passages; (2) Reading Comprehension (35%, 248.5 marks) — skimming, matching, detailed reading; (3) Integrated Testing/Translation (15%, 106.5 marks) — sentence-level Chinese-to-English translation; (4) Writing (15%, 106.5 marks) — one argumentative essay (~150 words for CET-4, ~200 for CET-6)." },
+      { q: "A CET-4 score of 425 out of 710 is widely regarded as:",
+        options: ["Outstanding — placing the candidate in the top 5% nationally", "The practical pass threshold — sufficient for most university graduation English proficiency requirements", "Below average — the national mean is typically 550+", "Equivalent to IELTS 7.0 for overseas university application purposes"],
+        answer: 1,
+        explanation: "On the 710-point scale, 425 is the de facto pass benchmark recognised by most universities as meeting graduation English proficiency requirements. There is no official pass/fail — the test is scored continuously — but 425 has been adopted nationwide as the practical threshold. CET-6 certificates at 425+ indicate higher-level proficiency beyond the CET-4 standard." },
+      { q: "How often are CET-4 and CET-6 administered each year?",
+        options: ["Once a year, in March", "Twice a year — in June and December", "Four times a year — quarterly at authorised centres", "Monthly, via online testing only"],
+        answer: 1,
+        explanation: "CET-4 and CET-6 are held twice annually: in June (typically the second Saturday) and December (typically the third Saturday). Registration requires a valid student ID issued by an accredited Chinese university. Scores are released approximately 60 days after the exam. Students may resit the exam as many times as needed during their university enrolment." },
+      { q: "Which institution administers CET-4 and CET-6?",
+        options: ["The Chinese Ministry of Foreign Affairs", "The National College English Testing Committee (全国大学英语四六级考试委员会), under the Ministry of Education", "The British Council and its Chinese partner institutions", "The College Board (the US organisation that administers the SAT and AP exams)"],
+        answer: 1,
+        explanation: "CET-4 and CET-6 are administered by the National College English Testing Committee under the Ministry of Education of the PRC. Students register through their universities. CET is one of the most widely taken standardised English tests in the world by volume, with tens of millions of candidates sitting each administration." }
+    ]
+  },
+
+  "guokao": {
+    id: "guokao", title: "Guokao (国考) — National Civil Service Exam",
+    description: "Practice for the Guokao (国家公务员考试), China's national civil service examination for central government positions. Questions focus on the Xingce (行测) aptitude section — verbal reasoning, quantitative aptitude, data interpretation, logical reasoning, and common sense.",
+    category: "china",
+    questions: [
+      { q: "The Guokao (国考) is the entrance examination for which type of employment?",
+        options: ["Teaching positions at national universities and research institutes", "Positions in central government agencies and departments — including ministries, commissions, and bodies directly under the State Council", "Membership of the Chinese Communist Party", "Employment in state-owned enterprises (SOEs) such as CNOOC and ICBC"],
+        answer: 1,
+        explanation: "The National Civil Service Examination (国家公务员考试, Guokao) is held once a year (registration in October, exam in November/December) and recruits for positions in central government agencies: ministries (部), commissions (委), directly affiliated institutions (直属机构), and organs of the State Council. Provincial and local government positions use the separate provincial-level exam (省考, Shengkao)." },
+      { q: "The Xingce (行测) section of the Guokao tests which types of aptitude?",
+        options: ["Chinese calligraphy, classical poetry, and Confucian philosophy", "Verbal Reasoning (言语理解), Quantitative Aptitude (数量关系), Data Interpretation (资料分析), Logical Reasoning (判断推理), and Common Sense (常识判断)", "Foreign language proficiency (English, French, or Russian)", "Specialist knowledge in the candidate's declared professional field only"],
+        answer: 1,
+        explanation: "Xingce (行政职业能力测验, 行测) is a 100-question, 120-minute multiple-choice paper with five sections: (1) 言语理解与表达 (Verbal Reasoning) — reading comprehension, sentence completion; (2) 数量关系 (Quantitative Aptitude) — numerical reasoning; (3) 判断推理 (Logical Reasoning) — analogies, defined concepts, graphic sequences; (4) 资料分析 (Data Interpretation) — tables, graphs, statistical passages; (5) 常识判断 (Common Sense) — law, politics, history, science, culture." },
+      { q: "What is the second written paper in the Guokao, alongside Xingce (行测)?",
+        options: ["Zhuanye (专业课) — a specialist subject test in a chosen professional field", "Shenlun (申论) — a structured essay and policy analysis paper testing written reasoning and public administration judgement", "Putonghua (普通话) — an oral Mandarin proficiency assessment", "Mianshi (面试) — a formal panel interview conducted by government officials"],
+        answer: 1,
+        explanation: "The Guokao written stage has two papers: (1) Xingce (行测) — aptitude multiple-choice; (2) Shenlun (申论) — a 3-hour essay/policy analysis paper. Candidates read provided materials and produce structured written responses: a passage summary, analytical commentary, and a major policy essay (~1,000 characters). High Shenlun scores are crucial for competitive posts. Successful written-stage candidates then proceed to a structured interview (面试)." },
+      { q: "How does the Guokao differ from local provincial civil service exams (Shengkao, 省考)?",
+        options: ["The Guokao is only for candidates from Beijing; Shengkao is for all other provinces", "Guokao recruits for central (national) government agencies; Shengkao recruits for provincial and local government positions — both are separate systems with separate registration and administration", "Guokao is only for military and police positions; Shengkao covers all civilian roles", "There is no difference — Guokao and Shengkao are two names for the same nationwide exam"],
+        answer: 1,
+        explanation: "Guokao (国考) fills positions in central government bodies. Shengkao (省考) fills positions in provincial, prefecture-level, and county-level governments. Both use a similar Xingce + Shenlun format but are administered by different authorities (central MOH vs. provincial bureaus) at different times. Shengkao exams are typically held in spring. Competition ratios for popular Guokao posts can exceed 1,000 applicants per vacancy." },
+      { q: "In a Guokao Xingce Data Interpretation (资料分析) question, you are asked to find the year-on-year growth rate. The correct formula is:",
+        options: ["(Current Year Value + Previous Year Value) ÷ Previous Year Value × 100%", "(Current Year Value − Previous Year Value) ÷ Previous Year Value × 100%", "(Current Year Value − Previous Year Value) ÷ Current Year Value × 100%", "Current Year Value ÷ Previous Year Value × Previous Year Value × 100%"],
+        answer: 1,
+        explanation: "Year-on-year (同比) growth rate = (Current Period − Base Period) ÷ Base Period × 100%. For compound annual growth rate: [(Current ÷ Base)^(1/n) − 1] × 100% where n = number of years. Data Interpretation accounts for ~25–30 questions in Xingce and is among the highest-scorable sections with practice. Common trap: using current-year value as the denominator instead of the base-period value." }
+    ]
+  },
+
+  "kaoyan": {
+    id: "kaoyan", title: "Kaoyan (考研) — National Postgraduate Entrance Exam",
+    description: "Practice for the Kaoyan (全国硕士研究生招生考试), China's national entrance examination for Master's programmes. Questions cover the exam's compulsory papers, scoring system, national score lines, and the distinction between academic and professional degree tracks.",
+    category: "china",
+    questions: [
+      { q: "The Kaoyan (考研) is the entrance examination for which level of study in China?",
+        options: ["Undergraduate (Bachelor's) study at regular universities", "Postgraduate (Master's) study — specifically for Master's programmes (硕士研究生) at Chinese universities", "Doctoral (PhD) study at Chinese and overseas institutions", "Secondary vocational education (中等职业教育)"],
+        answer: 1,
+        explanation: "The National Postgraduate Entrance Examination (全国硕士研究生招生考试, Kaoyan) is held every December for admission to Master's programmes beginning the following autumn. It tests four papers: Politics (思政), Foreign Language (外语, usually English), and two specialist subject papers. PhD admissions use separate university-administered examinations. Kaoyan is one of the world's largest graduate admissions exams by number of candidates." },
+      { q: "Which compulsory paper assesses Marxist theory, Chinese history, and current political affairs?",
+        options: ["English One (英语一)", "Politics (思想政治理论 — Zhengzhi)", "Mathematics (数学)", "Major Subject Synthesis (专业综合)"],
+        answer: 1,
+        explanation: "The Politics paper (思想政治理论, 100 marks, 3 hours) is compulsory for nearly all candidates. It covers: Marxist philosophy (马克思主义基本原理), Mao Zedong Thought & Theory of Socialism with Chinese Characteristics (毛泽东思想和中国特色社会主义理论体系), Modern Chinese History (中国近现代史纲要), and Ideological & Moral Cultivation plus Legal Basics (思想道德修养与法律基础). Format: single-choice (16×1 mark), multiple-choice (17×2 marks), and essays (38 marks)." },
+      { q: "How are Kaoyan scores used to determine postgraduate admission?",
+        options: ["Universities admit all candidates who score ≥60 on each paper, regardless of competition", "The Ministry of Education sets a National Score Line (国家线) as the minimum; universities then set their own higher institutional lines above it", "Each university sets its own cut-offs with no national minimum enforced", "Only the specialist subject scores (Papers 3 and 4) count; Politics and English are pass/fail only"],
+        answer: 1,
+        explanation: "The Ministry of Education releases annual National Score Lines (国家线) — minimum marks for each individual paper and for total scores by academic discipline group. Universities and departments set institutional lines (校线/专业线) above these national minimums. Candidates above both thresholds are invited to the second stage (复试): a written test, oral examination, and interview, before receiving admission offers." },
+      { q: "English One (英语一) and English Two (英语二) differ in that:",
+        options: ["English One is only for science candidates; English Two is only for humanities candidates", "English One is used for academic Master's programmes (学硕) and is generally harder; English Two is for professional Master's programmes (专硕, e.g., MBA, MPA) and is more application-oriented", "English One tests British English exclusively; English Two accepts British and American English equally", "English Two includes a spoken English assessment while English One is entirely written"],
+        answer: 1,
+        explanation: "英语一 (English I, 100 marks) is used for academic Master's programmes (学术学位硕士) and is considered the harder paper. 英语二 (English II, 100 marks) is for professional Master's programmes (专业学位硕士): MBA, MPA, MEd (教育硕士), JM (法律硕士), and others. Both test reading comprehension, translation, and essay writing, but English I typically demands more advanced vocabulary, longer texts, and more complex writing tasks." },
+      { q: "The Kaoyan Mathematics paper (数学一/二/三) is set at which academic level?",
+        options: ["Secondary school algebra and geometry", "University undergraduate level — Calculus (微积分), Linear Algebra (线性代数), and Probability & Statistics (概率论与数理统计)", "Postgraduate research mathematics including real analysis and topology", "Applied engineering mathematics only (finite elements, numerical methods)"],
+        answer: 1,
+        explanation: "Kaoyan Mathematics (150 marks, 3 hours) has three variants: Math I (for engineering 工学 — Calculus + Linear Algebra + Probability & Statistics); Math II (for science 理学 — Calculus + Linear Algebra, no Probability); Math III (for economics/management 经管类 — Calculus + Linear Algebra + Probability & Statistics, with applied emphasis). All are set at undergraduate standard, making rigorous undergraduate study essential preparation." }
+    ]
+  },
+
+  "psc-putonghua": {
+    id: "psc-putonghua", title: "PSC / Putonghua Test — Mandarin Proficiency",
+    description: "Practice for the PSC (普通话水平测试, Putonghua Shuiping Ceshi), China's official spoken Mandarin proficiency assessment. Used for teachers, broadcasters, and civil servants. Questions cover the exam's levels, grading, required professions, tasks, and common errors.",
+    category: "china",
+    questions: [
+      { q: "The PSC (普通话水平测试) assesses proficiency in which form of Chinese?",
+        options: ["Written Classical Chinese (文言文) — used in ancient literature and formal historical texts", "Putonghua (Standard Mandarin, 普通话) — the official spoken standard of the PRC, based on Beijing dialect phonology", "Cantonese (粤语) oral proficiency for Guangdong and Hong Kong speakers", "Shanghainese (沪语) and Wu dialect competency for eastern China regions"],
+        answer: 1,
+        explanation: "The PSC tests spoken Putonghua (普通话), the standardised form of Mandarin Chinese that is the official national language of the PRC. It is based on the Beijing dialect phonological system with standard grammar drawn from exemplary modern Chinese writing. PSC is the official credential for Putonghua proficiency in mainland China." },
+      { q: "Which professions are typically required by law or regulation to hold a PSC certificate?",
+        options: ["Software engineers and IT professionals at all state enterprises", "Teachers at all levels, radio and TV presenters/broadcasters, and civil servants in public-facing roles", "Medical doctors and pharmacists in all public hospitals", "All employees of state-owned enterprises (SOEs) regardless of role"],
+        answer: 1,
+        explanation: "National and provincial regulations require: (1) Teachers — at least PSC Level 2 Grade Yi (二级甲等, score 87–91) for most roles; language/Chinese teachers must reach Level 1 (一级). (2) Radio and TV presenters — must hold Level 1 (score 92+). (3) Civil servants in public communication roles — provincial standards apply. Many universities also require incoming students to take PSC as part of character development assessment." },
+      { q: "The PSC is graded into how many levels, and what are they?",
+        options: ["Two levels: Pass and Distinction", "Three levels (一级, 二级, 三级) each subdivided into Grade A (甲) and Grade B (乙), giving six certifiable bands from highest (一级甲) to lowest (三级乙)", "Five levels aligned to the CEFR international framework (A1 to C2)", "Four levels with no subdivisions: Excellent, Good, Satisfactory, and Unsatisfactory"],
+        answer: 1,
+        explanation: "PSC grading: 一级甲 (Level 1A, score 97–100), 一级乙 (Level 1B, 92–96.9); 二级甲 (Level 2A, 87–91.9), 二级乙 (Level 2B, 80–86.9); 三级甲 (Level 3A, 70–79.9), 三级乙 (Level 3B, 60–69.9). Below 60 is ungraded. Most professional requirements set 二级甲 as the minimum. The test is scored by trained examiners from recordings." },
+      { q: "The PSC oral examination tests Putonghua through which tasks?",
+        options: ["Multiple-choice written grammar questions and a vocabulary matching section", "Reading aloud a word list and a passage, followed by spontaneous spoken commentary (命题说话) on an assigned everyday topic", "Writing a formal letter and a short essay in simplified characters", "Listening to recordings and answering comprehension questions in written form"],
+        answer: 1,
+        explanation: "The PSC oral exam comprises four tasks: (1) 单音节字词 — read a 100-syllable word list (10 marks); (2) 多音节词语 — read a polysyllabic word list (20 marks); (3) 朗读 — read a 400-character text aloud (30 marks); (4) 命题说话 — deliver an unscripted 3-minute talk on an assigned everyday topic (40 marks). The exam tests accurate pronunciation, tones, fluency, and natural use of Putonghua. Total: 100 marks." },
+      { q: "Which pronunciation error category most commonly causes PSC candidates from southern China to lose marks?",
+        options: ["Pronouncing the character 的 (de) as a full fourth-tone /dì/ instead of the neutral tone", "Confusing 平翘舌音 (flat initials z/c/s vs. retroflex initials zh/ch/sh) and 前后鼻音 (nasal finals -n vs. -ng)", "Using simplified character stroke order incorrectly in the written section", "Mispronouncing English loanwords embedded in otherwise Mandarin speech"],
+        answer: 1,
+        explanation: "The most common PSC error categories: (1) 平翘舌混淆 — confusing flat sibilants (z/c/s) with retroflex sibilants (zh/ch/sh), e.g., saying 'zī' for 'zhī'; (2) 前后鼻音混淆 — confusing -n and -ng finals, e.g., 'shēng/shēn', extremely common among Cantonese, Min, and Wu speakers; (3) Tonal errors — especially the falling-rising third tone and tone sandhi. Candidates from Guangdong, Fujian, and Zhejiang face the steepest challenges." }
+    ]
+  },
+
+  "nmlec": {
+    id: "nmlec", title: "NMLEC — Chinese Medical Licensing Exam",
+    description: "Practice for China's National Medical Licensing Examination (全国医师资格考试, NMLEC). Questions cover the exam's two tiers, administering authority, written format, subject coverage, and the practical skills examination stage required before the written exam.",
+    category: "china",
+    questions: [
+      { q: "The NMLEC (全国医师资格考试) is administered by which authority in China?",
+        options: ["The Chinese Medical Association (中华医学会)", "The National Medical Examination Center (国家医学考试中心, NMEC) under the National Health Commission (国家卫生健康委员会)", "The Ministry of Education (教育部)", "The Chinese Academy of Medical Sciences (中国医学科学院)"],
+        answer: 1,
+        explanation: "The National Medical Licensing Examination of China (全国医师资格考试) is overseen by the National Health Commission (NHC, 国家卫生健康委员会) and administered by the National Medical Examination Center (NMEC, 国家医学考试中心). It is legally mandated by the Law of the PRC on Licensed Doctors (执业医师法, 1999). All practising doctors in mainland China must hold a valid physician licence obtained through this exam." },
+      { q: "The NMLEC is divided into which two tiers based on educational qualifications?",
+        options: ["Junior Doctor (初级) and Senior Doctor (高级)", "Licensed Physician Exam (执业医师, for 5-year medical graduates) and Licensed Assistant Physician Exam (执业助理医师, for 3-year associate degree graduates)", "General Practitioner Exam (全科医师) and Specialist Exam (专科医师)", "Urban Doctor Exam (城市医师) and Rural Doctor Exam (农村医师)"],
+        answer: 1,
+        explanation: "Two tiers: (1) 执业医师资格考试 (Licensed Physician) — for graduates with a 5-year clinical medicine degree (本科及以上) who have completed a 1-year internship under supervision; may practise independently. (2) 执业助理医师资格考试 (Licensed Assistant Physician) — for graduates with a 3-year associate degree (专科) and 1-year internship; may only practise under supervision of a licensed physician." },
+      { q: "The NMLEC written examination for Licensed Physicians uses which format?",
+        options: ["A single 3-hour essay covering all medical disciplines", "Two sessions of objective questions: A-type (single best answer) and B-type (case-based questions), covering basic and clinical medicine — 300 questions total", "A practical OSCE (Objective Structured Clinical Examination) only", "An oral viva conducted by a panel of hospital consultants"],
+        answer: 1,
+        explanation: "The NMLEC written exam (医学综合笔试) for Licensed Physicians has two sessions on the same day: Session 1 (morning) — 150 A-type single-best-answer questions on basic and clinical sciences, 150 minutes; Session 2 (afternoon) — 150 A-type and B-type (clinical scenario) questions, 150 minutes. Total: 300 questions, 300 marks. Pass mark: ≥60% (180/300). The exam is held annually in August." },
+      { q: "Which subject areas are covered in the NMLEC clinical medicine written examination?",
+        options: ["Physics, Chemistry, Biology, English, and Chinese literature", "Internal Medicine, Surgery, Obstetrics & Gynaecology, Paediatrics, Infectious Diseases, Neurology, Emergency Medicine, Preventive Medicine, and Medical Law & Ethics", "Traditional Chinese Medicine (TCM) theory and herbal pharmacology only", "Public Health Administration, Health Economics, and Hospital Management only"],
+        answer: 1,
+        explanation: "NMLEC clinical content covers: Internal Medicine (内科学), Surgery (外科学), Obstetrics & Gynaecology (妇产科学), Paediatrics (儿科学), Infectious Diseases (传染病学, including legally notifiable diseases), Neuropsychiatry (神经精神科学), Emergency & Critical Care (急救医学), Preventive Medicine (预防医学), and Medical Law & Ethics (医学伦理与卫生法规). Basic sciences also tested: Anatomy, Physiology, Biochemistry, Pathology, Pharmacology, and Microbiology/Immunology." },
+      { q: "After passing which stage must NMLEC candidates complete before being eligible to sit the written examination?",
+        options: ["A minimum 3-year research fellowship at a national teaching hospital", "The Practical Skills Examination (实践技能考试) — assessing clinical case analysis, physical examination technique, and basic clinical procedures at a designated examination hospital", "Publication of at least one peer-reviewed paper in a Chinese medical journal", "A mandatory 6-month placement in a rural township health centre (乡镇卫生院)"],
+        answer: 1,
+        explanation: "The NMLEC consists of two stages: (1) 实践技能考试 (Practical Skills Exam) — held in May/June at designated hospitals, testing: 病史采集 (history taking), 病例分析 (case analysis), 体格检查 (physical examination), and 基本操作 (basic clinical procedures, e.g., suturing, IV insertion, CPR). Candidates must pass this before sitting the written exam. (2) 医学综合笔试 (Written Exam) — held in August. Both stages must be passed to apply for a physician licence." }
+    ]
   }
 
 };
@@ -4454,5 +4651,11 @@ const CATEGORIES = [
     name: "India Entrance & Competitive Exams",
     icon: "🇮🇳",
     exams: ["neet", "jee-main", "gate", "cat-india", "clat", "nda-india", "rrb", "ctet"]
+  },
+  {
+    id: "china",
+    name: "China National Exams",
+    icon: "🇨🇳",
+    exams: ["gaokao", "hsk", "cet46", "guokao", "kaoyan", "psc-putonghua", "nmlec"]
   }
 ];

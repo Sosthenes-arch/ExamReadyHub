@@ -205,6 +205,14 @@
   <url><loc>https://www.examreadyhub.com/exam.html?id=nda-india</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.examreadyhub.com/exam.html?id=rrb</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.examreadyhub.com/exam.html?id=ctet</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- China exams -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=gaokao</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=hsk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cet46</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=guokao</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=kaoyan</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=psc-putonghua</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=nmlec</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Category pages -->
   <url><loc>https://www.examreadyhub.com/category.html?id=driving</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -222,5 +230,6 @@
   <url><loc>https://www.examreadyhub.com/category.html?id=europe-national</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.examreadyhub.com/category.html?id=east-asia</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.examreadyhub.com/category.html?id=india</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/category.html?id=china</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
 </urlset>
