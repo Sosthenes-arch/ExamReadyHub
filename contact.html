@@ -3,19 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — PassMark</title>
-  <meta name="description" content="Contact PassMark to report a question error, suggest an exam, or ask a question.">
+
+  <title>Contact ExamReadyHub — Report an Error or Suggest an Exam</title>
+  <meta name="description" content="Contact ExamReadyHub to report a question error, suggest a new exam, or ask a question. We read every message.">
+  <meta name="author" content="ExamReadyHub">
+  <link rel="canonical" href="https://www.examreadyhub.com/contact.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.examreadyhub.com/contact.html">
+  <meta property="og:title" content="Contact ExamReadyHub">
+  <meta property="og:description" content="Report an error, suggest a new exam, or ask a question. We read every message.">
+  <meta property="og:image" content="https://www.examreadyhub.com/logo.png">
+  <meta property="og:site_name" content="ExamReadyHub">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact ExamReadyHub",
+    "url": "https://www.examreadyhub.com/contact.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "ExamReadyHub",
+      "url": "https://www.examreadyhub.com"
+    }
+  }
+  </script>
 </head>
 <body class="static-page">
 
   <header class="site-header">
     <div class="container">
-      <a href="index.html" class="logo">Pass<span>Mark</span></a>
-      <nav class="site-nav">
+      <a href="index.html" class="logo">ExamReady<span>Hub</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
@@ -55,7 +87,7 @@
           <input
             type="text"
             name="subject"
-            placeholder="Subject (e.g. 'Error in USMLE Q3')"
+            placeholder="Subject (e.g. 'Error in USMLE Q3' or 'Suggest: CFA Level II')"
             aria-label="Subject"
           >
           <textarea
@@ -73,9 +105,7 @@
         <h2 style="margin-top:32px">Other ways to reach us</h2>
         <p>
           You can also email us directly at
-          <strong>hello@passmark.example.com</strong>
-          <!-- Replace with your real email address before publishing -->
-          or find us on social media.
+          <a href="mailto:hello@examreadyhub.com"><strong>hello@examreadyhub.com</strong></a>.
         </p>
       </div>
     </div>
@@ -85,7 +115,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">Pass<span>Mark</span></a>
+          <a href="index.html" class="logo">ExamReady<span>Hub</span></a>
           <p>Free exam practice for everyone.</p>
         </div>
         <div class="footer-links">
@@ -95,15 +125,15 @@
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-links">
-          <h4>Popular</h4>
+          <h4>Popular Exams</h4>
           <a href="exam.html?id=dmv">DMV Permit Test</a>
           <a href="exam.html?id=sat">SAT</a>
           <a href="exam.html?id=asvab">ASVAB</a>
         </div>
       </div>
       <p class="footer-copy">
-        &copy; 2024 PassMark. For practice purposes only &mdash;
-        not affiliated with any official testing organization.
+        &copy; 2026 ExamReadyHub. For practice purposes only &mdash;
+        not affiliated with any official testing organisation.
       </p>
     </div>
   </footer>
@@ -113,7 +143,7 @@
       document.querySelector('.site-nav').classList.toggle('open');
     });
 
-    // Stub form handler — replace with real backend integration
+    // Stub form handler — replace with real backend integration (Formspree/Netlify/EmailJS)
     document.getElementById('contact-form').addEventListener('submit', function (e) {
       e.preventDefault();
       const status = document.getElementById('form-status');

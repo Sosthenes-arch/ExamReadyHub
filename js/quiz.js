@@ -24,11 +24,23 @@
     answered = false;
     results = [];
 
-    // Update page-level meta
-    document.title = exam.title + ' Practice Test — PassMark';
+    // Update page-level meta for SEO
+    document.title = exam.title + ' Practice Test — ExamReadyHub';
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.content =
-      `Free practice test for ${exam.title}. ${exam.description} Practice with instant feedback.`;
+      `Free practice test for ${exam.title}. ${exam.description} Instant feedback on every question. No login required.`;
+
+    // Set canonical and OG tags to this specific exam URL
+    const examUrl = `https://www.examreadyhub.com/exam.html?id=${exam.id}`;
+    const canonical = document.getElementById('canonical-tag');
+    if (canonical) canonical.href = examUrl;
+    const ogUrl = document.getElementById('og-url');
+    if (ogUrl) ogUrl.content = examUrl;
+    const ogTitle = document.getElementById('og-title');
+    if (ogTitle) ogTitle.content = `${exam.title} Practice Test — ExamReadyHub`;
+    const ogDesc = document.getElementById('og-desc');
+    if (ogDesc) ogDesc.content =
+      `Free multiple-choice practice test for ${exam.title}. ${exam.description} Instant feedback, no login required.`;
 
     // Breadcrumb
     const cat = CATEGORIES.find(c => c.id === exam.category);

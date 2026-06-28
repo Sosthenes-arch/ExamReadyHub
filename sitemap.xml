@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Static pages -->
+  <url>
+    <loc>https://www.examreadyhub.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.examreadyhub.com/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.examreadyhub.com/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Driving & Licensing -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=dmv</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=motorcycle</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cdl</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Citizenship -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=us-citizenship</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- IT & Tech -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=comptia-aplus</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=comptia-network</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=comptia-security</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=comptia-linux</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=comptia-cloud</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=comptia-data</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=comptia-cysa</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=comptia-pentest</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=aws-cloud-practitioner</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=aws-solutions-architect</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=azure-fundamentals</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=az-104</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=az-204</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=az-305</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ms-900</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=gcp-ace</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ccna</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ccnp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ceh</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cissp</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=sscp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=giac</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cka</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=itil-foundation</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=oracle-oca</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=oracle-ocp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=pmp</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Project Management -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=capm</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=pmi-acp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=prince2</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=psm</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=csm</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Academic -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=sat</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=act</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=gre</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=gmat</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ap-biology</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ap-chemistry</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ap-us-history</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ap-calculus</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=toefl</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ielts</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ged</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Medical & Healthcare -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=usmle</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=usmle-step2</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=usmle-step3</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=nclex</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=nclex-pn</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=mcat</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=pance</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=emt</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=comlex</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=dat</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=oat</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=pcat</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=naplex</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=nbde</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=inbde</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cna</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ati-teas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=plab</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=mrcp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=mrcs</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=nremt-paramedic</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cpc</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Law -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=lsat</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=mpre</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=mbe</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ube</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=state-bar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=patent-bar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=nala-paralegal</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=sqe</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Finance, Business & HR -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cfa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cfa-level2</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cfa-level3</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cpa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=series7</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=series-6</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=series-63</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=series-65</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=series-66</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=series-79</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=sie</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=frm</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cma</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cia</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=caia</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=acca</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cima</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cfp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=six-sigma</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=phr</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=sphr</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=shrm-cp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=shrm-scp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=real-estate</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=insurance-life-health</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=insurance-property-casualty</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Government & Civil Service -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=asvab</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=afoqt</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=fsot</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=civil-service</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=upsc</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ssc-cgl</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=bank-po</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=police-firefighter</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=uk-civil-service</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=epso</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=usps-473</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=canadian-public-service</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=pcs</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Engineering & Trades -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=fe-exam</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=pe-exam</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ncees-surveying</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=hvac-licensing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=electrician-licensing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=plumbing-licensing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=aws-welding</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Aviation -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=faa-ppl</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=faa-instrument</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=faa-commercial</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=atpl</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=part-107</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Teaching & Education -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=praxis</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=praxis-subject</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cset</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cbest</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=edtpa</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=tefl</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Europe & National -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=a-levels</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=gcse</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=abitur</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=baccalaureat</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=selectividad</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=enem</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=matura</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- East Asia -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=suneung</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=eju</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=japan-common-test</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=gsat-taiwan</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- India -->
+  <url><loc>https://www.examreadyhub.com/exam.html?id=neet</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=jee-main</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=gate</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=cat-india</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=clat</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=nda-india</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=rrb</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.examreadyhub.com/exam.html?id=ctet</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+</urlset>
