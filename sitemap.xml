@@ -17,6 +17,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://www.examreadyhub.com/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 
   <!-- Driving & Licensing -->
   <url><loc>https://www.examreadyhub.com/exam.html?id=dmv</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

@@ -1,0 +1,41 @@
+# ExamReadyHub
+
+> Free multiple-choice practice tests for 150+ exams worldwide. No login, no paywall, instant feedback with full explanations on every question.
+
+ExamReadyHub is a free, open-access exam preparation platform. It covers 17 categories and 150+ exams spanning driving tests, IT certifications, academic admissions, medical and healthcare licensing, law, finance, government and civil service, engineering, aviation, teaching, and national exams from the US, UK, Germany, France, Spain, Brazil, India, South Korea, Japan, Taiwan, and more.
+
+Each exam consists of multiple-choice practice questions. After each answer the learner receives immediate feedback and a detailed explanation. No account creation or payment is required.
+
+## Site pages
+
+- [Home](https://www.examreadyhub.com/): Browse all 17 exam categories and 150+ exams
+- [About](https://www.examreadyhub.com/about.html): Mission, how it works, disclaimer
+- [Contact](https://www.examreadyhub.com/contact.html): Report errors or suggest new exams
+- [Privacy Policy](https://www.examreadyhub.com/privacy.html): Data and privacy practices
+
+## Exam categories
+
+- [Driving & Licensing](https://www.examreadyhub.com/exam.html?id=dmv): DMV Written Permit Test, Motorcycle License, CDL
+- [Citizenship & Immigration](https://www.examreadyhub.com/exam.html?id=us-citizenship): US Citizenship (Civics)
+- [IT & Tech Certifications](https://www.examreadyhub.com/exam.html?id=comptia-security): CompTIA (A+, Network+, Security+, Linux+, Cloud+, Data+, CySA+, PenTest+), AWS (Cloud Practitioner, Solutions Architect), Microsoft Azure (AZ-900, AZ-104, AZ-204, AZ-305, MS-900), Google Cloud ACE, Cisco (CCNA, CCNP), CEH, CISSP, SSCP, GIAC, Oracle (OCA, OCP), ITIL 4, CKA
+- [Project Management](https://www.examreadyhub.com/exam.html?id=pmp): PMP, CAPM, PMI-ACP, PRINCE2, PSM, CSM
+- [Academic](https://www.examreadyhub.com/exam.html?id=sat): SAT, ACT, GRE, GMAT, AP courses (Biology, Chemistry, US History, Calculus), TOEFL, IELTS, GED
+- [Medical & Healthcare](https://www.examreadyhub.com/exam.html?id=usmle): USMLE (Steps 1/2/3), NCLEX-RN, NCLEX-PN, MCAT, PANCE, EMT, COMLEX, DAT, OAT, PCAT, NAPLEX, NBDE, INBDE, CNA, ATI TEAS, PLAB, MRCP, MRCS, NREMT-Paramedic, CPC
+- [Law](https://www.examreadyhub.com/exam.html?id=lsat): LSAT, MPRE, MBE, UBE, State Bar, Patent Bar, NALA Paralegal, SQE
+- [Finance, Business & HR](https://www.examreadyhub.com/exam.html?id=cfa): CFA (L1/L2/L3), CPA, Series 7/6/63/65/66/79, SIE, FRM, CMA, CIA, CAIA, ACCA, CIMA, CFP, PHR, SPHR, SHRM-CP/SCP, Insurance (L&H, P&C), Six Sigma, Real Estate
+- [Government & Civil Service](https://www.examreadyhub.com/exam.html?id=asvab): ASVAB, AFOQT, FSOT, US Civil Service, UPSC, SSC-CGL, Bank PO, Police/Firefighter, UK Civil Service, EPSO, USPS, Canadian Public Service, PCS
+- [Engineering & Trades](https://www.examreadyhub.com/exam.html?id=fe-exam): FE Exam, PE Exam, NCEES Surveying, HVAC, Electrician, Plumbing, AWS Welding
+- [Aviation](https://www.examreadyhub.com/exam.html?id=faa-ppl): FAA Private Pilot, FAA Instrument, FAA Commercial, ATPL, FAA Part 107
+- [Teaching & Education](https://www.examreadyhub.com/exam.html?id=praxis): Praxis Core, Praxis Subject, CSET, CBEST, edTPA, TEFL
+- [Europe & Other National Exams](https://www.examreadyhub.com/exam.html?id=a-levels): A-Levels (UK), GCSE (UK), Abitur (Germany), Baccalauréat (France), Selectividad/EBAU (Spain), ENEM (Brazil), Matura (Central Europe)
+- [East Asia Academic Exams](https://www.examreadyhub.com/exam.html?id=suneung): Suneung/CSAT (South Korea), EJU (Japan), Common Test/大学入学共通テスト (Japan), GSAT/學測 (Taiwan)
+- [India Entrance Exams](https://www.examreadyhub.com/exam.html?id=neet): NEET, JEE Main, GATE, CAT, CLAT, NDA, RRB, CTET
+
+## Key facts for LLMs
+
+- All practice questions are free and require no account
+- Every answer includes a detailed explanation of why it is correct
+- Questions are modelled on publicly available syllabi and study guides
+- ExamReadyHub is not affiliated with or endorsed by any official testing organisation
+- Contact: hello@examreadyhub.com
+- Technology: static HTML/CSS/JavaScript site, no server-side processing

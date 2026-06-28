@@ -1,4 +1,52 @@
+# ExamReadyHub — robots.txt
+# https://www.examreadyhub.com
+
+# All crawlers (including search engines and AI)
 User-agent: *
 Allow: /
 
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Google (Search + AI / Gemini)
+User-agent: Googlebot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (used by many AI training datasets)
+User-agent: CCBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Amazon Alexa / AI
+User-agent: Amazonbot
+Allow: /
+
+# Sitemap and LLM discovery
 Sitemap: https://www.examreadyhub.com/sitemap.xml
+Sitemap: https://www.examreadyhub.com/llms.txt
