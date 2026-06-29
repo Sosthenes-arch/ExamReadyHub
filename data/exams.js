@@ -19,29 +19,572 @@ const EXAMS = {
 
   "dmv": {
     id: "dmv", title: "DMV Written Permit Test",
-    description: "Practice for the knowledge test required to earn a learner's permit. Covers traffic laws, road signs, and safe driving rules.",
+    description: "100-question practice test covering everything on the official DMV knowledge exam: road signs, traffic signals, right of way, speed limits, parking, passing, lane markings, DUI laws, seat belts, emergency vehicles, and safe driving techniques. Based on rules common across all US states.",
     category: "driving",
     questions: [
+
+      // ── ROAD SIGN SHAPES & COLORS ──────────────────────────────────────────
+      { q: "What shape is a STOP sign?",
+        options: ["Triangle", "Circle", "Octagon (8-sided)", "Diamond"],
+        answer: 2,
+        explanation: "Stop signs are always red octagons. The unique 8-sided shape lets drivers recognise them even when faded or snow-covered, without needing to read the word." },
+
+      { q: "What does a diamond-shaped sign always indicate?",
+        options: ["A regulatory law you must obey", "A warning about a hazard or change in road conditions ahead", "Guide or directional information", "A school zone"],
+        answer: 1,
+        explanation: "Diamond-shaped signs are warning signs — they alert you to hazards, curves, intersections, or changing conditions ahead. They are typically yellow or orange." },
+
+      { q: "What does an orange sign on the road indicate?",
+        options: ["Service information (gas, food, lodging)", "Regulatory speed limits", "Construction or maintenance work zone ahead", "Railroad crossing"],
+        answer: 2,
+        explanation: "Orange signs mark construction and work zones. Speed limits and fines are often doubled in work zones. Stay alert for workers and equipment." },
+
+      { q: "Blue highway signs provide what type of information?",
+        options: ["Warnings about road hazards", "Regulatory traffic laws", "Traveller services such as gas, food, lodging, and hospitals", "Distance to the next city"],
+        answer: 2,
+        explanation: "Blue signs indicate services available to motorists: rest areas, gas stations, motels, restaurants, and hospitals along or near the highway." },
+
+      { q: "What shape is a YIELD sign?",
+        options: ["Octagon", "Pentagon", "Inverted triangle (point down)", "Diamond"],
+        answer: 2,
+        explanation: "Yield signs are inverted (upside-down) triangles — red border with white or red lettering. Their unique shape means drivers can recognise them from any distance." },
+
+      { q: "A pennant-shaped (triangular) sign posted on the left side of the road means:",
+        options: ["Divided highway begins ahead", "No passing zone — you may not pass in this area", "Curve ahead to the left", "School zone starts here"],
+        answer: 1,
+        explanation: "The pennant (elongated triangle pointing right) is exclusively used to mark the beginning of a no-passing zone. It is always yellow and placed on the left side of the road." },
+
+      { q: "What color are most regulatory signs (other than Stop and Yield)?",
+        options: ["Yellow with black lettering", "Green with white lettering", "White background with black or red lettering", "Orange with black lettering"],
+        answer: 2,
+        explanation: "Regulatory signs (speed limits, turn restrictions, lane controls) are white rectangles with black or red lettering. They tell you what you must or must not do." },
+
+      { q: "A school zone or school crossing sign is what colour and shape?",
+        options: ["Red octagon", "Orange diamond", "Fluorescent yellow-green pentagon (5-sided)", "Blue rectangle"],
+        answer: 2,
+        explanation: "School zone and school crossing signs are 5-sided (pentagon) and fluorescent yellow-green — a colour specifically chosen for high visibility to protect children." },
+
+      { q: "A slow-moving vehicle (SMV) emblem — an orange triangle with red border — displayed on the rear of a vehicle means it travels at:",
+        options: ["Under 55 mph", "Under 45 mph", "Under 35 mph", "25 mph or less"],
+        answer: 3,
+        explanation: "SMV emblems are required on farm equipment, horse-drawn vehicles, and road machinery that travel at 25 mph or less. Give them extra space and pass with care." },
+
+      { q: "What does a green traffic sign typically indicate?",
+        options: ["A warning about a hazard", "A regulatory rule you must follow", "Guide and directional information, such as distances and routes", "A service facility nearby"],
+        answer: 2,
+        explanation: "Green signs are guide signs. They display highway route numbers, distances to cities, and directional information to help you navigate." },
+
+      // ── SPECIFIC SIGN MEANINGS ─────────────────────────────────────────────
+      { q: "A double solid yellow centre line on the road means:",
+        options: ["Passing is permitted from both directions when safe", "No passing is permitted in either direction", "The left lane is for passing only", "Passing is permitted for the vehicle on the left side"],
+        answer: 1,
+        explanation: "Double solid yellow lines prohibit passing in both directions. Never cross a double solid yellow line to pass another vehicle." },
+
+      { q: "A broken (dashed) yellow centre line means:",
+        options: ["No passing is allowed at any time", "You may pass when it is safe to do so and the way is clear", "Construction zone speed limits apply", "The road is about to divide into two one-way roads"],
+        answer: 1,
+        explanation: "Dashed yellow centre lines indicate that passing is permitted when it is safe. You must have a clear view of oncoming traffic and enough space to complete the pass." },
+
+      { q: "A solid white line between lanes on a multi-lane road indicates:",
+        options: ["You must stay in your lane; crossing is not allowed", "Passing is permitted when safe", "Lane changes are discouraged; crossing is allowed but not recommended", "The edge of the roadway — do not cross"],
+        answer: 2,
+        explanation: "Solid white lines between lanes discourage lane changes but do not prohibit them in most areas. At intersections and near crosswalks, do not cross solid white lines." },
+
+      { q: "What does a white X painted on the pavement at a railroad crossing mean?",
+        options: ["Speed up to clear the crossing quickly", "The area where you must stop before the tracks if a train is coming", "Passing other vehicles is prohibited here", "This is a protected crossing — no need to look for trains"],
+        answer: 1,
+        explanation: "The white X (crossbuck pavement marking) combined with the RR letters marks the stop position before railroad tracks. Stop before the line if signals are active or a train is approaching." },
+
+      { q: "A two-way left-turn lane (marked by two sets of yellow lines — one solid, one dashed) in the centre of the road may be used:",
+        options: ["To travel in either direction as an extra lane", "Only to prepare for a left turn or complete a U-turn — not for through travel", "For passing slow vehicles on the right", "Only by emergency vehicles"],
+        answer: 1,
+        explanation: "The shared centre turn lane is designed for left-turn preparation only. You may enter it to slow down for a left turn or to complete a U-turn where permitted, but driving along it as a travel lane is illegal." },
+
+      { q: "A 'Do Not Enter' sign means:",
+        options: ["Road closed for construction", "One-way traffic — you would be driving the wrong way if you entered", "No trucks or heavy vehicles beyond this point", "No left turn at this intersection"],
+        answer: 1,
+        explanation: "Do Not Enter signs are red with white lettering. They mark the exit side of one-way roads. Entering past this sign puts you directly in the path of oncoming traffic." },
+
+      { q: "A 'Wrong Way' sign (red, rectangular) means:",
+        options: ["You must turn around — you are travelling against traffic", "Detour ahead; follow signs for alternate route", "Road surface is damaged; proceed with caution", "No U-turns permitted beyond this point"],
+        answer: 0,
+        explanation: "The Wrong Way sign confirms you have entered a road travelling against traffic. Immediately pull to the right, stop, and turn around when it is safe to do so." },
+
+      { q: "What does a 'Divided Highway Begins' sign look like and mean?",
+        options: ["Yellow diamond with arrows spreading apart — a median or barrier divides the road ahead into two separate one-way roadways", "Green rectangle — indicates the start of an interstate highway", "Orange diamond — construction zone where two lanes merge into one", "White rectangle — left lane must turn left"],
+        answer: 0,
+        explanation: "The Divided Highway Begins sign (yellow diamond with two arrows pointing apart) warns you that the road ahead is divided by a median or barrier. Keep right and do not cross the median." },
+
+      { q: "A 'Merge' sign warns you that:",
+        options: ["The road ahead is closed and you must stop", "Two lanes of traffic are coming together into one — you must yield or adjust speed to merge safely", "Passing is allowed in the merge zone", "Oncoming traffic is about to cross your path"],
+        answer: 1,
+        explanation: "Merge signs warn that your lane and another lane will converge. Adjust your speed and position to merge smoothly and safely. Neither driver has an automatic right of way in a merge." },
+
+      { q: "When you see a 'Steep Hill' or 'Downgrade' warning sign, you should:",
+        options: ["Speed up to gain momentum before the hill", "Shift into a lower gear before starting down to use engine braking; do not ride the brakes continuously", "Turn on your hazard flashers and maintain normal speed", "Move to the left lane to avoid slow vehicles"],
+        answer: 1,
+        explanation: "Continuous braking on a steep downgrade overheats brake fluid and can cause brake failure. Downshift to a lower gear before the descent so engine braking controls your speed, then use brakes lightly as needed." },
+
+      // ── TRAFFIC SIGNALS ────────────────────────────────────────────────────
+      { q: "What does a steady yellow (amber) traffic light mean?",
+        options: ["Speed up to clear the intersection before it turns red", "The signal is about to turn red — stop if you can do so safely; proceed only if stopping would be unsafe", "Proceed normally; yellow means caution only for cross traffic", "Yield to pedestrians, then proceed"],
+        answer: 1,
+        explanation: "A yellow light warns that the signal is changing to red. Stop safely before the stop line if you can. If you are too close to stop safely, proceed with caution through the intersection." },
+
+      { q: "A green arrow signal pointing left means:",
+        options: ["You may turn left, but must yield to oncoming traffic", "You may turn left; oncoming traffic is stopped and it is safe to turn — yield only to pedestrians", "Turning left is prohibited", "You must turn left — through travel is not allowed"],
+        answer: 1,
+        explanation: "A green arrow is a 'protected' signal: oncoming traffic has a red light, so you may turn in the direction of the arrow. You must still watch for and yield to pedestrians in the crosswalk." },
+
+      { q: "What does a flashing yellow traffic light mean?",
+        options: ["Stop and wait for the light to change", "Slow down, proceed with caution, and yield as needed", "The intersection is closed", "Traffic must merge left"],
+        answer: 1,
+        explanation: "A flashing yellow light is a caution signal. Slow down, look carefully in all directions, and proceed carefully. You do not need to stop, but must be prepared to yield." },
+
+      { q: "What does a flashing red traffic light mean?",
+        options: ["Slow down and proceed with caution", "Yield to oncoming traffic before proceeding", "Come to a complete stop, then proceed when it is safe — treat it like a stop sign", "Construction zone — stop until flagged through"],
+        answer: 2,
+        explanation: "A flashing red light must be treated exactly like a stop sign: come to a complete stop, check for cross traffic and pedestrians, then proceed when clear." },
+
+      { q: "If traffic signals at an intersection are completely dark (power outage), you must:",
+        options: ["Proceed without stopping since there is no signal to obey", "Treat the intersection as a four-way stop — stop, yield to any traffic already there, then proceed", "Yield to traffic from the left only", "Only emergency vehicles may proceed; all other traffic must wait"],
+        answer: 1,
+        explanation: "When traffic signals are out, the intersection becomes an all-way stop. All drivers must stop and take turns, yielding to whoever arrived first or to traffic on the right if simultaneous arrivals occur." },
+
+      { q: "A red arrow signal means:",
+        options: ["You may turn in the direction of the arrow after yielding", "You must not turn in the direction shown by the arrow until it turns green", "Right-of-way belongs to pedestrians only — vehicles may turn after they cross", "Turn at reduced speed — no full stop required"],
+        answer: 1,
+        explanation: "A red arrow prohibits movement in the direction of the arrow. You must wait until the red arrow turns green or a green circle appears, even if no cross traffic is present." },
+
+      // ── RIGHT OF WAY ───────────────────────────────────────────────────────
       { q: "At an intersection with no signs or signals, who has the right of way?",
         options: ["The driver on the left", "The driver on the right", "The driver who arrived first", "The larger vehicle"],
         answer: 2,
-        explanation: "When two vehicles arrive at an uncontrolled intersection at the same time, the driver on the right has right of way. But the driver who clearly arrived first should proceed." },
-      { q: "What does a solid yellow center line on your side of the road mean?",
-        options: ["Passing is allowed with caution", "No passing allowed", "Construction zone ahead", "Yield to oncoming traffic"],
+        explanation: "When two vehicles arrive at an uncontrolled intersection simultaneously, the driver on the right has the right of way. If one driver clearly arrived first, that driver may proceed." },
+
+      { q: "At a four-way stop, two vehicles arrive at the same time facing each other. One is going straight and one is turning left. Who goes first?",
+        options: ["The vehicle turning left goes first as a courtesy", "The vehicle going straight has the right of way over the vehicle turning left", "Both vehicles go simultaneously since they are facing each other", "Whoever honks first"],
         answer: 1,
-        explanation: "A solid yellow line on your side means passing is prohibited. You may not cross that line to pass another vehicle." },
+        explanation: "When vehicles face each other at a four-way stop, the driver going straight has the right of way. A left-turning driver must yield to oncoming through traffic and oncoming right-turning traffic." },
+
+      { q: "When turning left at a green traffic light, you must yield to:",
+        options: ["No one — green means you have the right of way for all movements", "Oncoming vehicles proceeding straight or turning right, and pedestrians crossing your path", "Only pedestrians; vehicles must yield to you", "Emergency vehicles only"],
+        answer: 1,
+        explanation: "A green light permits you to turn left, but you must first yield to all oncoming traffic that is proceeding straight or turning right, and to all pedestrians in the crosswalk. Wait for a safe gap before turning." },
+
+      { q: "A pedestrian is crossing your lane in a marked crosswalk when you have a green light. You must:",
+        options: ["Proceed — you have the right of way with a green light", "Honk to alert the pedestrian to hurry", "Stop and yield to the pedestrian", "Slow to 10 mph and pass carefully behind them"],
+        answer: 2,
+        explanation: "Pedestrians in a crosswalk always have the right of way, even when you have a green light. Never drive through a crosswalk while a pedestrian is in it — wait until they have fully cleared your lane." },
+
+      { q: "When must you yield to a blind pedestrian using a white cane or guide dog?",
+        options: ["Only when they are in a marked crosswalk", "Only at signalised intersections", "Always — at any location, whether in a crosswalk or not", "Only if they are also using a guide dog"],
+        answer: 2,
+        explanation: "Drivers must always yield to visually impaired pedestrians using a white cane or guide dog, regardless of location. In many states, hitting a blind pedestrian carries additional criminal penalties." },
+
+      { q: "When entering a roundabout (traffic circle), you must yield to:",
+        options: ["Vehicles entering from the right", "Vehicles already inside the roundabout", "No one — the first to enter has the right of way", "Vehicles entering from the left"],
+        answer: 1,
+        explanation: "Vehicles inside the roundabout have the right of way. You must yield before entering and merge safely into the circulating traffic. Travel counter-clockwise and exit at your street." },
+
+      { q: "When an emergency vehicle is approaching from any direction with flashing lights and/or siren, you must:",
+        options: ["Speed up to get out of its way quickly", "Stop wherever you are immediately, including in intersections", "Pull to the right edge of the road and stop; if in an intersection, clear it first then pull right", "Move to the left lane and slow down"],
+        answer: 2,
+        explanation: "Pull as far right as safely possible and stop. If you are in an intersection, drive through it first, then pull right and stop. Stay stopped until the emergency vehicle has completely passed." },
+
+      { q: "Who has the right of way when you are merging onto a highway from an on-ramp?",
+        options: ["You, because you are on the ramp and have already committed to merging", "Vehicles already on the highway — you must adjust your speed to merge safely into a gap", "Whoever is moving faster", "Traffic from the right always has priority"],
+        answer: 1,
+        explanation: "Traffic on the highway has the right of way. Use the acceleration lane to match highway speed, signal, and find a safe gap. Never force drivers on the highway to brake for you." },
+
+      { q: "A funeral procession has the right of way at intersections. When should you NOT join or cut through a funeral procession?",
+        options: ["Only when police are escorting it", "Never — you must not join or interrupt a funeral procession under any circumstances", "Unless you are late for an emergency", "Only when it is moving faster than posted speed limits"],
+        answer: 1,
+        explanation: "Funeral processions have special right-of-way privileges in most states. It is illegal to cut through, join, or interrupt a procession. Wait for the entire procession to pass before crossing." },
+
+      // ── SPEED LIMITS ───────────────────────────────────────────────────────
+      { q: "What is the typical speed limit in a school zone when children are present or warning lights are flashing?",
+        options: ["30 mph", "20 mph", "15–25 mph (commonly 15 or 20 mph — check posted signs)", "Same as the surrounding road"],
+        answer: 2,
+        explanation: "School zone speed limits vary by state but are typically 15–25 mph when the zone is active (flashing lights or children present). Always obey the posted school zone sign — fines are often doubled." },
+
+      { q: "In a residential area with no posted speed limit, what is the standard maximum speed in most states?",
+        options: ["35 mph", "30 mph", "25 mph", "20 mph"],
+        answer: 2,
+        explanation: "Most states set a default residential speed limit of 25 mph when no sign is posted. Some cities (including New York City) have lowered this to 25 mph citywide. Always drive at a safe speed for conditions." },
+
+      { q: "Even if the speed limit is 65 mph, when must you drive slower?",
+        options: ["Never — the posted speed limit is always the safe speed", "When road, weather, traffic, or visibility conditions require it — the basic speed law requires a speed safe for conditions", "Only when a school bus is present", "Only in school zones"],
+        answer: 1,
+        explanation: "The 'basic speed law' (applied in all states) requires you to drive at a speed that is safe for current conditions, even if that is below the posted limit. Rain, fog, ice, heavy traffic, and poor visibility all require reduced speed." },
+
+      { q: "Driving significantly below the posted minimum speed on a highway:",
+        options: ["Is always safe and fully legal", "Is illegal and can be as dangerous as speeding — it disrupts traffic flow", "Is required when you are not sure of the speed limit", "Is only allowed if you are learning to drive"],
+        answer: 1,
+        explanation: "Highways have minimum speed limits for safety. Driving too slowly forces other drivers to brake and manoeuvre unexpectedly, increasing crash risk. Drive at or near the flow of traffic within legal limits." },
+
+      { q: "When approaching and passing a highway construction or work zone, you should:",
+        options: ["Speed up to clear the zone as fast as possible", "Reduce speed, follow posted limits (often reduced), and watch for workers and equipment — fines are typically doubled in work zones", "Move to the left lane regardless of instructions", "Flash your lights to warn workers"],
+        answer: 1,
+        explanation: "Work zone speed limits are legally enforceable and fines are often doubled. Slow down, stay alert for sudden stops, lane shifts, narrowed lanes, and workers on or near the road." },
+
+      { q: "What is the typical maximum speed limit on a rural interstate highway where no limit is posted?",
+        options: ["55 mph", "65 mph", "70 mph", "75 mph"],
+        answer: 1,
+        explanation: "On rural interstate highways, the default maximum speed where no sign is posted is typically 65 mph in most states. Always obey the posted limit — some states allow 70–80 mph on specific stretches." },
+
+      { q: "When passing a stationary emergency vehicle (police, fire, ambulance, tow truck) on a multi-lane road, the 'Move Over' law requires you to:",
+        options: ["Slow to 15 mph and stay in your lane", "Move one lane away from the stopped vehicle if you safely can; if you cannot move over, slow to a safe speed well below the posted limit", "Come to a complete stop until the vehicle moves", "Honk to alert the emergency workers and maintain speed"],
+        answer: 1,
+        explanation: "Move Over laws exist in all 50 states. When a vehicle with flashing lights is stopped on the shoulder, move one full lane away if traffic permits. If not, slow significantly — typically 20 mph below the posted limit in the lane closest to the stopped vehicle." },
+
+      { q: "In adverse weather (heavy rain, snow, ice, or fog), the posted speed limit:",
+        options: ["Is still the safe speed — it was set by engineers for all conditions", "May be too fast for conditions — slow down to a speed safe for the actual road and visibility conditions", "Doubles — you must drive at twice the normal caution", "No longer applies — use your best judgement"],
+        answer: 1,
+        explanation: "Speed limits are set for ideal conditions. In bad weather, reduce speed significantly. Stopping distances on ice can be 10 times greater than on dry pavement. Reduce speed, increase following distance, and use low beams in fog." },
+
+      // ── PASSING ────────────────────────────────────────────────────────────
+      { q: "You may legally pass another vehicle on the right when:",
+        options: ["The vehicle ahead is moving more than 10 mph below the speed limit", "The vehicle ahead is making or about to make a left turn, and there is a paved lane wide enough to the right", "You are in a hurry and the left lane is occupied", "The vehicle ahead is a truck or bus"],
+        answer: 1,
+        explanation: "Passing on the right is legal only in specific situations: when the vehicle ahead is turning left, on one-way streets with two or more lanes, or on multi-lane highways. Never pass on the right on the shoulder." },
+
+      { q: "You must NOT pass another vehicle when:",
+        options: ["Following a vehicle going 5 mph under the speed limit", "You are within 100 feet of a railroad crossing, bridge, tunnel, or at the top of a hill where you cannot see oncoming traffic", "On a two-lane road with a dashed centre line", "The road is wide enough to fit three vehicles side by side"],
+        answer: 1,
+        explanation: "Passing is prohibited in locations where you cannot see far enough ahead: hills, curves, railroad crossings (within 100 feet), intersections, bridges, and tunnels. These are high-risk zones where a head-on collision could occur." },
+
+      { q: "After passing a vehicle, when should you move back into the right lane?",
+        options: ["Immediately after passing the front bumper", "When you can see the passed vehicle's headlights in your rear-view mirror and have signalled", "After travelling at least 200 feet beyond the passed vehicle", "Only when the passed vehicle flashes its lights"],
+        answer: 1,
+        explanation: "Return to the right lane only when you can see the entire front of the passed vehicle in your rear-view mirror, giving it sufficient space. Signal before moving back. Do not cut in too soon." },
+
+      { q: "When being passed by another vehicle, you should:",
+        options: ["Speed up so the passing vehicle has to work harder", "Move to the left side of your lane", "Maintain your speed or slow slightly to help the passing driver complete the manoeuvre safely", "Flash your lights to warn the passing driver of oncoming traffic"],
+        answer: 2,
+        explanation: "When someone is passing you, do not speed up. Maintain your speed or slow slightly to allow the passing vehicle to complete the pass safely and return to their lane. Speeding up makes passing dangerous." },
+
+      { q: "On a two-lane road, before passing, you must have:",
+        options: ["The other driver's permission via a hand signal", "A clear view of oncoming traffic for enough distance to pass safely, return to your lane, and have a safety margin", "At least 500 feet of visibility regardless of speed", "A working horn to warn oncoming traffic"],
+        answer: 1,
+        explanation: "The distance needed to pass safely increases with speed. At 55 mph, you may need over 1,000 feet. Never pass unless you have a clear, unobstructed view of the road ahead for the entire manoeuvre." },
+
+      // ── PARKING ────────────────────────────────────────────────────────────
+      { q: "When parking downhill next to a curb, which way should you turn your front wheels?",
+        options: ["Away from the curb (left)", "Toward the curb (right)", "Straight ahead", "It does not matter"],
+        answer: 1,
+        explanation: "Downhill with a curb: turn wheels toward the curb (right). If your parking brake fails, the car rolls forward and the front wheel contacts the curb, stopping it from rolling into traffic." },
+
       { q: "When parking uphill next to a curb, which way should you turn your front wheels?",
-        options: ["Toward the curb", "Away from the curb (left)", "Straight ahead", "It does not matter"],
+        options: ["Toward the curb (right)", "Away from the curb (left, toward the road)", "Straight ahead", "It does not matter"],
         answer: 1,
-        explanation: "Uphill with a curb: turn wheels away from (left, toward traffic). If brakes fail, the car rolls into traffic before the curb stops it — but you should use the parking brake too." },
-      { q: "What is the minimum following distance recommended in normal highway conditions?",
+        explanation: "Uphill with a curb: turn wheels away from the curb (left). If the brakes fail, the car rolls backward and the rear of the tyre contacts the curb, stopping it. Always set the parking brake too." },
+
+      { q: "When parking on a hill with NO curb (either uphill or downhill), you should turn your wheels:",
+        options: ["Left — toward the road", "Right — toward the edge of the road or shoulder", "Straight ahead", "In whichever direction is easier"],
+        answer: 1,
+        explanation: "Without a curb, always turn wheels toward the right edge of the road. If the vehicle rolls in either direction, it will drift off the road (away from traffic) rather than rolling into the travel lane." },
+
+      { q: "How close to a fire hydrant may you park?",
+        options: ["5 feet", "10 feet", "15 feet", "20 feet"],
+        answer: 2,
+        explanation: "You must not park within 15 feet of a fire hydrant (in most states). This ensures fire hoses can reach the hydrant and water pressure is not obstructed in an emergency." },
+
+      { q: "You must not park within how many feet of a stop sign, yield sign, or intersection?",
+        options: ["10 feet", "20 feet", "30 feet", "50 feet"],
+        answer: 2,
+        explanation: "Parking within 30 feet of a stop sign, yield sign, or traffic signal at an intersection is prohibited in most states. Parked vehicles block sight lines and create hazards for drivers and pedestrians." },
+
+      { q: "Parking in front of or blocking a private driveway is:",
+        options: ["Legal if you stay for under 5 minutes", "Legal with the driveway owner's permission", "Illegal at all times", "Legal between midnight and 6 a.m."],
+        answer: 2,
+        explanation: "You may never park in front of or across a private driveway. Doing so prevents access for the property owner and may block emergency vehicles. Your vehicle can be ticketed and towed." },
+
+      { q: "You may park in a space marked for persons with disabilities if:",
+        options: ["You will only be a few minutes", "You are dropping off a disabled passenger", "Your vehicle displays a valid disability parking placard or licence plate", "The space has been empty for more than 30 minutes"],
+        answer: 2,
+        explanation: "Only vehicles displaying a valid state-issued disability parking placard or disabled veteran/disability licence plate may park in designated disability spaces. Violators face heavy fines in all states." },
+
+      { q: "Double parking (parking alongside a vehicle already parked at the kerb, blocking the travel lane) is:",
+        options: ["Legal for up to 5 minutes if you stay in the vehicle", "Legal only in commercial loading zones", "Illegal at all times on public streets", "Legal if your hazard lights are on"],
+        answer: 2,
+        explanation: "Double parking is always illegal on public streets. It blocks traffic, prevents the kerb-side vehicle from leaving, and can block emergency access. Hazard lights do not make it legal." },
+
+      { q: "Within how many feet of a railroad crossing is parking prohibited?",
+        options: ["25 feet", "50 feet", "75 feet", "100 feet"],
+        answer: 1,
+        explanation: "You may not park within 50 feet of the nearest rail at a railroad crossing. Parked vehicles obstruct sight lines for both train operators and approaching drivers." },
+
+      // ── HEADLIGHTS & SIGNALS ───────────────────────────────────────────────
+      { q: "When are you required to use your headlights?",
+        options: ["Only at night", "From sunset to sunrise only", "From sunset to sunrise and whenever visibility is less than 1,000 feet (fog, rain, snow)", "Anytime you are on a highway"],
+        answer: 2,
+        explanation: "Most states require headlights from sunset to sunrise AND when weather reduces visibility to under 1,000 feet. Many states also require headlights whenever windshield wipers are in use." },
+
+      { q: "When should you switch from high-beam headlights to low-beam headlights?",
+        options: ["Only when driving in the city", "When you are within 500 feet of an oncoming vehicle or within 300 feet when following another vehicle", "Only when a driver flashes their lights at you", "High beams should never be used in traffic"],
+        answer: 1,
+        explanation: "High beams blind oncoming drivers and those ahead of you. Dim to low beams within 500 feet of oncoming traffic and within 300 feet when following another vehicle. Use high beams only on dark, open roads." },
+
+      { q: "Driving with high beams in foggy conditions is dangerous because:",
+        options: ["High beams use more fuel in fog", "Light from high beams reflects off fog particles back toward the driver, reducing visibility compared to low beams", "High beams do not illuminate fog at all", "High beams can damage the eyes of pedestrians in fog"],
+        answer: 1,
+        explanation: "In fog, low beams direct light downward and reduce glare. High beams reflect off moisture particles, creating a 'white wall' that reduces visibility significantly. Some vehicles have dedicated fog lights for the best visibility." },
+
+      { q: "How far before a turn must you signal in most states?",
+        options: ["At the turn", "At least 100 feet before the turn in normal traffic; 300 feet on a highway or where required by signs", "50 feet is sufficient at all times", "Signals are only required on highways"],
+        answer: 1,
+        explanation: "Turn signals give other drivers and pedestrians time to react. Most states require signalling at least 100 feet before a turn in residential/urban areas and at least 300 feet on highways or where posted." },
+
+      { q: "When should you use your hazard (emergency) flashers?",
+        options: ["When driving slowly in heavy rain", "When your vehicle is disabled or stopped on a road or shoulder, or when approaching a serious hazard", "When running late and driving above the speed limit", "When looking for a parking space"],
+        answer: 1,
+        explanation: "Hazard flashers warn other drivers of a stationary or slow-moving hazard. Use them when your vehicle is broken down, when you must stop temporarily on a road, or when approaching a serious traffic backup or accident." },
+
+      // ── ALCOHOL & DUI ─────────────────────────────────────────────────────
+      { q: "In most US states, the legal blood alcohol concentration (BAC) limit for drivers 21 and over is:",
+        options: ["0.10%", "0.08%", "0.06%", "0.04%"],
+        answer: 1,
+        explanation: "The BAC limit for non-commercial drivers 21 and older is 0.08% in all US states. At this level, judgement, coordination, and reaction time are significantly impaired. CDL holders are held to a stricter 0.04% limit." },
+
+      { q: "Under 'Zero Tolerance' laws, drivers under 21 who have any detectable alcohol in their blood face:",
+        options: ["A warning for a first offence only", "The same penalties as adult drivers", "Licence suspension and fines even for a BAC of 0.01%–0.02% — well below the adult limit", "No penalty if they are not involved in a crash"],
+        answer: 2,
+        explanation: "Zero Tolerance laws prohibit drivers under 21 from having any measurable BAC (typically 0.01% or 0.02%). Even a small amount of alcohol triggers licence suspension, fines, and possible other penalties." },
+
+      { q: "Which of the following MOST affects how quickly your BAC rises?",
+        options: ["Your height and hair colour", "The type of alcoholic drink (beer vs. wine vs. spirits)", "Whether you have eaten — food in the stomach slows alcohol absorption", "How long you have been drinking"],
+        answer: 2,
+        explanation: "Food slows the absorption of alcohol into the bloodstream. Drinking on an empty stomach causes BAC to rise faster. Body weight, sex, and metabolism also affect BAC, but eating before/during drinking has the most practical impact." },
+
+      { q: "Alcohol most significantly affects driving ability by:",
+        options: ["Improving confidence while slightly slowing reaction time", "Slowing reaction time, impairing judgement and decision-making, reducing coordination, and narrowing vision", "Reducing aggression and making drivers calmer and safer", "Primarily affecting only peripheral vision"],
+        answer: 1,
+        explanation: "Alcohol depresses the central nervous system. Even below the legal limit, it impairs reaction time, judgement, depth perception, coordination, and the ability to track moving objects — all critical for safe driving." },
+
+      { q: "Under 'Implied Consent' laws, refusing a chemical test (breathalyser or blood test) when lawfully requested by a police officer results in:",
+        options: ["No penalty if you are not actually over the limit", "Automatic licence suspension, regardless of whether you are actually impaired — and refusal can be used against you in court", "A small fine but no licence suspension", "The officer must release you if you refuse"],
+        answer: 1,
+        explanation: "When you accept a driver's licence, you give implied consent to chemical testing. Refusing triggers automatic licence suspension (often longer than a DUI suspension) and the refusal itself is admissible as evidence of guilt." },
+
+      { q: "Coffee, a cold shower, or fresh air will sober you up and make it safe to drive after drinking.",
+        options: ["True — these methods speed up the metabolism of alcohol", "False — only time reduces BAC; nothing can speed up the elimination of alcohol from your body", "True, but only if you drink water alongside coffee", "True for small amounts of alcohol only"],
+        answer: 1,
+        explanation: "Only time reduces BAC. The liver processes approximately 0.015% BAC per hour. Coffee, food, cold showers, and exercise may make you feel more alert but do not reduce your BAC or driving impairment." },
+
+      // ── SEAT BELTS & CHILD SAFETY ──────────────────────────────────────────
+      { q: "In states with primary enforcement seat-belt laws, police can pull you over:",
+        options: ["Only if you commit another traffic violation", "For not wearing a seat belt alone — no other violation is required", "Only for not wearing a seat belt on a highway", "Only for children not wearing seat belts"],
+        answer: 1,
+        explanation: "In primary enforcement states, officers can stop and cite you solely for not wearing a seat belt. In secondary enforcement states, they can only add a seat-belt citation if you are stopped for another violation." },
+
+      { q: "Infants and newborns must ride in:",
+        options: ["A front-facing child seat in the back seat", "A rear-facing infant car seat in the back seat — never in front of an active airbag", "Any seat with a shoulder harness", "A booster seat in the back seat"],
+        answer: 1,
+        explanation: "Newborns and infants must be in a rear-facing car seat installed in the back seat. Front passenger airbags deploy with tremendous force and can be fatal to rear-facing children. Keep children rear-facing until they exceed the seat's weight/height limit." },
+
+      { q: "When should a child transition from a rear-facing seat to a forward-facing car seat?",
+        options: ["At exactly 1 year old", "At exactly 2 years old", "When they outgrow the height or weight limit of their rear-facing seat, regardless of age", "When they can hold their head up independently"],
+        answer: 2,
+        explanation: "The American Academy of Pediatrics recommends keeping children rear-facing until they reach the maximum height or weight allowed by the car seat manufacturer — typically age 2–4. Rear-facing is statistically the safest position for young children." },
+
+      { q: "A child may use a regular adult seat belt (without a booster seat) when:",
+        options: ["They turn 8 years old", "They reach age 10", "The shoulder belt lies flat across the chest/shoulder and the lap belt across the upper thighs (not the stomach) — typically at about 4'9\" tall", "They weigh at least 80 pounds"],
+        answer: 2,
+        explanation: "The safest transition to a seat belt without a booster occurs when the belt fits correctly. A proper fit means the shoulder belt crosses the chest and shoulder (not the neck) and the lap belt crosses the hips/thighs (not the stomach). This is typically around 4'9\" and 8–12 years old." },
+
+      { q: "The safest place for a child under 13 to ride in a vehicle is:",
+        options: ["The front seat with an airbag turned off", "Any back seat position", "The back seat, centre position", "It does not matter if they are buckled in"],
+        answer: 2,
+        explanation: "The back centre seat is statistically the safest position because it is farthest from any door impact and from front or rear airbags. All children under 13 should ride in the back seat." },
+
+      // ── EMERGENCY VEHICLES & SCHOOL BUSES ─────────────────────────────────
+      { q: "When a school bus is stopped with flashing red lights and its stop arm extended on a two-lane road, vehicles travelling in BOTH directions must:",
+        options: ["Slow to 15 mph and pass with caution", "Stop — traffic in both directions must stop until the red lights stop flashing and the arm is retracted", "Stop only if children are visible", "Only oncoming traffic must stop; traffic behind the bus may pass"],
+        answer: 1,
+        explanation: "On a two-lane undivided road, ALL traffic — in both directions — must stop for a school bus with flashing red lights and an extended stop arm. Do not proceed until the arm is retracted and lights stop flashing." },
+
+      { q: "When a school bus is stopped on the other side of a divided highway (with a raised median or barrier), vehicles travelling in your direction must:",
+        options: ["Stop and wait for the bus to move", "Slow to 25 mph and proceed cautiously", "Continue at normal speed — traffic on divided highways with medians is not required to stop", "Stop only if the bus door is open"],
+        answer: 2,
+        explanation: "On a divided highway with a physical median or barrier separating the roadways, traffic travelling in the opposite direction from the stopped bus is NOT required to stop. However, if the road has a painted centre line only (no barrier), all lanes must stop." },
+
+      { q: "How close to a stopped school bus (with flashing red lights) must you stop?",
+        options: ["10 feet", "At least 20 feet", "At least 30 feet", "At least 50 feet"],
+        answer: 1,
+        explanation: "Most states require stopping at least 20 feet from a school bus with red flashing lights. This gives children room to board and alight safely without walking in front of your vehicle." },
+
+      { q: "After an emergency vehicle with lights and siren passes you, when may you start moving again?",
+        options: ["Immediately after it passes", "After at least 5 seconds", "After the emergency vehicle has moved at least 500 feet ahead of you (or as specified by state law)", "Only when a police officer signals you to proceed"],
+        answer: 2,
+        explanation: "In most states, you must remain stopped until the emergency vehicle is at least 500 feet away. This prevents you from interfering with its path and keeps the area clear for additional emergency units that may follow." },
+
+      // ── RAILROAD CROSSINGS ─────────────────────────────────────────────────
+      { q: "When railroad crossing gates are lowered and lights are flashing, you must:",
+        options: ["Stop and wait for the train to pass; do not proceed until the gates fully rise and lights stop flashing", "Stop and then proceed slowly under the gate if no train is visible", "Sound your horn and proceed at reduced speed", "Turn around — you may not wait for trains"],
+        answer: 0,
+        explanation: "Never drive around, under, or through railroad crossing gates. Wait until the gates fully rise and the lights stop flashing. Sometimes two trains pass on separate tracks — wait until it is completely clear." },
+
+      { q: "If your vehicle stalls on railroad tracks with a train approaching, you should:",
+        options: ["Stay in the vehicle and try to restart the engine", "Get everyone out immediately and run at a 45-degree angle away from the tracks — in the direction the train is coming FROM — to avoid debris", "Move to the side of the vehicle to push it off the tracks", "Wave your arms to stop the train"],
+        answer: 1,
+        explanation: "Exit immediately and move everyone away from the tracks. Run diagonally toward the train (at a 45-degree angle) because debris from a collision is thrown forward and to the sides. Call 911 and the railroad emergency number if posted on the crossing sign." },
+
+      { q: "Before crossing any railroad track — even without signals or gates — you should:",
+        options: ["Accelerate to cross quickly and safely", "Slow down, look left, look right, and look left again; listen for a train whistle; proceed only when safe", "Flash your headlights to warn any approaching trains", "No action is needed if there are no signals"],
+        answer: 1,
+        explanation: "Even at passive (unmarked) crossings, always slow down and check both directions. Trains cannot swerve or stop quickly — a freight train at 55 mph needs over a mile to stop. Never assume a track is inactive." },
+
+      // ── FOLLOWING DISTANCE & SPACE MANAGEMENT ─────────────────────────────
+      { q: "What is the minimum following distance recommended in normal driving conditions?",
         options: ["1 second", "2 seconds", "3 seconds", "5 seconds"],
         answer: 2,
-        explanation: "The 3-second rule is the recommended minimum. In poor weather or when following large trucks, increase to 4–6 seconds." },
-      { q: "When are you required to use your headlights?",
-        options: ["Only at night", "From sunset to sunrise only", "From sunset to sunrise and whenever visibility is less than 1,000 feet", "Anytime you are on the highway"],
+        explanation: "The 3-second rule is the minimum safe following distance under normal, dry conditions. Pick a fixed point and count 3 seconds after the vehicle ahead passes it before you do. In bad weather or behind large vehicles, use 4–6 seconds." },
+
+      { q: "When following a large truck or tractor-trailer, you should increase your following distance because:",
+        options: ["Trucks are allowed to drive faster than cars", "Trucks have large blind spots on all four sides; you cannot see past them; they require longer stopping distances; and they may block your view of hazards ahead", "Trucks always have the right of way", "Trucks generate turbulence that can shake your vehicle"],
+        answer: 1,
+        explanation: "Large trucks have blind spots (no-zones) on all four sides, take significantly longer to stop, and block your forward view. Staying back gives you more reaction time and stays out of the truck's blind spot." },
+
+      { q: "In heavy rain or poor visibility, you should adjust your following distance to:",
+        options: ["Stay the same — 3 seconds is always adequate", "At least 4–6 seconds (double the dry-road minimum)", "1 second — stay closer so you can see the vehicle's tail lights", "10 seconds — always be very conservative"],
+        answer: 1,
+        explanation: "Wet roads significantly increase stopping distance. Rain reduces tyre friction and visibility. Double your following distance to at least 4–6 seconds in rain, and increase further in snow, ice, or fog." },
+
+      { q: "What is the minimum following distance you should maintain behind a motorcycle?",
+        options: ["The same 3 seconds as any vehicle", "At least 3–4 seconds — motorcycles can stop very quickly and you may underestimate their speed and distance", "1 second — motorcycles are smaller so they take less space", "5 seconds — motorcycles are less visible in your mirrors"],
+        answer: 1,
+        explanation: "Motorcycles can stop more quickly than cars. Give them at least 3–4 seconds of following distance. Motorcycles are also harder to see, and their small size can make it difficult to judge their speed and distance accurately." },
+
+      // ── LANE CHANGES & TURNS ───────────────────────────────────────────────
+      { q: "Before changing lanes on a highway, you should:",
+        options: ["Signal, then immediately move into the new lane", "Check mirrors only — no need to turn your head if mirrors are properly adjusted", "Signal, check all mirrors, turn your head to check your blind spot, then move when clear", "Move first, then signal to inform drivers behind you"],
         answer: 2,
-        explanation: "Most states require headlights from sunset to sunrise AND whenever weather reduces visibility to under 1,000 feet (fog, rain, snow)." }
+        explanation: "The safe lane-change sequence: signal first (to warn others), check all mirrors, then check your blind spot by turning your head. Only move when you have confirmed the lane is clear. Mirrors alone cannot reveal vehicles in your blind spot." },
+
+      { q: "To make a right turn at a corner, you should:",
+        options: ["Move to the centre of the road before turning", "Move to the right side of the lane; begin slowing; signal at least 100 feet before the turn; yield to pedestrians in the crosswalk; then complete the turn", "Swing wide to the left first to give yourself room", "Speed up through the turn for stability"],
+        answer: 1,
+        explanation: "For a right turn: signal early, move to the right side of the lane, slow down gradually, yield to pedestrians, and make a sharp right turn while staying in the rightmost lane. Stay close to the curb — swinging wide lets vehicles pass on your right." },
+
+      { q: "A U-turn is illegal in all of the following situations EXCEPT:",
+        options: ["On a hill or curve where you cannot see oncoming traffic", "Near the crest of a hill or within an intersection in a business district", "On a straight residential street where you have clear visibility in both directions and no sign prohibits it", "Within 200 feet of a railroad crossing"],
+        answer: 2,
+        explanation: "U-turns are generally permitted on straight streets with good visibility in residential areas unless posted signs prohibit them. They are prohibited on hills, curves, near railroad crossings, in business districts (unless at a traffic light), and wherever visibility is limited." },
+
+      // ── DISTRACTED & DROWSY DRIVING ────────────────────────────────────────
+      { q: "Texting while driving at 55 mph takes your eyes off the road for an average of 5 seconds. In that time, you travel approximately:",
+        options: ["The length of a car (about 15 feet)", "Half a city block (about 200 feet)", "The length of a football field (about 300 feet / 100 yards)", "About 500 feet"],
+        answer: 2,
+        explanation: "At 55 mph, 5 seconds equals approximately 400 feet — more than a football field — of driving essentially blindfolded. Texting while driving is illegal in nearly all states and increases crash risk by up to 23 times." },
+
+      { q: "Which of the following is a legal and safe way to use a mobile phone while driving in most states?",
+        options: ["Holding the phone to your ear while talking", "Texting at red lights only", "Using a properly mounted, hands-free device for calls — while keeping full attention on driving", "Looking at navigation apps briefly at highway speeds"],
+        answer: 2,
+        explanation: "Hands-free devices mounted on the dashboard or windshield are legal for adult drivers in most states, though they still create cognitive distraction. Handheld phone use is banned in 48 states. Drivers under 18 face stricter bans in most states." },
+
+      { q: "Warning signs of driver fatigue include:",
+        options: ["Feeling energetic and alert with wide eyes", "Frequent yawning, heavy eyelids, drifting out of your lane, missing exits, or not remembering the last few miles driven", "Feeling slightly thirsty", "Driving faster than normal"],
+        answer: 1,
+        explanation: "Drowsy driving is as dangerous as drunk driving. If you experience these warning signs, pull off the road safely and rest. Caffeinated drinks provide only temporary relief. A 20-minute nap is more effective than coffee." },
+
+      { q: "If you feel drowsy while driving, the safest action is:",
+        options: ["Turn up the radio and open the window to stay alert", "Drink coffee or an energy drink and continue driving", "Pull off the road at a safe location (rest stop, parking lot) and take a 20-minute nap", "Splash cold water on your face at the next service station and keep driving"],
+        answer: 2,
+        explanation: "The only safe response to drowsiness is to stop driving. Opening windows and loud music are temporary and unreliable fixes. A short nap of 20 minutes (not longer, which can cause sleep inertia) is the most effective solution." },
+
+      // ── SPECIAL CONDITIONS ─────────────────────────────────────────────────
+      { q: "If your vehicle begins to hydroplane (skid on a thin layer of water), you should:",
+        options: ["Brake hard to slow down quickly", "Steer sharply in the opposite direction of the skid", "Ease off the accelerator gently, steer straight, and wait for traction to return — then brake gently if needed", "Accelerate to push through the water"],
+        answer: 2,
+        explanation: "Hydroplaning occurs when tyres ride on top of water instead of the road surface. Do not brake suddenly or steer sharply — this can cause a spin. Lift off the accelerator smoothly, keep the wheel straight, and let your speed drop until tyres regain contact with the road." },
+
+      { q: "When driving on an icy or snow-covered road and your rear wheels begin to skid sideways, you should:",
+        options: ["Brake hard and steer away from the skid", "Ease off the accelerator and steer in the direction your rear is sliding (into the skid) to regain control", "Apply the parking brake only", "Steer sharply in the opposite direction of the skid"],
+        answer: 1,
+        explanation: "To correct a rear-wheel skid ('fishtail'): release the accelerator (do not brake), and steer in the direction the rear is sliding. This is 'steering into the skid.' With ABS brakes, apply steady brake pressure; without ABS, pump the brakes." },
+
+      { q: "When driving in fog, what type of headlights should you use?",
+        options: ["High beams for maximum light output", "Low beams or dedicated fog lights to reduce glare and improve visibility", "Parking lights only — headlights are too bright", "No lights — turn on hazard flashers only"],
+        answer: 1,
+        explanation: "In fog, low beams project light downward, below the fog, and reduce glare. High beams reflect off moisture particles and create a 'white wall' that reduces visibility. Purpose-built fog lights (mounted low) are most effective." },
+
+      { q: "If your accelerator pedal sticks or jams while driving, you should:",
+        options: ["Turn off the ignition immediately while steering", "Shift to neutral (N), apply the brakes to slow and stop, steer to safety, and then turn off the engine", "Keep driving — pushing down harder on the pedal will usually release it", "Apply the parking brake immediately"],
+        answer: 1,
+        explanation: "Shifting to Neutral disconnects the engine from the wheels instantly — even with a stuck accelerator. Steer to safety and stop using the brakes, then turn off the engine. Do not turn off the engine while moving — you will lose power steering and braking assist." },
+
+      { q: "When driving through a flooded roadway, you should:",
+        options: ["Speed up to cross before the water gets deeper", "Drive through slowly and avoid flooding only if water is above your bumper", "Never drive through flooded roads — even 6 inches of fast-moving water can knock a person down; 12 inches can float most cars", "Drive through the centre of the lane at normal speed"],
+        answer: 2,
+        explanation: "'Turn around, don't drown.' Just 6 inches of fast-moving water can knock an adult off their feet; 12 inches can float a small car; 2 feet of water can carry away an SUV or truck. The depth of water in a flooded road is nearly impossible to judge accurately. Find an alternate route." },
+
+      { q: "If you are involved in a crash that causes injury, death, or property damage over the minimum threshold, you are legally required to:",
+        options: ["Leave the scene quickly to avoid legal trouble", "Stop immediately at or near the scene, render reasonable aid, exchange information with other parties, and report the crash to police", "Only report it if another driver asks you to", "Call your insurance company before calling the police"],
+        answer: 1,
+        explanation: "Hit-and-run (leaving the scene of an accident) is a criminal offence in every US state. You must stop, check on injured parties, call 911, exchange name, address, licence plate and insurance information, and report the crash to police when required by state law." },
+
+      // ── SHARING THE ROAD ───────────────────────────────────────────────────
+      { q: "When passing a bicyclist on the road, most state laws require a minimum clearance of:",
+        options: ["1 foot", "2 feet", "3 feet", "5 feet"],
+        answer: 2,
+        explanation: "Most states require a minimum 3-foot buffer when passing a bicyclist. If you cannot safely provide 3 feet, wait until it is safe to pass. Bicyclists have the right to use the full lane in many situations." },
+
+      { q: "When should you NOT pass a bicycle rider?",
+        options: ["When the rider is going at least 10 mph", "When approaching a hill, curve, or intersection where oncoming traffic might appear, and you cannot safely provide 3 feet of clearance", "When the cyclist is in the right lane", "When the road is one-way"],
+        answer: 1,
+        explanation: "Do not attempt to pass a bicycle where your view is limited or where you cannot maintain a safe 3-foot buffer. Wait for a straight section with good visibility before passing, just as you would when passing another vehicle." },
+
+      { q: "At a crosswalk, even if there is no traffic signal, a pedestrian who has stepped off the kerb has:",
+        options: ["No special right of way — vehicles always have priority", "The right of way — you must stop and allow them to cross the entire roadway", "Right of way only if they are elderly or disabled", "Right of way only in marked (painted) crosswalks"],
+        answer: 1,
+        explanation: "A pedestrian who has stepped off the kerb at any crosswalk — marked or unmarked — has the right of way. An unmarked crosswalk exists at every intersection where kerbs meet. You must stop and remain stopped until the pedestrian has fully crossed." },
+
+      { q: "When you see a person using a white cane or accompanied by a guide dog waiting to cross the street, you must:",
+        options: ["Honk to let them know you are there", "Slow down, but proceed if they have not yet stepped into the road", "Stop and remain stopped to allow them to cross safely, even if they are not yet in the roadway", "Only stop at a signalised intersection"],
+        answer: 2,
+        explanation: "Visually impaired pedestrians using a white cane or guide dog have the absolute right of way. Stop your vehicle and remain stationary until they have completely crossed. Starting your vehicle while they are near can startle and disorient them." },
+
+      // ── MISCELLANEOUS SAFETY RULES ─────────────────────────────────────────
+      { q: "You should never drive into an intersection during heavy traffic unless:",
+        options: ["The light is green", "You can see through traffic that the intersection is clear", "Your lane is moving", "You can clear the intersection completely before stopping — you must never block the intersection"],
+        answer: 3,
+        explanation: "Blocking the box (stopping your vehicle in the intersection when traffic is backed up) is illegal in most jurisdictions and causes gridlock. Only enter an intersection when you can fully clear it before the light changes." },
+
+      { q: "When approaching a yellow school bus flashing AMBER (yellow) lights — not red lights — you should:",
+        options: ["Stop immediately as if the red lights were flashing", "Slow down and prepare to stop — the driver is about to stop to load or unload students", "Pass quickly before the red lights activate", "Honk to warn children to wait"],
+        answer: 1,
+        explanation: "Flashing amber lights on a school bus mean it is preparing to stop. Slow down and be ready to stop. Once the red lights activate and the stop arm extends, you must stop completely." },
+
+      { q: "You are driving and your tyre suddenly blows out. You should:",
+        options: ["Brake hard to stop as quickly as possible", "Steer sharply to the side of the road", "Grip the wheel firmly with both hands, ease off the accelerator gradually, steer straight, and gently guide the vehicle to the shoulder before braking lightly", "Shift to park immediately"],
+        answer: 2,
+        explanation: "A blowout can pull the vehicle suddenly to one side. Grip the wheel tightly, do NOT brake hard (it can cause a spin), ease off the gas, and steer straight until you control the vehicle. Then gradually move to the shoulder and stop." },
+
+      { q: "When is it legal to drive on the shoulder (paved emergency lane) of a highway?",
+        options: ["When traffic is moving slowly and the shoulder is clear", "When you need to pass a slow vehicle on the right", "Only in a genuine emergency when you must pull off the road — or when permitted by posted signs in construction zones", "Whenever your vehicle can fit on the shoulder"],
+        answer: 2,
+        explanation: "Driving on the shoulder as a travel lane is illegal and extremely dangerous — pedestrians, disabled vehicles, and emergency workers may be present. The shoulder is reserved for emergencies, disabled vehicles, and some HOV or express-lane exceptions." },
+
+      { q: "If your brakes fail while driving, what should you do FIRST?",
+        options: ["Turn off the engine immediately", "Pump the brake pedal rapidly — this can build up pressure in standard hydraulic brakes", "Steer off the road and crash into something soft (bushes, grass) to stop", "Apply the parking brake hard immediately"],
+        answer: 1,
+        explanation: "Pumping the brake pedal rapidly can restore hydraulic pressure in conventional (non-ABS) brake systems. If that does not work: downshift to slow with engine braking, apply the parking brake gradually, look for a safe escape route (uphill, soft brush), and sound your horn to warn others." },
+
+      { q: "The term 'right-of-way' means:",
+        options: ["The legal right to proceed regardless of any other vehicle or person", "The privilege of immediate use of the road — but it must always be yielded when safety requires it, regardless of who legally has it", "The right lane is always the correct lane to drive in", "Emergency vehicles always have the right of way"],
+        answer: 1,
+        explanation: "Right of way is a privilege, not an absolute right. Traffic laws designate who has right of way to create order, but you must always yield if necessary to avoid a collision — even if you technically have the right of way." },
+
+      { q: "Speed limits are set for ideal conditions. The 'basic speed rule' means you must:",
+        options: ["Always drive at exactly the posted speed limit", "Never drive below the posted speed limit", "Drive at a speed safe for current conditions, which may be less than the posted limit", "Drive at the speed limit unless a police officer tells you to slow down"],
+        answer: 2,
+        explanation: "The basic speed rule (in all states) says you must drive at a speed safe for road, weather, traffic, and visibility conditions — even if that means going well below the posted limit. You can be cited for driving unsafely even if you are at or below the speed limit." },
+
+      { q: "When must you stop for a pedestrian at an intersection with no marked crosswalk?",
+        options: ["Never — pedestrians must use marked crosswalks only", "Only if the pedestrian has a 'walk' signal", "Always — an unmarked crosswalk exists at every intersection, and pedestrians in the roadway have the right of way", "Only at night when pedestrians are harder to see"],
+        answer: 2,
+        explanation: "Under the law, an unmarked crosswalk exists at every intersection where kerbs or roadway edges meet at right angles. Pedestrians stepping off the kerb at any intersection — marked or not — have right of way once they are in the roadway." }
     ]
   },
 
