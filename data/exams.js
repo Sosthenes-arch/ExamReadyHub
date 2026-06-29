@@ -3092,29 +3092,1028 @@ const EXAMS = {
 
   "comptia-network": {
     id: "comptia-network", title: "CompTIA Network+",
-    description: "Practice for the CompTIA Network+ exam. Covers networking concepts, protocols, ports, and troubleshooting.",
+    description: "200-question practice test for the CompTIA Network+ (N10-009) exam. Covers all five exam domains: Networking Concepts (OSI, TCP/IP, addressing, protocols, ports), Network Implementation (routing, switching, Wi-Fi, cabling), Network Operations (monitoring, high availability, documentation), Network Security (attacks, firewalls, VPNs, AAA), and Network Troubleshooting (tools, methodology, common issues).",
     category: "it-tech",
     questions: [
-      { q: "Which protocol automatically assigns IP addresses to devices on a network?",
-        options: ["DNS", "FTP", "DHCP", "SNMP"],
-        answer: 2,
-        explanation: "DHCP (Dynamic Host Configuration Protocol) dynamically assigns IP addresses, subnet masks, default gateways, and DNS server addresses to clients." },
-      { q: "What port does HTTPS use by default?",
-        options: ["80", "443", "8080", "21"],
-        answer: 1,
-        explanation: "HTTPS uses port 443. HTTP uses port 80. Port 8080 is an alternate HTTP port often used for web proxies." },
-      { q: "What is the subnet mask for a /24 network in dotted-decimal notation?",
-        options: ["255.255.0.0", "255.0.0.0", "255.255.255.0", "255.255.255.128"],
-        answer: 2,
-        explanation: "/24 means 24 bits are set to 1 in the subnet mask, giving 255.255.255.0. This provides 254 usable host addresses per subnet." },
-      { q: "At which OSI model layer do routers primarily operate?",
+
+      // ── DOMAIN 1: NETWORKING CONCEPTS ───────────────────────────────────
+      { q: "What are the seven layers of the OSI model in order from lowest to highest?",
+        options: ["Physical, Data Link, Network, Transport, Session, Presentation, Application", "Application, Presentation, Session, Transport, Network, Data Link, Physical", "Physical, Network, Transport, Data Link, Session, Presentation, Application", "Data Link, Physical, Network, Transport, Application, Session, Presentation"],
+        answer: 0,
+        explanation: "OSI layers (bottom to top): 1-Physical, 2-Data Link, 3-Network, 4-Transport, 5-Session, 6-Presentation, 7-Application. Mnemonic: 'Please Do Not Throw Sausage Pizza Away.' Each layer encapsulates data from the layer above when sending and decapsulates when receiving." },
+
+      { q: "At which OSI layer do routers primarily operate?",
         options: ["Layer 1 — Physical", "Layer 2 — Data Link", "Layer 3 — Network", "Layer 4 — Transport"],
         answer: 2,
-        explanation: "Routers operate at Layer 3 (Network) and use IP addresses to forward packets between networks. Switches operate at Layer 2 using MAC addresses." },
-      { q: "What does the acronym NAT stand for?",
-        options: ["Network Address Translation", "Node Authentication Table", "Network Allocation Token", "None of the above"],
+        explanation: "Routers operate at Layer 3 (Network layer) and make forwarding decisions based on IP addresses. Switches operate at Layer 2 (Data Link) using MAC addresses. Hubs operate at Layer 1 (Physical), repeating signals to all ports." },
+
+      { q: "Which OSI layer is responsible for end-to-end data delivery, error checking, and flow control — and includes protocols like TCP and UDP?",
+        options: ["Layer 2 — Data Link", "Layer 3 — Network", "Layer 4 — Transport", "Layer 5 — Session"],
+        answer: 2,
+        explanation: "Layer 4 (Transport) handles end-to-end communication between applications. TCP (connection-oriented, reliable) and UDP (connectionless, unreliable but fast) both operate here. Layer 4 also manages port numbers, which multiplex multiple simultaneous application conversations over one IP address." },
+
+      { q: "What are the four layers of the TCP/IP (Internet) model, from lowest to highest?",
+        options: ["Physical, Data Link, Network, Application", "Network Access, Internet, Transport, Application", "Physical, Network, Transport, Application", "Data Link, Network, Session, Application"],
+        answer: 1,
+        explanation: "The TCP/IP model has four layers: Network Access (combines OSI layers 1-2), Internet (OSI Layer 3 — IP), Transport (OSI Layer 4 — TCP/UDP), and Application (OSI layers 5-7 — HTTP, DNS, FTP, etc.). It is the practical model used in real networking." },
+
+      { q: "Which protocol automatically assigns IP addresses to network devices?",
+        options: ["DNS", "ARP", "DHCP", "SNMP"],
+        answer: 2,
+        explanation: "DHCP (Dynamic Host Configuration Protocol) assigns IP address, subnet mask, default gateway, and DNS server to clients using the DORA process: Discover (client broadcast), Offer (server reply), Request (client selects offer), Acknowledge (server confirms). Uses ports 67 (server) and 68 (client)." },
+
+      { q: "What is the DORA process in DHCP?",
+        options: ["Detect, Offer, Respond, Acknowledge", "Discover, Offer, Request, Acknowledge", "Deliver, Organise, Route, Assign", "Direct, Open, Request, Allocate"],
+        answer: 1,
+        explanation: "DORA: 1) Discover — client broadcasts to find DHCP servers, 2) Offer — DHCP server offers an IP address and parameters, 3) Request — client broadcasts its acceptance of the offer, 4) Acknowledge — server confirms the assignment and provides the lease. All four steps occur at startup or when a lease expires." },
+
+      { q: "What port does HTTPS (HTTP Secure) use?",
+        options: ["80", "443", "8080", "8443"],
+        answer: 1,
+        explanation: "HTTPS uses TCP port 443. It is HTTP carried over TLS (Transport Layer Security) encryption. Plain HTTP uses port 80. Port 8080 and 8443 are common alternatives, often used for development servers, proxies, or when the standard port is already in use." },
+
+      { q: "What port does DNS (Domain Name System) use?",
+        options: ["43", "53", "67", "123"],
+        answer: 1,
+        explanation: "DNS uses port 53 on both UDP (for most queries — faster, smaller packets) and TCP (for large responses and zone transfers). Port 67 is DHCP server; port 68 is DHCP client; port 123 is NTP (Network Time Protocol)." },
+
+      { q: "What ports does FTP (File Transfer Protocol) use and what are they each for?",
+        options: ["Port 20 and 21 — port 21 is the control channel (commands), port 20 is the data channel (file transfers in active mode)", "Port 22 and 23 — port 22 for authentication, port 23 for data transfer", "Port 20 only — a single connection handles both commands and data", "Port 21 for upload, port 20 for download"],
         answer: 0,
-        explanation: "NAT (Network Address Translation) allows multiple private IP devices to share a single public IP address — essential for home and office routers." }
+        explanation: "FTP uses port 21 for the persistent control connection (login, commands like LIST and RETR) and port 20 for data transfer in active mode (the server initiates back to the client). In passive mode (PASV), the server opens a random high port for data instead of port 20 — preferred when NAT is between client and server." },
+
+      { q: "What port does SSH (Secure Shell) use and what does it replace?",
+        options: ["Port 22 — replaces unencrypted Telnet (port 23) and unencrypted FTP", "Port 22 — replaces HTTPS", "Port 443 — SSH is the secure version of HTTP", "Port 23 — the same as Telnet but encrypted"],
+        answer: 0,
+        explanation: "SSH uses TCP port 22. It provides encrypted remote terminal access, replacing Telnet (port 23, which sends all data including passwords in cleartext). SSH also enables SFTP (Secure FTP over SSH) and SCP (Secure Copy). Key-based authentication (public/private key pairs) is more secure than password-based SSH." },
+
+      { q: "What port does SMTP use for sending email?",
+        options: ["25", "110", "143", "465"],
+        answer: 0,
+        explanation: "SMTP (Simple Mail Transfer Protocol) uses port 25 for server-to-server email relay. Port 587 is used for client-to-server mail submission with STARTTLS. Port 465 is SMTPS (SMTP with SSL, legacy). Receiving protocols: POP3 uses port 110 (995 with SSL); IMAP uses port 143 (993 with SSL)." },
+
+      { q: "What is the difference between POP3 and IMAP?",
+        options: ["POP3 is more secure than IMAP because it downloads messages off the server", "POP3 downloads messages to the local device and removes them from the server; IMAP synchronises messages with the server and allows access from multiple devices", "IMAP is only for sending mail; POP3 is for receiving", "There is no difference — they are different names for the same protocol"],
+        answer: 1,
+        explanation: "POP3 (Post Office Protocol 3, port 110) downloads and typically deletes messages from the server — one device sees the mail. IMAP (Internet Message Access Protocol, port 143) keeps messages on the server and syncs status (read/unread, folders) across all connected devices. IMAP is the standard for modern multi-device email access." },
+
+      { q: "What port does RDP (Remote Desktop Protocol) use by default?",
+        options: ["22", "3389", "5900", "8080"],
+        answer: 1,
+        explanation: "Microsoft's Remote Desktop Protocol (RDP) uses TCP port 3389. It provides a graphical interface for remotely controlling a Windows machine. Exposing RDP directly to the internet is a major security risk — it should be protected behind a VPN. VNC uses port 5900; SSH uses port 22." },
+
+      { q: "What port does SNMP (Simple Network Management Protocol) use?",
+        options: ["161 (queries) and 162 (traps)", "514", "123", "69"],
+        answer: 0,
+        explanation: "SNMP uses UDP port 161 for polling (NMS sends GET/SET requests to agents) and UDP port 162 for TRAP messages (agents send unsolicited alerts to the NMS). SNMPv3 adds encryption and authentication. Port 514 is Syslog; port 123 is NTP; port 69 is TFTP." },
+
+      { q: "What is the subnet mask for a /24 network?",
+        options: ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.128"],
+        answer: 2,
+        explanation: "/24 means 24 bits are set to 1 in the subnet mask: 11111111.11111111.11111111.00000000 = 255.255.255.0. This gives 256 addresses total, 254 usable hosts (subtract network address .0 and broadcast .255). /8 = 255.0.0.0, /16 = 255.255.0.0." },
+
+      { q: "How many usable host addresses are in a /26 subnet?",
+        options: ["30", "62", "126", "254"],
+        answer: 1,
+        explanation: "/26 means 6 host bits: 2^6 = 64 total addresses. Subtract 2 (network address and broadcast) = 62 usable hosts. The subnet mask is 255.255.255.192. /27 gives 30 hosts; /28 gives 14 hosts; /25 gives 126 hosts." },
+
+      { q: "Which IP address range is reserved for private use on Class C networks?",
+        options: ["10.0.0.0 – 10.255.255.255", "172.16.0.0 – 172.31.255.255", "192.168.0.0 – 192.168.255.255", "169.254.0.0 – 169.254.255.255"],
+        answer: 2,
+        explanation: "RFC 1918 defines three private ranges: Class A: 10.0.0.0/8, Class B: 172.16.0.0/12 (172.16–172.31), Class C: 192.168.0.0/16. These addresses are not routed on the internet. 169.254.x.x is APIPA (link-local, not truly private RFC 1918)." },
+
+      { q: "What is APIPA and what address range does it use?",
+        options: ["Automatic Private IP Addressing — 169.254.0.0/16 — self-assigned when DHCP is unreachable", "Advanced Protocol IP Assignment — 10.0.0.0/8 — used on large enterprise networks", "Automatic Public IP Addressing — 1.0.0.0/8 — assigned by ISPs", "Application Private IP Access — 172.16.0.0/12 — used in data centres"],
+        answer: 0,
+        explanation: "APIPA (RFC 3927, link-local addressing): when a device cannot reach a DHCP server after several attempts, it self-assigns an address in 169.254.0.0/16 (excluding .0 and .255). Devices can communicate with other APIPA hosts on the same link but cannot route to other networks. Seeing 169.254.x.x usually means a DHCP problem." },
+
+      { q: "What is the IPv6 equivalent of the IPv4 loopback address 127.0.0.1?",
+        options: ["::1", "FE80::1", "FF02::1", "2001:db8::1"],
+        answer: 0,
+        explanation: "The IPv6 loopback address is ::1 (all zeros except the last bit). Like 127.0.0.1, it routes traffic to the local host for TCP/IP stack testing. FE80::/10 is the IPv6 link-local prefix. FF02::1 is the all-nodes multicast address. 2001:db8::/32 is reserved for documentation." },
+
+      { q: "What is the length of an IPv6 address?",
+        options: ["32 bits (4 bytes)", "64 bits (8 bytes)", "128 bits (16 bytes)", "256 bits (32 bytes)"],
+        answer: 2,
+        explanation: "IPv6 addresses are 128 bits, written as 8 groups of 4 hexadecimal digits separated by colons (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334). Leading zeros in each group and consecutive all-zero groups (::) can be omitted. IPv4 is 32 bits." },
+
+      { q: "What is an IPv6 link-local address and what is its prefix?",
+        options: ["A globally routable IPv6 address — prefix 2001::/16", "An address that is only valid on the local network segment — prefix FE80::/10 — automatically configured on every IPv6-enabled interface", "An address used for multicast group membership — prefix FF00::/8", "An address equivalent to IPv4 private ranges — prefix FC00::/7"],
+        answer: 1,
+        explanation: "IPv6 link-local addresses (FE80::/10) are automatically self-configured on every IPv6 interface using the interface's MAC address (EUI-64 process). They are non-routable — only valid on the local link segment. Every IPv6 device has a link-local address even if it has no global address. Used for neighbour discovery and router discovery." },
+
+      { q: "What is NAT (Network Address Translation) and what problem does it solve?",
+        options: ["NAT converts IPv4 addresses to IPv6 addresses for internet connectivity", "NAT translates private IP addresses to a public IP for internet communication — solving IPv4 address exhaustion by allowing many devices to share one public IP", "NAT encrypts IP addresses for security purposes", "NAT is a routing protocol that finds the best path to a destination"],
+        answer: 1,
+        explanation: "NAT (defined in RFC 3022) allows an entire private network (e.g., 192.168.1.0/24) to appear as a single public IP address on the internet. PAT (Port Address Translation, overloaded NAT) uses unique source port numbers to track which private host each outbound connection belongs to. This conserves IPv4 public addresses." },
+
+      { q: "What DNS record type maps a domain name to an IPv4 address?",
+        options: ["AAAA record", "A record", "CNAME record", "MX record"],
+        answer: 1,
+        explanation: "An A (Address) record maps a hostname to an IPv4 address (e.g., example.com → 93.184.216.34). AAAA records map to IPv6 addresses. CNAME (Canonical Name) creates an alias from one name to another. MX (Mail Exchanger) specifies mail servers for a domain. PTR records are reverse lookups (IP → hostname)." },
+
+      { q: "What DNS record type is used to specify the mail server responsible for a domain?",
+        options: ["A record", "CNAME record", "MX (Mail Exchanger) record", "TXT record"],
+        answer: 2,
+        explanation: "MX records identify mail servers that accept email for a domain. They have a priority value — lower number = higher priority. Multiple MX records provide redundancy. Email is sent to the highest-priority (lowest number) MX record first. If it fails, the sender tries the next MX record." },
+
+      { q: "What is a CNAME DNS record used for?",
+        options: ["Creating an alias from one hostname to another — the canonical name", "Mapping an IP address to a domain name (reverse lookup)", "Specifying which name server is authoritative for a domain", "Defining the time-to-live for all records in a zone"],
+        answer: 0,
+        explanation: "A CNAME (Canonical Name) record creates an alias. For example, www.example.com CNAME → example.com means www resolves to wherever example.com points. CNAMEs cannot be used at a zone apex (the root domain). Changing the A record of the target automatically updates all aliases pointing to it." },
+
+      { q: "What is a PTR (pointer) record in DNS?",
+        options: ["A record that points to the primary DNS server", "A reverse lookup record that maps an IP address back to a hostname — stored in the in-addr.arpa domain for IPv4", "A record that points one domain to another domain", "A record that identifies the mail server for a domain"],
+        answer: 1,
+        explanation: "PTR records enable reverse DNS lookups: given an IP, return the hostname. IPv4 PTR records are stored under the in-addr.arpa domain in reverse order (e.g., 34.216.184.93.in-addr.arpa → example.com). IPv6 uses ip6.arpa. PTR records are used by spam filters and logging systems to verify sender identity." },
+
+      { q: "What is the purpose of a TXT DNS record?",
+        options: ["To store text descriptions of servers for human administrators", "To hold arbitrary text data — commonly used for domain ownership verification, SPF (Sender Policy Framework), DKIM keys, and DMARC policies", "To define the text encoding used in DNS zone files", "To store the names of all hosts in a DNS zone as plain text"],
+        answer: 1,
+        explanation: "TXT records store arbitrary text. Common uses: SPF (specifies which mail servers are authorised to send email for a domain), DKIM (stores public keys used to verify email signatures), DMARC (email authentication policy), and domain verification (proving domain ownership to Google, Microsoft 365, etc.)." },
+
+      { q: "What is the purpose of NTP (Network Time Protocol)?",
+        options: ["To translate domain names to IP addresses", "To synchronise clocks across networked devices to a common time source — essential for logging, authentication (Kerberos requires clocks within 5 minutes), and certificate validation", "To monitor network devices and collect performance statistics", "To manage IP address assignments in large networks"],
+        answer: 1,
+        explanation: "NTP (port 123, UDP) synchronises clocks hierarchically using stratum levels: stratum 0 (atomic clocks/GPS), stratum 1 (NTP servers synced to stratum 0), stratum 2 (devices synced to stratum 1), etc. Accurate time is critical for log correlation (forensics), Kerberos authentication, and TLS certificate validity checking." },
+
+      { q: "What does Syslog do and what port does it use?",
+        options: ["System configuration protocol on port 161 — manages router/switch configurations", "A standard for device logging — sends log messages to a centralised Syslog server on UDP port 514 (or TCP 6514 for secure Syslog)", "A service on port 80 that provides system health dashboards", "A backup protocol on port 21 that archives system configuration files"],
+        answer: 1,
+        explanation: "Syslog (RFC 5424) allows routers, switches, firewalls, and servers to send log messages to a centralised Syslog server for storage, analysis, and alerting. Messages have severity levels (0=Emergency to 7=Debug). Syslog servers (like Graylog, Splunk, ELK) aggregate logs for SIEM and troubleshooting. Port 514 UDP; port 6514 TCP with TLS." },
+
+      { q: "What is SNMP used for and what are the three versions?",
+        options: ["SNMP monitors and manages network devices by querying their MIB variables — SNMPv1 and v2c use community strings (insecure); SNMPv3 adds authentication and encryption", "SNMP sends email alerts when network devices fail — v1 is text, v2 is HTML, v3 is encrypted", "SNMP is a routing protocol — v1 is distance-vector, v2 is link-state, v3 is hybrid", "SNMP assigns IP addresses dynamically — v1 IPv4 only, v2 IPv4/IPv6, v3 IPv6 only"],
+        answer: 0,
+        explanation: "SNMP allows a Network Management System (NMS) to poll network devices (agents) for MIB (Management Information Base) variables — interface statistics, CPU usage, error counts. SNMPv1 and v2c use plaintext community strings ('public'/'private') — easily sniffed. SNMPv3 adds MD5/SHA authentication and DES/AES encryption for secure management." },
+
+      { q: "What is the difference between unicast, broadcast, and multicast addressing?",
+        options: ["Unicast: one-to-one; broadcast: one-to-all on a subnet; multicast: one-to-many subscribed receivers", "Unicast: encrypted; broadcast: unencrypted; multicast: partially encrypted", "Unicast: Layer 2 only; broadcast: Layer 3 only; multicast: Layer 4 only", "There is no difference — all three send data to all devices on a network"],
+        answer: 0,
+        explanation: "Unicast: traffic from one source to one specific destination (most network traffic). Broadcast: traffic to all devices on a subnet (destination 255.255.255.255 or subnet broadcast; does not cross routers). Multicast: traffic from one source to a group of interested receivers (e.g., 224.0.0.0/4 range for IPv4) — more efficient than broadcast for streaming." },
+
+      // ── DOMAIN 1: NETWORK TOPOLOGIES & TYPES ────────────────────────────
+      { q: "In a star topology, what is the central connecting device and what happens if it fails?",
+        options: ["A hub or switch is the centre; if it fails, the entire network loses connectivity", "A router is the centre; if it fails, only internet access is lost — local traffic continues", "A cable runs through the centre; only devices near the break are affected", "There is no single central device — star topology is fully distributed"],
+        answer: 0,
+        explanation: "Star topology connects all devices to a central switch or hub. This is the most common wired LAN topology. Advantage: a single device failure doesn't affect others. Disadvantage: the central switch is a single point of failure — if it fails, all connected devices lose network access. Redundant switches or stacking mitigates this." },
+
+      { q: "What is a mesh topology and what are its two types?",
+        options: ["A mesh uses a central hub — full mesh has redundant hubs; partial mesh has a single hub", "A mesh connects every device to every other device (full mesh) for maximum redundancy, or connects some devices to multiple others (partial mesh) — full mesh is expensive but highly fault-tolerant", "A mesh topology is the same as a bus topology with extra devices", "A mesh topology connects devices in a ring with cross-links for redundancy"],
+        answer: 1,
+        explanation: "Full mesh: every node connects to every other node — N×(N-1)/2 connections for N nodes. Extremely resilient (multiple path redundancy) but expensive and complex. Used for critical WAN links. Partial mesh: some nodes have multiple connections for redundancy; others have single connections. More practical for large networks." },
+
+      { q: "What is the difference between a LAN, MAN, and WAN?",
+        options: ["They are the same — just different marketing terms used by different vendors", "LAN (Local Area Network): single building/site; MAN (Metropolitan Area Network): city-wide; WAN (Wide Area Network): spans large geographic areas, countries, or the globe", "LAN uses wireless; MAN uses fibre; WAN uses satellite only", "LAN is private; MAN is public; WAN is semi-public"],
+        answer: 1,
+        explanation: "LAN: typically a single building or campus, owned by the organisation, using Ethernet/Wi-Fi. MAN: city-wide, may use fibre or leased lines — universities, city governments. WAN: geographically dispersed sites connected via service providers (MPLS, leased lines, internet VPN) — the internet itself is the ultimate WAN. CAN (Campus Area Network) spans a campus." },
+
+      { q: "What is a SAN (Storage Area Network)?",
+        options: ["A wireless network dedicated to IoT sensors and storage monitoring devices", "A high-speed dedicated network that connects servers to shared storage devices (disk arrays, tape libraries) — isolating storage traffic from the general LAN", "A network that uses satellite links for wide-area file storage", "A network layer protocol for managing RAID arrays"],
+        answer: 1,
+        explanation: "A SAN is a dedicated, high-performance network for storage traffic, typically using Fibre Channel (FC) or iSCSI over Ethernet. Storage appears as locally attached to servers. SANs enable features like shared storage pools, storage snapshots, and live VM migration. NAS (Network Attached Storage) differs — it shares files over standard Ethernet using NFS or SMB." },
+
+      // ── DOMAIN 2: NETWORK IMPLEMENTATION — ROUTING ──────────────────────
+      { q: "What is the difference between static routing and dynamic routing?",
+        options: ["Static routes are for IPv4; dynamic routes are for IPv6", "Static routes are manually configured by an administrator and do not change; dynamic routing protocols (RIP, OSPF, EIGRP, BGP) automatically discover and adapt routes in response to network changes", "Static routing is faster; dynamic routing is more secure", "They are the same — the terms describe the same concept"],
+        answer: 1,
+        explanation: "Static routes are simple, predictable, and require no bandwidth for routing updates — ideal for small networks or stub networks. Dynamic routing protocols discover peers, exchange topology information, and converge automatically when links fail. The trade-off: dynamic routing adds overhead but provides automatic failover — essential for large or redundant networks." },
+
+      { q: "What type of routing protocol is OSPF and how does it determine the best path?",
+        options: ["Distance-vector — counts the number of hops to the destination", "Link-state — each router builds a complete topology map (using LSAs) and uses Dijkstra's algorithm to calculate the shortest path based on cost (typically bandwidth)", "Path-vector — uses AS path attributes to avoid routing loops", "Hybrid — combines distance-vector and link-state with TCP as the transport"],
+        answer: 1,
+        explanation: "OSPF (Open Shortest Path First) is a link-state IGP. Each router floods Link State Advertisements (LSAs) so all routers build an identical topology database (LSDB). Dijkstra's Shortest Path First algorithm calculates the best route based on cost (reference bandwidth / link bandwidth). OSPF uses multicast (224.0.0.5/6), supports VLSM, and has fast convergence." },
+
+      { q: "What is RIP (Routing Information Protocol) and what is its maximum hop count?",
+        options: ["A link-state protocol with a maximum of 255 hops", "A distance-vector protocol that uses hop count as its metric with a maximum of 15 hops — destinations 16+ hops away are considered unreachable", "A path-vector protocol used between ISPs with no hop limit", "A hybrid protocol combining hop count and bandwidth with a limit of 100 hops"],
+        answer: 1,
+        explanation: "RIP is a distance-vector protocol that counts hops (routers) to reach a destination. Maximum metric is 15; 16 = infinity (unreachable). This limits RIP to small networks. RIPv1 broadcasts routing updates; RIPv2 multicasts and supports VLSM and authentication. RIPng is for IPv6. RIP has slow convergence — largely replaced by OSPF and EIGRP." },
+
+      { q: "What is BGP (Border Gateway Protocol) and where is it used?",
+        options: ["An interior gateway protocol used within a corporate network", "The internet's exterior gateway protocol — a path-vector protocol used between Autonomous Systems (ISPs, large enterprises) to exchange reachability information and route internet traffic", "A distance-vector protocol used in small office networks", "A link-state protocol that replaced OSPF in modern data centres"],
+        answer: 1,
+        explanation: "BGP (Border Gateway Protocol) is the only EGP in widespread use — it is the protocol that runs the internet. BGP exchanges routing information between Autonomous Systems (ASes — organisations with their own IP blocks and AS numbers). iBGP runs within an AS; eBGP runs between ASes. BGP uses TCP port 179 and selects paths based on policy attributes (AS-PATH, MED, LOCAL_PREF)." },
+
+      { q: "What is administrative distance (AD) in routing?",
+        options: ["The physical distance in metres between two routers", "A value that indicates the trustworthiness of a routing source — lower AD is preferred when multiple protocols advertise a route to the same destination (Connected=0, Static=1, OSPF=110, RIP=120)", "The maximum number of routers a packet can traverse", "The bandwidth of the link between two routers"],
+        answer: 1,
+        explanation: "When multiple routing protocols learn routes to the same destination, the router uses AD to select which to install in the routing table. Connected interfaces have AD 0 (most trusted), static routes have AD 1, EIGRP = 90, OSPF = 110, RIP = 120. A lower AD wins regardless of the metric used by each protocol." },
+
+      // ── DOMAIN 2: SWITCHING & VLANs ─────────────────────────────────────
+      { q: "What is a VLAN and what problem does it solve?",
+        options: ["A virtual local area network that extends a LAN across the internet", "A logical network segment created within a switch that isolates broadcast domains — allowing one physical switch to function as multiple separate switches for security and traffic management", "A wireless network technology using virtual access points", "A VLAN is a VPN connection between two remote office locations"],
+        answer: 1,
+        explanation: "VLANs divide a single physical switch into multiple isolated broadcast domains. Traffic in VLAN 10 (e.g., Engineering) cannot communicate with VLAN 20 (Accounting) without passing through a router or Layer 3 switch. Benefits: reduced broadcast traffic, improved security, logical grouping regardless of physical location, and simplified management." },
+
+      { q: "What is a trunk port (802.1Q) on a switch?",
+        options: ["A port that connects to the internet uplink", "A port that carries traffic for multiple VLANs simultaneously by tagging frames with 802.1Q headers identifying which VLAN each frame belongs to", "A port that provides the highest bandwidth connection to a server", "A port that is permanently assigned to a single VLAN"],
+        answer: 1,
+        explanation: "802.1Q trunk ports carry tagged frames for multiple VLANs. Each Ethernet frame is tagged with a 4-byte 802.1Q header containing the VLAN ID (1-4094). Switches strip the tag before delivering to end devices. Trunk links connect switch-to-switch and switch-to-router. An access port carries only one VLAN — for end devices like PCs." },
+
+      { q: "What is Spanning Tree Protocol (STP) used for?",
+        options: ["To ensure optimal bandwidth utilisation by bonding multiple links", "To prevent Layer 2 network loops by blocking redundant switch links while keeping them in standby for failover", "To encrypt traffic between switches on a VLAN trunk", "To manage the spanning of VLANs across multiple switches"],
+        answer: 1,
+        explanation: "Without STP, redundant switch links would create loops where broadcast frames circulate indefinitely (broadcast storm), consuming all bandwidth. STP (802.1D) elects a Root Bridge and blocks redundant ports (puts them in Blocking state). If the active path fails, the blocked port transitions to Forwarding. RSTP (802.1w) converges in seconds vs STP's 30-50 seconds." },
+
+      { q: "What is the difference between half-duplex and full-duplex Ethernet?",
+        options: ["Half-duplex supports Gigabit speeds; full-duplex supports only 100 Mbps", "Half-duplex can only transmit OR receive at one time (CSMA/CD required); full-duplex can transmit and receive simultaneously — doubling effective bandwidth and eliminating collisions", "Full-duplex requires more expensive cables; half-duplex works on any cable", "Half-duplex is wireless only; full-duplex is wired only"],
+        answer: 1,
+        explanation: "Half-duplex: one direction at a time — shared collision domain, CSMA/CD required. Used with hubs. Full-duplex: simultaneous send and receive — no collisions possible, no CSMA/CD. All modern switches support full-duplex. A duplex mismatch (one side set to half, other to full) causes collisions and severely degraded performance." },
+
+      { q: "What is link aggregation (LACP / 802.3ad) and what does it provide?",
+        options: ["Combining multiple physical links into a single logical link for increased bandwidth and/or redundancy between switches or from switch to server", "Aggregating IP addresses from multiple subnets into a summary route", "Bonding two routers together to share routing table responsibilities", "A way to connect multiple access points to appear as one wireless network"],
+        answer: 0,
+        explanation: "Link aggregation (IEEE 802.3ad / LACP) bundles multiple physical Ethernet links into one logical interface. Benefits: increased bandwidth (e.g., 4×1G = 4G logical), redundancy (if one link fails, the others continue), and load balancing across the links. LACP (Link Aggregation Control Protocol) is the standards-based dynamic negotiation protocol." },
+
+      { q: "What is port security on a switch used for?",
+        options: ["To restrict which TCP/UDP ports can be used by hosts on a switch port", "To limit the number of MAC addresses that can connect to a switch port — and to take a configured action (shutdown, restrict, protect) if a violation occurs, preventing unauthorised devices from connecting", "To encrypt all traffic on a specific switch port", "To prioritise certain switch ports for QoS"],
+        answer: 1,
+        explanation: "Port security restricts switch ports to specific MAC addresses or a maximum number of MAC addresses. If an unauthorised MAC connects, the port can: Shutdown (disable the port — sends a SNMP trap), Restrict (drops frames and logs violation), or Protect (silently drops frames). Prevents casual unauthorised device connections but is not a strong security control alone." },
+
+      // ── DOMAIN 2: WIRELESS ───────────────────────────────────────────────
+      { q: "What is the maximum theoretical throughput of 802.11ac (Wi-Fi 5)?",
+        options: ["600 Mbps", "1.3 Gbps on a single stream", "3.5 Gbps using MU-MIMO and wide channels", "9.6 Gbps"],
+        answer: 2,
+        explanation: "802.11ac (Wi-Fi 5) operates on 5 GHz only and can achieve up to 3.5 Gbps using MU-MIMO (4×4, serving multiple clients simultaneously), 8 spatial streams, and 160 MHz channel bonding. Real-world throughput is lower due to interference, client capabilities, and distance. Wi-Fi 6 (802.11ax) brings 9.6 Gbps and 2.4/6 GHz support." },
+
+      { q: "What is MU-MIMO in wireless networking?",
+        options: ["Multi-User Multiple Input Multiple Output — allows a Wi-Fi access point to serve multiple clients simultaneously on separate spatial streams rather than round-robin time-sharing", "Multi-Unit Multiple Internet Main Output — allows multiple APs to share the same SSID", "Maximum Uplink Multiple Input Multiple Output — increases upload speeds", "Multi-User Managed Internet Mobile Output — a cellular technology"],
+        answer: 0,
+        explanation: "MU-MIMO allows a single AP to transmit to multiple clients simultaneously using multiple antennas and spatial streams. SU-MIMO (single-user) can only serve one client at a time. 802.11ac introduced downlink MU-MIMO (AP to clients). 802.11ax (Wi-Fi 6) added uplink MU-MIMO (clients to AP) and OFDMA for even more efficient multi-client service." },
+
+      { q: "What is the difference between 2.4 GHz and 5 GHz Wi-Fi bands?",
+        options: ["2.4 GHz is faster; 5 GHz has longer range", "2.4 GHz has longer range and better obstacle penetration but fewer channels and more interference; 5 GHz has shorter range but more non-overlapping channels and less interference", "5 GHz requires WPA3; 2.4 GHz only supports WPA2", "They are physically separate networks with different SSIDs always"],
+        answer: 1,
+        explanation: "2.4 GHz: better range (lower frequency = longer wavelength = better penetration), but only 3 non-overlapping channels (1, 6, 11 in the US) and heavy congestion from neighbouring networks, microwaves, and Bluetooth. 5 GHz: 25 non-overlapping channels (in the US), much higher throughput, but shorter range and worse wall penetration." },
+
+      { q: "What wireless security protocol replaced WEP and is currently the minimum acceptable standard?",
+        options: ["WEP2", "WPA (Wi-Fi Protected Access) with TKIP", "WPA2 with AES/CCMP", "WPA3"],
+        answer: 2,
+        explanation: "WEP (Wired Equivalent Privacy) uses RC4 with static keys and is trivially crackable in minutes. WPA/TKIP was a stopgap and is now deprecated. WPA2 (802.11i) with AES/CCMP is the minimum acceptable current standard. WPA3 is the newest and strongest — use it where supported. WPA3 Personal uses SAE instead of PSK, resisting offline dictionary attacks." },
+
+      { q: "What is an evil twin (rogue access point) attack?",
+        options: ["A switch attack where an attacker connects a hub to create collisions", "A wireless attack where an attacker sets up a fraudulent AP with the same SSID as a legitimate network to lure users into connecting — allowing credential theft and MITM interception", "An ARP attack that poisons the cache of wireless clients", "A deauthentication attack that disconnects users from their AP"],
+        answer: 1,
+        explanation: "The evil twin AP broadcasts the same SSID (and often a stronger signal) as the legitimate AP. Users' devices automatically connect (especially if they've connected before). The attacker can then intercept credentials, launch MITM attacks, or serve fake captive portals. Mitigation: 802.1X/RADIUS authentication and certificate validation, which won't succeed on a rogue AP." },
+
+      { q: "What is a wireless deauthentication attack?",
+        options: ["Overloading an AP with authentication requests to deny service", "Sending forged 802.11 deauthentication management frames (which are unauthenticated in WPA2) to disconnect clients from an AP — often used to capture WPA2 handshakes for offline cracking", "Breaking WPA3 encryption using a brute-force decipher technique", "Physically removing users' devices from the authenticated client list"],
+        answer: 1,
+        explanation: "802.11 deauthentication frames are management frames that in WPA2 are not authenticated — an attacker can forge them with any source MAC to disconnect clients. This forces clients to reconnect, allowing capture of the WPA2 4-way handshake for offline dictionary attack. WPA3 with Management Frame Protection (MFP/802.11w) prevents this attack." },
+
+      // ── DOMAIN 2: CABLING ────────────────────────────────────────────────
+      { q: "What is the maximum distance of a standard Cat 5e/6 Ethernet cable for 1 Gbps?",
+        options: ["55 metres", "100 metres", "150 metres", "200 metres"],
+        answer: 1,
+        explanation: "The IEEE 802.3 standard specifies a maximum segment length of 100 metres (328 feet) for Cat 5e and Cat 6 at 1 Gbps (1000BASE-T). Cat 6 supports 10 Gbps but only up to 55 metres. Cat 6a extends 10 Gbps to the full 100 metres. Beyond 100 m, a switch or fibre is required." },
+
+      { q: "What is the difference between single-mode fibre (SMF) and multimode fibre (MMF)?",
+        options: ["SMF uses copper conductors; MMF uses glass fibres", "SMF has a narrow core (8-10 µm) and carries light in a single path — used for long distances (up to 40+ km); MMF has a wider core (50-62.5 µm) allowing multiple light paths — used for shorter distances (up to ~550 m at 10 Gbps)", "MMF is used outdoors; SMF is used indoors only", "SMF supports 10 Gbps; MMF only supports 1 Gbps"],
+        answer: 1,
+        explanation: "SMF (yellow jacket, 8-10 µm core): uses a laser as the light source, carries one mode of light with minimal dispersion, supports 10+ km distances — used for inter-building and campus backbone and long-haul. MMF (orange or aqua jacket, 50 or 62.5 µm core): uses LEDs or VCSELs, multiple light modes cause modal dispersion limiting distance — used for data centre and intra-building runs." },
+
+      { q: "What connector type does modern fibre optic cabling typically use in data centres?",
+        options: ["ST (straight tip) — a bayonet-style round connector", "SC (subscriber connector) — a square push-pull connector", "LC (lucent connector) — a small form-factor push-pull connector used in SFP transceivers and high-density panels", "FC (ferrule connector) — a threaded round connector"],
+        answer: 2,
+        explanation: "LC (Lucent Connector/Little Connector) is the dominant fibre connector in modern data centres — small enough for high-density patch panels and SFP/SFP+ modules in switches and routers. SC connectors (square, push-pull) are larger and used in older installations and some LANs. ST (bayonet round) and FC (threaded) are older types." },
+
+      { q: "What is the purpose of a straight-through vs crossover Ethernet cable?",
+        options: ["Straight-through connects similar device types (PC-PC); crossover connects different device types (PC-switch)", "Straight-through connects different device types (PC-switch, switch-router); crossover connects like device types (PC-PC, switch-switch) — though modern devices use auto-MDI/MDIX to detect and adapt automatically", "They are the same cable — the terms are interchangeable", "Straight-through is Cat 5e; crossover is Cat 6"],
+        answer: 1,
+        explanation: "Traditional Ethernet: straight-through (T568A at both ends or T568B at both ends) connects PC-to-switch, switch-to-router. Crossover (T568A one end, T568B other end) connects PC-to-PC or switch-to-switch. Modern equipment uses Auto-MDI/MDIX to automatically detect the cable type and adjust — making the distinction largely irrelevant in practice." },
+
+      // ── DOMAIN 3: NETWORK OPERATIONS ────────────────────────────────────
+      { q: "What is a network baseline and why is it important?",
+        options: ["The lowest acceptable network speed for a given class of user", "A documented record of normal network performance metrics (bandwidth utilisation, latency, error rates, device CPU) over time — used to identify when performance deviates from the norm", "The initial configuration applied to all new network devices", "A regulatory compliance standard for network performance"],
+        answer: 1,
+        explanation: "A baseline captures what 'normal' looks like — traffic patterns, device resource usage, error rates — before a problem occurs. When an issue arises, comparing current metrics to the baseline quickly reveals what has changed and guides troubleshooting. Without a baseline, distinguishing normal from abnormal is guesswork." },
+
+      { q: "What is NetFlow and what is it used for?",
+        options: ["A wireless monitoring protocol for measuring AP signal strength", "A Cisco-developed protocol (also standardised as IPFIX) that collects metadata about IP traffic flows through a router or switch — used for traffic analysis, bandwidth monitoring, and security investigation", "A network protocol for synchronising configuration files across devices", "A protocol for measuring cable signal quality and identifying breaks"],
+        answer: 1,
+        explanation: "NetFlow exports per-flow statistics (source/destination IP, ports, protocol, bytes, packets, timestamps) from network devices to a NetFlow collector for analysis. It answers questions like 'which hosts are consuming the most bandwidth?' and 'are there unusual traffic patterns indicating data exfiltration?' without capturing full packet payloads." },
+
+      { q: "What is a network topology diagram and why should it be maintained?",
+        options: ["A photograph of the server room for insurance purposes", "A visual map showing network devices, connections, IP addresses, and their relationships — essential for troubleshooting, planning changes, understanding traffic flow, and onboarding new staff", "A chart showing monthly bandwidth usage trends", "A document listing all employee device serial numbers"],
+        answer: 1,
+        explanation: "Network diagrams come in two types: logical (IP addresses, VLANs, routing, protocols) and physical (device locations, cable runs, port connections). Accurate, up-to-date diagrams are invaluable: they enable rapid troubleshooting ('where does this cable go?'), capacity planning, and understanding the impact of proposed changes." },
+
+      { q: "What is the purpose of an IP address management (IPAM) system?",
+        options: ["To manage internet payment systems for cloud services", "To track and manage IP address allocation across a network — providing visibility into which IPs are in use, avoiding conflicts, and integrating with DHCP and DNS for automated management", "To monitor IP camera systems in physical security", "To manage software licences tied to IP addresses"],
+        answer: 1,
+        explanation: "IPAM tools (like Infoblox, ManageEngine, SolarWinds IPAM) provide a centralised database of all IP allocations — subnets, ranges, static assignments, and DHCP leases. They prevent IP conflicts, show utilisation, generate reports, and often integrate with DHCP and DNS to automate record management. Essential in large environments where spreadsheet tracking breaks down." },
+
+      { q: "What is a change management process in networking and why is it important?",
+        options: ["A process for renaming network devices to follow naming conventions", "A formal procedure for requesting, documenting, reviewing, testing, approving, implementing, and recording changes to network infrastructure — preventing uncontrolled changes that cause outages", "A method for tracking employee departures and their device access revocations", "A billing process for tracking bandwidth usage changes month-over-month"],
+        answer: 1,
+        explanation: "Many network outages result from unauthorised or poorly tested changes ('works in dev, breaks in prod'). Change management enforces: RFC (Request for Change) documentation, risk assessment, approval by a CAB (Change Advisory Board), rollback plans, change windows (maintenance windows), and post-implementation review. It is a core ITIL practice." },
+
+      { q: "What is high availability (HA) in networking and what techniques achieve it?",
+        options: ["Having a 99.999% ('five nines') uptime guarantee from an ISP", "Designing a network to remain operational despite component failures — using redundant hardware, redundant links (LACP, dual uplinks), redundant power (UPS, dual PSU), and protocols like HSRP/VRRP to eliminate single points of failure", "Having more than five network administrators on call 24/7", "Distributing servers across multiple countries for global access"],
+        answer: 1,
+        explanation: "HA requires eliminating single points of failure: redundant switches (HSRP/VRRP provides a virtual gateway IP shared between two routers), dual uplinks (STP/RSTP or LACP), dual power paths (UPS, dual PSU, redundant PDUs), redundant internet connections, and clustering critical servers. Five-nines (99.999%) uptime = ~5 minutes downtime per year." },
+
+      { q: "What is HSRP (Hot Standby Router Protocol) used for?",
+        options: ["To provide redundant internet connections via two ISPs simultaneously", "To create a virtual default gateway IP address shared between two routers — so that if the active router fails, the standby router takes over the gateway function transparently", "To balance traffic loads across multiple WAN links in real time", "To synchronise routing table updates between routers in an OSPF network"],
+        answer: 1,
+        explanation: "HSRP (Cisco proprietary) and VRRP (standards-based, RFC 5798) provide first-hop redundancy. Two routers share a virtual IP address (the default gateway for clients). One is Active, the other Standby. Clients point to the virtual IP. If the Active fails, the Standby takes over in seconds — clients are unaware of the change." },
+
+      // ── DOMAIN 4: NETWORK SECURITY ───────────────────────────────────────
+      { q: "What does NAC (Network Access Control) do?",
+        options: ["Limits the total bandwidth used by any single network device", "Enforces security policies before granting network access — checking devices for OS patch level, antivirus status, and compliance before allowing them onto the network", "Controls which VLANs each user can access based on their username", "Monitors all outbound traffic for data exfiltration"],
+        answer: 1,
+        explanation: "NAC (also called 802.1X) evaluates the security posture of connecting devices before granting network access. A non-compliant device (missing patches, no AV, unencrypted disk) can be quarantined to a remediation VLAN. NAC integrates with RADIUS, Active Directory, and MDM systems. Common solutions: Cisco ISE, Aruba ClearPass." },
+
+      { q: "What is 802.1X and how does it work?",
+        options: ["A Ethernet cable standard that supports 10 Gbps", "A port-based Network Access Control standard that requires devices to authenticate (via RADIUS) before they are granted network access — the switch acts as the authenticator between the device (supplicant) and the RADIUS server (authentication server)", "A wireless encryption protocol equivalent to WPA3", "A VLAN trunking protocol used between switches"],
+        answer: 1,
+        explanation: "802.1X uses three roles: Supplicant (the client device), Authenticator (switch or AP), and Authentication Server (RADIUS). The switch keeps the port in an unauthorised state, allowing only EAP authentication traffic until RADIUS confirms identity. Upon success, the switch opens the port. This prevents unauthorised devices from even getting an IP address." },
+
+      { q: "What is the difference between RADIUS and TACACS+?",
+        options: ["RADIUS is for network device administration; TACACS+ is for user authentication only", "RADIUS combines authentication and authorisation into one response and uses UDP; TACACS+ (Cisco) separates authentication, authorisation, and accounting into three distinct steps and uses TCP for reliable delivery", "They are the same protocol with different vendor names", "RADIUS uses AES encryption; TACACS+ uses MD5 only"],
+        answer: 1,
+        explanation: "RADIUS (UDP 1812/1813) is widely used for user authentication (Wi-Fi, VPN, 802.1X) and combines Auth + Authz. TACACS+ (TCP 49, Cisco proprietary) separates Authentication, Authorisation, and Accounting — allowing granular command-level authorisation (useful for controlling what commands each admin can run on network devices). TACACS+ encrypts the entire payload; RADIUS only encrypts the password field." },
+
+      { q: "What is ACL (Access Control List) in networking and what does it do?",
+        options: ["A list of users authorised to access a file server share", "A set of rules on a router or firewall that permit or deny traffic based on criteria such as source/destination IP, protocol, and port number", "A table mapping MAC addresses to switch ports", "A list of approved SSL certificates for HTTPS inspection"],
+        answer: 1,
+        explanation: "ACLs (on Cisco routers: standard ACLs filter source IP only; extended ACLs filter source IP, destination IP, protocol, and port) are applied to router interfaces in an inbound or outbound direction. Packets are matched against rules sequentially — the first match wins. An implicit 'deny all' at the end blocks unmatched traffic. Firewall rules work similarly." },
+
+      { q: "What is ARP poisoning (ARP spoofing) and how does it enable MITM attacks?",
+        options: ["Flooding the network with ARP requests to exhaust the DHCP pool", "Sending forged ARP replies to associate the attacker's MAC with a legitimate IP (e.g., the default gateway) — causing traffic intended for the gateway to be sent to the attacker instead, enabling interception and modification", "Intercepting DNS requests to redirect users to malicious websites", "Overloading switch CAM tables to force traffic to all ports"],
+        answer: 1,
+        explanation: "ARP has no authentication — any device can send an ARP reply claiming any IP. An attacker replies to ARP requests with their own MAC for a legitimate IP (like the default gateway or another host). Victims update their ARP cache and send traffic to the attacker. The attacker forwards it (maintaining connectivity) while intercepting or modifying packets. MITM via ARP poisoning. Mitigated by Dynamic ARP Inspection (DAI)." },
+
+      { q: "What is MAC flooding and what does it aim to achieve?",
+        options: ["Sending thousands of forged ARP packets to poison the ARP cache of every host", "Overwhelming a switch's CAM (MAC address) table with fake MAC addresses — causing the switch to fail open and flood traffic to all ports like a hub, enabling passive sniffing of all traffic", "Flooding all ports with broadcast traffic to create a denial of service", "Sending malformed Ethernet frames to crash switch firmware"],
+        answer: 1,
+        explanation: "Switch CAM tables have limited capacity. By flooding the switch with frames containing thousands of fake source MACs, the attacker fills the table. The switch can no longer look up legitimate MACs and falls back to flooding all frames to all ports (fail-open behaviour). An attacker connected to any port can then capture all traffic. Mitigated by port security limiting MACs per port." },
+
+      { q: "What is VLAN hopping and what are the two main techniques?",
+        options: ["Physically moving a device between VLAN-segmented areas of an office", "Gaining unauthorised access to traffic on a different VLAN — using switch spoofing (tricking a switch into establishing a trunk link) or double tagging (embedding a second 802.1Q tag inside the first)", "Bypassing ACLs by routing traffic between VLANs without authorisation", "Migrating VLAN configurations from one switch to another automatically"],
+        answer: 1,
+        explanation: "VLAN hopping techniques: 1) Switch spoofing — attacker's device sends DTP (Dynamic Trunking Protocol) frames to negotiate a trunk link with the switch, gaining access to all VLANs. Prevention: disable DTP on all access ports (switchport mode access, switchport nonegotiate). 2) Double tagging — embed target VLAN tag inside native VLAN tag; the first switch strips the outer tag, the second forwards to the target VLAN. Prevention: change the native VLAN from 1 to an unused VLAN." },
+
+      { q: "What is DHCP snooping and what attack does it prevent?",
+        options: ["A protocol that scans DHCP traffic for bandwidth hogs", "A switch security feature that validates DHCP messages — designating trusted ports (uplinks to DHCP servers) and untrusted ports (access ports), dropping DHCP server messages from untrusted ports to prevent rogue DHCP servers", "A firewall rule blocking DHCP traffic from external networks", "A monitoring tool that logs all DHCP leases for auditing"],
+        answer: 1,
+        explanation: "A rogue DHCP server can assign clients incorrect default gateways (pointing to the attacker) or false DNS servers, enabling MITM. DHCP snooping marks switch ports connected to the legitimate DHCP server as Trusted — only those ports can send DHCP offers/acks. Any DHCP server response on an Untrusted port is dropped. Also builds a binding table used by Dynamic ARP Inspection." },
+
+      { q: "What is Dynamic ARP Inspection (DAI)?",
+        options: ["An IP address conflict detection mechanism", "A switch feature that uses the DHCP snooping binding table to validate ARP packets — dropping ARP replies where the IP-to-MAC mapping doesn't match the binding table, preventing ARP spoofing", "A protocol that dynamically updates ARP caches across all switches", "An intrusion detection system specialising in ARP traffic analysis"],
+        answer: 1,
+        explanation: "DAI intercepts ARP packets on untrusted ports and validates the IP-MAC binding against the DHCP snooping database (or a manually configured ARP ACL). If an ARP reply claims an IP belongs to a MAC that doesn't match the binding table, DAI drops it. This prevents ARP poisoning/spoofing. Trusted ports (uplinks) bypass DAI inspection." },
+
+      { q: "What types of VPN are commonly used for remote access?",
+        options: ["SSL/TLS VPN (clientless browser-based or client-based, e.g., Cisco AnyConnect) and IPsec VPN (client-based, provides full network-layer encryption) — both create encrypted tunnels from remote users to the corporate network", "PPTP only — all other VPNs are deprecated", "SSH tunnels only — the only secure VPN option", "L2TP only — as it is the most widely supported standard"],
+        answer: 0,
+        explanation: "SSL VPNs use TLS (port 443) and work through firewalls easily — clientless SSL VPN provides browser-based access to web apps; client-based provides full network access. IPsec VPNs use IKE (UDP 500) and ESP (protocol 50) for Layer 3 encryption — full network access, but firewalls must allow UDP 500 and protocol 50. PPTP is deprecated (weak security). L2TP/IPsec combines L2TP tunnelling with IPsec encryption." },
+
+      { q: "What is IPsec and what are its two modes?",
+        options: ["Internet Protocol Security — a suite of protocols for authenticating and encrypting IP packets; Transport mode encrypts only the payload (used end-to-end between hosts); Tunnel mode encrypts the entire original IP packet (used for VPN gateways)", "IP Secure — a single protocol that encrypts the TCP/IP header only", "A Cisco proprietary VPN protocol with Layer 2 and Layer 3 modes", "Internet Protocol Security — it has three modes: tunnel, transport, and hybrid"],
+        answer: 0,
+        explanation: "IPsec uses AH (Authentication Header, protocol 51 — integrity only) and ESP (Encapsulating Security Payload, protocol 50 — encryption + integrity). Transport mode: only the payload is encrypted/authenticated; original IP header visible — used between two hosts. Tunnel mode: the entire original packet is encapsulated in a new IP packet — used between VPN gateways (site-to-site VPN)." },
+
+      { q: "What is a stateful firewall and how does it differ from a stateless packet filter?",
+        options: ["Stateful firewalls are more expensive; stateless are more secure", "A stateful firewall tracks the state of network connections (connection tracking table) and only allows return traffic for established connections — far smarter than stateless packet filters which evaluate each packet independently against fixed rules", "Stateless firewalls maintain session state; stateful firewalls process each packet independently", "They are the same — the terms are used interchangeably"],
+        answer: 1,
+        explanation: "A stateless packet filter applies rules to each packet in isolation (source IP, port, protocol) — easily bypassed by crafting packets that match allow rules. A stateful firewall tracks connection state (SYN, ESTABLISHED, FIN) and permits return traffic for allowed outbound connections without needing explicit inbound rules. NGFWs add deep packet inspection, application awareness, and IPS." },
+
+      { q: "What is a UTM (Unified Threat Management) appliance?",
+        options: ["A utility traffic monitor that records all network flows", "An all-in-one security appliance combining firewall, IPS, antivirus, web filtering, VPN, and spam filtering in a single device — simplifying security management for smaller organisations", "A network device that manages QoS for VoIP and video traffic", "A load balancer with built-in DDoS mitigation"],
+        answer: 1,
+        explanation: "UTM appliances (like Fortinet FortiGate, Sophos UTM, pfSense) integrate multiple security functions that would otherwise require separate devices. While convenient and cost-effective for SMBs, consolidation means a single device handles all security functions — a performance bottleneck under heavy load and a single point of failure if not redundant." },
+
+      // ── DOMAIN 5: NETWORK TROUBLESHOOTING ───────────────────────────────
+      { q: "What is CompTIA's recommended network troubleshooting methodology?",
+        options: ["Replace suspected hardware first, then test; revert if unsuccessful", "1) Identify the problem, 2) Establish a theory of probable cause, 3) Test the theory, 4) Establish a plan of action and implement a solution, 5) Verify full system functionality, 6) Document findings and lessons learned", "Run all diagnostic tools simultaneously and look for patterns", "Always assume the problem is physical (Layer 1) and work upward"],
+        answer: 1,
+        explanation: "CompTIA's six-step methodology: Identify (gather information, question users, identify symptoms, duplicate if possible, check recent changes). Theory (consider multiple causes, work OSI bottom-up or top-down). Test (confirm or deny theory). Plan and implement. Verify (test all affected functions). Document (record cause, solution, and prevention for future reference)." },
+
+      { q: "What does the PING command test and what does it use?",
+        options: ["TCP port connectivity to a specific application", "IP-layer reachability using ICMP Echo Request/Reply packets — testing if a host is reachable and measuring round-trip time (latency)", "DNS name resolution by querying the configured DNS server", "The route a packet takes through the network"],
+        answer: 1,
+        explanation: "Ping sends ICMP Echo Request packets and reports Echo Reply (success), Request Timeout (no reply), or Destination Unreachable (ICMP error). Useful for: basic connectivity (can I reach the host?), latency (round-trip time), packet loss %, and DNS testing (ping a hostname to test name resolution). Note: ICMP may be blocked by firewalls — a failed ping doesn't always mean the host is down." },
+
+      { q: "What does the TRACEROUTE (Linux/Mac) / TRACERT (Windows) command show?",
+        options: ["All active network connections on the local machine", "The path packets take from source to destination, showing each router hop's IP address and round-trip time — identifying where in the network a delay or failure occurs", "The current routing table of the local machine", "All devices discovered on the local subnet via ARP"],
+        answer: 1,
+        explanation: "Traceroute/tracert uses TTL manipulation: it sends packets with TTL=1 (first hop responds with TTL exceeded), then TTL=2 (second hop responds), etc. Each hop's IP and latency is recorded. When a specific hop shows high latency or '* * *' (no response), that is likely where the problem lies — either congestion, a policy blocking ICMP, or a failure." },
+
+      { q: "What does the NSLOOKUP command do?",
+        options: ["Shows the network interface speed and duplex settings", "Queries DNS servers to resolve domain names to IP addresses (and vice versa) — useful for diagnosing DNS problems", "Lists all open network connections and associated process IDs", "Displays the local ARP cache"],
+        answer: 1,
+        explanation: "Nslookup (or dig on Linux) queries the DNS resolver to look up A, AAAA, MX, CNAME, TXT, and other records. It can be pointed at a specific DNS server (nslookup hostname dns-server-ip) to test whether the issue is the client's configured server or DNS generally. The dig command provides more detailed DNS diagnostic output." },
+
+      { q: "What does the NETSTAT command show?",
+        options: ["Network interface statistics and error counts", "All active TCP/UDP connections, listening ports, and (with -o) the process ID (PID) owning each connection — used to identify suspicious connections and verify services are listening", "All devices connected to the network via ARP", "The contents of the routing table"],
+        answer: 1,
+        explanation: "Netstat flags: -a (all connections and listening ports), -n (numeric IP and ports, no name resolution), -o (shows PID), -r (routing table), -s (protocol statistics). netstat -an shows all connections — useful for spotting rogue listeners or suspicious outbound connections. On modern Windows/Linux, 'ss' is a faster alternative to netstat." },
+
+      { q: "What tool generates a tone on a network cable that can be traced with a probe, helping locate the other end?",
+        options: ["Tone generator and probe (fox and hound)", "TDR (Time-Domain Reflectometer)", "Cable tester", "Loopback plug"],
+        answer: 0,
+        explanation: "A tone generator (fox) injects a signal on one end of a cable. A tone probe (hound) detects and amplifies the tone — the technician can trace the cable through walls, cable trays, and patch panels to locate the other end without a cable map. Essential for identifying unlabelled cables in legacy installations." },
+
+      { q: "What does a TDR (Time-Domain Reflectometer) measure?",
+        options: ["The temperature of copper cables under load", "The distance to a break, short, or impedance mismatch in a cable by sending a pulse and measuring how long the reflection takes to return", "Whether a cable is wired to T568A or T568B standard", "The wireless signal strength at various points on a cable"],
+        answer: 1,
+        explanation: "A TDR sends an electrical pulse down a cable and analyses the reflected signal. Discontinuities (breaks, shorts, poor connections, impedance mismatches) cause reflections. The time delay between sending and receiving the reflection, multiplied by the signal velocity, gives the distance to the fault — accurate to within centimetres. OTDRs do the same for fibre optic cables." },
+
+      { q: "What is a Wi-Fi analyser used for?",
+        options: ["Testing the speed of a wired Ethernet connection", "Scanning the wireless spectrum to show available SSIDs, signal strength (RSSI), channel usage, channel overlap, and interference sources — helping optimise AP placement and channel selection", "Generating a wireless signal to test antenna coverage", "Decrypting WPA2 wireless traffic for analysis"],
+        answer: 1,
+        explanation: "Wi-Fi analysers (apps like inSSIDer, or dedicated hardware like NetScout AirCheck) show which channels nearby APs are using and the signal strength of each. If neighbouring APs use the same channel (co-channel interference), performance degrades. Analysers help identify interference sources (microwave ovens, cordless phones) and optimise channel selection and AP placement." },
+
+      { q: "A user on a remote branch can ping the router's local interface but cannot reach any external websites. Traffic from other branches works fine. What is the most likely cause?",
+        options: ["The user's NIC is faulty", "The user's default gateway is incorrect or the WAN link from that branch is down", "The DNS server is down — they can ping but not resolve names", "The user's computer has malware blocking web access"],
+        answer: 1,
+        explanation: "If local pings work but external connectivity fails, the problem is likely at the WAN uplink from that branch, or a routing issue. Since other branches work, the problem is specific to this branch's WAN connection. Check: Is the WAN interface up? Can the router ping the ISP gateway? Is the default route configured on the branch router? ISP issue?" },
+
+      { q: "A switch port shows 'Connected' but the user complains of very slow network speeds and many retransmissions. What should be checked first?",
+        options: ["Replace the switch", "Check for a duplex mismatch — one side may be full-duplex while the other is half-duplex, causing collisions and retransmissions", "Upgrade the user's NIC to Gigabit", "Reinstall the NIC driver on the user's computer"],
+        answer: 1,
+        explanation: "Duplex mismatch is a classic cause of poor performance on a link that shows as 'Connected': the full-duplex side transmits freely; the half-duplex side detects collisions and backs off repeatedly. Error counters (late collisions, FCS errors) on the switch port will be high. Fix by explicitly setting both sides to full-duplex/same speed or allowing auto-negotiation on both sides." },
+
+      { q: "A user receives a 169.254.x.x IP address. What does this indicate and how is it resolved?",
+        options: ["The user is connected to the guest VLAN — they need to change their SSID", "APIPA — the device cannot reach the DHCP server. Troubleshoot: verify cable/Wi-Fi connection, check if other devices get DHCP leases, verify DHCP server is running and has addresses in scope, check for rogue DHCP servers (DHCP snooping)", "The user has connected to a rogue access point", "The user's IP address lease has expired — run ipconfig /renew"],
+        answer: 1,
+        explanation: "169.254.x.x is self-assigned APIPA — the device failed to reach a DHCP server after multiple attempts. Immediate checks: is the cable plugged in? Is the switch port up? Can other devices on the same segment get DHCP? Is the DHCP server reachable (check DHCP relay agent if servers are on a different subnet)? Is the DHCP scope exhausted?" },
+
+      { q: "What causes an IP address conflict and what symptoms appear?",
+        options: ["Two devices on the network connecting at exactly the same time via Wi-Fi", "Two devices are assigned the same IP address — both devices will experience connectivity problems; Windows shows an 'IP address conflict' notification; network traffic intended for that IP becomes unpredictable", "A router and switch both have the same IP, causing routing loops", "A device pinging its own IP and receiving a reply from an unexpected host"],
+        answer: 1,
+        explanation: "IP conflicts occur when two devices have identical IPs — usually caused by static IP assignment conflicting with a DHCP-assigned address, or a DHCP scope misconfiguration. Both hosts receive each other's traffic intermittently. Windows detects it via ARP (if the ARP reply comes from a different MAC than expected). Resolution: find both devices, correct the conflicting IP, and release/renew DHCP leases." },
+
+      { q: "What does high jitter on a VoIP network cause, and how is it mitigated?",
+        options: ["High jitter increases call latency but has no other effect", "Jitter (variation in packet arrival delay) causes choppy audio, echo, or dropped calls in VoIP — mitigated by QoS (prioritising voice traffic with DSCP/802.1p marking) and jitter buffers on VoIP endpoints", "Jitter is only a problem on wireless networks — wired VoIP is immune", "Jitter is caused by low bandwidth — adding more bandwidth always resolves it"],
+        answer: 1,
+        explanation: "VoIP is sensitive to jitter (variation in delay), latency (one-way delay should be <150 ms), and packet loss (<1% for acceptable quality). QoS mechanisms (DSCP marking, 802.1p priority queuing, CBWFQ) prioritise voice packets over bulk data. Jitter buffers on phones/servers smooth out variations by buffering and playing back at a steady rate, at the cost of slight additional latency." },
+
+      { q: "A fibre optic link fails immediately after installation. What should be checked first?",
+        options: ["The distance of the cable run — fibre has a very short maximum distance", "Whether the correct fibre type is used (SMF vs MMF), whether connectors are clean (dirty connectors are the #1 cause of fibre failure), and whether the TX/RX fibres are crossed correctly", "Whether the switch supports SFP modules", "Whether the fibre cable is compatible with the Ethernet standard"],
+        answer: 1,
+        explanation: "Top causes of fibre failure: 1) Dirty connectors — even fingerprints or dust on an LC/SC connector can cause multi-dB signal loss (clean with fibre optic cleaning tools or cans), 2) TX/RX swapped — fibre requires TX to connect to RX (one fibre carries each direction), 3) Wrong fibre type — MMF optics don't work with SMF cables, 4) Bent fibre below minimum bend radius." },
+
+      { q: "What is a split horizon used for in distance-vector routing?",
+        options: ["To divide traffic equally across two WAN links", "To prevent routing loops by not advertising a route back out the same interface it was learned on", "To split BGP updates into smaller packets for reliability", "To create separate routing tables for IPv4 and IPv6"],
+        answer: 1,
+        explanation: "Split horizon is a loop-prevention mechanism in distance-vector protocols (RIP, EIGRP): a router will not advertise a route back to the neighbour from which it learned it. This prevents two routers from endlessly advertising a dead route to each other. Poison reverse (advertising with an infinite metric) is a stronger variant." },
+
+      // ── ADDITIONAL QUESTIONS ─────────────────────────────────────────────
+      { q: "What is the difference between a hub, a switch, and a router?",
+        options: ["They are all the same device with different marketing names", "Hub (Layer 1): repeats signals to all ports, creates one collision domain; Switch (Layer 2): forwards frames by MAC address, each port is its own collision domain; Router (Layer 3): routes packets between networks by IP address, each interface is a separate broadcast domain", "Hub is wireless; switch is wired; router connects both", "Hub supports Gigabit; switch supports 10 Mbps; router supports any speed"],
+        answer: 1,
+        explanation: "Hub: all ports share one collision domain and one broadcast domain — like a multi-port repeater. Switch: each port is its own collision domain (full-duplex, no CSMA/CD) but all ports in the same VLAN share one broadcast domain. Router: each interface is a separate broadcast domain — routers do not forward broadcasts between interfaces by default." },
+
+      { q: "What is QoS (Quality of Service) and why is it important for modern networks?",
+        options: ["QoS guarantees internet bandwidth from the ISP", "QoS classifies, marks, and prioritises different types of network traffic — ensuring latency-sensitive traffic (VoIP, video) gets preferential treatment over bulk transfers (file downloads) during congestion", "QoS encrypts sensitive data to maintain service quality", "QoS monitors bandwidth utilisation and generates monthly reports"],
+        answer: 1,
+        explanation: "QoS uses mechanisms like DSCP (Differentiated Services Code Point) marking in IP headers, 802.1p (CoS) marking in Ethernet frames, traffic shaping, policing, and queuing (WFQ, CBWFQ, LLQ) to manage congestion. Without QoS, during heavy load all traffic competes equally — VoIP calls degrade while large file downloads continue unimpeded." },
+
+      { q: "What is a proxy server and what are its two main types?",
+        options: ["A server that provides redundant routing when the primary router fails", "A forward proxy acts on behalf of clients (intercepts client requests to the internet — for caching, filtering, anonymity); a reverse proxy acts on behalf of servers (intercepts client requests to web servers — for load balancing, SSL offload, caching, and security)", "A proxy is a backup DNS server that answers queries when the primary is down", "A proxy is a VPN concentrator that encrypts all WAN traffic"],
+        answer: 1,
+        explanation: "Forward proxy: sits between internal clients and the internet. Used for web filtering (blocking sites), caching (reducing bandwidth), and anonymising client IPs. Clients are configured to use it. Reverse proxy: sits in front of web servers. Clients access the proxy's IP — it distributes requests to backend servers (load balancing), handles TLS termination, and protects server identities. Examples: Squid (forward), Nginx/HAProxy (reverse)." },
+
+      { q: "What is a load balancer and what algorithms does it use?",
+        options: ["A device that connects two ISP links and balances traffic between them", "A device or software that distributes client requests across multiple servers to improve performance and availability — using algorithms like round-robin, least connections, IP hash, or weighted round-robin", "A QoS device that balances bandwidth between VLANs", "A network management tool that balances administrator workloads"],
+        answer: 1,
+        explanation: "Load balancers (hardware: F5 BIG-IP, NetScaler; software: HAProxy, nginx) increase scalability and availability. Algorithms: Round-robin (requests cycle through servers sequentially), Least connections (sends to server with fewest active sessions), IP hash (same client always reaches same server — session persistence), Weighted (more powerful servers get more traffic)." },
+
+      { q: "What is SD-WAN (Software-Defined Wide Area Network)?",
+        options: ["A WAN technology that uses software-only routers instead of hardware", "A virtualised approach to managing WAN connections that abstracts hardware from control logic — intelligently routing traffic across multiple WAN links (MPLS, broadband, LTE) based on application type, link quality, and policy", "A cloud-based firewall service for WAN traffic inspection", "A successor to MPLS that uses encrypted tunnels only"],
+        answer: 1,
+        explanation: "SD-WAN decouples the network control plane from hardware, allowing centralised policy-based management of multiple WAN transports. Traffic is intelligently steered: real-time apps (VoIP, video) might use MPLS while bulk transfers use cheaper broadband. SD-WAN can detect link degradation and reroute in milliseconds. Reduces cost by supplementing expensive MPLS with broadband." },
+
+      { q: "What is MPLS (Multiprotocol Label Switching) and why is it used for WAN connectivity?",
+        options: ["A wireless WAN technology used to replace satellite links", "A high-performance routing technique that uses short labels (rather than IP addresses) to make forwarding decisions — providing predictable, low-latency WAN paths between sites, often used for site-to-site enterprise WAN", "A successor to BGP for routing between ISPs", "An encryption protocol for VPN tunnels"],
+        answer: 1,
+        explanation: "MPLS assigns a label to each packet at the network edge; interior MPLS routers switch based on labels (much faster than IP lookup). MPLS provides traffic engineering (guaranteed bandwidth), QoS separation (voice vs data), and VPN isolation between customer networks. It offers predictable performance but is expensive vs internet-based VPN — leading to SD-WAN adoption." },
+
+      { q: "What is the purpose of a DMZ (Demilitarised Zone) in network architecture?",
+        options: ["A physically separate building where public-facing servers are housed", "A network segment between the internet and the internal trusted network that hosts public-facing servers (web, email, DNS) — isolating them so a compromised server cannot directly attack internal resources", "A zone where no firewall rules apply, allowing unrestricted communication", "A backup network segment used only during disaster recovery"],
+        answer: 1,
+        explanation: "The DMZ sits between two firewalls (or two interfaces of one firewall). Internet traffic can reach DMZ servers; DMZ servers have limited access to the internal LAN; internet traffic cannot reach the internal LAN directly. If a web server in the DMZ is compromised, the attacker faces a second firewall before reaching internal resources — limiting the blast radius." },
+
+      { q: "What is a loopback interface and why is it useful on a router?",
+        options: ["A physical interface used for cable testing", "A virtual interface that is always up as long as the router is running — used as a stable management IP, router ID for OSPF/BGP, and tunnel endpoint", "An interface that loops traffic back for performance testing", "A secondary WAN interface used for ISP failover"],
+        answer: 1,
+        explanation: "Loopback interfaces (e.g., Loopback0) exist only in software — they never go down unless the router itself fails. This makes them ideal for: OSPF/BGP router IDs (stable even when physical links flap), management access (SSH to the loopback IP — reachable via any path), and VPN tunnel endpoints. The 127.0.0.0/8 range is reserved for host loopback; router loopbacks use any valid IP." },
+
+      { q: "What does 'convergence' mean in dynamic routing?",
+        options: ["When all routers in a network have the same routing table — accurately reflecting the current network topology", "When two routing protocols are combined to form a hybrid protocol", "When OSPF and EIGRP are running simultaneously on the same router", "When a router's CPU and memory usage stabilises after a reboot"],
+        answer: 0,
+        explanation: "Convergence is the process by which all routers agree on the network topology after a change (link failure, new network added). During convergence, routing is inconsistent — some routers may have the updated information while others still have stale routes, causing black holes or loops. Fast convergence is critical for high availability: OSPF converges in seconds; older RIP can take 3+ minutes." },
+
+      { q: "What is a subnet and why is subnetting used?",
+        options: ["A subnet is a slower secondary connection used when the primary link fails", "A subnet is a logically subdivided portion of a larger network — subnetting divides a large IP block into smaller, manageable segments to reduce broadcast traffic, improve security, and organise the network logically", "A subnet is a type of VLAN that spans multiple physical switches", "Subnetting is the process of connecting two different IP address families"],
+        answer: 1,
+        explanation: "Subnetting takes a large IP block and divides it into smaller networks using the subnet mask. Benefits: reduced broadcast domains (broadcasts stay within each subnet), improved security (ACLs between subnets), efficient IP utilisation (allocate subnet sizes matching actual needs), and logical organisation (one subnet per department, floor, or function). VLSM (Variable Length Subnet Masking) allows subnets of different sizes within the same network." },
+
+      { q: "What is the purpose of the default gateway in a host's IP configuration?",
+        options: ["It is the IP address of the primary DNS server", "It is the IP address of the router interface on the local subnet — packets destined for other networks are sent here for forwarding", "It is the broadcast address of the local subnet", "It is the IP address of the DHCP server that assigned the host's address"],
+        answer: 1,
+        explanation: "When a host determines a destination is on a different network (using subnet mask comparison), it sends the packet to its default gateway (the local router interface). The router then forwards it toward the destination. Without a correct default gateway, hosts can communicate locally but not with any other network or the internet." },
+
+      { q: "What is the difference between a broadcast domain and a collision domain?",
+        options: ["They are the same concept with different names", "A collision domain is a network segment where collisions can occur (hub-connected devices share one); a broadcast domain is a network segment where broadcasts reach all devices (bounded by routers and VLANs — switches do not separate broadcast domains by default)", "A broadcast domain is created by switches; a collision domain is created by routers", "Collision domains apply to wireless; broadcast domains apply to wired only"],
+        answer: 1,
+        explanation: "Collision domain: a set of devices that can cause collisions — one per switch port in full-duplex (effectively eliminated by switches). Broadcast domain: all devices that receive a broadcast frame — bounded by routers and VLANs. One broadcast domain per VLAN. Large broadcast domains hurt performance because ARP, DHCP, routing protocols, and other broadcasts reach every device." },
+
+      { q: "What is port mirroring (SPAN — Switched Port Analyser)?",
+        options: ["Duplicating a switch port's configuration to another port for rapid deployment", "Copying traffic from one or more source switch ports to a designated destination port — allowing a packet analyser or IDS to inspect traffic that would otherwise only be seen by the intended recipient", "Mirroring an access port to a trunk port for monitoring purposes", "Creating a redundant port that takes over if the primary port fails"],
+        answer: 1,
+        explanation: "SPAN (on Cisco) / port mirroring copies all frames from a source port (or VLAN) to a destination port where a network analyser (Wireshark, IDS, TAP) is connected. Because switches forward traffic only to the destination port (unlike hubs, which broadcast to all), mirroring is necessary to capture traffic not destined for the monitoring device. RSPAN mirrors across multiple switches." },
+
+      { q: "What is the purpose of a network TAP (Test Access Point)?",
+        options: ["To provide a tap point for wireless clients to access the wired network", "A passive hardware device that creates a copy of network traffic for monitoring — without adding latency or affecting the monitored traffic (unlike SPAN, which uses switch CPU resources)", "A temporary network connection used during cable installation", "A network management access point using SNMP"],
+        answer: 1,
+        explanation: "A network TAP sits inline on a link and passively copies all traffic to monitoring ports without adding latency, dropping packets, or consuming switch CPU. TAPs are always on — even during switch reboots (unlike SPAN, which is lost when the switch restarts). Used for IDS, forensic capture, and performance monitoring. Aggregation TAPs combine both directions into one output feed." },
+
+      { q: "What IPv6 transition mechanism encapsulates IPv6 packets within IPv4 to traverse IPv4-only networks?",
+        options: ["NAT64", "6to4 tunnelling or ISATAP", "Dual-stack", "DHCPv6"],
+        answer: 1,
+        explanation: "6to4 tunnels embed an IPv6 packet as the payload of an IPv4 packet (protocol 41), allowing IPv6 traffic to traverse IPv4 routers. ISATAP (Intra-Site Automatic Tunnel Addressing Protocol) is similar for intra-site use. Dual-stack runs both IPv4 and IPv6 natively. NAT64 translates between IPv6-only clients and IPv4-only servers. These are transition mechanisms for the IPv6 migration period." },
+
+      { q: "What is multicast and what address range is used for IPv4 multicast?",
+        options: ["Multicast sends traffic to a specific list of addresses; range 10.0.0.0/8", "Multicast sends a single stream of traffic to a group of interested receivers; IPv4 multicast range is 224.0.0.0/4 (224.0.0.0 – 239.255.255.255)", "Multicast sends traffic to all devices on the internet; range 255.0.0.0/8", "Multicast is a Layer 2-only technology using special MAC addresses"],
+        answer: 1,
+        explanation: "Multicast (Class D, 224.0.0.0/4) allows a source to send one stream to a group of receivers who have joined the multicast group via IGMP (Internet Group Management Protocol). It is more efficient than unicast (one copy per receiver) for streaming, video conferencing, and routing protocols. OSPF uses 224.0.0.5/6; RIPv2 uses 224.0.0.9." },
+
+      { q: "What does the ARP (Address Resolution Protocol) table contain?",
+        options: ["A mapping of domain names to IP addresses", "A mapping of IP addresses to MAC addresses for recently communicated hosts on the local segment — used to find the Layer 2 address needed to send a frame to a known IP address", "A mapping of switch ports to connected IP addresses", "A table of all known routes to remote networks"],
+        answer: 1,
+        explanation: "ARP cache (viewed with 'arp -a') contains IP-to-MAC mappings learned from recent communications. When a device needs to send to an IP on the local segment, it checks the ARP cache first. If not found, it broadcasts an ARP request ('Who has IP x.x.x.x? Tell me.') and caches the reply. ARP cache entries expire after a few minutes." },
+
+      { q: "What is EUI-64 in the context of IPv6?",
+        options: ["A 64-bit extension of the IPv4 address format for compatibility", "A process where a device generates the 64-bit host portion of a link-local or global IPv6 address from its 48-bit MAC address by inserting FFFE in the middle and flipping the seventh bit", "An IPv6 encryption mechanism for securing link-local addresses", "A 64-bit timestamp used for NDP neighbour discovery"],
+        answer: 1,
+        explanation: "EUI-64 (Extended Unique Identifier 64) converts a 48-bit MAC (e.g., 00:1A:2B:3C:4D:5E) to a 64-bit interface identifier: split MAC in half → insert FF:FE → flip the 7th bit (universal/local bit). Result: 021A:2BFF:FE3C:4D5E. This forms the host portion of a SLAAC-configured IPv6 address. Privacy concerns (MAC tracking) led to RFC 7217 randomised addresses." },
+
+      { q: "What is OSPF area 0 and why is it significant?",
+        options: ["OSPF area 0 is disabled by default and must be manually enabled", "Area 0 is the OSPF backbone area — all other OSPF areas must connect to it (directly or via a virtual link). Inter-area routing always flows through area 0", "Area 0 is reserved for management traffic between OSPF routers", "Area 0 is the highest priority area; routers in it are elected as Designated Routers"],
+        answer: 1,
+        explanation: "OSPF is a hierarchical protocol. Area 0 (backbone) is the core — all other areas (area 1, 2, etc.) must connect to it. Routers connecting an area to area 0 are Area Border Routers (ABRs). Inter-area routes are summarised at ABRs. This hierarchy reduces LSA flooding and scales OSPF to large networks. OSPF within one area is single-area." },
+
+      { q: "What is the Spanning Tree root bridge and how is it elected?",
+        options: ["The switch with the highest MAC address becomes root", "The switch with the lowest Bridge ID (priority + MAC address) becomes the root bridge — the default priority is 32768, so the switch with the lowest MAC at default priority becomes root unless priority is manually adjusted", "The switch closest to the core becomes root automatically", "All switches vote and the one with the most votes becomes root"],
+        answer: 1,
+        explanation: "The Bridge ID = 2-byte priority (default 32768, adjustable in increments of 4096) + 6-byte MAC address. The switch with the lowest Bridge ID wins. Since all switches have the same default priority, the lowest MAC address wins by default — which is random and often not the best switch to be root. Best practice: manually set priority lower on the intended root (e.g., 'spanning-tree vlan 1 priority 4096')." },
+
+      { q: "What port state does RSTP (Rapid Spanning Tree) use instead of STP's Blocking, Listening, and Learning states?",
+        options: ["Holding and Passing states", "Discarding, Learning, and Forwarding — RSTP collapses Blocking and Listening into Discarding, converging in ~1-3 seconds vs STP's 30-50 seconds", "Active and Standby states", "Open and Closed states"],
+        answer: 1,
+        explanation: "STP has five states: Blocking, Listening, Learning, Forwarding, Disabled. RSTP (802.1w) simplifies to three: Discarding (combines Blocking, Listening, Disabled — port does not forward but can be rapidly activated), Learning (learns MACs, no forwarding), Forwarding (normal operation). RSTP converges in ~1-3 seconds by using proposal/agreement handshakes rather than fixed timers." },
+
+      { q: "What is the purpose of the native VLAN on a trunk port?",
+        options: ["It is the most important VLAN — all management traffic must use it", "Frames on the native VLAN are sent untagged across the trunk link — both sides must agree on the native VLAN (default is VLAN 1). A mismatch causes a native VLAN mismatch error and connectivity issues", "It is the VLAN used for all inter-VLAN routing traffic", "The native VLAN is the highest numbered VLAN allowed on the trunk"],
+        answer: 1,
+        explanation: "802.1Q defines the native VLAN as the VLAN whose frames are sent untagged on a trunk. Both sides of a trunk must have the same native VLAN or a CDP/LLDP mismatch warning is generated and traffic from the mismatched native VLAN is placed into the wrong VLAN, potentially creating security issues. Best practice: change native VLAN from 1 to an unused VLAN." },
+
+      { q: "What does 'convergence time' mean in a routing context and why does it matter?",
+        options: ["The time for a router to boot up and load its configuration", "The time it takes for all routers in a network to update their routing tables and agree on the topology after a change (link failure or new network) — longer convergence = longer period of routing instability and packet loss", "The time for DHCP to assign an IP address to a new device", "The average latency across the network during peak hours"],
+        answer: 1,
+        explanation: "During convergence, routers may have inconsistent views of the network — some packets are dropped (black holes) or loop. RIP has slow convergence (up to 3+ minutes for holddown timers). OSPF and EIGRP converge in seconds (1-5s for EIGRP, seconds for OSPF with fast hellos). BGP convergence can take minutes. Faster convergence = shorter outages when network changes occur." },
+
+      // ── PORTS & PROTOCOLS REFERENCE ──────────────────────────────────────
+      { q: "What port does Telnet use, and why is it considered insecure?",
+        options: ["Port 22 — it uses weak encryption", "Port 23 — it transmits all data, including usernames and passwords, in plaintext with no encryption", "Port 25 — it uses password hashing but no encryption for data", "Port 443 — it uses SSL but a vulnerable version"],
+        answer: 1,
+        explanation: "Telnet (port 23) provides remote terminal access but sends all data in cleartext — trivially captured by any packet sniffer on the path. SSH (port 22) replaced Telnet for secure remote access. Telnet is still occasionally used for quick port-connectivity testing (telnet hostname port) even when the application itself doesn't use it." },
+
+      { q: "What port does LDAP use, and what is it used for?",
+        options: ["Port 389 (LDAP) and port 636 (LDAPS) — a protocol for querying and modifying directory services such as Microsoft Active Directory and OpenLDAP", "Port 88 — used for Kerberos ticket requests", "Port 443 — LDAP over HTTPS for web-based directory access", "Port 110 — LDAP replaced POP3 for email directory lookup"],
+        answer: 0,
+        explanation: "LDAP (Lightweight Directory Access Protocol, port 389) queries directory services — used to look up users, groups, and other objects in Active Directory. LDAPS (port 636) adds TLS encryption. Applications use LDAP for user authentication, address book lookups, and group membership queries. LDAP uses a tree structure (DIT — Directory Information Tree) with DN (Distinguished Name) identifiers." },
+
+      { q: "What port does Kerberos use and what is it used for?",
+        options: ["Port 88 — a network authentication protocol using tickets to allow nodes to prove identity in a non-secure network — the primary authentication mechanism in Active Directory domains", "Port 389 — an authorisation protocol for directory access control", "Port 49 — a Cisco AAA protocol for device administration", "Port 1812 — an authentication protocol for VPN and Wi-Fi access"],
+        answer: 0,
+        explanation: "Kerberos (port 88, UDP/TCP) is the default authentication protocol in Active Directory. It uses tickets (Ticket Granting Tickets from the KDC) instead of passwords over the network. Key requirement: clocks must be synchronised within 5 minutes (NTP critical) — clock skew causes Kerberos failures. Kerberos provides mutual authentication (client and server verify each other)." },
+
+      { q: "What port does TFTP (Trivial File Transfer Protocol) use and when is it used?",
+        options: ["Port 21 (TCP) — for internal file transfers without authentication", "Port 69 (UDP) — a simple, connectionless file transfer protocol with no authentication — used for network device firmware/config downloads and PXE/diskless boot", "Port 22 (TCP) — TFTP is a simplified version of SFTP", "Port 20 (UDP) — TFTP is the UDP equivalent of FTP"],
+        answer: 1,
+        explanation: "TFTP uses UDP port 69 — no authentication, no directory listing, no resume. It is the simplest possible file transfer. Used for: booting diskless workstations (PXE boot — client downloads OS image via TFTP), and Cisco routers/switches backing up or restoring IOS images and configurations. Unencrypted — only used on trusted internal networks." },
+
+      { q: "What ports do IMAP and IMAPS (IMAP over SSL) use?",
+        options: ["IMAP: port 110; IMAPS: port 995", "IMAP: port 143; IMAPS: port 993", "IMAP: port 25; IMAPS: port 587", "IMAP: port 143; IMAPS: port 465"],
+        answer: 1,
+        explanation: "IMAP uses TCP port 143 (unencrypted or STARTTLS upgrade). IMAPS uses port 993 (TLS from the start). Compare with POP3 (port 110, unencrypted) and POP3S (port 995). Most modern email clients use IMAP 993 or IMAP 143 with STARTTLS. SMTP submission: port 587 (STARTTLS) or port 465 (implicit TLS)." },
+
+      { q: "What port does MySQL database use by default?",
+        options: ["1433", "3306", "5432", "1521"],
+        answer: 1,
+        explanation: "MySQL uses TCP port 3306. Microsoft SQL Server uses port 1433. PostgreSQL uses port 5432. Oracle DB uses port 1521. These ports are relevant for firewall rules allowing applications to reach their backend databases — and for hardening (changing from default ports can slow unsophisticated attackers, though it's not a strong security control by itself)." },
+
+      { q: "What is the port number for SMB (Server Message Block) — used for Windows file shares?",
+        options: ["Port 445 (direct SMB over TCP) and port 139 (NetBIOS over TCP)", "Port 21 and 20", "Port 389 and 636", "Port 8080 and 8443"],
+        answer: 0,
+        explanation: "SMB (Windows file and printer sharing) uses TCP port 445 (modern, direct host-to-host) and historically port 139 (NetBIOS over TCP). Port 445 should be blocked at perimeter firewalls — exploits like EternalBlue (used by WannaCry/NotPetya) target it. SMBv1 is deprecated and should be disabled; use SMBv3 with encryption." },
+
+      // ── WIRELESS DEEP DIVE ────────────────────────────────────────────────
+      { q: "What are the three non-overlapping channels used in the 2.4 GHz Wi-Fi band in North America?",
+        options: ["Channels 1, 6, and 11", "Channels 1, 5, and 9", "Channels 1, 8, and 13", "Channels 2, 7, and 12"],
+        answer: 0,
+        explanation: "The 2.4 GHz band has 11 channels in the US (13 in Europe), each 22 MHz wide with 5 MHz spacing. Only channels 1, 6, and 11 do not overlap each other. Adjacent channel interference (from channels that partially overlap) is worse than co-channel interference. A Wi-Fi deployment should use channels 1, 6, and 11 on adjacent APs to avoid interference." },
+
+      { q: "What 802.11 standard introduced the 5 GHz band and OFDM (Orthogonal Frequency Division Multiplexing)?",
+        options: ["802.11b", "802.11a", "802.11g", "802.11n"],
+        answer: 1,
+        explanation: "802.11a (1999): 5 GHz, up to 54 Mbps, OFDM, 12 non-overlapping channels in the US. 802.11b (1999): 2.4 GHz, up to 11 Mbps, DSSS. 802.11g (2003): 2.4 GHz, up to 54 Mbps, OFDM, backwards-compatible with 802.11b. 802.11n (2009): 2.4 + 5 GHz, up to 600 Mbps, MIMO. 802.11ac (Wi-Fi 5, 2013): 5 GHz, up to 3.5 Gbps, MU-MIMO. 802.11ax (Wi-Fi 6, 2019): 2.4 + 5 + 6 GHz, up to 9.6 Gbps, OFDMA, target wake time." },
+
+      { q: "What is OFDMA (Orthogonal Frequency Division Multiple Access) and which Wi-Fi standard introduced it?",
+        options: ["A MIMO technique doubling Wi-Fi range — introduced in 802.11n", "A channel-access method (introduced in 802.11ax/Wi-Fi 6) that divides a channel into sub-channels called Resource Units — allowing an AP to simultaneously serve multiple clients in one transmission, improving efficiency in dense environments", "An antenna technology for outdoor Wi-Fi links — introduced in 802.11ac", "A frequency hopping technique for Bluetooth coexistence — introduced in 802.11g"],
+        answer: 1,
+        explanation: "OFDMA (from 4G/LTE cellular) lets one AP transmission carry data for multiple clients simultaneously by assigning different Resource Units (sub-carriers) to different clients. This is far more efficient than the 802.11ac SU-OFDM approach where each transmission serves only one client. OFDMA dramatically improves performance in high-density environments (stadiums, offices, classrooms)." },
+
+      { q: "What is WPA3-SAE and what improvement does it offer over WPA2-PSK?",
+        options: ["WPA3-SAE uses a longer pre-shared key (32 characters vs 8 minimum)", "WPA3-SAE (Simultaneous Authentication of Equals) replaces the vulnerable 4-way handshake with a Dragonfly key exchange — providing forward secrecy (past sessions remain secure even if the password is later compromised) and resistance to offline dictionary attacks", "WPA3-SAE is a hardware certification, not a protocol improvement", "WPA3-SAE requires a RADIUS server and cannot use a simple passphrase"],
+        answer: 1,
+        explanation: "WPA2-PSK is vulnerable to offline dictionary attacks: capture the 4-way handshake, then crack the password offline using GPU power (no AP interaction needed). WPA3-SAE's Dragonfly handshake prevents offline cracking — each attempt requires interacting with the AP. SAE also provides forward secrecy: a unique session key per connection means past recorded traffic can't be decrypted even if the password is later revealed." },
+
+      { q: "What is a wireless site survey and what does it identify?",
+        options: ["An audit of which users are connected to the Wi-Fi and their data usage", "A systematic assessment of an environment — mapping signal strength, coverage gaps, interference sources, channel conflicts, and SNR at different locations — to optimise AP placement, power levels, and channel assignments before or after deployment", "An inventory of all Wi-Fi capable devices in a building", "A performance benchmark comparing different AP vendors"],
+        answer: 1,
+        explanation: "Site surveys come in two types: passive (scanning mode only — detecting existing signals, APs, and interference) and active (connecting to APs and measuring actual throughput). Surveys produce heat maps showing signal strength and SNR across the floor plan. Conducted before deployment (to plan AP placement) and after (to verify coverage and identify dead spots). Tools: Ekahau, AirMagnet, NetSpot." },
+
+      { q: "What is the difference between SNR (Signal-to-Noise Ratio) and RSSI in Wi-Fi?",
+        options: ["SNR measures the signal frequency; RSSI measures the signal amplitude", "RSSI (Received Signal Strength Indicator) measures raw signal power in dBm; SNR measures the difference between signal strength and the noise floor — SNR is the more useful metric because a strong signal in a very noisy environment may perform poorly", "RSSI is measured in MHz; SNR is measured in dBm", "They are the same measurement using different units"],
+        answer: 1,
+        explanation: "RSSI: raw received signal power (e.g., -65 dBm is good, -80 dBm is poor). SNR: signal power minus noise floor (e.g., SNR of 20 dB is acceptable; 25+ dB is good; below 15 dB causes problems). A -65 dBm signal in a -90 dBm noise floor gives 25 dB SNR (good). The same -65 dBm signal in a -70 dBm noise floor gives only 5 dB SNR (terrible). SNR determines actual throughput quality." },
+
+      // ── CABLING & PHYSICAL LAYER ──────────────────────────────────────────
+      { q: "What is PoE (Power over Ethernet) and what standards are relevant?",
+        options: ["A technique for running Ethernet cable through power conduits safely", "A set of standards that deliver electrical power over Ethernet cable alongside data — 802.3af (PoE, up to 15.4W), 802.3at (PoE+, up to 30W), 802.3bt (PoE++, up to 90W) — powering APs, IP cameras, IP phones, and IoT devices", "A UPS specification for network rack power delivery", "A standard for solar-powered Ethernet switches in outdoor deployments"],
+        answer: 1,
+        explanation: "PoE eliminates separate power cabling for network devices. A PSE (Power Sourcing Equipment — typically a PoE switch or injector) delivers power; a PD (Powered Device — IP phone, AP, camera) receives it. Standards: 802.3af = 15.4W max delivered (12.95W at device); 802.3at = 30W max (25.5W at device); 802.3bt Type 3 = 60W; Type 4 = 90W. Requires Cat 5e+ cabling." },
+
+      { q: "What is Cat 6a cable and how does it differ from Cat 6?",
+        options: ["Cat 6a uses aluminium conductors; Cat 6 uses copper — both support the same speeds", "Cat 6a (augmented) supports 10 Gbps at the full 100-metre distance; Cat 6 only supports 10 Gbps up to 55 metres (and 1 Gbps at 100 m). Cat 6a uses larger conductors and more shielding to reduce alien crosstalk", "Cat 6a is the outdoor-rated version of Cat 6", "Cat 6a supports Wi-Fi; Cat 6 supports only wired connections"],
+        answer: 1,
+        explanation: "10GBASE-T requires Cat 6a for the full 100-metre run. Cat 6 (10GBASE-T up to 55 m) is limited by alien crosstalk from adjacent pairs in a bundle. Cat 6a adds shielding (F/UTP or S/FTP variants) and larger gauge conductors. It is stiffer and harder to terminate than Cat 6. Cat 8 supports 25/40 Gbps but only up to 30 metres — for short data centre patch runs." },
+
+      { q: "What is a straight-tip (ST) fibre connector typically used for?",
+        options: ["Short-distance multimode runs in older LAN and building backbone installations — it uses a bayonet-style twist-lock mechanism", "High-density data centre patch panels — it is the smallest fibre connector", "Long-distance single-mode outdoor runs — it is rated for outdoor UV exposure", "SFP transceiver modules — it is the standard SFP connector type"],
+        answer: 0,
+        explanation: "ST connectors are round with a half-twist bayonet lock — common in older Ethernet networks, building backbone runs, and some security camera systems. They have largely been replaced by SC and LC in modern installations. SC connectors are push-pull square; LC connectors are small push-pull used in high-density panels and SFP modules." },
+
+      // ── NETWORK SECURITY EXPANDED ─────────────────────────────────────────
+      { q: "What is a honeypot and what is it used for?",
+        options: ["A sweetened password policy that lures attackers into using guessable credentials", "A decoy system intentionally made to look attractive to attackers — designed to detect, deflect, or study intrusion attempts without risking real systems. Activity on a honeypot is almost certainly malicious — high signal-to-noise ratio for threat intelligence", "A secure password vault for storing administrator credentials", "A network monitoring tool that captures all traffic using ARP spoofing"],
+        answer: 1,
+        explanation: "Honeypots mimic real servers with fake credentials and data. Since legitimate users have no reason to interact with them, any access is suspicious. They provide early warning of intrusion attempts, slow down attackers exploring the network, and gather threat intelligence about attack techniques. A honeynet is a network of honeypots with full network monitoring." },
+
+      { q: "What is an IDS (Intrusion Detection System) versus an IPS (Intrusion Prevention System)?",
+        options: ["An IDS blocks threats automatically; an IPS only logs and alerts", "An IDS passively monitors traffic, detects threats, and generates alerts — but takes no action; an IPS sits inline, detects threats, and can actively block malicious traffic in real time", "They are the same device — IPS is the newer marketing name for IDS", "An IDS works on host-based events; an IPS works only on network traffic"],
+        answer: 1,
+        explanation: "IDS (out-of-band, passive): receives a copy of traffic via a tap or SPAN port, analyses it, and alerts — cannot block traffic because it is not in the traffic path. IPS (inline, active): all traffic passes through it — it can drop packets, reset connections, or block IPs in real time. False positives in an IPS block legitimate traffic; in an IDS they only generate noise. NGFW typically includes inline IPS functionality." },
+
+      { q: "What is a SIEM (Security Information and Event Management) system?",
+        options: ["A next-generation firewall that combines IPS and deep packet inspection", "A platform that aggregates and correlates security logs and events from multiple sources (firewalls, IDS, servers, endpoints) — providing real-time alerting, threat hunting, compliance reporting, and forensic investigation capabilities", "A VPN concentrator with built-in user behaviour analytics", "A physical security system for data centre access control"],
+        answer: 1,
+        explanation: "SIEM platforms (Splunk, IBM QRadar, Microsoft Sentinel, ArcSight) collect logs via Syslog, SNMP, agents, and APIs — normalise them into a common format — then apply correlation rules to detect complex attack patterns spanning multiple systems. A SIEM can detect (for example) a brute-force login followed by a successful login followed by lateral movement across systems — events that individually look benign." },
+
+      { q: "What is social engineering in the context of network security?",
+        options: ["Using social media platforms to gather OSINT (open-source intelligence) about a target network's infrastructure", "Manipulating people rather than technology to gain unauthorised access — examples: phishing (fraudulent email), vishing (voice phishing), pretexting (fabricating a scenario), tailgating (following authorised person through a door)", "Building social relationships with IT staff to obtain legitimate access", "Using social network analysis to map network topology"],
+        answer: 1,
+        explanation: "Social engineering exploits human psychology rather than technical vulnerabilities. Types: phishing (mass email), spear phishing (targeted at specific individual), vishing (phone calls), smishing (SMS), pretexting (impersonating IT support, vendor, etc.), baiting (leaving infected USB drives), tailgating/piggybacking. Mitigated by security awareness training, strict visitor policies, and verification procedures." },
+
+      { q: "What is a man-in-the-middle (MITM) attack?",
+        options: ["A SQL injection attack where the attacker inserts malicious code in the middle of a database query", "An attack where the attacker secretly intercepts and potentially alters communications between two parties — each party believes they are communicating directly with the other. Often achieved via ARP poisoning or rogue Wi-Fi AP", "A DoS attack from a device positioned between the victim and a router", "A brute-force attack performed from multiple machines simultaneously"],
+        answer: 1,
+        explanation: "In a MITM attack, the attacker positions themselves between two communicating parties (e.g., between a user and their bank). The attacker can read, modify, and inject data into the communication. Common methods: ARP poisoning (LAN), evil twin AP (Wi-Fi), BGP hijacking (WAN), SSL stripping (downgrades HTTPS to HTTP). Countermeasures: mutual TLS, certificate pinning, VPN, HSTS." },
+
+      { q: "What is a DDoS (Distributed Denial of Service) attack?",
+        options: ["A data breach where data is exfiltrated from multiple servers simultaneously", "An attack where many compromised systems (a botnet) simultaneously flood a target with traffic or requests — overwhelming its resources and denying service to legitimate users", "A man-in-the-middle attack launched from multiple locations", "A distributed brute-force attack against multiple accounts simultaneously"],
+        answer: 1,
+        explanation: "DDoS attacks use botnets (thousands of infected PCs, IoT devices) to send volume-based attacks (UDP flood, ICMP flood), protocol attacks (SYN flood — exhausting connection tables), or application-layer attacks (HTTP flood — legitimate-looking requests). Mitigation: scrubbing centres, anycast diffusion, rate limiting, ingress filtering (BCP38), cloud DDoS protection (Cloudflare, AWS Shield)." },
+
+      { q: "What is a SYN flood attack and how does it work?",
+        options: ["Flooding DNS servers with SYN record requests to overload the resolver", "Exploiting the TCP 3-way handshake by sending many SYN packets with spoofed source IPs — the server allocates resources and sends SYN-ACK to non-existent hosts, filling the half-open connection table and denying service to legitimate clients", "Injecting SYN packets into established TCP sessions to reset connections", "Overloading a Wi-Fi AP with association SYN requests"],
+        answer: 1,
+        explanation: "TCP handshake: client SYN → server SYN-ACK → client ACK. In a SYN flood, the attacker sends thousands of SYNs with spoofed source IPs. The server sends SYN-ACKs to non-existent addresses and holds half-open connections waiting for the final ACK until the timeout. This fills the connection table, blocking new legitimate connections. Mitigated by SYN cookies (server doesn't allocate resources until the ACK arrives)." },
+
+      { q: "What is defence in depth (layered security)?",
+        options: ["Placing all security controls in the outer perimeter (firewall) so internal systems run unencumbered", "A security strategy using multiple overlapping layers of controls — so that if one layer is defeated, others still protect the asset. Examples: firewall → IPS → network segmentation → host-based firewall → endpoint security → MFA → data encryption", "Making each security system as deep (comprehensive) as possible", "A military term with no relevance to network security"],
+        answer: 1,
+        explanation: "Defence in depth (the 'onion model') recognises that no single control is perfect. Layers: physical security → perimeter firewall → DMZ → network segmentation (VLANs) → IPS → host firewalls → application security → data encryption → access controls → monitoring/SIEM. An attacker must defeat every layer, while defenders only need one layer to detect and stop the threat." },
+
+      { q: "What is zero trust networking?",
+        options: ["A network with no default trust for any user, device, or network segment — every access request must be explicitly verified regardless of whether it comes from inside or outside the traditional perimeter. 'Never trust, always verify'", "A network that trusts all internal traffic by default but verifies all external connections", "A wireless security mode where all clients connect without a password and are isolated from each other", "A firewall policy that blocks all traffic by default until explicitly allowed"],
+        answer: 0,
+        explanation: "Zero trust (NIST SP 800-207) treats the network as hostile — no implicit trust based on network location (inside ≠ trusted). Every user and device must authenticate and authorise for each resource. Principles: verify explicitly (MFA, device health), use least privilege access, assume breach (segment network, monitor for lateral movement). Replaces the traditional 'castle and moat' perimeter security model." },
+
+      // ── WAN, CLOUD & VIRTUALISATION ──────────────────────────────────────
+      { q: "What is the difference between public, private, and hybrid cloud?",
+        options: ["Public cloud: run by the organisation on-premises; Private cloud: hosted by a third party; Hybrid: mix of both", "Public cloud: shared infrastructure owned by a provider (AWS, Azure, GCP) — resources shared among many tenants; Private cloud: dedicated infrastructure for one organisation; Hybrid: combination of on-premises/private and public cloud", "Public cloud: internet-accessible; Private cloud: intranet-accessible; Hybrid: both accessible", "There is no technical difference — only licensing differences"],
+        answer: 1,
+        explanation: "Public cloud: multi-tenant, pay-as-you-go (AWS EC2, Azure VMs). Private cloud: single-tenant — either on-premises (VMware, OpenStack) or hosted privately. Hybrid: workloads span both, connected via VPN or Direct Connect (AWS)/ExpressRoute (Azure). Community cloud: shared by organisations with similar requirements (government, healthcare). Cloud brings OpEx model, elastic scaling, and geographic distribution." },
+
+      { q: "What is network virtualisation and what does it enable?",
+        options: ["Running physical network equipment in software for cost savings", "Abstracting network resources (routers, switches, firewalls, load balancers) from hardware into software — enabling rapid provisioning, network segmentation (micro-segmentation), and management via software-defined policies. Examples: VMware NSX, Cisco ACI, cloud VPCs", "Virtualising end-user desktops (VDI) to reduce PC costs", "A technology for running multiple VLANs on a single physical switch"],
+        answer: 1,
+        explanation: "Network virtualisation creates logical network topologies independent of physical hardware. Benefits: spin up virtual networks in seconds, enforce consistent policy across physical and virtual environments, enable micro-segmentation (isolate VMs within the same host), and facilitate DevOps/CI-CD pipeline automation of network changes. NSX implements distributed firewall rules at the hypervisor vNIC level." },
+
+      { q: "What is a VPC (Virtual Private Cloud)?",
+        options: ["A private physical server rack hosted in a colocation facility", "An isolated virtual network within a public cloud provider (AWS VPC, Azure VNet) — giving the organisation a private address space, subnets, route tables, and security groups in the cloud, analogous to a traditional on-premises network", "A VPN tunnel between two cloud providers", "A multi-tenant cloud environment shared between several small organisations"],
+        answer: 1,
+        explanation: "A VPC provides logical isolation in the public cloud: define CIDR blocks, create subnets (public vs private), configure route tables (internet gateway for public subnets, NAT gateway for private subnets), and apply security groups/NACLs. VPCs can be connected to on-premises networks via VPN (IPsec) or Direct Connect (private dedicated fibre). Cloud providers manage the underlying physical network." },
+
+      { q: "What is a CDN (Content Delivery Network) and how does it improve performance?",
+        options: ["A type of SD-WAN that routes traffic through content-aware appliances", "A geographically distributed network of servers (edge nodes/PoPs) that cache and deliver content from locations close to end users — reducing latency and load on origin servers", "A data centre management network used for out-of-band device access", "A distributed DHCP and DNS service for large enterprise networks"],
+        answer: 1,
+        explanation: "CDNs (Cloudflare, Akamai, AWS CloudFront) cache static content (images, JS, CSS, video) at edge nodes worldwide. When a user requests content, it comes from a nearby PoP (Point of Presence) rather than the origin server — reducing round-trip time. CDNs also absorb DDoS attacks (large capacity to absorb floods) and provide TLS termination at the edge. Dynamic content uses techniques like TCP connection reuse and TCP optimisation." },
+
+      // ── OPERATIONS & MONITORING ──────────────────────────────────────────
+      { q: "What is the difference between RTO (Recovery Time Objective) and RPO (Recovery Point Objective)?",
+        options: ["RTO is for data recovery; RPO is for system recovery", "RTO: the maximum acceptable time for restoring a system after an outage (how long can we be down?); RPO: the maximum acceptable amount of data loss measured in time (how much data can we afford to lose?)", "RTO measures uptime percentage; RPO measures backup frequency", "They are the same metric with different names used by different vendors"],
+        answer: 1,
+        explanation: "RTO: if the maximum tolerable downtime is 4 hours, the recovery system must restore service within 4 hours. RPO: if RPO is 1 hour, backups must run at least every hour so at most 1 hour of data is lost. Together they drive DR strategy: a 15-minute RTO/RPO requires real-time replication; a 24-hour RTO/RPO might be achievable with daily tape backups. Lower RTO/RPO = more expensive infrastructure." },
+
+      { q: "What is MTTR (Mean Time to Repair) and MTBF (Mean Time Between Failures)?",
+        options: ["MTTR: average time until a device fails; MTBF: average time to fix a failed device", "MTBF: average time between failures (how reliable is the system?); MTTR: average time to restore service after a failure (how quickly can we recover?). Higher MTBF and lower MTTR = better availability", "They are both measures of network latency under different conditions", "MTTR is for hardware; MTBF is for software failures only"],
+        answer: 1,
+        explanation: "Availability = MTBF / (MTBF + MTTR). For example: MTBF = 1000 hours, MTTR = 1 hour → Availability = 1000/1001 = 99.9%. To improve availability, either increase MTBF (more reliable hardware, redundancy) or decrease MTTR (spare parts, runbooks, skilled staff, automation). These metrics inform SLA commitments and maintenance strategy." },
+
+      { q: "What is a network SLA (Service Level Agreement)?",
+        options: ["A technical specification for network hardware performance benchmarks", "A contract between a service provider and customer defining measurable performance targets — uptime %, latency, packet loss, jitter, mean time to repair — with financial penalties if targets are missed", "A security policy defining acceptable use of network resources", "A change management document authorising network configuration changes"],
+        answer: 1,
+        explanation: "SLAs define: availability (e.g., 99.99% = ~53 minutes downtime/year), latency (e.g., <50 ms), packet loss (e.g., <0.1%), jitter (e.g., <5 ms for VoIP), and support response times. Providers publish SLAs for internet connectivity, cloud services, and managed services. When SLAs are breached, customers typically receive service credits as compensation." },
+
+      { q: "What is out-of-band (OOB) management and why is it important?",
+        options: ["Managing network devices remotely using the same network that carries production traffic", "A dedicated management network (console servers, IPMI/iDRAC, serial console) separate from the production network — allowing administrators to access and fix devices even when the production network is down", "An automated management system that operates independently of administrator input", "A backup internet connection used only for management traffic"],
+        answer: 1,
+        explanation: "OOB management uses a separate network (serial console via console server, IPMI, iDRAC, Lights-Out Management) so that when a device is misconfigured or unresponsive on the production network, admins can still access its console to diagnose and fix it — preventing a 'locked out of the building because I lost the key inside' scenario. Critical for remote sites without local IT staff." },
+
+      { q: "What is the purpose of network documentation — specifically the cable map and port inventory?",
+        options: ["Cable maps are only required for regulatory compliance in government facilities", "A cable map shows where each cable runs and connects (patch panel port → switch port → wall outlet → device), enabling rapid identification of physical problems, correct reconnection after moves, and capacity planning", "Cable maps are automatically generated by Spanning Tree Protocol", "Port inventories are used only to track PoE power budget"],
+        answer: 1,
+        explanation: "Accurate physical documentation (cable plant drawings, port inventory, rack diagrams, logical network diagrams) is essential for troubleshooting (tracing an unlabelled cable), planning changes (is there capacity in that run?), disaster recovery (rebuilding from scratch), auditing, and training new staff. Without documentation, institutional knowledge resides only in individuals — a serious risk." },
+
+      // ── TROUBLESHOOTING EXPANDED ─────────────────────────────────────────
+      { q: "A network device shows interface errors — specifically 'late collisions'. What does this indicate?",
+        options: ["The device's cable is too short for the network diameter", "Late collisions (occurring after the first 64 bytes of the frame) typically indicate a duplex mismatch: the full-duplex side transmits freely, the half-duplex side detects the transmission as a collision after it has already started sending", "The device has exceeded its maximum connection count", "The cable has excessive electromagnetic interference from nearby power lines"],
+        answer: 1,
+        explanation: "In normal CSMA/CD half-duplex networks, collisions should only occur within the first 64 bytes (the slot time). Late collisions — after 64 bytes — indicate the collision domain is too large (rare) or more commonly a duplex mismatch: the full-duplex device doesn't use CSMA/CD and transmits freely; the half-duplex device detects this as a late collision. Fix: set both sides to auto-negotiate or manually match speed and duplex." },
+
+      { q: "A user reports they can browse websites by IP address but not by domain name. What is the most likely cause?",
+        options: ["The default gateway is misconfigured", "The DNS server is unreachable or misconfigured — the device can reach internet IP addresses but cannot resolve domain names to IPs. Check: nslookup (specify a known-good DNS server like 8.8.8.8), ipconfig /all to see configured DNS servers, test connectivity to the DNS server IP", "The web proxy is blocking domain-name-based requests", "The user's browser is set to use incognito mode"],
+        answer: 1,
+        explanation: "Browsing by IP (http://93.184.216.34) works if the network stack is functional. Failure by domain name points specifically to DNS. Verify: 1) Is the correct DNS server configured? 2) Can the device reach the DNS server (ping its IP)? 3) Does nslookup return results when using an alternative DNS server (8.8.8.8)? This narrows the problem to client configuration, local DNS server, or DNS filtering." },
+
+      { q: "What does a high number of CRC (Cyclic Redundancy Check) errors on a switch interface indicate?",
+        options: ["Too much traffic — the link is congested and needs upgrading", "Physical layer problems — damaged cable, dirty fibre connector, EMI interference, or a bad NIC generating frames with corrupted bits. CRC errors indicate data corruption in transit", "The switch firmware needs to be updated to the latest version", "A duplex mismatch — the same as late collision errors"],
+        answer: 1,
+        explanation: "CRC errors occur when the CRC calculated by the receiver doesn't match the CRC in the frame — meaning bits were flipped in transit. Causes: damaged or too-long cable, faulty connector/NIC, fibre connector contamination, EMI from nearby electrical equipment, or interference on the cable. A few CRC errors per day may be tolerable; high rates require physical investigation." },
+
+      { q: "A network administrator notices asymmetric routing — packets take a different path to a destination than return packets take back. What problems can this cause?",
+        options: ["None — asymmetric routing is the normal behaviour for all networks", "Stateful firewalls may drop return traffic (they only saw the outbound flow, not the return), and performance may be inconsistent between send and receive directions. Firewalls maintain state tables that require seeing both directions of a flow", "Routing loops and broadcast storms whenever a link changes state", "DNS resolution failures because PTR records are direction-dependent"],
+        answer: 1,
+        explanation: "Asymmetric routing occurs when traffic from A to B takes one path and B to A return traffic takes a different path. Stateful firewalls/NAT devices can drop traffic if they see only one direction of a TCP connection (they track state). Also makes troubleshooting difficult — traceroute from A to B won't show the return path problem. Caused by ECMP misconfiguration, policy routing, or different IGP metrics on each direction." },
+
+      { q: "What is the purpose of the 'ipconfig /flushdns' command on Windows?",
+        options: ["Resets the network adapter and requests a new DHCP lease", "Clears the local DNS resolver cache — useful when a DNS record has recently changed and the client is still using the old cached value, causing it to reach the wrong IP for a hostname", "Forces an immediate DNS zone transfer from the server to the client", "Deletes all DHCP-assigned settings and reverts to APIPA"],
+        answer: 1,
+        explanation: "The DNS resolver cache stores recently resolved names for the TTL (Time To Live) period. If a DNS record changes (server migrated to new IP), clients may continue using the old IP from cache until it expires. 'ipconfig /flushdns' clears the cache immediately. 'ipconfig /displaydns' shows the current cache. 'nslookup' bypasses the cache and queries the DNS server directly." },
+
+      { q: "What is a broadcast storm and what causes it?",
+        options: ["A large number of users simultaneously streaming video, overloading the network", "A condition where broadcast frames (or corrupted frames that look like broadcasts) circulate endlessly in a Layer 2 network loop — consuming all bandwidth and CPU, effectively bringing the network down. Caused by missing or failed STP in a redundant switch topology", "A security attack that floods the network with broadcast packets from an external attacker", "Excessively chatty protocols (NetBIOS, ARP) on a large flat network segment"],
+        answer: 1,
+        explanation: "Without STP, a physical loop between switches causes a broadcast frame to circulate forever — each switch floods it out all ports, creating more copies. Within seconds, bandwidth and switch CPU are 100% consumed. STP (802.1D) or RSTP (802.1w) blocks redundant ports to prevent loops. Symptoms: all switch port link lights flickering rapidly, network completely unusable, high switch CPU." },
+
+      { q: "What troubleshooting step is represented by 'working from the OSI model bottom-up'?",
+        options: ["Starting with application-layer logs and working down to physical layer", "Starting diagnostic checks at Layer 1 (are cables plugged in? Is the interface up?) → Layer 2 (MAC/ARP) → Layer 3 (IP/ping) → Layer 4 (TCP/UDP/port) → Layer 7 (application). Ensures physical issues are not overlooked while chasing application problems", "Starting with the most complex possible cause and ruling out simpler ones as you go", "Starting at the router and working inward to the end device"],
+        answer: 1,
+        explanation: "Bottom-up troubleshooting: Layer 1 (is the cable connected? Link lights on? Speed/duplex correct?) → Layer 2 (ARP table correct? MAC address reachable?) → Layer 3 (IP config correct? Can ping gateway? Routing table correct?) → Layer 4 (Is the port listening? Firewall blocking it?) → Layer 7 (Is the application running? Correct credentials?). Many problems are solved at Layer 1." },
+
+      // ── ADDITIONAL NETWORKING CONCEPTS ────────────────────────────────────
+      { q: "What is the difference between a collision domain and a broadcast domain for a switch?",
+        options: ["A switch creates one large collision domain and one large broadcast domain for all ports", "Each switch port is its own collision domain (full-duplex eliminates collisions); all ports in the same VLAN share one broadcast domain. VLANs divide broadcast domains; routers divide both collision and broadcast domains", "A switch creates no collision domains and no broadcast domains", "VLANs eliminate broadcast domains; routers eliminate collision domains"],
+        answer: 1,
+        explanation: "Modern switches operate in full-duplex mode — each port is a dedicated point-to-point link with no collisions (no CSMA/CD needed). So a 48-port switch has 48 separate collision domains. However, all those ports in the same VLAN share one broadcast domain — broadcasts reach every device in the VLAN. VLANs and routers are needed to limit broadcast traffic." },
+
+      { q: "What is inter-VLAN routing and how is it typically implemented?",
+        options: ["VLANs automatically route between each other using a special trunk protocol", "Traffic between different VLANs must pass through a Layer 3 device (router or Layer 3 switch). Methods: router-on-a-stick (one physical router interface with sub-interfaces for each VLAN) or a Layer 3 switch with SVIs (Switched Virtual Interfaces) for each VLAN", "Inter-VLAN routing is performed by STP when it detects traffic destined for another VLAN", "Frames are tagged with destination VLAN IDs using 802.1Q so switches route them automatically"],
+        answer: 1,
+        explanation: "VLANs are Layer 2 — they cannot communicate without a Layer 3 device. Router-on-a-stick: one router port (trunk) with sub-interfaces (each tagged with a VLAN ID) acts as gateway for each VLAN — practical for small setups but a bottleneck. Layer 3 switch SVIs: a virtual interface per VLAN at line rate within the switch — the preferred approach for campus networks." },
+
+      { q: "What is EIGRP and by whom was it developed?",
+        options: ["An exterior gateway protocol developed by Juniper for ISP use", "Cisco's Enhanced Interior Gateway Routing Protocol — a hybrid (advanced distance-vector) IGP that uses DUAL (Diffusing Update Algorithm) for fast, loop-free convergence. Supports VLSM, has a composite metric (bandwidth + delay default), and sends updates only when topology changes", "An open-standards link-state protocol equivalent to OSPF", "A BGP extension for distributing internal routes to external peers"],
+        answer: 1,
+        explanation: "EIGRP (Cisco proprietary, though a limited open standard was published via RFC 7868) uses DUAL algorithm for O(1) backup path computation — a pre-computed Feasible Successor can be promoted immediately without recalculation. Metric: K1×bandwidth + K3×delay (default). Hello: multicast 224.0.0.10. Sends partial updates only on changes (unlike RIP which broadcasts full table every 30s). Fast convergence, efficient bandwidth use." },
+
+      { q: "What is the purpose of LLDP (Link Layer Discovery Protocol)?",
+        options: ["Encrypting traffic between directly connected switches", "A vendor-neutral Layer 2 protocol (IEEE 802.1AB) where devices periodically advertise their identity, capabilities, and neighbours — allowing network management systems to automatically discover and map physical topology", "Load balancing traffic across multiple parallel links", "A loop-prevention protocol similar to STP for specific vendor equipment"],
+        answer: 1,
+        explanation: "LLDP (and its Cisco equivalent, CDP — Cisco Discovery Protocol) lets devices announce their system name, port ID, capabilities, and management IP to directly connected neighbours. NMS tools use LLDP/CDP information to build topology maps automatically. LLDP-MED extends LLDP for VoIP — phones announce themselves and receive QoS VLAN information from the switch." },
+
+      { q: "What is the purpose of DHCP relay (ip helper-address on Cisco)?",
+        options: ["To create DHCP reservations for servers with static IP requirements", "To forward DHCP broadcast packets across router interfaces to a DHCP server on a different subnet — since routers do not forward broadcasts, DHCP relay (RFC 3046) converts the broadcast to a unicast destined for the DHCP server", "To provide redundancy between two DHCP servers on the same subnet", "To log all DHCP lease assignments to a syslog server"],
+        answer: 1,
+        explanation: "DHCP clients broadcast discover packets. Routers don't forward broadcasts, so DHCP servers must normally be on every subnet. DHCP relay (Cisco: 'ip helper-address <DHCP-server-IP>' on the router interface) converts the broadcast to a unicast toward the DHCP server — adding Option 82 (relay agent info). The DHCP server selects a scope matching the subnet (determined from the relay agent's IP) and sends the offer back through the relay." },
+
+      { q: "What is a DNS SOA (Start of Authority) record?",
+        options: ["A record that maps one domain name to another — the most common DNS record type", "The first record in a DNS zone file — specifies the primary name server, responsible email address, and timing parameters (serial, refresh, retry, expire, minimum TTL) that control zone transfer behaviour and caching", "A record that identifies which SMTP server handles email for the domain", "A record that specifies DNSSEC signing parameters for the zone"],
+        answer: 1,
+        explanation: "Every DNS zone has exactly one SOA record. Key fields: MNAME (primary authoritative name server), RNAME (admin email, encoded as name — @ replaced with .), Serial (incremented on each zone change — secondary servers use this to detect updates), Refresh (how often secondaries check for updates), Retry (if refresh fails, retry interval), Expire (if no contact, secondaries stop answering after this time)." },
+
+      { q: "What is DNSSEC and what does it protect against?",
+        options: ["DNS over HTTPS — encrypts DNS queries so the ISP cannot see which websites you visit", "A suite of IETF extensions that adds cryptographic signatures to DNS responses — allowing resolvers to verify that DNS data is authentic and has not been modified or spoofed in transit, preventing DNS cache poisoning", "A DNS firewall that blocks lookups for malicious domains", "DNSSEC doubles the speed of DNS resolution by caching all records permanently"],
+        answer: 1,
+        explanation: "DNS cache poisoning (Kaminsky attack): inject fake DNS records into a resolver's cache — users are sent to attacker-controlled IPs. DNSSEC adds digital signatures (RRSIG records) to all DNS data, signed by the zone's private key. Resolvers verify signatures against the public key (DNSKEY record) — if the signature doesn't match, the record is rejected. DNSSEC does not encrypt DNS queries; DoH and DoT provide privacy." },
+
+      // ── FINAL BATCH: SUBNETTING, MISC CONCEPTS & MORE TROUBLESHOOTING ─────
+      { q: "How many usable hosts are in a /28 subnet?",
+        options: ["6", "14", "30", "62"],
+        answer: 1,
+        explanation: "/28 leaves 4 host bits: 2^4 = 16 total addresses. Subtract 2 (network address and broadcast) = 14 usable hosts. Subnet mask = 255.255.255.240. /29 gives 6 usable hosts, /27 gives 30, /26 gives 62, /25 gives 126, /24 gives 254." },
+
+      { q: "What is the network address and broadcast address for 192.168.10.65/26?",
+        options: ["Network: 192.168.10.0, Broadcast: 192.168.10.127", "Network: 192.168.10.64, Broadcast: 192.168.10.127", "Network: 192.168.10.64, Broadcast: 192.168.10.255", "Network: 192.168.10.0, Broadcast: 192.168.10.63"],
+        answer: 1,
+        explanation: "/26 = 255.255.255.192 — subnet increments of 64. Subnets: .0-.63, .64-.127, .128-.191, .192-.255. The IP 192.168.10.65 falls in the .64-.127 block. Network address = 192.168.10.64 (first address); broadcast = 192.168.10.127 (last address); usable range = .65 to .126." },
+
+      { q: "What is VLSM (Variable Length Subnet Masking) and why is it useful?",
+        options: ["A technique for combining two subnets into one larger block", "Using different subnet mask lengths within the same IP address space — allowing subnets sized exactly to actual needs rather than wasting addresses by giving all subnets the same size", "A method for applying subnet masks to IPv6 addresses", "Automatically adjusting subnet masks based on traffic load"],
+        answer: 1,
+        explanation: "Without VLSM (classful routing), all subnets in a network must use the same mask. With VLSM, a /24 can be divided into a /27 (30 hosts) for a large segment, a /30 (2 hosts) for a point-to-point WAN link, and a /28 (14 hosts) for a medium segment — wasting far fewer addresses. VLSM requires a routing protocol that advertises subnet masks with routes (RIPv2, OSPF, EIGRP, BGP)." },
+
+      { q: "What is a /30 subnet commonly used for?",
+        options: ["Large enterprise segments requiring 254 hosts", "Point-to-point WAN links between two routers — it provides exactly 2 usable host addresses (the two router interfaces) with minimal address waste", "Loopback addresses on routers", "DHCP scopes for small branch offices"],
+        answer: 1,
+        explanation: "/30 = 4 total addresses, 2 usable. Perfect for router-to-router links where only two addresses are needed. No address is wasted. /31 (RFC 3021) can also be used for point-to-point links — it provides 2 addresses with no network/broadcast concept (both addresses are usable), saving one more address. Routers support /31 on WAN interfaces with the 'ip address ... /31' configuration." },
+
+      { q: "What is route summarisation (route aggregation) and why is it used?",
+        options: ["Combining multiple specific routes into one less-specific summary route — reducing the number of routing table entries, decreasing memory use, and speeding up convergence by advertising fewer prefixes to neighbours", "Splitting one large route into multiple smaller subnets for more precise traffic steering", "Summarising routing table changes into a digest sent to a network management server", "Converting between classful and classless routing representations"],
+        answer: 0,
+        explanation: "Instead of advertising 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24, and 192.168.3.0/24 separately, summarise as 192.168.0.0/22 (one route covers all four). Smaller routing tables = faster lookups, less memory, smaller routing protocol updates, and faster convergence (fewer route changes to process). Summarisation happens at area boundaries in OSPF and between ASes in BGP (CIDR aggregation)." },
+
+      { q: "What is CDP (Cisco Discovery Protocol) and how does it differ from LLDP?",
+        options: ["CDP is vendor-neutral; LLDP is Cisco proprietary", "CDP (Cisco Discovery Protocol) is Cisco proprietary (Layer 2, multicast) and reveals Cisco device details (model, IOS version, IP address) to directly connected neighbours. LLDP (IEEE 802.1AB) is vendor-neutral. Both are disabled on security-hardened interfaces to prevent information leakage", "CDP provides routing information; LLDP provides switching information", "CDP is encrypted; LLDP is unencrypted"],
+        answer: 1,
+        explanation: "CDP is enabled by default on Cisco interfaces and advertises platform, capabilities, IP, and IOS version — useful for topology discovery. Security concern: it reveals device details to anyone on the connected segment. Best practice: disable CDP on access ports facing untrusted users ('no cdp enable') and use LLDP where multi-vendor interoperability is needed. Both operate at Layer 2 and don't cross routers." },
+
+      { q: "What is VRRP (Virtual Router Redundancy Protocol) and how does it compare to HSRP?",
+        options: ["VRRP is Cisco proprietary; HSRP is an open standard — functionally identical", "VRRP (RFC 5798) is an open-standards first-hop redundancy protocol equivalent to Cisco's HSRP — both create a virtual IP/MAC for gateway redundancy. VRRP calls the active router 'Master' (vs HSRP 'Active'); the virtual MAC is different; VRRP is supported by all vendors", "VRRP provides load balancing between routers; HSRP provides only failover", "VRRP is for Layer 2 redundancy; HSRP is for Layer 3 redundancy"],
+        answer: 1,
+        explanation: "VRRP and HSRP both solve the same problem: provide a virtual default gateway IP that survives a router failure. Differences: HSRP is Cisco proprietary (well supported on Cisco only); VRRP is IEEE standard (works across vendors). GLBP (Gateway Load Balancing Protocol, Cisco) adds active-active load balancing across multiple routers — HSRP and VRRP are active/standby only." },
+
+      { q: "What is the function of a network gateway?",
+        options: ["A gateway is a switch that connects multiple VLANs within a single building", "A gateway is a router (or firewall) that forwards traffic from one network to another — specifically the 'default gateway' is the local router interface that end devices send packets to when the destination is on a different network", "A gateway is a specialised device that converts between different Layer 2 media (e.g., Ethernet to Wi-Fi)", "A gateway is a DNS server that translates domain names to IP addresses"],
+        answer: 1,
+        explanation: "The default gateway (configured on every host) is the IP address of the router interface on the local subnet. When a host needs to reach an IP outside its own subnet, it sends the packet to the default gateway, which then routes it toward the destination. Without a correct default gateway, hosts can only communicate within their own subnet." },
+
+      { q: "What does 'ip route 0.0.0.0 0.0.0.0 [next-hop]' configure on a router?",
+        options: ["A route to the loopback 0.0.0.0 address for management traffic", "The default route (gateway of last resort) — matches any destination address, used when no more specific route exists in the routing table. Traffic for unknown destinations is forwarded to [next-hop], typically the ISP router or upstream gateway", "A null route that discards all traffic not matched by more specific routes", "An OSPF summary route advertising all connected networks to neighbours"],
+        answer: 1,
+        explanation: "0.0.0.0/0 (the 'default route' or 'quad-zero route') is the least specific route possible — it matches every IP address. In the routing process, the most specific (longest prefix) match always wins, so specific routes take priority and only traffic with no better match uses the default route. On edge routers, the default route points to the ISP; within OSPF, it can be distributed as a Type 5/7 LSA." },
+
+      { q: "What is the function of the ARP command 'arp -a' on a Windows or Linux host?",
+        options: ["Adds a static ARP entry associating an IP with a MAC address", "Displays all current entries in the ARP cache (resolved IP-to-MAC mappings) — useful for troubleshooting Layer 2 connectivity and verifying that the correct MAC is associated with a gateway IP (ARP poisoning check)", "Sends ARP requests to all hosts on the subnet to discover devices", "Clears all dynamic ARP entries from the cache"],
+        answer: 1,
+        explanation: "'arp -a' lists all cached ARP entries. If the default gateway IP maps to an unexpected MAC address, ARP poisoning may be occurring. 'arp -d' deletes the ARP cache. 'arp -s' adds a static entry. On Linux, 'ip neigh show' is the modern equivalent. Dynamic ARP entries expire after a few minutes (typically 4-20 minutes depending on OS)." },
+
+      { q: "What is the 'netstat -rn' command used for?",
+        options: ["Showing all active TCP and UDP network connections with numeric addresses", "Displaying the local routing table with numeric IP addresses (no name resolution) — showing destination networks, subnet masks, gateways, interface, and metric", "Resetting all network connections and clearing the ARP cache", "Showing network interface statistics including error counts"],
+        answer: 1,
+        explanation: "'netstat -r' (or 'route print' on Windows, 'ip route show' on Linux) displays the routing table — the list of network destinations and their associated next-hop gateways and interfaces. The '-n' flag suppresses DNS resolution to speed up output. The routing table shows the default route (0.0.0.0/0), directly connected networks, and any static or dynamically learned routes." },
+
+      { q: "What is an optical loopback connector used for?",
+        options: ["Connecting two fibre optic cables from different buildings", "A test connector that loops a fibre's transmit signal back to its receive port — used to verify that a fibre transceiver (SFP/SFP+) and its port are functional without requiring a full cable run to a remote device", "Converting between multimode and single-mode fibre signals", "Amplifying a weak fibre signal on a long cable run"],
+        answer: 1,
+        explanation: "A loopback connector (for fibre: loops TX back to RX; for copper: wires specific pins together) allows testing a port in isolation. If the port can successfully receive what it transmits through the loopback, the port hardware is good — ruling out transceiver failure. Used during initial hardware testing, RMA verification, and troubleshooting 'is it the cable or the port?' questions." },
+
+      { q: "What does 'show interface' output on a Cisco switch reveal?",
+        options: ["Only the IP addresses configured on each interface", "Interface status (up/down/admin down), protocol status, speed and duplex, input/output packet and byte counts, error counters (CRC, input errors, collisions, output drops) — essential for diagnosing physical and link-layer problems", "The MAC address table for each connected device", "The spanning tree state of each interface"],
+        answer: 1,
+        explanation: "Key 'show interface' fields to check during troubleshooting: Line status (Layer 1 — cable/hardware) and Protocol status (Layer 2 — keepalive/encapsulation). If 'up/down': Layer 2 problem or keepalive failure. If 'down/down': cable or hardware problem. Error counters: Input errors/CRC (physical corruption), Collisions/late collisions (duplex mismatch), Output drops (congestion/overloaded queue)." },
+
+      { q: "What is port forwarding (DNAT) on a home/office router?",
+        options: ["Forwarding all traffic from one switch port to another for monitoring", "A NAT rule that translates an inbound connection on a specific public IP:port to a specific private IP:port — making an internal server (web, game, camera) accessible from the internet despite being behind NAT", "A QoS rule that gives certain traffic types priority through the router", "A firewall rule that allows all traffic through a specific port number"],
+        answer: 1,
+        explanation: "Port forwarding (DNAT — Destination NAT): when the router receives an inbound TCP/UDP packet on a specified public port (e.g., TCP 443), it rewrites the destination IP from the public IP to the internal server's private IP (e.g., 192.168.1.100) and forwards it. The internal server sees the connection as coming from the outside world. DMZ host forwards all ports to one internal device (no filtering — dangerous)." },
+
+      { q: "What is the difference between IDS signature-based detection and anomaly-based detection?",
+        options: ["Signature-based is for wired networks; anomaly-based is for wireless", "Signature-based detection matches traffic against known attack patterns (low false positives, misses new/unknown threats); anomaly-based detection establishes a baseline of normal behaviour and alerts on deviations (catches unknown threats, higher false positive rate)", "Signature-based is for endpoint security; anomaly-based is for network-level monitoring", "They are the same — signatures define the anomalies to detect"],
+        answer: 1,
+        explanation: "Signature-based (rules/pattern matching): precise for known attacks, no false positives for well-written sigs, but blind to new zero-day exploits. Anomaly/heuristic-based: builds a statistical model of normal traffic (what ports, protocols, volumes are typical) and alerts when behaviour deviates significantly. Good for detecting novel attacks but generates false positives as 'unusual but legitimate' activity triggers alerts." },
+
+      { q: "What is the purpose of a firewall DMZ port vs an inside/outside port?",
+        options: ["The DMZ port runs at a higher speed than inside or outside ports", "The DMZ interface hosts systems that need to be reachable from the internet (web, email, DNS servers) but should not have unrestricted access to the internal LAN — traffic between internet and DMZ is partially allowed; traffic from DMZ to LAN is restricted; traffic from LAN to DMZ is typically allowed", "The DMZ port is for management traffic only — connecting to the firewall's console", "The DMZ port provides IPv6 connectivity while inside/outside ports are IPv4-only"],
+        answer: 1,
+        explanation: "A tri-homed firewall has three interfaces: Outside (internet), Inside (trusted internal LAN), and DMZ. Rules: internet→DMZ (allow specific ports: 80, 443, 25), DMZ→Internet (allow outbound responses), LAN→DMZ (allow), DMZ→LAN (deny or very restricted), internet→LAN (deny). This ensures a compromised DMZ server can't attack internal systems freely." },
+
+      { q: "What is MAC address filtering on a wireless access point and is it a strong security control?",
+        options: ["Filtering is very effective — MAC addresses are unique hardware identifiers that cannot be changed", "MAC address filtering allows or denies Wi-Fi clients based on their MAC address — but it is a weak control because MAC addresses are broadcast in plaintext in 802.11 frames and can be trivially spoofed by an attacker using any Wi-Fi adapter", "Filtering blocks specific IP addresses, not MAC addresses — providing Layer 3 security", "MAC address filtering provides enterprise-grade security equivalent to WPA3"],
+        answer: 1,
+        explanation: "An attacker can passively capture management frames from the air and see the MACs of authorised clients, then configure their own adapter to use one of those MACs (MAC spoofing). The AP is fooled into allowing access. MAC filtering adds minor friction but no real security against determined attackers. WPA2/WPA3 with strong passphrases or 802.1X authentication are real security controls." },
+
+      { q: "What is the purpose of the 'tracert' (Windows) command versus 'pathping'?",
+        options: ["tracert is faster; pathping provides less information", "tracert shows each hop and latency for a single run; pathping combines tracert with ping statistics — testing each hop for extended periods and showing packet loss and latency at each hop, helping identify intermittent problems that a single tracert might miss", "They are different names for the same tool on different Windows versions", "tracert tests UDP; pathping tests ICMP — they test different protocol paths"],
+        answer: 1,
+        explanation: "tracert (Windows) / traceroute (Linux): runs once, shows hops and approximate RTT. Useful for identifying where in the network a problem is. pathping (Windows only): runs tracert to identify hops, then sends 100 pings to each hop over ~5 minutes, calculating loss and latency statistics at each hop — far more accurate for diagnosing intermittent packet loss on specific links." },
+
+      { q: "What Cisco command shows the ARP table on a router, and what information does it contain?",
+        options: ["'show mac address-table' — maps MAC addresses to switch ports", "'show arp' — displays the IP-to-MAC address mappings cached by the router, including the interface and age of each entry", "'show ip route' — displays the IP routing table", "'show cdp neighbors' — displays directly connected Cisco device information"],
+        answer: 1,
+        explanation: "'show arp' on a Cisco router lists: Internet (type), IP address, age (minutes), MAC address, hardware type (ARPA), and interface. Age of '-' means the entry is a permanent static or local interface address. This is useful for verifying that the correct MAC is associated with an IP — and for checking if a device is reachable at Layer 3 (appears in ARP table) even if it fails higher-layer connectivity tests." },
+
+      { q: "What is the purpose of port scanning (e.g., with nmap)?",
+        options: ["To measure the bandwidth available on each network port", "To enumerate which TCP/UDP ports are open on a target host — identifying which services are listening, enabling network administrators to verify firewall rules or helping attackers discover attack surfaces", "To configure firewall rules to block specific ports on a switch", "To monitor ongoing network connections and kill unwanted ones"],
+        answer: 1,
+        explanation: "Nmap (Network Mapper) is the most common port scanner. It sends various probe packets and analyses responses to determine port state: Open (application listening), Closed (no listener, but host reachable), Filtered (no response — likely firewalled). Used by administrators for security audits ('what is actually exposed?') and by attackers for reconnaissance. Always get authorisation before scanning networks you don't own." },
+
+      { q: "What is a network protocol analyser (packet sniffer) and what is Wireshark?",
+        options: ["A tool that monitors wireless signal strength across a building", "Software that captures and decodes network frames in real time — Wireshark is the most popular open-source packet analyser, showing Ethernet headers, IP headers, TCP/UDP, and application-layer payload. Used for protocol troubleshooting, performance analysis, and security investigation", "A tool that manages SNMP polling and generates performance reports", "A device that injects test packets into the network to measure throughput"],
+        answer: 1,
+        explanation: "Wireshark captures packets from a network interface (or from a PCAP file) and dissects them layer by layer. Display filters (e.g., 'http', 'tcp.port == 443', 'ip.addr == 10.0.0.1') isolate relevant traffic. 'Follow TCP Stream' reassembles application-layer conversations. Essential for troubleshooting application problems, protocol verification, and detecting cleartext credentials or malware C2 traffic." },
+
+      { q: "What does the 'ipconfig /release' followed by 'ipconfig /renew' process do?",
+        options: ["Resets all network adapter drivers and reinitialises the hardware", "Releases the current DHCP lease (sends a DHCPRELEASE to the server) and requests a fresh lease (triggers the DORA process again) — useful when a host has the wrong IP, an expired lease, or needs to pick up changes from the DHCP server (new DNS server, new gateway)", "Clears the DNS cache and re-downloads all DNS records", "Resets the firewall rules to default and re-applies group policy"],
+        answer: 1,
+        explanation: "'/release' tells the DHCP server the current lease is no longer needed and zeroes out the IP configuration. '/renew' begins the DHCP DORA process — Discover → Offer → Request → Acknowledge — to get a new lease. If the DHCP server is reachable, the host gets a valid IP configuration. If not, it falls back to APIPA (169.254.x.x). Useful troubleshooting step when a host has network issues." },
+
+      { q: "What is the difference between TCP and UDP at the Transport layer?",
+        options: ["TCP is faster; UDP is more reliable", "TCP is connection-oriented (3-way handshake, sequencing, acknowledgements, retransmission on loss — reliable but higher overhead); UDP is connectionless (no handshake, no guaranteed delivery — low overhead, used for latency-sensitive traffic like VoIP, DNS, video streaming)", "TCP uses ports; UDP does not — UDP uses IP addresses to identify services", "They are the same protocol with different header sizes"],
+        answer: 1,
+        explanation: "TCP (Transmission Control Protocol): SYN/SYN-ACK/ACK handshake establishes a connection. Sequence numbers allow reordering. ACKs confirm receipt; unACKed segments are retransmitted. Ideal for file transfers, web, email — where accuracy matters more than speed. UDP (User Datagram Protocol): fire-and-forget, no connection, no guarantee. Ideal for DNS (fast query/response), VoIP (latency is worse than loss), DHCP, streaming media, online gaming." },
+
+      { q: "What is the TCP 3-way handshake?",
+        options: ["SYN → SYN-ACK → ACK — client sends SYN, server replies with SYN-ACK, client completes with ACK, establishing a bidirectional connection", "SYN → ACK → FIN — opens the connection, confirms, then immediately closes it", "HELLO → OFFER → ACCEPT — used in TCP and DHCP connection setup", "RST → SYN → ACK — connection is first reset, then re-established"],
+        answer: 0,
+        explanation: "Step 1: Client → Server SYN (client indicates it wants to connect, sends initial sequence number). Step 2: Server → Client SYN-ACK (server acknowledges client's SYN, sends its own sequence number). Step 3: Client → Server ACK (client acknowledges server's SYN). Connection is now established. Both sides have agreed on sequence numbers for reliable ordered data exchange. A 4-way FIN/ACK/FIN/ACK teardown closes connections gracefully." },
+
+      { q: "What are well-known ports, registered ports, and dynamic/ephemeral ports?",
+        options: ["Well-known: 0-1023 (assigned to common services — HTTP, FTP, SSH, DNS); Registered: 1024-49151 (assigned to specific applications — MySQL, RDP); Dynamic/Ephemeral: 49152-65535 (assigned by OS to client connections)", "Well-known: 1-999; Registered: 1000-5000; Dynamic: 5001-65535", "All ports 0-1023 are well-known; all others are available for any use", "Well-known ports require root privileges; registered ports require user login; dynamic ports are anonymous"],
+        answer: 0,
+        explanation: "IANA manages port number assignments: 0-1023 (Well-Known/System ports — require root/admin on Unix): HTTP 80, HTTPS 443, SSH 22, FTP 20/21, Telnet 23, SMTP 25, DNS 53, DHCP 67/68. 1024-49151 (Registered): MySQL 3306, RDP 3389, VNC 5900. 49152-65535 (Dynamic/Ephemeral): OS assigns these to clients for the source port of outbound connections." },
+
+      { q: "What is ICMP (Internet Control Message Protocol) used for?",
+        options: ["Delivering application data between hosts using a connectionless datagrams", "Network diagnostics and error reporting — ICMP Echo (ping), TTL Exceeded (traceroute), Destination Unreachable (host or port unreachable), Redirect, and Fragmentation Needed messages are all ICMP. It is not used for application data transfer", "Assigning IP addresses automatically in the absence of DHCP", "Controlling Quality of Service prioritisation for IP packets"],
+        answer: 1,
+        explanation: "ICMP (RFC 792) is a Layer 3 protocol used between network devices for control and diagnostic purposes. Key message types: Type 0/8 — Echo Reply/Request (ping). Type 3 — Destination Unreachable (subtypes: host unreachable, port unreachable, fragmentation needed). Type 11 — Time Exceeded (TTL = 0, used by traceroute). Type 5 — Redirect (router tells host to use a better gateway). ICMP is often partially blocked at firewalls." },
+
+      { q: "What is an anycast address in IPv6?",
+        options: ["An address assigned to exactly one interface, used for one-to-one communication", "An address assigned to multiple interfaces, where packets are delivered to the nearest interface (in routing distance terms) — used for routing services, DNS root servers, and CDN anycast", "An address that delivers packets to all interfaces in a group — equivalent to multicast", "An address that forwards packets to all interfaces in a subnet — equivalent to broadcast"],
+        answer: 1,
+        explanation: "Anycast: same address on multiple servers; routing delivers to the closest one. Used by: DNS root servers (all 13 root server letters are anycast — hundreds of physical servers worldwide), BGP-based CDN routing (Cloudflare, Fastly), and DDoS mitigation (traffic distributed across many PoPs). IPv6 formally defines anycast; IPv4 uses the same concept but without explicit protocol support." },
+
+      { q: "What is Network Address Translation (PAT / Overloaded NAT) and how does it track connections?",
+        options: ["PAT uses IP addresses as the differentiator between internal hosts", "PAT (Port Address Translation) maps multiple private IPs to one public IP by assigning unique source port numbers to each internal connection — the NAT table records private-IP:private-port → public-IP:public-port so return traffic can be correctly forwarded to the originating internal host", "PAT requires each internal host to have a unique public IP reserved for its exclusive use", "PAT is only used for inbound connections from the internet to internal servers"],
+        answer: 1,
+        explanation: "PAT is how home and small office routers work: hundreds of internal hosts share one public IP. When 192.168.1.10:54321 connects to a web server, the router NATs it to PublicIP:1025. When 192.168.1.20 also connects, it becomes PublicIP:1026. The NAT table maps each unique source port to the correct internal host. Up to ~65535 simultaneous connections per public IP (minus reserved ports)." },
+
+      { q: "What is SNMP polling versus SNMP traps?",
+        options: ["Polling is unreliable; traps are reliable — traps use TCP while polling uses UDP", "Polling: the NMS periodically queries (gets) SNMP agents for current values on a schedule; Traps: agents proactively send unsolicited notifications to the NMS when a specific event occurs (interface down, high CPU, temperature threshold exceeded) without waiting to be asked", "Polling retrieves device configurations; traps retrieve performance metrics", "They are the same mechanism — SNMP only uses one communication model"],
+        answer: 1,
+        explanation: "SNMP polling (NMS → Agent GET, UDP 161): NMS periodically asks agents for current values — systematic but creates delay between event occurrence and detection. SNMP Traps (Agent → NMS, UDP 162): agents send alerts immediately when events occur — faster detection but unreliable (UDP — no acknowledgement that the NMS received it). SNMPv2 Informs are like Traps but require acknowledgement. Most environments use both." },
+
+      { q: "What is the difference between physical and logical network diagrams?",
+        options: ["Physical diagrams show Layer 3 information; logical diagrams show Layer 1 cable runs", "Physical diagrams show the actual hardware layout — rack locations, cable runs, port connections, physical media. Logical diagrams show the network's logical structure — IP addresses, subnet boundaries, VLANs, routing domains, and traffic flow paths — without regard to physical location", "They are the same diagram presented with different icons", "Physical diagrams are for wireless; logical diagrams are for wired networks"],
+        answer: 1,
+        explanation: "Both are essential. Physical diagram: 'What is physically connected to what?' — used for cable fault isolation, moves/adds/changes, and physical documentation. Logical diagram: 'How does traffic flow? What are the IP addresses? Where are the subnet boundaries?' — used for troubleshooting connectivity, planning routing changes, and understanding traffic paths. Together they give a complete picture of the network." },
+
+      { q: "What WAN technology uses labels to make forwarding decisions and is commonly used for enterprise site-to-site connectivity?",
+        options: ["ADSL", "Frame Relay", "MPLS (Multiprotocol Label Switching)", "T1 leased line"],
+        answer: 2,
+        explanation: "MPLS uses short fixed-length labels (not IP lookup) for fast packet forwarding. The ingress router assigns a label; P (provider) routers forward by label; the egress router removes the label. Benefits: traffic engineering (guaranteed paths and bandwidth), QoS separation, Layer 3 VPN isolation. Often delivered by ISPs as MPLS VPN services for enterprise WAN. Being supplemented/replaced by SD-WAN." },
+
+      { q: "What is an SFP (Small Form-factor Pluggable) transceiver?",
+        options: ["A small wireless antenna module for indoor access points", "A hot-swappable modular transceiver that plugs into SFP switch/router ports — allowing the same port to support different media (copper Gigabit, multimode fibre, single-mode fibre) by swapping the SFP module without replacing the switch", "A small form-factor power supply for PoE switches", "A miniaturised DHCP server for embedded devices"],
+        answer: 1,
+        explanation: "SFP modules (also called mini-GBICs) make network equipment flexible: one SFP+ port can accept a 10GBase-SR module (MMF, up to 300 m), a 10GBase-LR module (SMF, up to 10 km), or a 10GBase-T module (copper Cat 6a, up to 30 m). Eliminates the need for a different switch model for each media type. SFP28 supports 25G; QSFP28 supports 100G." },
+
+      { q: "What is the purpose of Ethernet flow control (IEEE 802.3x PAUSE frames)?",
+        options: ["To balance traffic between multiple redundant uplinks", "To temporarily halt transmission from a sender when a receiver's buffer is filling up — the receiver sends a PAUSE frame asking the sender to stop for a specified time, preventing packet drops due to buffer overflow", "To prioritise certain Ethernet frames over others based on 802.1p markings", "To detect duplex mismatches and automatically correct them"],
+        answer: 1,
+        explanation: "IEEE 802.3x defines PAUSE frames for full-duplex flow control: when a switch or NIC's receive buffer is near overflow, it sends a PAUSE frame (destination: multicast 01:80:C2:00:00:01) to the sender, specifying a pause duration. The sender stops transmitting for that duration. QoS (Priority Flow Control, PFC in DCB) is an enhanced version used in data centre networks to provide per-priority-class flow control." },
+
+      { q: "What is meant by 'split DNS' (also called split-horizon DNS)?",
+        options: ["A DNS architecture where each half of the DNS tree is served by different providers", "Providing different DNS responses to clients depending on their source (internal clients get private IP addresses for internal servers; external clients get public IP addresses) — keeping internal IP addressing hidden from external DNS", "A DNS configuration where queries are split between IPv4 and IPv6 DNS servers", "Dividing a large DNS zone file across multiple authoritative servers"],
+        answer: 1,
+        explanation: "Split DNS runs two DNS zones for the same domain: an internal zone (returns private IPs — e.g., intranet.example.com → 10.0.1.50) visible only inside the corporate network, and an external zone (returns public IPs or CDN addresses) visible on the internet. Internal users reach internal servers directly; external queries never learn internal IP addressing. Implemented with separate DNS servers or DNS views (BIND, Windows DNS)." },
+
+      { q: "What is the purpose of a network proxy's forward proxy cache?",
+        options: ["Caching user credentials to allow automatic authentication to web applications", "Storing copies of frequently accessed web content (images, scripts, pages) locally — serving subsequent requests from cache rather than fetching from origin servers. Reduces bandwidth usage, lowers latency for repeat requests, and decreases load on web servers", "Caching firewall rules to speed up packet filtering decisions", "Storing DNS query results to reduce DNS server load"],
+        answer: 1,
+        explanation: "A web proxy cache (Squid is the most widely used) stores HTTP responses. When the first user requests a resource, it is fetched from origin and cached. Subsequent users requesting the same content get it from the proxy cache — instantly and without consuming internet bandwidth. Reduces internet egress costs significantly in organisations where many users access the same content." },
+
+      { q: "What is the purpose of IPAM (IP Address Management) in a large network?",
+        options: ["Managing physical IP camera systems and their address assignments", "Centralising the tracking and management of IP address allocations — providing a single source of truth for which IPs are assigned, to what, in which subnet, with DHCP lease status and integration with DNS for automatic record creation and deletion", "Monitoring IP-based voice calls for quality management", "Managing access control lists applied to IP addresses on routers"],
+        answer: 1,
+        explanation: "In large networks with thousands of subnets and IP addresses, manual tracking in spreadsheets breaks down quickly. IPAM tools (Infoblox, ManageEngine DDI, phpIPAM) provide: subnet visualisation (used vs available), automatic discovery (finds IPs in use via ping/SNMP), DHCP integration (lease database), DNS integration (auto-update A/PTR records on lease assignment), reporting, and change tracking. DDI = DNS + DHCP + IPAM combined." },
+
+      { q: "What is an OTDR (Optical Time-Domain Reflectometer) and what does it measure?",
+        options: ["A wireless signal meter for testing Wi-Fi signal in optical fibre environments", "A fibre diagnostic tool that sends laser pulses into a fibre and measures the reflected light over time — showing loss events (connectors, splices, bends) and their distance from the test point, to within centimetres", "A tool for measuring the colour temperature of fibre optic LED transmitters", "A device for converting between single-mode and multimode fibre signals"],
+        answer: 1,
+        explanation: "An OTDR is to fibre what a TDR is to copper. It injects a light pulse and measures reflections (Fresnel reflections at connectors and Rayleigh backscatter along the fibre). The OTDR trace shows: fibre length, connector/splice insertion loss at specific distances, macro-bend events, and the overall attenuation curve. Essential for certifying new fibre plant installation and diagnosing breaks or high-loss points in existing runs." },
+
+      { q: "Which of the following is the BEST description of network segmentation and its security benefit?",
+        options: ["Splitting a network into two equal halves to balance load", "Dividing a network into isolated zones (segments/VLANs/subnets) with controlled communication between them — limiting the 'blast radius' of a breach by preventing an attacker who compromises one segment from freely moving to others (limiting lateral movement)", "Segmenting employee workstations from servers for performance reasons only", "Creating separate SSIDs for different user groups on a wireless network"],
+        answer: 1,
+        explanation: "Segmentation is a core security principle. A flat network lets any compromised device reach every other device. Segmented networks (separated by firewalls with ACLs or by micro-segmentation in SDN) limit lateral movement — a malware infection in the guest VLAN can't reach the finance servers directly. PCI-DSS, HIPAA, and other compliance frameworks require isolating sensitive systems. Zero trust extends this to east-west traffic." }
     ]
   },
 
