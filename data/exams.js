@@ -901,29 +901,500 @@ const EXAMS = {
 
   "cdl": {
     id: "cdl", title: "CDL Commercial Driving Permit",
-    description: "Practice for the CDL general knowledge written test. Covers vehicle inspection, shifting, braking, and federal regulations.",
+    description: "105-question practice test for the CDL General Knowledge written exam. Covers all FMCSA-tested topics: pre-trip inspection, vehicle controls, braking, shifting, space management, cargo, Hours of Service, hazardous materials, adverse conditions, and emergency procedures — based on the official FMCSA CDL Manual.",
     category: "driving",
     questions: [
-      { q: "What is the minimum tread depth required for front tires on a commercial motor vehicle?",
+
+      // ── PRE-TRIP INSPECTION ─────────────────────────────────────────────────
+      { q: "What is the minimum tread depth required for front (steering) tires on a commercial motor vehicle?",
         options: ["2/32 inch", "4/32 inch", "6/32 inch", "8/32 inch"],
         answer: 1,
-        explanation: "Federal regulations require at least 4/32 inch tread depth on front steering tires and 2/32 inch on all other tires." },
+        explanation: "Federal regulations (FMCSR 393.75) require at least 4/32-inch tread depth on front steering tires. All other tires (drive and trailer) require at least 2/32 inch. Steering tires are held to a higher standard because they directly control direction." },
+
+      { q: "What is the proper order for a vehicle inspection walk-around?",
+        options: ["Start at the rear, move left, then front", "Start at the driver's door, move to the front, around the right side, then rear", "Any order is acceptable as long as everything is checked", "Start at the engine compartment, then check tires last"],
+        answer: 1,
+        explanation: "FMCSA recommends a consistent walk-around: begin at the driver's door, inspect the front, continue around the right side, then across the rear and up the left side — so nothing is overlooked. A routine pattern prevents missed items." },
+
+      { q: "During a pre-trip inspection, you find an oil leak. What should you do?",
+        options: ["Continue driving — minor leaks are acceptable if the level is topped off", "Report it at your destination but continue the trip", "Do not drive until the leak is identified and corrected", "Drive no more than 50 miles and then re-check"],
+        answer: 2,
+        explanation: "Any fluid leak that can result in loss of a system critical to safety — oil, brake fluid, coolant, fuel — must be corrected before driving. Federal regulations prohibit operating a CMV in an unsafe condition. A driver who operates a vehicle with known defects can be placed out of service." },
+
+      { q: "When inspecting the engine compartment, what fluid levels should you check?",
+        options: ["Engine oil only", "Engine oil and fuel only", "Engine oil, coolant, power steering fluid, brake fluid, and windshield washer fluid", "Only the fluids marked with a low-level warning light"],
+        answer: 2,
+        explanation: "A thorough engine compartment inspection covers engine oil, coolant (radiator and overflow), power steering fluid, windshield washer fluid, and brake fluid. Low levels in any of these can lead to mechanical failure or a safety hazard on the road." },
+
+      { q: "What should you look for when inspecting your tires during a pre-trip inspection?",
+        options: ["Tread depth only", "Proper inflation pressure, tread depth, sidewall condition, and whether any lug nuts are missing or loose", "Inflation pressure only — tread is checked at annual DOT inspections", "Only visible cuts or bulges — inflation is checked by the dispatcher"],
+        answer: 1,
+        explanation: "A complete tire inspection checks: inflation pressure (using a gauge), tread depth (gauge or wear indicators), sidewall condition (no cuts, bulges, or separations), valve stems, and that all lug nuts are present and tight. A tire failure at highway speed is one of the most dangerous CMV events." },
+
+      { q: "You find that a windshield wiper blade is torn and streaks badly across your field of vision. What should you do?",
+        options: ["Continue driving — wiper condition is not a federal safety item", "Note it on the DVIR and replace it before driving in rain", "It is only a defect in wet weather, so drive until it rains and then decide", "Wipers are the responsibility of the carrier, not the driver"],
+        answer: 1,
+        explanation: "Windshield wipers are a safety-critical item. Defective wipers are a violation under FMCSR 393.78. Record it on the Driver Vehicle Inspection Report (DVIR) and do not operate in precipitation until corrected. You as the driver are responsible for verifying the vehicle is safe before operating it." },
+
+      { q: "What does a pre-trip inspection of the brake system include for an air-brake equipped vehicle?",
+        options: ["Visual check of the brake chambers only", "Checking air pressure builds to 120–125 psi, testing the low-air warning (should trigger at or above 55 psi), verifying spring brakes apply at 20–45 psi, and performing a static leak test", "Only checking that the brake pedal feels firm", "Checking that the brake lights illuminate when the pedal is pressed"],
+        answer: 1,
+        explanation: "The CDL air brake check sequence verifies: air compressor cuts out by 125 psi and cuts in by 100 psi; low-air warning light/buzzer activates at or above 55 psi; spring (parking) brakes fully apply between 20–45 psi; and with the engine off and brakes applied, air pressure loss is no more than 2 psi/minute (single) or 3 psi/minute (combination)." },
+
+      { q: "On a post-trip inspection, when is a driver required to create a Driver Vehicle Inspection Report (DVIR)?",
+        options: ["Only when a defect is found", "At the end of every driving day, even if no defects are found", "Only on trips that exceed 100 miles", "Only for the first and last run of a day"],
+        answer: 1,
+        explanation: "FMCSR 396.11 requires drivers to prepare a DVIR at the end of each day's work. Even if no defects were found, the driver must sign and note that the vehicle was inspected and no defects found. The report must be retained by the carrier for 3 months." },
+
+      // ── BASIC VEHICLE CONTROL ────────────────────────────────────────────────
+      { q: "What is the correct way to use mirrors when backing a commercial vehicle?",
+        options: ["Use only the passenger-side mirror so you can see the trailer", "Alternate quickly between left and right mirrors only in the final 10 feet", "Check both mirrors frequently and continuously; get out and look (G.O.A.L.) whenever you are unsure about clearance", "Drive forward, look at the trailer, then back without mirrors"],
+        answer: 2,
+        explanation: "G.O.A.L. — Get Out And Look — is the most important backing technique. Mirrors have blind spots that are significant enough to miss a person or obstacle. Always get out and check clearance before and during complex backing manoeuvres. Check both mirrors frequently throughout any backing operation." },
+
+      { q: "Why is right-side backing more difficult than left-side backing?",
+        options: ["The trailer's rear lights are harder to see from the left mirror", "The driver's blind spot is larger on the right (passenger) side — the cab blocks the driver's direct view", "Right-side backing requires more steering wheel turns", "Air brake systems respond more slowly in right turns"],
+        answer: 1,
+        explanation: "On the driver's left side, the driver can look directly out the window and down the length of the trailer. On the right side, the cab obstructs the line of sight, making right-side backing — called 'the blind side' — more difficult and more reliant on mirrors." },
+
+      { q: "The 'off-tracking' of a long vehicle (such as a tractor-trailer) refers to:",
+        options: ["The steering wheel pulling to one side during acceleration", "The tendency of the rear wheels to follow a shorter path (cut corners) compared to the front wheels during turns", "The load shifting rearward during hard braking", "The trailer swinging out beyond the tractor's width when turning"],
+        answer: 1,
+        explanation: "Off-tracking means the rear axles of a long vehicle track inward of the front axles during a turn, cutting corners. The longer the vehicle and the tighter the turn, the greater the off-tracking. Drivers must make wide turns to avoid running over curbs or pedestrians and to prevent the rear of the trailer from striking objects." },
+
+      { q: "When turning left at an intersection with a tractor-trailer, you should:",
+        options: ["Turn early to swing the trailer around quickly", "Move to the far right side of the lane before turning, to prevent the trailer from cutting the corner", "Reach the centre of the intersection before beginning to turn so the trailer tracks properly", "Turn as you would in a car — the trailer self-corrects"],
+        answer: 2,
+        explanation: "For left turns, reach the centre of the intersection before turning. This allows the trailer's rear wheels to clear the corner without off-tracking onto the curb. For right turns, the technique is the opposite — swing wide before the turn or turn late to prevent the trailer's rear from cutting the curb." },
+
+      { q: "What is the purpose of the 'sniff test' when starting a vehicle with air brakes?",
+        options: ["To check for diesel fuel odours indicating a fuel leak", "To listen and feel for air leaks around hoses and glad hands", "To test whether brake linings smell of heat before driving", "This is not a recognised CDL inspection procedure"],
+        answer: 1,
+        explanation: "Leaking air lines make a distinctive hissing sound and can be felt as moving air. Running your hand along air lines and listening near fittings, glad hands, and relay valves helps locate leaks. Air system integrity is essential — a major leak can deplete the system and engage spring brakes while moving." },
+
+      // ── SHIFTING & TRANSMISSION ──────────────────────────────────────────────
+      { q: "When should you downshift before a long, steep downgrade?",
+        options: ["Halfway down the grade when your speed increases", "At the bottom of the grade as a safety precaution", "Before you begin the descent, while still at the top", "When your speed exceeds the posted advisory speed"],
+        answer: 2,
+        explanation: "Brakes overheat on long downgrades if used continuously. Select the correct lower gear before starting down so engine compression does most of the retarding work. Brakes should only be used for minor speed adjustments. Once brake fade sets in on a hill, changing gears will not help." },
+
+      { q: "The proper technique for braking on a long downgrade (for non-air brake vehicles) is:",
+        options: ["Keep steady pressure on the brake pedal for the entire descent", "Apply brakes until speed drops 5 mph below your target speed, release completely, then repeat", "Pump the brakes rapidly to build pedal pressure and prevent fade", "Downshift only — never use the foot brake on a downgrade"],
+        answer: 1,
+        explanation: "The 'snub braking' technique: apply brakes hard enough to reduce speed by about 5 mph below your safe speed (e.g., from 40 to 35), then release the brakes entirely and let them cool for a distance before repeating. This prevents brake fade from continuous heat build-up." },
+
+      { q: "What does double-clutching mean?",
+        options: ["Pressing the clutch twice rapidly to engage a higher gear", "Releasing the clutch into neutral, revving or letting the engine settle, then pressing the clutch again to engage the new gear — allowing gear teeth to synchronise without a synchroniser", "Using both feet on the clutch pedal for better control", "Depressing the clutch and the brake pedal simultaneously"],
+        answer: 1,
+        explanation: "Most heavy trucks have non-synchronised transmissions. Double-clutching: press clutch → move to neutral → release clutch → match engine RPM to road speed (rev up for downshift, let RPM drop for upshift) → press clutch → engage new gear → release clutch smoothly. Without synchronisers, this matching step is essential for smooth shifts." },
+
+      { q: "When is it necessary to downshift while climbing a hill?",
+        options: ["Only at the top of the hill to prepare for the descent", "Before the engine starts to lug (lose power and RPM) — shift down while there is still engine power to make a smooth transition", "At the base of any hill regardless of slope", "Never downshift on hills — maintain speed with accelerator only"],
+        answer: 1,
+        explanation: "Downshifting must happen before the engine 'lugs' — loses power and speed. Once RPM has dropped too low on an uphill, there may not be enough engine power to pull through a gear change. Anticipate the hill, check your speed, and downshift while still moving at a reasonable speed." },
+
+      { q: "What does it mean when a truck transmission is in 'neutral'?",
+        options: ["The parking brake is applied", "No gear is engaged — engine power is not connected to the drive axles", "The truck is ready to roll forward under gravity", "Low-range gearing is engaged for maximum torque"],
+        answer: 1,
+        explanation: "Neutral means no gear is selected and no torque is transmitted from the engine to the wheels. You should not coast downhill in neutral in a commercial vehicle — it is illegal in most states and removes the benefit of engine braking. The vehicle's speed then depends entirely on friction brakes, accelerating brake fade." },
+
+      // ── BRAKING SYSTEMS & STOPPING ───────────────────────────────────────────
       { q: "At what blood alcohol concentration (BAC) are CDL holders considered impaired while driving a commercial vehicle?",
         options: ["0.08%", "0.06%", "0.04%", "0.02%"],
         answer: 2,
-        explanation: "CDL holders are held to a stricter standard: 0.04% BAC (half the 0.08% limit for regular drivers). A CDL holder can also be disqualified for refusing a test." },
-      { q: "When should you downshift before a long, steep downgrade?",
-        options: ["Halfway down the grade", "At the bottom of the grade", "Before you begin the descent", "When your speed exceeds the posted limit"],
-        answer: 2,
-        explanation: "Brakes overheat on long downgrades. Downshift to the correct gear before starting down so engine braking does most of the work; brakes are for minor speed adjustments only." },
-      { q: "What is the proper order for a vehicle inspection walk-around?",
-        options: ["Start at the back, move left, then front", "Start at the driver's side, move front, then right, then rear", "Any order is acceptable", "Start at the engine, then check tires"],
+        explanation: "CDL holders are subject to a 0.04% BAC limit — half the standard 0.08% limit for regular drivers. At any detectable level while on-duty, a driver cannot operate a CMV. Refusal to submit to a BAC test is treated the same as a positive result." },
+
+      { q: "What is 'brake fade' and what causes it?",
+        options: ["Brakes that activate later than expected due to worn pads", "The reduction in braking effectiveness caused by heat build-up in drum brakes during prolonged or repeated heavy braking", "A federal safety term for out-of-adjustment brakes", "The lag between pressing the pedal and air-brake application"],
         answer: 1,
-        explanation: "FMCSA recommends a consistent walk-around starting at the driver's door, moving to the front, around the passenger side, and to the rear — so nothing is missed." },
+        explanation: "Brake fade occurs when brake drums and linings become so hot that friction is greatly reduced — the brakes stop working effectively. It is caused by over-reliance on friction brakes on long downgrades. Proper technique (engine braking in the correct gear, snub braking) prevents fade." },
+
+      { q: "How does total stopping distance for a CMV relate to speed?",
+        options: ["It increases linearly — doubling speed doubles stopping distance", "It increases roughly with the square of speed — doubling speed quadruples stopping distance", "It decreases at higher speeds because air drag assists braking", "It is constant regardless of speed because air brakes apply the same force"],
+        answer: 1,
+        explanation: "Stopping distance = perception distance + reaction distance + braking distance. All three components increase with speed, with braking distance increasing as the square of speed (kinetic energy ∝ v²). A fully-loaded 80,000-lb truck at 55 mph takes approximately 335 feet to stop — the length of a football field." },
+
+      { q: "What is the normal air pressure range a commercial truck's air brake system should build and maintain?",
+        options: ["40–60 psi", "60–80 psi", "100–125 psi", "150–175 psi"],
+        answer: 2,
+        explanation: "Most air brake systems are designed to operate between 100 and 125 psi. The compressor cuts out (stops pumping) at the high end and cuts back in at the low end (typically around 100 psi). Pressure outside this range indicates a system problem." },
+
+      { q: "If the low air pressure warning light and buzzer come on while driving, you should:",
+        options: ["Continue driving at reduced speed to the nearest exit", "Immediately bring the vehicle to a safe stop before air pressure drops low enough for the spring brakes to apply automatically", "Turn off the warning buzzer using the cab controls and continue to a truck stop", "Speed up to increase alternator output, which recharges the air system"],
+        answer: 1,
+        explanation: "The low air warning activates at around 55 psi. Spring (emergency) brakes apply automatically at 20–45 psi. If spring brakes apply at highway speed, the truck will stop suddenly and violently. At the first warning, pull off safely and stop. Do not attempt to drive to a shop." },
+
+      { q: "What are spring brakes, and when do they apply?",
+        options: ["Extra drum brakes on the steer axle that engage above 60 mph", "Mechanically applied emergency/parking brakes that apply automatically when air pressure falls below 20–45 psi, or when the parking brake control is applied", "Air-over-hydraulic brakes used on older trucks", "A type of brake that applies more force on curves"],
+        answer: 1,
+        explanation: "Spring brakes use a large coil spring inside the brake chamber. Normally, air pressure compresses the spring (holding brakes off). When air pressure drops (loss of pressure or parking brake applied), the spring drives the pushrod to apply the brakes. This is why air brake systems are 'fail-safe' — loss of pressure = brakes apply." },
+
+      { q: "What is the 'stab braking' technique for non-ABS vehicles?",
+        options: ["Applying brakes in a pulsing rhythm to simulate ABS", "Applying full brake pressure until the wheels are about to lock, releasing just enough to let them turn, then reapplying — used for emergency straight-line stops", "Pressing the brake pedal partway repeatedly to prevent fade", "Using only the engine brake (jake brake) in emergencies"],
+        answer: 1,
+        explanation: "Stab braking for non-ABS: apply brakes fully until wheels are just about to lock, release pedal until wheels roll freely (about 1 second), then reapply. This maintains steering control in emergencies. With ABS, simply apply maximum pressure — the system modulates automatically." },
+
+      // ── SPACE MANAGEMENT ────────────────────────────────────────────────────
+      { q: "How many seconds of following distance should you maintain for a commercial vehicle at speeds below 40 mph?",
+        options: ["1 second per 10 feet of vehicle length", "2 seconds", "3 seconds", "4 seconds"],
+        answer: 0,
+        explanation: "The FMCSA rule: at speeds below 40 mph, allow 1 second of following distance for every 10 feet of vehicle length. A 60-foot truck needs 6 seconds. Above 40 mph, add 1 additional second. In adverse conditions, double your following distance." },
+
+      { q: "At 55 mph, a tractor-trailer that is 60 feet long needs approximately how many seconds of following distance?",
+        options: ["4 seconds", "6 seconds", "7 seconds", "10 seconds"],
+        answer: 2,
+        explanation: "Below 40 mph: 1 second per 10 feet = 6 seconds. Above 40 mph, add 1 second: 6 + 1 = 7 seconds. At 55 mph, 7 seconds of following distance gives the driver enough time and distance to stop safely for most emergencies." },
+
+      { q: "How much space should you leave above your vehicle when choosing a route or underpass?",
+        options: ["Match your vehicle's exact height", "At least 1 foot of clearance above your highest point", "Avoid any opening less than 14 feet unless you know your exact height", "Height is only a concern for bridge clearances, not underpasses"],
+        answer: 1,
+        explanation: "Many drivers use a rule of at least 1 foot of clearance above the vehicle's tallest point. However, the safest approach is to know your vehicle's exact loaded height and compare it to posted clearances. Bridge and underpass heights on posted signs are the minimum clearance — the actual may be less due to repaving." },
+
+      { q: "Why are large commercial vehicles more likely to be involved in intersection crashes than passenger vehicles?",
+        options: ["They are driven more miles and thus have more exposure only", "Their height reduces the driver's ability to see traffic signals", "Longer stopping distances, wider turning radius, large blind spots, and off-tracking all create additional hazards at intersections", "Intersections are designed for passenger vehicles, not CMVs"],
+        answer: 2,
+        explanation: "CMVs have multiple compounding risks at intersections: they need far more distance to stop, they off-track and need wide turns, they have blind spots that can hide vehicles and pedestrians, and they take longer to accelerate through the intersection. All of these must be managed simultaneously." },
+
+      { q: "What does 'managing visibility' mean for a CMV driver?",
+        options: ["Using only high-beam headlights at night", "Ensuring you can always see a minimum of 400 feet ahead", "Scanning ahead 12–15 seconds, checking mirrors every 5–8 seconds, and positioning the vehicle so you can be seen and can see around obstacles", "Avoiding driving in foggy or rainy conditions"],
+        answer: 2,
+        explanation: "Good visibility management is a continuous process: scan 12–15 seconds ahead at highway speeds, check mirrors every 5–8 seconds, use lane position to maximise sightlines, and make yourself visible (lights, position). Reacting to what you see 12 seconds ahead gives you far more options than seeing it at 3 seconds." },
+
       { q: "How far in advance must you signal before changing lanes on a highway?",
         options: ["50 feet", "100 feet", "200 feet", "300 feet"],
         answer: 1,
-        explanation: "Federal regulations and most state laws require signaling at least 100 feet before a lane change on a highway. Signal earlier in heavy traffic." }
+        explanation: "Federal regulations and most state laws require at least 100 feet of signal before a lane change on a highway. Signal earlier in heavy traffic to give other drivers more warning. Commercial vehicles need more time to safely change lanes, so early signaling is especially important." },
+
+      { q: "What is the 'danger zone' around a commercial vehicle where the driver cannot see other vehicles or pedestrians?",
+        options: ["10 feet directly behind the trailer", "The areas directly ahead, directly behind, and on both sides — particularly the right side — where large blind spots exist", "The area inside the turning radius only", "Only the area immediately behind the cab"],
+        answer: 1,
+        explanation: "CMV blind spots are significant: 20 feet ahead of the cab, 30 feet behind the trailer, and the entire right side (passenger side) from the cab to beyond the trailer. The right mirror on a semi can show only a narrow strip. School buses are required to warn children about these zones — the same principle applies to all large vehicles." },
+
+      // ── CARGO SAFETY ────────────────────────────────────────────────────────
+      { q: "What is the federal maximum gross vehicle weight rating (GVWR) for a commercial motor vehicle on the Interstate Highway System?",
+        options: ["60,000 lbs", "73,280 lbs", "80,000 lbs", "88,000 lbs"],
+        answer: 2,
+        explanation: "The federal limit is 80,000 pounds gross vehicle weight on Interstate highways. States may have lower limits on non-Interstate roads. Overweight permits can be obtained for special loads, but the federal bridge formula also limits axle group weights to protect roads and bridges." },
+
+      { q: "Why is it important to re-check cargo securement after the first 50 miles of a trip?",
+        options: ["Federal law requires it regardless of load condition", "Settling of the load and initial stretching of tie-downs and straps can loosen securement during the first miles of travel", "The first 50 miles are the most dangerous due to driver fatigue", "Cargo weight limits must be re-verified before highway entry"],
+        answer: 1,
+        explanation: "FMCSR 392.9 requires drivers to inspect cargo within the first 50 miles and then at each change of duty status or every 3 hours/150 miles, whichever comes first. Straps stretch, blocking can settle, and loads shift in the first miles. A loose load can shift catastrophically at highway speed." },
+
+      { q: "What is the minimum number of tie-downs required to secure a load that is 10 feet long?",
+        options: ["One", "Two", "Three", "Four"],
+        answer: 1,
+        explanation: "FMCSR 393.106: cargo up to 5 feet long and 1,100 lbs requires 1 tie-down. Cargo longer than 5 feet requires a minimum of 2 tie-downs. For every additional 10 feet of length beyond 10 feet, an additional tie-down is required. Two is the minimum for a 10-foot load." },
+
+      { q: "How does shifting cargo weight affect a commercial vehicle?",
+        options: ["It has no effect if the total weight is within legal limits", "Shifting weight forward puts more pressure on the steering axle — shifting rearward reduces steering control and can make the vehicle harder to handle; proper weight distribution across axles is critical", "Weight distribution only matters for axle weight permits", "Cargo weight shifts only affect braking, not steering"],
+        answer: 1,
+        explanation: "Weight distribution affects handling, stability, tyre wear, and legal axle weights. Too much weight on the drive axles reduces steering axle grip (vehicle pushes in turns); too little causes wheel spin. Too much weight overall on any axle violates bridge formula limits even if total GVW is legal." },
+
+      { q: "What items must be checked when inspecting the cargo and cargo area before departure?",
+        options: ["Only that the rear doors are closed and locked", "That cargo is properly blocked, braced, tied, and chained; that the load is within legal weight limits; that nothing is blocking the driver's view or access to controls; and that the load does not obscure lights or licence plates", "Only weight tickets provided by the shipper", "Whether the load is insured — this is the carrier's responsibility, not the driver's"],
+        answer: 1,
+        explanation: "Drivers are legally responsible for cargo securement. Inspect that cargo cannot shift or fall; that nothing blocks mirrors or lights; that weight is properly distributed; and that rear and side doors are secure. The driver — not the shipper or dispatcher — is the one who can be cited if cargo is improperly secured in transit." },
+
+      // ── FEDERAL REGULATIONS & HOURS OF SERVICE ──────────────────────────────
+      { q: "Under federal Hours of Service (HOS) regulations, how many hours may a property-carrying CMV driver drive after 10 consecutive hours off duty?",
+        options: ["8 hours", "10 hours", "11 hours", "14 hours"],
+        answer: 2,
+        explanation: "The 11-Hour Driving Limit: a property-carrying driver may drive a maximum of 11 hours after 10 consecutive hours off duty. This is separate from the 14-hour window — even if a driver has 14-hour window time remaining, they cannot drive past 11 hours of actual driving time." },
+
+      { q: "What is the '14-hour rule' for property-carrying CMV drivers?",
+        options: ["A driver may not drive more than 14 hours in any 24-hour period", "A driver may not drive after the 14th hour following the end of the most recent 10-hour off-duty period — regardless of on-duty time not spent driving", "A driver must rest for 14 hours after completing an 11-hour shift", "A driver may remain on-duty for 14 hours per day but only 11 hours may be spent driving"],
+        answer: 1,
+        explanation: "The 14-hour window begins when a driver comes on duty (starts work). After 14 hours have elapsed (including all breaks, loading, waiting, and driving), the driver may not drive again until completing another 10-hour off-duty period. The window cannot be extended by taking short off-duty breaks within it (with limited exceptions)." },
+
+      { q: "What is the '60/70-hour rule' for CMV drivers?",
+        options: ["A driver may not drive after accumulating 60 hours on duty in 7 consecutive days (or 70 hours in 8 days)", "Drivers must take a 60-minute break every 7 hours", "Drivers may work no more than 70 hours per week across all employers", "A rest break of 60–70 minutes resets the 11-hour clock"],
+        answer: 0,
+        explanation: "The 60/70-hour limit applies to the carrier's operating schedule. Carriers operating 7 days a week use the 70-hour/8-day rule; those not operating every day use 60-hour/7-day. Once this limit is reached, the driver cannot drive again until sufficient hours have been reduced through off-duty time. A 34-hour restart resets the cycle." },
+
+      { q: "How long must a CMV driver's rest break be after 8 hours of driving time?",
+        options: ["15 minutes", "30 minutes", "45 minutes", "60 minutes"],
+        answer: 1,
+        explanation: "FMCSR 395.3 requires a 30-minute off-duty break after 8 cumulative hours of driving since the last off-duty period of at least 30 minutes. The break must be spent off-duty (or in the sleeper berth) — it cannot be taken while doing other on-duty functions like fuelling or pre-trip inspection." },
+
+      { q: "CDL drivers are subject to random drug and alcohol testing. Under DOT regulations, what drugs are tested for?",
+        options: ["THC (marijuana) and cocaine only", "Marijuana, cocaine, opioids (including heroin), phencyclidine (PCP), and amphetamines — a DOT 5-panel test", "Only illegal drugs — prescription medications are exempt", "Alcohol only — drug testing is the employer's choice"],
+        answer: 1,
+        explanation: "DOT regulations require testing for marijuana (THC), cocaine, opioids (codeine, morphine, heroin, oxycodone, hydrocodone), phencyclidine (PCP), and amphetamines/methamphetamines. Prescription medications that impair driving are also prohibited. Drivers who test positive face disqualification until they complete a Substance Abuse Professional program." },
+
+      { q: "A CDL may be disqualified for which of the following offences while operating any vehicle (not just a CMV)?",
+        options: ["A first-offence speeding ticket in a personal vehicle", "Using a personal vehicle while under the influence of alcohol or a controlled substance", "Receiving a toll violation in a personal vehicle", "Any traffic citation while off-duty"],
+        answer: 1,
+        explanation: "CDL disqualification can result from certain serious traffic violations committed in any vehicle — including personal vehicles. A DUI/DWI in a personal vehicle is a major disqualifying offence. Serious traffic violations (speeding 15+ mph over the limit, reckless driving, improper lane change) in any vehicle can also trigger CDL disqualification if multiple offences occur." },
+
+      { q: "What is the minimum CDL disqualification period for a first offence of driving a CMV while disqualified?",
+        options: ["30 days", "60 days", "90 days", "1 year"],
+        answer: 3,
+        explanation: "FMCSR 383.51: operating a CMV while disqualified, revoked, suspended, or cancelled is a major offence resulting in at least a 1-year disqualification for a first offence. A second offence triggers a 10-year (potentially lifetime) disqualification. This is one of the most serious CDL violations." },
+
+      { q: "For how long must a commercial carrier retain driver qualification files?",
+        options: ["1 year after the driver leaves", "3 years after the driver leaves", "5 years after the driver leaves", "Indefinitely — files can never be destroyed"],
+        answer: 1,
+        explanation: "FMCSR 391.51 requires carriers to retain driver qualification files for at least 3 years after a driver's employment ends. During employment, files must be kept current. Qualification files include the application, MVR, road test certificate, medical certificate, and documentation of periodic reviews." },
+
+      // ── HAZARDOUS MATERIALS OVERVIEW ─────────────────────────────────────────
+      { q: "When is a CDL driver required to have a Hazardous Materials (HazMat) endorsement?",
+        options: ["Any time the vehicle carries any amount of hazardous material", "When transporting hazardous materials in quantities requiring a placard under 49 CFR Part 172", "Only when carrying explosives or flammable liquids in tankers", "When the combined weight of hazmat cargo exceeds 1,000 lbs"],
+        answer: 1,
+        explanation: "A HazMat endorsement is required when a driver transports a quantity of hazardous material that requires placarding under 49 CFR 172 Subpart F — the quantity thresholds vary by hazard class. Small quantities below placard thresholds may be transported without a HazMat endorsement, though proper labelling and documentation are still required." },
+
+      { q: "What document must always accompany a shipment of hazardous materials?",
+        options: ["A bill of lading only", "Shipping papers that identify the material, hazard class, ID number, packing group, and quantity — and must be kept within reach of the driver at all times", "The manufacturer's MSDS/SDS sheet only", "A permit issued by the state of origin"],
+        answer: 1,
+        explanation: "49 CFR 172.200 requires shipping papers (bill of lading, hazmat manifest, etc.) that include: the hazmat's proper shipping name, hazard class, UN/NA identification number, packing group, and quantity. The driver must be able to produce them quickly for emergency responders — they must be in the driver's door pocket or within immediate reach." },
+
+      { q: "What does a diamond-shaped placard on a commercial vehicle indicate?",
+        options: ["The vehicle is oversized or an overweight load", "The vehicle is transporting hazardous materials of a specific hazard class", "The vehicle is a school or church bus", "The vehicle contains a flammable liquid only"],
+        answer: 1,
+        explanation: "Orange or coloured diamond-shaped placards are required by 49 CFR Part 172 on vehicles transporting placardable quantities of hazardous materials. The colour, symbol, and number on the placard identify the hazard class (e.g., flammable, explosive, corrosive, radioactive). Emergency responders use this information to respond safely." },
+
+      { q: "When transporting hazardous materials, where should the shipping papers be kept while the vehicle is moving?",
+        options: ["In the cargo area with the hazmat", "In a secure pouch attached to the outside of the driver's door", "Within immediate reach of the driver — in the driver's door pocket or on the driver's seat", "In the glove compartment so they are protected from weather"],
+        answer: 2,
+        explanation: "While driving, shipping papers must be within immediate reach — in the driver's door pocket or on the seat. This allows emergency responders to quickly identify the hazmat after an accident, even if the driver is incapacitated. When out of the vehicle, papers must be on the driver's seat or in the door pocket visible from outside." },
+
+      // ── ADVERSE CONDITIONS ───────────────────────────────────────────────────
+      { q: "Under what road conditions is your stopping distance most dramatically increased?",
+        options: ["Gravel roads", "Wet pavement", "Snow and ice — stopping distances can be 10 times greater than on dry pavement", "Newly paved asphalt"],
+        answer: 2,
+        explanation: "Ice and packed snow reduce tyre friction to a fraction of dry-pavement values. Stopping distances on ice can be 10 times longer than on dry pavement. Reduce speed significantly, increase following distance dramatically, avoid hard braking (pump or use ABS), and avoid sudden steering inputs." },
+
+      { q: "At what outside temperature does black ice most commonly form?",
+        options: ["32°F or below", "28–30°F", "0°F or below only — black ice requires extremely cold conditions", "Any temperature when it rains"],
+        answer: 0,
+        explanation: "Black ice can form at 32°F (0°C) and below whenever moisture is present. It is particularly dangerous at 28–32°F because road surfaces are near freezing — bridges and overpasses (which are exposed to cold air below) ice first. Black ice is nearly transparent and very difficult to see." },
+
+      { q: "When driving through a flooded road section, what should you do after emerging from the water?",
+        options: ["Accelerate to shake water from the vehicle", "Pump the brakes gently several times to dry them and restore braking effectiveness", "Park immediately and inspect the brakes for damage", "Check the air pressure — flooding can affect air brake systems"],
+        answer: 1,
+        explanation: "Water can enter drum brakes and reduce their effectiveness significantly. After driving through water, pump the brakes gently several times at low speed to generate heat that dries the linings and restores friction. Do this while there is no traffic behind you that could be surprised by your reduced speed." },
+
+      { q: "When driving in heavy fog or low visibility, you should:",
+        options: ["Use high-beam headlights — they penetrate fog better", "Slow down, increase following distance, use low-beam headlights (high beams reflect off fog and reduce visibility), and consider using hazard lights if speed is very low", "Continue at normal speed — the vehicle in front provides guidance", "Pull immediately to the side of the road and wait for fog to clear"],
+        answer: 1,
+        explanation: "High beams reflect off fog particles and create glare that actually reduces visibility. Low beams direct light lower and forward. Slow down to a speed that allows you to stop within your visible distance. If visibility is severely limited, find a safe place off the road to wait." },
+
+      { q: "A driver notices the roads feel 'greasy' even though the temperature is above freezing. What is the likely cause?",
+        options: ["The tyres are overinflated and losing grip", "The road has been freshly oiled or is covered with a light rain on top of oil residue, creating a slippery surface", "Engine oil is leaking onto the drive axles", "High humidity reduces tyre grip above freezing"],
+        answer: 1,
+        explanation: "Light rain on top of dry oil and residue creates an extremely slippery film on road surfaces. This is also common at the start of a rainfall before enough water falls to wash the residue away. Bridges and intersections (where vehicles idle and leak) are especially slick. Reduce speed and increase following distance whenever roads feel slippery." },
+
+      { q: "What is 'hydroplaning' and how does it affect vehicle control?",
+        options: ["Excess water in the brake fluid lines, causing spongy pedal feel", "A condition where a film of water between the tyre and road surface reduces traction to near zero — the tyre rides on water rather than road", "The effect of rain cooling the tyres and increasing grip", "Water intrusion into the fuel system"],
+        answer: 1,
+        explanation: "Hydroplaning occurs when tyre tread cannot channel water fast enough, and the tyre rides up on a film of water. At this point, steering and braking are nearly ineffective. It is most likely at higher speeds, with worn tyres, and in deep standing water. To recover: ease off the throttle gradually, don't brake hard, and steer straight." },
+
+      { q: "When should you turn on your headlights on a commercial vehicle?",
+        options: ["Only at night", "At dusk, dawn, in rain, fog, or any time visibility is reduced — and always during night hours", "Only when required by posted signs", "Federal law does not specify — it is the driver's discretion"],
+        answer: 1,
+        explanation: "FMCSR 392.33 requires headlights to be on from 30 minutes after sunset to 30 minutes before sunrise, and any time visibility is reduced. Many states have 'wipers on = lights on' laws. CMV headlights make the vehicle visible to others as much as they illuminate the road for the driver." },
+
+      // ── MOUNTAIN DRIVING ─────────────────────────────────────────────────────
+      { q: "What is a 'runaway ramp' (escape ramp) and when should you use it?",
+        options: ["A widened shoulder for parking on downgrades", "An emergency safety device — a gravel or sand-filled ramp on a downgrade — to stop a CMV whose brakes have failed; use it any time you lose control of your speed on a downgrade", "A weighstation bypass for trucks under 26,001 lbs", "A rest area for mountain driving fatigue stops"],
+        answer: 1,
+        explanation: "Runaway ramps are designed to stop out-of-control vehicles safely, usually using deep gravel or sand to create resistance. If you lose control of speed on a downgrade, use the ramp immediately — without hesitation. It is far better to stop the truck on a ramp than to crash. Do not pass a ramp thinking you can slow down further down the hill." },
+
+      { q: "Before descending a long, steep grade, what should you determine?",
+        options: ["Your destination arrival time so you can judge required speed", "The correct gear to use — based on grade steepness, road conditions, and loaded weight — and engage it at the top before speed builds", "Whether fuel is sufficient to complete the descent", "The location of the nearest truck stop at the bottom of the grade"],
+        answer: 1,
+        explanation: "The correct gear for a downgrade is the same gear you would use to climb that grade under similar conditions. Use the grade and weight to determine which gear maintains speed without relying entirely on brakes. Select this gear before starting down — once you are moving fast, you cannot safely shift to a lower gear." },
+
+      { q: "What is 'gear jacking' on a downgrade?",
+        options: ["Using excessive throttle to speed down a grade faster than normal", "Trying to downshift after speed has already built too high — the engine RPM will not match and the gear cannot be engaged safely", "A technique for rapid downshifting using the jake brake", "The act of shifting into neutral to save fuel on a downgrade"],
+        answer: 1,
+        explanation: "On a downgrade, if you wait too long to downshift, your speed rises beyond the point where you can safely match engine RPM to a lower gear. You are then 'stuck' — unable to downshift safely and with brakes as your only option. This is why you must select the correct gear before starting down." },
+
+      // ── EMERGENCY SITUATIONS ─────────────────────────────────────────────────
+      { q: "If a tyre blows out on the rear of a tractor, what is the first thing you should do?",
+        options: ["Brake hard immediately to stop before losing more control", "Hold the steering wheel firmly, stay off the brake, and gradually reduce throttle — let the vehicle slow naturally before applying gentle braking", "Pull the parking brake to lock the drive axles", "Immediately steer to the shoulder at full speed"],
+        answer: 1,
+        explanation: "A rear tyre blowout on a tractor typically causes vibration and the vehicle pulling toward the blown tyre. Hold the wheel firmly. Do NOT brake — this can cause a skid. Ease off the throttle and allow the vehicle to slow on its own. Once speed is low enough, steer to the shoulder and stop." },
+
+      { q: "If your front tyre blows out while driving a commercial vehicle, what should you do?",
+        options: ["Turn sharply toward the blown tyre side to compensate for the pull", "Hold the steering wheel very firmly with both hands, keep the vehicle straight, gradually ease off the throttle, and do not brake until speed is very low", "Apply full braking immediately", "Turn on hazard lights and maintain speed"],
+        answer: 1,
+        explanation: "A front tyre blowout causes the vehicle to pull hard toward the blown side. A firm grip (not jerking) on the wheel is critical. Braking hard with a blown front tyre risks skidding or the rim digging into the pavement and flipping the vehicle. Reduce speed gradually, then steer to safety." },
+
+      { q: "If your vehicle's engine catches fire, you should:",
+        options: ["Open the hood immediately to access the fire with an extinguisher", "Pull off the road, park away from buildings and other vehicles, notify 911, keep the hood closed to limit oxygen to the fire, and use the extinguisher through hood openings if available", "Continue driving to the nearest fire station", "Shut off the engine and stay in the cab until help arrives"],
+        answer: 1,
+        explanation: "Opening the hood feeds oxygen to the fire. Park well away from buildings, vegetation, and other vehicles. Keep the hood closed. Use the dry-chemical extinguisher through grill openings if available. Evacuate the cab — fuel tanks and cargo can be catastrophic. Call 911. Never stay in or near a burning vehicle." },
+
+      { q: "What is the correct technique to steer out of a skid (trailer jackknife)?",
+        options: ["Apply more braking force to stop the skid", "Counter-steer by turning the wheel into the skid while releasing the brakes to allow the rear to regain traction", "Accelerate to pull the tractor out of alignment with the trailer", "Apply the parking brake to lock the trailer brakes only"],
+        answer: 1,
+        explanation: "In a drive-axle skid (most common jackknife), the drive wheels lose traction and slide out. Release the brakes immediately (releasing restores traction). Counter-steer — turn the wheel in the direction the rear is sliding. On ABS-equipped trucks, braking normally reduces skid risk. Prevention is best: match speed to road conditions." },
+
+      { q: "What should you do if you experience a steering failure (broken steering linkage) while driving?",
+        options: ["Apply the brakes hard and immediately", "Gradually reduce speed using engine braking and smooth gentle braking, sound the horn, and steer as best you can to safety without sudden moves", "Apply the parking brake only", "Shift to neutral and coast to a stop"],
+        answer: 1,
+        explanation: "A sudden hard brake with steering failure can cause a catastrophic spin. Use controlled, gradual deceleration. Sound the horn to warn others. Make gradual steering inputs with whatever control remains. Get off the road as smoothly and quickly as possible. Engage the parking brake only when speed is very low." },
+
+      { q: "If your brakes are overheated and you smell burning, you should:",
+        options: ["Pour water on the brake drums to cool them quickly", "Stop the vehicle, park it, and allow brakes to cool naturally — pouring water on hot drums can crack them", "Continue driving at reduced speed until the smell dissipates", "Apply the brakes intermittently to cool them more evenly"],
+        answer: 1,
+        explanation: "Pouring cold water on hot drums causes thermal shock that can crack the drum, a potentially catastrophic failure. Allow brakes to cool naturally in open air. Don't set the parking brake hard on very hot brakes — the pads can fuse to the drums. Stop, park, let cool, and then inspect before resuming." },
+
+      // ── COUPLING & UNCOUPLING ────────────────────────────────────────────────
+      { q: "Before backing under a trailer to couple, the trailer landing gear must be:",
+        options: ["Fully retracted", "Low enough that the trailer rests on the fifth wheel", "High enough so the front of the trailer is slightly higher than the rear of the fifth wheel", "At any height — the fifth wheel adjusts automatically"],
+        answer: 2,
+        explanation: "Raising the trailer front slightly higher than the fifth wheel ensures the kingpin will engage the fifth wheel jaw properly as you back under. If the trailer is too low, the tractor can hit the trailer and push it forward; if too high, you may not couple completely. A slight nose-up angle allows the fifth wheel to slide under the trailer plate cleanly." },
+
+      { q: "After coupling a tractor to a trailer, what test should you perform to verify the kingpin is properly locked in the fifth wheel?",
+        options: ["Back up sharply and see if the trailer stays connected", "With the tractor in a low gear, gently tug forward with the trailer brakes applied — the vehicle should not move if properly coupled", "Observe the fifth wheel jaws visually — if they look closed, the coupling is complete", "Apply the trailer emergency brake and see if air escapes"],
+        answer: 1,
+        explanation: "The tug test: put the tractor in lowest gear, apply trailer brakes via the hand valve (or trailer parking brake), and gently pull forward. The tractor should not move the trailer. Also visually verify the fifth wheel jaw is locked around the kingpin and the safety latch is engaged. A false coupling (not fully locked) is extremely dangerous." },
+
+      { q: "What are 'glad hands' on a tractor-trailer?",
+        options: ["The safety chains connecting the tractor and trailer", "The air line couplings that connect the service (blue) and emergency (red) air lines between the tractor and trailer", "The electrical connectors for trailer lights", "The manual locking mechanism for the fifth wheel"],
+        answer: 1,
+        explanation: "Glad hands are the D-shaped couplings at the ends of the tractor's air lines and trailer's air line receptacles. They connect the service air line (blue/service — controls brake application) and emergency air line (red/emergency — supplies air to the trailer tank; loss of this line triggers trailer spring brakes). Always match service-to-service and emergency-to-emergency." },
+
+      { q: "What should you do with the landing gear before uncoupling a trailer?",
+        options: ["Leave it retracted — it extends automatically when the trailer settles", "Crank it down until it makes firm contact with the ground but do not place full weight on it while connected", "Lower it completely to the ground before uncoupling", "Landing gear is only used on trailers without kingpin locks"],
+        answer: 2,
+        explanation: "Lower the landing gear fully before uncoupling so the trailer is supported when the fifth wheel releases. If uncoupled first, an unsupported trailer front can crash to the ground, damaging the trailer nose, landing gear, and any cargo or person underneath. Also ensure the ground is firm — a soft surface can cause landing gear to sink." },
+
+      // ── COMMUNICATION & SIGNALS ──────────────────────────────────────────────
+      { q: "When must you use your horn as a CMV driver?",
+        options: ["To warn pedestrians at crosswalks regardless of traffic signals", "When passing another vehicle at all times", "When necessary to warn others of your presence — such as approaching a blind turn or when another vehicle appears about to encroach on your lane", "Any time you are backing"],
+        answer: 2,
+        explanation: "The horn is a safety warning device, not a courtesy signal. Use it when necessary to warn of imminent danger: approaching a blind curve with oncoming traffic risk, when another vehicle is drifting into your lane, or when someone has not seen your vehicle. Unnecessary use is generally prohibited." },
+
+      { q: "You are stopped on the side of a road at night. Where should you place warning triangles or flares?",
+        options: ["Directly behind the vehicle only", "10 feet behind the vehicle, 100 feet behind the vehicle, and 100 feet ahead of the vehicle", "Only visible on the driver's side of the road", "Warning devices are not required if hazard lights are on"],
+        answer: 1,
+        explanation: "FMCSR 392.22 requires reflective triangles or flares placed within 10 minutes of stopping: one within 10 feet of the rear of the vehicle, one about 100 feet behind, and one about 100 feet ahead. On a curve or hill, move the rearward triangle further back (up to 500 feet) so approaching traffic has adequate warning." },
+
+      { q: "When approaching a railroad crossing with a commercial vehicle, what are you required to do?",
+        options: ["Stop only if a train is visible or the signal is active", "Slow to 15 mph and proceed if the crossing is clear", "Stop between 15 and 50 feet from the nearest rail, listen and look in both directions, and only proceed when it is safe and your vehicle can completely clear the tracks", "Yield to the train but do not stop unless the gate comes down"],
+        answer: 2,
+        explanation: "FMCSR 392.10 requires CMVs carrying certain cargo (or any CMV transporting passengers) to stop at all railroad crossings. All CMV drivers must approach cautiously, check that sufficient space exists beyond the tracks for the entire vehicle, and confirm no train is coming before crossing. Never stop on the tracks." },
+
+      { q: "What is the four-way flasher (hazard light) used for?",
+        options: ["To indicate a lane change in both directions simultaneously", "To warn others of a hazard — when the vehicle is stopped or moving very slowly due to an emergency, breakdown, or traffic backup", "To signal to the vehicle behind that you intend to brake", "Hazard lights are required at all times when driving at under 45 mph on the Interstate"],
+        answer: 1,
+        explanation: "Hazard lights (four-way flashers) warn other drivers of a hazard. Use them when stopped on the shoulder, when moving unusually slowly in traffic, or in an emergency. In some jurisdictions, use while moving in certain conditions is restricted — know your state's laws. Hazard lights do not replace proper placement of warning triangles when stopped." },
+
+      // ── SPECIAL SITUATIONS ───────────────────────────────────────────────────
+      { q: "What is the 'high center of gravity' risk unique to CMVs carrying high loads (tankers, livestock trailers)?",
+        options: ["Increased aerodynamic drag reduces fuel economy significantly", "The vehicle becomes more susceptible to rollover — especially on curves, ramps, and during sudden steering manoeuvres", "High loads reduce braking efficiency on dry pavement", "The extra height can cause clearance problems only at bridges"],
+        answer: 1,
+        explanation: "A high centre of gravity means lateral forces (from turning) create a larger tipping moment. Liquid tankers (especially partial loads that slosh), double/triple trailers, and livestock loads significantly increase rollover risk. The posted advisory speeds on curves are for passenger vehicles — CMVs with high CoG should go considerably slower." },
+
+      { q: "What is 'liquid surge' and how does it affect tanker driving?",
+        options: ["A pressure spike in the air brake lines when braking hard", "The movement of liquid cargo toward the front of the tank during braking, adding forward momentum that makes stopping harder — and the rocking that follows extending stopping distance", "A fuel system problem caused by air in the fuel lines", "The tendency for liquid to boil at high altitudes, reducing load weight"],
+        answer: 1,
+        explanation: "Liquid in a partially-filled tanker surges forward when braking. This adds momentum to the vehicle, extending stopping distance and potentially overwhelming the brakes. After the initial surge, the liquid can rock back and 'push' the vehicle forward again. Brake early and gradually; never brake hard with a liquid load." },
+
+      { q: "When are you required to stop at a weigh station?",
+        options: ["Only when carrying hazardous materials", "All commercial vehicles are required to enter weigh stations unless specifically exempted by the state or pre-cleared by a commercial vehicle safety alliance program", "Only when your vehicle is over 26,000 lbs GVWR", "Only during the hours the station's scales are active"],
+        answer: 1,
+        explanation: "CMV drivers must enter open weigh stations unless exempted (PrePass/NORPASS transponder receiving bypass signal, or specific state exemptions). Bypassing an open weigh station is a violation that can result in fines and an out-of-service order. Always check for signage indicating the station is open." },
+
+      { q: "What does an 'out-of-service order' mean for a CMV driver?",
+        options: ["The driver's break period has begun and they may not be dispatched for another load", "The vehicle or driver is prohibited from operating until the identified violations are corrected — for driver violations, this means the driver cannot drive until the restriction period ends", "The driver's route has been re-assigned by dispatch", "The driver must return to the terminal for a safety briefing"],
+        answer: 1,
+        explanation: "An out-of-service (OOS) order is issued by an enforcement officer when a vehicle or driver is found to be in violation of safety regulations serious enough to warrant immediate cessation of operations. Operating under an OOS order is a serious federal violation. Vehicle OOS violations require the defect to be corrected before driving; driver OOS means the driver cannot drive during the OOS period." },
+
+      { q: "What is a 'serious traffic violation' under CDL regulations that can result in disqualification?",
+        options: ["Any traffic citation received while driving a CMV", "Violations such as speeding 15 mph or more over the limit, reckless driving, improper or erratic lane changes, following too closely, or texting while driving a CMV", "Parking violations and expired registration", "Any violation that results in a fine over $500"],
+        answer: 1,
+        explanation: "FMCSR 383.5 defines serious traffic violations specifically for CDL purposes. Two serious violations within 3 years in a CMV result in a 60-day disqualification; three violations result in a 120-day disqualification. These are in addition to any state-imposed penalties. The CDL holder must report any conviction within 30 days to their employer." },
+
+      // ── VEHICLE SYSTEMS KNOWLEDGE ─────────────────────────────────────────────
+      { q: "What is the purpose of the differential on a drive axle?",
+        options: ["To multiply torque in lower gears", "To allow the drive wheels on the same axle to rotate at different speeds when cornering, while still receiving power from the driveshaft", "To lock the brakes on one side independently for turning", "To shift power between front and rear axles on all-wheel-drive trucks"],
+        answer: 1,
+        explanation: "When a vehicle turns, the outer wheel travels a longer arc than the inner wheel and must rotate faster. The differential allows this speed difference while still transmitting torque. Without a differential, both wheels would be forced to turn at the same speed, causing tyre scrubbing and handling problems on turns." },
+
+      { q: "What is the purpose of a 'differential lock' or inter-axle differential lock (power divider)?",
+        options: ["To prevent the differential from wearing out on long trips", "To lock both drive axles together so they receive equal power — used only on slippery surfaces to prevent one axle from spinning while the other has traction", "To prevent differential failure on steep downgrades", "To improve fuel economy on highways"],
+        answer: 1,
+        explanation: "An inter-axle differential lock (commonly called 'diff lock' or power divider) forces both tandem drive axles to turn at the same speed and receive equal power. This prevents one axle from spinning freely when the other has traction. Use only on slippery surfaces — engaging on dry pavement causes driveline stress and tyre wear." },
+
+      { q: "What does the air pressure gauge in the cab of an air-brake truck tell you?",
+        options: ["Only the pressure in the front brake chambers", "The pressure in the supply (primary and secondary) air tanks, which powers the brake system and other air-operated accessories", "The tyre pressure on all axles simultaneously", "The pressure differential between the front and rear brake circuits only"],
+        answer: 1,
+        explanation: "Air pressure gauges monitor the pressure in the air supply tanks (primary and secondary/rear). Drivers should know the normal operating range (100–125 psi), the low-warning threshold (~55 psi), and the spring brake application pressure (20–45 psi). Watching the gauge is as important as watching the fuel gauge." },
+
+      { q: "What is a 'dual air brake system' and why do modern trucks use it?",
+        options: ["A system with separate air compressors for front and rear brakes — for redundancy", "A system with two separate air circuits (primary and secondary) — each powering different axle groups — so that if one circuit fails, the other still provides braking", "Two independent brake pedals — service and emergency", "An air brake system with both drum and disc brakes on the same axle"],
+        answer: 1,
+        explanation: "Dual air systems (required on CMVs manufactured after 1975) have a primary circuit (usually rear axles) and secondary circuit (usually front axle and sometimes trailer). If one circuit fails, the other maintains at least partial braking on unaffected axles. This redundancy provides a safer response to air line failures than a single-circuit system." },
+
+      { q: "What is the purpose of the trailer hand valve (trolley valve)?",
+        options: ["To apply only the tractor brakes for testing", "To apply only the trailer brakes independently — used primarily for testing trailer brake function, not for driving", "To release the trailer parking brake from inside the cab", "To control the trailer's service brakes independently for steering on ice"],
+        answer: 1,
+        explanation: "The hand valve (trolley valve) applies only the trailer's service brakes. Its primary purpose is testing: with the tractor stationary, apply the hand valve — if the tractor moves forward when you try to pull, the trailer brakes are not working. Do not use it as a primary brake during driving — it can cause jackknifing by slowing the trailer faster than the tractor." },
+
+      { q: "What does a 'jake brake' (compression release engine brake) do, and when should it NOT be used?",
+        options: ["It applies the service brakes automatically when the driver releases the throttle — do not use it on ice", "It opens exhaust valves during the compression stroke to convert the engine into an air compressor, creating drag that slows the vehicle without using friction brakes — do not use on slippery surfaces or where prohibited by local ordinance", "It downshifts the transmission automatically — do not use during rain", "It applies the trailer brakes only — do not use when uncoupled"],
+        answer: 1,
+        explanation: "An engine brake (retarder) slows the vehicle using engine compression, significantly reducing brake wear on downgrades. On slippery surfaces, it can cause drive-wheel lockup (loss of traction), so it should be disabled when roads are wet or icy. Many urban areas prohibit jake brakes due to noise — observe posted signs ('No Engine Brakes')." },
+
+      // ── MISCELLANEOUS & SAFETY ───────────────────────────────────────────────
+      { q: "What is the primary purpose of a 'controlled braking' technique?",
+        options: ["To brake as hard as possible to stop in the shortest distance regardless of steering", "To apply maximum braking force while maintaining the ability to steer — keeping wheels rolling at the edge of lockup rather than sliding", "To pulse the brakes rapidly to cool them during mountain descents", "To apply equal pressure to all wheels simultaneously for even wear"],
+        answer: 1,
+        explanation: "Controlled braking means applying firm, progressive pressure to achieve maximum deceleration while keeping wheels rolling (not locked). Locked, skidding wheels lose directional control. Controlled braking preserves your ability to steer around hazards while stopping as quickly as possible." },
+
+      { q: "A CMV driver should scan the road ahead how far at highway speeds?",
+        options: ["3–4 seconds ahead — enough to react to immediate hazards", "6–8 seconds ahead", "12–15 seconds ahead — at 55 mph this is approximately a quarter mile", "Scanning distance is not specified — use your judgement"],
+        answer: 2,
+        explanation: "At highway speeds, drivers should look 12–15 seconds ahead (about a quarter mile at 55 mph). This gives enough time to identify and respond to hazards before they become emergencies. Commercial vehicles have greater stopping distances, so earlier hazard identification is even more critical than for passenger vehicles." },
+
+      { q: "What is the purpose of the 'Smith System' of driving, often taught to CMV drivers?",
+        options: ["A fuel economy system that uses engine RPM targets", "A 5-habit driver training system: Aim High in Steering, Get the Big Picture, Keep Your Eyes Moving, Leave Yourself an Out, and Make Sure They See You — to prevent collisions through proactive awareness", "A pre-trip inspection checklist developed by the FMCSA", "A cargo securement rating system for different load types"],
+        answer: 1,
+        explanation: "The Smith System is a proactive, defensive driving methodology used widely in commercial driver training. Its 5 keys help drivers anticipate and avoid collisions by managing space, visibility, and communication with other drivers. Professional fleets often use it because it reduces crash rates significantly." },
+
+      { q: "What is 'distracted driving' as defined by FMCSA regulations for CMV drivers?",
+        options: ["Only manually operating a handheld device while moving", "Any activity that diverts a driver's attention from the task of driving — including texting, using a handheld phone, eating, reading, or adjusting in-cab devices while in motion", "Only sending or receiving text messages", "Any action prohibited by the carrier's safety policy"],
+        answer: 1,
+        explanation: "FMCSR 392.80 and 392.82 prohibit texting and using a handheld mobile phone while operating a CMV. Texting violations carry a maximum federal fine of $2,750 for drivers and up to $11,000 for carriers. Distracted driving broadly encompasses any activity that diverts attention — professional drivers are held to a higher standard than private motorists." },
+
+      { q: "You are driving a CMV and feel drowsy. What should you do?",
+        options: ["Open the window and turn up the radio — these reliably restore alertness", "Drink coffee and push through to your destination", "Pull off the road at a safe location and rest — there is no safe substitute for sleep", "Increase speed slightly to engage your alertness reflex"],
+        answer: 2,
+        explanation: "Drowsy driving is a leading cause of CMV crashes. No countermeasure — caffeine, fresh air, loud music — reliably prevents sleep. Only sleep itself restores alertness. At the first signs of drowsiness, pull off safely and rest. Microsleep events (involuntary 4–5 second sleep episodes) can happen without warning and are fatal at highway speed." },
+
+      { q: "What is the 'no-zone' campaign and why is it important to CMV drivers?",
+        options: ["A speed restriction programme around school and hospital zones", "A public safety campaign identifying the large blind spots ('no-zones') around trucks where other drivers are not visible to the truck driver — important so CMV drivers can recognise when cars are in their no-zones and manage that risk", "A federal restriction on driving in certain urban areas during peak hours", "A placard requirement for vehicles carrying no hazmat"],
+        answer: 1,
+        explanation: "The 'No-Zone' campaign (FMCSA/NHTSA) educates both CMV drivers and the public about the large blind spots beside, behind, and in front of large trucks. CMV drivers must be aware of these zones and manage them: checking mirrors frequently, adjusting position to maximise visibility, and knowing when smaller vehicles may have moved into a no-zone without the driver's awareness." },
+
+      { q: "When is a commercial vehicle required to use low-beam headlights rather than high-beam headlights?",
+        options: ["Only in construction zones", "Within 500 feet of an oncoming vehicle and within 300 feet when following another vehicle", "Only in urban areas — rural areas allow high beams at all times", "High beams are always required on a CMV outside urban areas"],
+        answer: 1,
+        explanation: "Most states require: switch to low beams within 500 feet of oncoming vehicles (to prevent blinding them) and within 300 feet when following another vehicle (to prevent distracting or blinding the driver ahead via mirrors). High beams on a large truck are significantly more blinding than those on a passenger car." },
+
+      { q: "What is the 'following distance rule' for driving in adverse weather conditions?",
+        options: ["The same as normal conditions — 1 second per 10 feet", "Double your normal following distance — and triple or more on ice or in dense fog", "Reduce following distance so you stay in the tracks of the vehicle ahead for better traction", "Following distance is reduced in rain because visibility is already limited"],
+        answer: 1,
+        explanation: "In adverse conditions — rain, snow, ice, fog — stopping distances increase dramatically. Double following distance in rain; triple (or more) on snow and ice; in dense fog, follow distance should be sufficient to stop within the distance you can see. The CDL manual recommends a minimum of 7 seconds at 55 mph in normal conditions; double this in adverse weather." },
+
+      { q: "What does it mean when a CMV has a 'CDL-required vehicle' designation?",
+        options: ["The vehicle must be driven by a CDL holder at all times, even when parked on private property", "The vehicle has a GVWR over 26,001 lbs, or is designed to transport 16+ passengers, or transports placardable hazardous materials — and operating it on public roads requires a CDL", "Any vehicle registered as a commercial vehicle by the state DMV", "A vehicle owned by a company rather than an individual"],
+        answer: 1,
+        explanation: "A CDL is required to operate on public roads any vehicle with a GVWR over 26,001 lbs, any combination vehicle with a GCWR over 26,001 lbs (if the towed unit is over 10,001 lbs), any vehicle designed to carry 16 or more passengers including the driver, or any vehicle transporting hazardous materials in quantities requiring a placard." },
+
+      { q: "What is the penalty for a CMV driver who falsifies logbook (ELD) records?",
+        options: ["A warning for first offences only", "Up to a $1,000 fine and potential criminal prosecution — false records are a federal violation under 49 CFR 395.8", "License suspension only — no financial penalty", "The carrier is fined, but no penalty is assessed to the driver"],
+        answer: 1,
+        explanation: "Falsifying hours of service records is a federal violation (49 CFR 395.8) and can result in substantial fines (up to $1,000+ per violation), CDL disqualification, and criminal prosecution in serious cases. Electronic Logging Devices (ELDs) largely prevent post-trip falsification, but manipulation of ELDs is still a violation with the same consequences." },
+
+      { q: "Before a long trip, a CDL driver should:",
+        options: ["Only check fuel level and tyre pressure, then depart quickly to stay on schedule", "Complete a thorough pre-trip inspection, verify hours of service availability, review the route for hazards and restrictions, check weather conditions, and ensure all required documents (logbook/ELD, medical certificate, licence, inspection reports) are on board", "Ask dispatch to confirm the vehicle was serviced — this eliminates the driver's inspection responsibility", "Perform only the inspection steps listed on the carrier's abbreviated checklist"],
+        answer: 1,
+        explanation: "Professional CDL drivers treat pre-trip preparation as the foundation of a safe trip. FMCSR 392.7 makes the driver legally responsible for the condition of the vehicle before and during the trip. No dispatcher, carrier, or mechanic can transfer this legal duty to themselves — the driver is responsible." }
     ]
   },
 
