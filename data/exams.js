@@ -1402,29 +1402,674 @@ const EXAMS = {
 
   "us-citizenship": {
     id: "us-citizenship", title: "US Citizenship Test (Civics)",
-    description: "Practice for the USCIS naturalization civics interview. 100 official questions — you must answer 6 of 10 correctly to pass.",
+    description: "140-question practice test for the USCIS naturalization civics interview. Covers all 100 official USCIS civics questions plus additional practice: Principles of American Democracy, System of Government, Rights and Responsibilities, Colonial Period, American History, Geography, Symbols, and Holidays. Pass mark: 6 out of 10 correctly answered.",
     category: "citizenship",
     questions: [
+
+      // ── A. PRINCIPLES OF AMERICAN DEMOCRACY ────────────────────────────
       { q: "What is the supreme law of the land?",
         options: ["The Bill of Rights", "The Declaration of Independence", "The Constitution", "The Federalist Papers"],
         answer: 2,
-        explanation: "The Constitution is the supreme law of the land. All other laws must be consistent with it. This is one of the most tested USCIS civics answers." },
+        explanation: "The Constitution is the supreme law of the land. All federal and state laws must be consistent with it. This is one of the most commonly tested USCIS civics questions." },
+
+      { q: "What do the first three words of the Constitution ('We the People') establish?",
+        options: ["The three branches of government", "The idea of self-government — that power comes from the people", "The rights of citizens", "The supremacy of federal law over state law"],
+        answer: 1,
+        explanation: "'We the People' establishes the principle of self-government (popular sovereignty) — the idea that the government's power comes from and belongs to the people, not a monarch or ruling class." },
+
+      { q: "What is an amendment to the Constitution?",
+        options: ["A temporary executive order signed by the President", "A Supreme Court ruling that overturns a federal law", "A change or addition to the Constitution", "A treaty with a foreign government"],
+        answer: 2,
+        explanation: "An amendment is a formal change or addition to the Constitution. The amendment process requires proposal by two-thirds of both houses of Congress (or a constitutional convention) and ratification by three-fourths of the states." },
+
+      { q: "What do we call the first ten amendments to the Constitution?",
+        options: ["The Declaration of Rights", "The Bill of Rights", "The Articles of Freedom", "The Original Amendments"],
+        answer: 1,
+        explanation: "The first ten amendments are called the Bill of Rights. Ratified in 1791, they protect fundamental individual rights — including freedom of speech, religion, press, assembly, and the right to a fair trial — from government interference." },
+
       { q: "How many amendments does the Constitution have?",
         options: ["10", "20", "27", "33"],
         answer: 2,
-        explanation: "The Constitution has 27 amendments. The first 10 are called the Bill of Rights (ratified 1791). The most recent (27th) was ratified in 1992." },
-      { q: "What are the two parts of the US Congress?",
-        options: ["The President and the Senate", "The Senate and the House of Representatives", "The Supreme Court and the Senate", "The Cabinet and the House of Representatives"],
-        answer: 1,
-        explanation: "Congress is the legislative branch and consists of the Senate (100 senators, 2 per state) and the House of Representatives (435 members, proportional by population)." },
-      { q: "Who was the first President of the United States?",
-        options: ["Thomas Jefferson", "John Adams", "Benjamin Franklin", "George Washington"],
-        answer: 3,
-        explanation: "George Washington served as the first President from 1789 to 1797. He is often called the 'Father of His Country.'" },
-      { q: "What is the economic system of the United States?",
-        options: ["Socialism", "Communist economy", "Capitalist economy / market economy", "Planned economy"],
+        explanation: "The Constitution has 27 amendments. The first 10 (Bill of Rights, 1791) protect individual liberties. The most recent 27th Amendment (1992) — originally proposed in 1789 — prevents mid-term changes to Congressional pay." },
+
+      { q: "Which of the following is a right or freedom protected by the First Amendment?",
+        options: ["The right to bear arms", "The right to a speedy and public trial", "Freedom of speech and freedom of religion", "Protection against unreasonable searches and seizures"],
         answer: 2,
-        explanation: "The US has a capitalist or market economy, where private individuals and businesses make most decisions about production, prices, and distribution." }
+        explanation: "The First Amendment protects five freedoms: religion, speech, press, peaceful assembly, and the right to petition the government. The right to bear arms is the Second Amendment; speedy trial is the Sixth; protection from unreasonable searches is the Fourth." },
+
+      { q: "What does the Declaration of Independence do?",
+        options: ["Establishes the three branches of government", "Grants citizenship to all people born in the United States", "Announces and explains the separation of the American colonies from Great Britain", "Defines the powers of Congress and the President"],
+        answer: 2,
+        explanation: "The Declaration of Independence (adopted July 4, 1776) announced the colonies' separation from Great Britain and articulated the philosophical justification — that all men are created equal and have inalienable rights including life, liberty, and the pursuit of happiness." },
+
+      { q: "Which rights are mentioned in the Declaration of Independence?",
+        options: ["Freedom of speech, religion, and press", "Life, liberty, and the pursuit of happiness", "The right to vote and to bear arms", "Protection from unreasonable searches and taxation without representation"],
+        answer: 1,
+        explanation: "Thomas Jefferson wrote that all people 'are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.' These are the three rights specifically named in the Declaration of Independence." },
+
+      { q: "What is freedom of religion?",
+        options: ["The government chooses an official religion that all citizens may practise for free", "The right to practise any religion — or to practise no religion — without government interference", "Churches and religious organisations pay no taxes", "Religious leaders may not hold elected office"],
+        answer: 1,
+        explanation: "Freedom of religion (First Amendment) means individuals may practise any faith — or no faith — without government interference. The Establishment Clause also prohibits the government from establishing an official state religion." },
+
+      { q: "What is the economic system of the United States?",
+        options: ["Socialist economy", "Communist / planned economy", "Capitalist economy / market economy", "Mixed command economy"],
+        answer: 2,
+        explanation: "The United States has a capitalist or market economy. Prices, production, and distribution are determined primarily by private individuals and businesses through supply and demand, with limited government intervention." },
+
+      { q: "What is the 'rule of law'?",
+        options: ["The President has the final say on all legal matters", "Congress can override any Supreme Court decision", "Everyone — including government officials and leaders — must obey the law; no one is above it", "Federal law always overrides state law in every situation"],
+        answer: 2,
+        explanation: "The rule of law means that all people and institutions — including the President, Congress, and judges — are subject to and accountable under the law. It is a foundational principle of American democracy that distinguishes it from rule by a person or group." },
+
+      { q: "What does the Constitution do?",
+        options: ["Declares independence from Great Britain", "Provides the legal basis for independence and lists grievances", "Sets up the government, defines its powers, and protects the basic rights of Americans", "Establishes the economic system and trade laws"],
+        answer: 2,
+        explanation: "The Constitution does three things: it sets up the structure of the US government (three branches), defines what the government can and cannot do, and protects the fundamental rights of Americans." },
+
+      // ── B. SYSTEM OF GOVERNMENT ─────────────────────────────────────────
+      { q: "What are the three branches of the United States government?",
+        options: ["Federal, state, and local", "Legislative, executive, and judicial", "Senate, House, and Cabinet", "Congress, Supreme Court, and President's Cabinet"],
+        answer: 1,
+        explanation: "The three branches are: legislative (Congress — makes laws), executive (President — carries out laws), and judicial (courts — reviews laws and interprets the Constitution). This separation of powers prevents any one branch from becoming too powerful." },
+
+      { q: "What prevents one branch of government from becoming too powerful?",
+        options: ["The Bill of Rights", "Checks and balances / separation of powers", "The Supreme Court's veto power", "The Electoral College"],
+        answer: 1,
+        explanation: "Checks and balances give each branch of government powers over the others. For example: Congress makes laws, but the President can veto them; Congress can override a veto; the Supreme Court can strike down laws as unconstitutional; and the President appoints judges but the Senate must confirm them." },
+
+      { q: "Who is in charge of the executive branch?",
+        options: ["The Chief Justice of the Supreme Court", "The Speaker of the House", "The President", "The Senate Majority Leader"],
+        answer: 2,
+        explanation: "The President heads the executive branch, which carries out and enforces federal laws. The executive branch also includes the Vice President, Cabinet, and federal agencies such as the Department of Defense and the FBI." },
+
+      { q: "Who makes federal laws?",
+        options: ["The President, by executive order", "The Supreme Court, by judicial ruling", "Congress (the Senate and the House of Representatives)", "The Governor of each state"],
+        answer: 2,
+        explanation: "Congress — consisting of the Senate and the House of Representatives — is the legislative branch and has the power to make federal laws. The President can sign bills into law or veto them, and the Supreme Court can strike down laws that violate the Constitution." },
+
+      { q: "How many US Senators are there in total?",
+        options: ["50", "100", "200", "435"],
+        answer: 1,
+        explanation: "There are 100 US Senators — two from each of the 50 states, regardless of the state's population. This equal representation in the Senate was a compromise (the 'Great Compromise' of 1787) between large and small states." },
+
+      { q: "For how many years is a US Senator elected?",
+        options: ["2 years", "4 years", "6 years", "8 years"],
+        answer: 2,
+        explanation: "US Senators serve 6-year terms. Senate elections are staggered so that approximately one-third of Senate seats are up for election every 2 years, providing continuity in the chamber." },
+
+      { q: "How many voting members does the House of Representatives have?",
+        options: ["100", "270", "435", "535"],
+        answer: 2,
+        explanation: "The House of Representatives has 435 voting members. Each state has at least 1 representative; the remaining seats are distributed among the states based on population as measured by the census taken every 10 years." },
+
+      { q: "For how many years is a US Representative (member of the House) elected?",
+        options: ["1 year", "2 years", "4 years", "6 years"],
+        answer: 1,
+        explanation: "Representatives serve 2-year terms. All 435 House seats are up for election every two years (in November of even-numbered years). This makes the House the chamber most directly and frequently responsive to the will of the people." },
+
+      { q: "Why do some states have more Representatives in the House than others?",
+        options: ["Older states earned more representation", "States with larger economies get more seats", "Representation is based on the state's population — more people means more representatives", "The President assigns seats based on political considerations"],
+        answer: 2,
+        explanation: "House seats are apportioned by population. A state's number of representatives is recalculated after each 10-year census. California (the most populous state) has over 50 representatives; Wyoming and other small states have just 1." },
+
+      { q: "For how many years is the President elected?",
+        options: ["2 years", "4 years", "6 years", "There is no fixed term"],
+        answer: 1,
+        explanation: "The President serves a 4-year term. The 22nd Amendment (1951) limits the President to two terms (or a maximum of 10 years if they completed more than two years of a predecessor's term). Presidential elections occur in November of every fourth year." },
+
+      { q: "In what month do Americans vote for President?",
+        options: ["September", "October", "November", "January"],
+        answer: 2,
+        explanation: "Presidential elections are held in November — specifically, on the Tuesday after the first Monday in November of years divisible by four. Inaugurations (when the President takes office) occur in January (January 20th)." },
+
+      { q: "What is the name of the current President of the United States?",
+        options: ["Joe Biden", "Barack Obama", "Donald J. Trump", "Kamala Harris"],
+        answer: 2,
+        explanation: "Donald J. Trump is the 47th President of the United States, having been inaugurated on January 20, 2025. He also served as the 45th President (2017–2021). Note: for the naturalization interview, USCIS asks for the current President at the time of your interview." },
+
+      { q: "What is the name of the current Vice President of the United States?",
+        options: ["Mike Pence", "Kamala Harris", "JD Vance", "Tim Walz"],
+        answer: 2,
+        explanation: "JD Vance is the 50th Vice President of the United States, inaugurated January 20, 2025. Note: the USCIS interview requires the current Vice President at the time of your interview — confirm before your appointment." },
+
+      { q: "If the President can no longer serve, who becomes President?",
+        options: ["The Chief Justice of the Supreme Court", "The Speaker of the House", "The Secretary of State", "The Vice President"],
+        answer: 3,
+        explanation: "The Vice President is first in the line of presidential succession, established by the 25th Amendment. If the Vice President also cannot serve, the Speaker of the House becomes President, followed by the President pro tempore of the Senate." },
+
+      { q: "If both the President and the Vice President can no longer serve, who becomes President?",
+        options: ["The Senate Majority Leader", "The Speaker of the House of Representatives", "The Secretary of State", "The Chief Justice of the Supreme Court"],
+        answer: 1,
+        explanation: "The Speaker of the House is third in the line of succession, after the Vice President. The Presidential Succession Act of 1947 (updated multiple times) establishes the full line of succession through 18 Cabinet positions." },
+
+      { q: "Who is the Commander in Chief of the US military?",
+        options: ["The Secretary of Defense", "The Chairman of the Joint Chiefs of Staff", "The President", "The Senate Armed Services Committee"],
+        answer: 2,
+        explanation: "Article II of the Constitution designates the President as Commander in Chief of the Army, Navy, and all federal military forces. This ensures civilian control of the military. Congress retains the power to declare war and to fund the military." },
+
+      { q: "Who signs bills into law?",
+        options: ["The Speaker of the House", "The President", "The Chief Justice of the Supreme Court", "The Senate Majority Leader"],
+        answer: 1,
+        explanation: "After Congress passes a bill, it goes to the President. If the President signs it, it becomes law. If the President vetoes it, Congress can override the veto with a two-thirds majority in both chambers." },
+
+      { q: "Who has the power to veto (reject) a bill passed by Congress?",
+        options: ["The Chief Justice", "Any Senator with a supermajority", "The President", "The Speaker of the House"],
+        answer: 2,
+        explanation: "The President can veto (reject) a bill within 10 days of receiving it. Congress can override a presidential veto with a two-thirds vote in both the Senate and the House. This is a key check on legislative power." },
+
+      { q: "What does the President's Cabinet do?",
+        options: ["Passes the federal budget each year", "Confirms presidential appointments", "Advises the President on policy and administration of executive departments", "Reviews the constitutionality of executive orders"],
+        answer: 2,
+        explanation: "The Cabinet consists of the Vice President and the heads of the 15 executive departments (such as Secretary of State, Secretary of Defense, and Attorney General). They advise the President and lead their departments. Cabinet members are nominated by the President and confirmed by the Senate." },
+
+      { q: "What does the judicial branch do?",
+        options: ["Creates federal laws and the annual budget", "Commands the military during wartime", "Reviews laws, explains laws, and resolves legal disputes — including deciding whether laws violate the Constitution", "Appoints federal judges and Cabinet officials"],
+        answer: 2,
+        explanation: "The judicial branch — headed by the Supreme Court — interprets laws and the Constitution. If a law is found to violate the Constitution, the courts can strike it down (judicial review, established by Marbury v. Madison, 1803)." },
+
+      { q: "What is the highest court in the United States?",
+        options: ["The US Court of Appeals", "The Federal District Court", "The Supreme Court", "The US Court of Federal Claims"],
+        answer: 2,
+        explanation: "The Supreme Court is the highest court in the United States and the head of the judicial branch. Its decisions are final and cannot be appealed to any other court. It has the power of judicial review — to strike down laws that violate the Constitution." },
+
+      { q: "How many justices are on the Supreme Court?",
+        options: ["7", "9", "11", "13"],
+        answer: 1,
+        explanation: "The Supreme Court has 9 justices: one Chief Justice and eight Associate Justices. The Constitution does not fix the number — it has been set at 9 by federal law since 1869. Justices are nominated by the President and confirmed by the Senate; they serve for life (during 'good behaviour')." },
+
+      { q: "Who is the Chief Justice of the United States?",
+        options: ["Elena Kagan", "Clarence Thomas", "Sonia Sotomayor", "John G. Roberts, Jr."],
+        answer: 3,
+        explanation: "John G. Roberts, Jr. has been Chief Justice of the United States since 2005. He was nominated by President George W. Bush. Note: confirm the current Chief Justice for your USCIS interview, as this can change." },
+
+      { q: "What is one power that belongs to the federal (national) government?",
+        options: ["Issue driver's licences", "Approve local zoning laws", "Establish public schools in each state", "Print money and declare war"],
+        answer: 3,
+        explanation: "The federal government has exclusive powers including printing money, declaring war, creating an army, and making treaties with foreign nations. Powers not granted to the federal government are reserved to the states or to the people (10th Amendment)." },
+
+      { q: "What is one power that belongs to the states (not the federal government)?",
+        options: ["Declare war on foreign nations", "Print currency", "Issue driver's licences and provide local police and fire protection", "Establish an army and navy"],
+        answer: 2,
+        explanation: "States have powers not granted to the federal government, including: providing education, issuing driver's licences, establishing local police and fire departments, approving zoning and land use, and conducting elections. These are 'reserved powers' under the 10th Amendment." },
+
+      { q: "What are the two major political parties in the United States?",
+        options: ["Liberal and Conservative", "Federalist and Anti-Federalist", "Democratic and Republican", "Progressive and Libertarian"],
+        answer: 2,
+        explanation: "The Democratic Party and the Republican Party are the two dominant political parties. Democrats' symbol is the donkey; Republicans' is the elephant. The US has had a two-party system since the mid-1800s, though third parties exist." },
+
+      { q: "What is the political party of the current President?",
+        options: ["Democratic Party", "Republican Party", "Independent", "Libertarian Party"],
+        answer: 1,
+        explanation: "President Donald Trump is a member of the Republican Party. Note: the political party of the President changes with elections — confirm the current party for your USCIS interview." },
+
+      { q: "What is the name of the current Speaker of the House of Representatives?",
+        options: ["Nancy Pelosi", "Kevin McCarthy", "Hakeem Jeffries", "Mike Johnson"],
+        answer: 3,
+        explanation: "Mike Johnson (Republican, Louisiana) is the Speaker of the House, elected in October 2023. Note: the Speaker can change — confirm the current Speaker for your USCIS interview." },
+
+      { q: "How many total members does Congress have (Senators + Representatives)?",
+        options: ["485", "535", "545", "600"],
+        answer: 1,
+        explanation: "Congress has 535 voting members: 100 Senators (2 per state) plus 435 Representatives (distributed by population). There are also non-voting delegates from DC, Puerto Rico, and other US territories." },
+
+      { q: "Who does a US Senator represent?",
+        options: ["Only the people who voted for them in their district", "All people of their state", "Only registered voters in their state", "The political party that elected them"],
+        answer: 1,
+        explanation: "Each US Senator represents all of the people of their entire state, regardless of who voted for them. Unlike House members (who represent specific congressional districts), Senators represent their whole state." },
+
+      { q: "What is the term length for a Supreme Court Justice?",
+        options: ["4 years", "10 years", "20 years", "Life — they serve during 'good behaviour'"],
+        answer: 3,
+        explanation: "Supreme Court Justices serve for life — the Constitution says 'during good Behaviour,' which in practice means until they die, retire, or are removed through impeachment. This lifetime tenure is intended to insulate justices from political pressure." },
+
+      { q: "What happens if the President vetoes a bill?",
+        options: ["The bill is permanently defeated and cannot be reconsidered", "The Supreme Court must review the bill before it proceeds", "Congress can override the veto with a two-thirds vote in both chambers", "The bill goes to a national referendum"],
+        answer: 2,
+        explanation: "A presidential veto returns the bill to Congress. If two-thirds of both the Senate and the House vote to override the veto, the bill becomes law without the President's signature. Veto overrides are relatively rare." },
+
+      // ── C. RIGHTS AND RESPONSIBILITIES ─────────────────────────────────
+      { q: "There are four constitutional amendments about who can vote. Which of the following describes one of them?",
+        options: ["Only property owners may vote", "Citizens must be 21 or older to vote", "Citizens 18 and older may vote; poll taxes are prohibited; women may vote; male citizens of any race may vote", "Only natural-born citizens may vote"],
+        answer: 2,
+        explanation: "The four voting amendments are: 15th (1870 — race cannot bar voting), 19th (1920 — women's suffrage), 24th (1964 — no poll taxes), and 26th (1971 — voting age lowered to 18). Together they progressively expanded the right to vote." },
+
+      { q: "What is one responsibility that is ONLY for United States citizens (not all residents)?",
+        options: ["Pay taxes", "Obey federal, state, and local laws", "Serve on a jury and vote in federal elections", "Register for the Selective Service (men aged 18–26)"],
+        answer: 2,
+        explanation: "Serving on a jury and voting in federal elections are responsibilities reserved for US citizens. Paying taxes and obeying laws apply to everyone in the US, including non-citizens. Citizens are also eligible (and responsible) to serve on a jury if summoned." },
+
+      { q: "What is one right that belongs ONLY to US citizens?",
+        options: ["Freedom of speech", "Freedom of religion", "The right to vote in a federal election and to run for federal office", "The right to a fair trial"],
+        answer: 2,
+        explanation: "Only US citizens may vote in federal elections and run for federal office. Many constitutional rights (such as free speech, due process, and protection from unreasonable searches) apply to all people in the US, regardless of citizenship status." },
+
+      { q: "What are two rights that ALL people living in the United States have (citizens and non-citizens alike)?",
+        options: ["The right to vote and to run for office", "Freedom of speech and freedom of religion", "The right to a US passport and consular protection", "The right to work without a permit and to receive government benefits"],
+        answer: 1,
+        explanation: "The Bill of Rights protects all 'persons' — not just citizens. Freedom of speech and religion, the right to a fair trial, and protection from unreasonable searches apply to everyone in the US. The rights limited to citizens include voting in federal elections and running for federal office." },
+
+      { q: "What do we show loyalty to when we say the Pledge of Allegiance?",
+        options: ["The President and the Congress", "The Constitution and the laws of the United States", "The United States and its flag", "The Declaration of Independence and the Bill of Rights"],
+        answer: 2,
+        explanation: "The Pledge of Allegiance expresses loyalty to the United States and to the flag, which represents the nation. It also refers to the 'Republic' — the representative form of government." },
+
+      { q: "What is one promise you make when you become a United States citizen?",
+        options: ["Never leave the United States", "Give up loyalty to other countries and be loyal to the United States", "Vote in every election", "Speak only English in all public settings"],
+        answer: 1,
+        explanation: "The Oath of Allegiance (taken at the naturalisation ceremony) requires new citizens to: renounce loyalty to other countries, support and defend the Constitution, obey the laws of the United States, and serve in the military or perform civilian service if required." },
+
+      { q: "How old must citizens be to vote in a federal election?",
+        options: ["16 and older", "18 and older", "21 and older", "25 and older"],
+        answer: 1,
+        explanation: "The 26th Amendment (1971) set the voting age at 18 for all federal, state, and local elections. Before this amendment, the voting age was 21. The change was motivated in part by the argument that people old enough to be drafted into the military should be able to vote." },
+
+      { q: "What is one way Americans can participate in their democracy?",
+        options: ["Ignore elections — they are decided by the Electoral College regardless", "Accept whatever the government decides without question", "Vote, join a political party, attend a town meeting, contact your elected representatives", "Only participate if you agree with all government policies"],
+        answer: 2,
+        explanation: "Citizens can participate in democracy in many ways: voting, joining a political party or civic group, attending community meetings, contacting senators and representatives, writing letters to newspapers, running for office, or joining a campaign. Active civic participation strengthens democracy." },
+
+      { q: "When is the last day to file federal income tax forms?",
+        options: ["March 15", "April 15", "May 1", "December 31"],
+        answer: 1,
+        explanation: "The federal income tax filing deadline is April 15 each year (unless it falls on a weekend or holiday, in which case it moves to the next business day). Extensions can be requested, but any taxes owed must still be paid by April 15." },
+
+      { q: "When must men register for the Selective Service?",
+        options: ["At age 16", "Between the ages of 18 and 26", "At age 21", "Only when a draft is declared"],
+        answer: 1,
+        explanation: "Male US citizens and male immigrants living in the US must register with the Selective Service System between ages 18 and 26. Registration ensures a pool of people available if a military draft is ever reinstated. Failure to register has consequences for federal financial aid and some government jobs." },
+
+      // ── D. COLONIAL PERIOD AND INDEPENDENCE ────────────────────────────
+      { q: "What is one reason colonists came to America?",
+        options: ["To conquer and rule the indigenous peoples", "To escape famine in Europe and farm the Great Plains", "For freedom — including religious freedom, political liberty, and economic opportunity", "To establish trade routes to Asia through North America"],
+        answer: 2,
+        explanation: "Colonists came to America for many reasons: religious freedom (the Pilgrims sought to practise their religion without persecution), political freedom, economic opportunity, and to escape poverty or persecution. Different groups settled different colonies for different reasons." },
+
+      { q: "Who lived in America before the Europeans arrived?",
+        options: ["Vikings from Scandinavia", "American Indians (Native Americans)", "Ancient Chinese explorers", "Settlers from Africa"],
+        answer: 1,
+        explanation: "American Indians (Native Americans) were the first peoples to inhabit North America, living here for thousands of years before European contact. There were hundreds of distinct tribes and nations with diverse languages and cultures." },
+
+      { q: "What group of people was brought to America against their will and sold as slaves?",
+        options: ["Indentured servants from England", "Irish immigrants during the potato famine", "Africans (people from Africa)", "Chinese workers during the Gold Rush"],
+        answer: 2,
+        explanation: "Millions of Africans were forcibly transported to the Americas in the transatlantic slave trade from the 1500s to the 1800s. In colonial America and the early United States, enslaved Africans were bought and sold as property and forced to perform unpaid labour. Slavery was abolished by the 13th Amendment in 1865." },
+
+      { q: "Why did the colonists fight the British in the Revolutionary War?",
+        options: ["They wanted to expand slavery to new territories", "Because of high taxes without representation in Parliament, quartering of British soldiers, and lack of self-government", "Britain refused to allow colonists to trade with France", "The King of England wanted to abolish the colonial assemblies"],
+        answer: 1,
+        explanation: "Colonists objected to 'taxation without representation' — being taxed by Parliament without having elected representatives there. They also resented the Quartering Act (forcing them to house British soldiers), the Intolerable Acts, and British control over their local governments. 'No taxation without representation' became a rallying cry." },
+
+      { q: "Who wrote the Declaration of Independence?",
+        options: ["George Washington", "Benjamin Franklin", "John Adams", "Thomas Jefferson"],
+        answer: 3,
+        explanation: "Thomas Jefferson was the principal author of the Declaration of Independence, drafted in June 1776. A committee including Jefferson, Benjamin Franklin, John Adams, Roger Sherman, and Robert Livingston was assigned the task, but Jefferson did most of the writing." },
+
+      { q: "When was the Declaration of Independence adopted?",
+        options: ["July 4, 1774", "July 4, 1776", "September 17, 1787", "January 1, 1800"],
+        answer: 1,
+        explanation: "The Continental Congress adopted the Declaration of Independence on July 4, 1776 — now celebrated as Independence Day. The document formally declared the 13 colonies independent from Great Britain and explained the philosophical basis for that independence." },
+
+      { q: "There were 13 original states. Which of the following was one of them?",
+        options: ["Florida", "Texas", "Ohio", "Virginia"],
+        answer: 3,
+        explanation: "The 13 original states (the former colonies) were: Connecticut, Delaware, Georgia, Maryland, Massachusetts, New Hampshire, New Jersey, New York, North Carolina, Pennsylvania, Rhode Island, South Carolina, and Virginia. Florida was Spanish territory; Texas and Ohio were not yet states." },
+
+      { q: "What happened at the Constitutional Convention?",
+        options: ["The Declaration of Independence was signed by the colonists", "The Bill of Rights was ratified by the states", "The Constitution of the United States was written", "The Articles of Confederation were adopted as the permanent government"],
+        answer: 2,
+        explanation: "The Constitutional Convention was held in Philadelphia in the summer of 1787. Delegates from the states met to revise the Articles of Confederation but instead wrote an entirely new Constitution. The Convention produced the document that remains the supreme law of the United States today." },
+
+      { q: "When was the Constitution written?",
+        options: ["1776", "1781", "1787", "1791"],
+        answer: 2,
+        explanation: "The Constitution was written (drafted) in 1787 at the Constitutional Convention in Philadelphia. It was ratified by the required nine states in 1788 and took effect in 1789. The Bill of Rights (first 10 amendments) was added in 1791." },
+
+      { q: "The Federalist Papers argued in favour of ratifying the Constitution. Who was one of their authors?",
+        options: ["Thomas Jefferson", "Patrick Henry", "James Madison", "Samuel Adams"],
+        answer: 2,
+        explanation: "The 85 Federalist Papers (1787–1788) were written under the pseudonym 'Publius' by James Madison, Alexander Hamilton, and John Jay to persuade New York to ratify the Constitution. Madison, Hamilton, and Jay are the accepted authors. Thomas Jefferson and Patrick Henry were not Federalist Paper authors." },
+
+      { q: "What is one thing Benjamin Franklin is famous for?",
+        options: ["Writing the Declaration of Independence", "Serving as the first Chief Justice of the Supreme Court", "Being the first Postmaster General of the US and a key diplomat who helped secure the French alliance during the Revolution", "Leading the Continental Army to victory over the British"],
+        answer: 2,
+        explanation: "Benjamin Franklin was a printer, author, inventor, scientist, and statesman. He was America's first Postmaster General, served as a diplomat to France (helping secure the crucial French alliance), was the oldest delegate at the Constitutional Convention, and helped draft the Declaration of Independence." },
+
+      { q: "Which document did the colonists sign to declare their loyalty and readiness to fight?",
+        options: ["The Articles of Confederation", "The Mayflower Compact", "The Olive Branch Petition — then, after it was rejected, took up arms", "The Declaration of Rights and Grievances"],
+        answer: 2,
+        explanation: "In July 1775, Congress sent the Olive Branch Petition to King George III, pledging loyalty and asking him to resolve their grievances. The King rejected it and declared the colonies in rebellion. This rejection pushed many colonists to support full independence and armed revolution." },
+
+      // ── E. THE 1800s ─────────────────────────────────────────────────────
+      { q: "What territory did the United States buy from France in 1803?",
+        options: ["The Florida Territory", "The Oregon Territory", "The Louisiana Territory", "The Texas Territory"],
+        answer: 2,
+        explanation: "The Louisiana Purchase (1803) roughly doubled the size of the United States. President Thomas Jefferson bought approximately 828,000 square miles from Napoleon's France for $15 million, covering land from the Mississippi River to the Rocky Mountains." },
+
+      { q: "Name one war fought by the United States in the 1800s.",
+        options: ["World War I and World War II", "The Korean War and the Vietnam War", "The Civil War and the War of 1812", "The Gulf War and the Afghanistan War"],
+        answer: 2,
+        explanation: "Wars fought in the 1800s include: the War of 1812 (against Britain), the Mexican-American War (1846–1848), the Civil War (1861–1865), and the Spanish-American War (1898). World War I and II were in the 1900s; Korea and Vietnam were also in the 1900s." },
+
+      { q: "What was the war between the North and the South called?",
+        options: ["The War of 1812", "The Revolutionary War", "The Civil War (also called the War Between the States)", "The War of Secession (official US term)"],
+        answer: 2,
+        explanation: "The Civil War (1861–1865) was fought between the Union (Northern states) and the Confederacy (11 Southern states that seceded). It remains the deadliest war in American history. It ended slavery and preserved the Union." },
+
+      { q: "Name one problem that led to the Civil War.",
+        options: ["A trade dispute with Britain over cotton exports", "A dispute over which religion should be the state religion", "Slavery, and disagreements between states and the federal government over states' rights and economic differences between North and South", "Disputes over the Louisiana Purchase territory"],
+        answer: 2,
+        explanation: "The Civil War had multiple causes centred on slavery: whether new territories would be slave or free, whether the federal government could ban slavery, and Southern states' belief in states' rights to decide such questions. Economic differences (the agricultural South vs the industrial North) also contributed." },
+
+      { q: "What was one important thing Abraham Lincoln did?",
+        options: ["He wrote the Constitution and Bill of Rights", "He purchased Alaska from Russia", "He freed enslaved people (Emancipation Proclamation) and led the Union to preserve the United States during the Civil War", "He built the transcontinental railroad"],
+        answer: 2,
+        explanation: "Abraham Lincoln (16th President) issued the Emancipation Proclamation in 1863, declaring enslaved people in Confederate states to be free. He led the country through the Civil War to preserve the Union. He was assassinated in April 1865, just days after the war ended." },
+
+      { q: "What did the Emancipation Proclamation do?",
+        options: ["Permanently abolished slavery in all states and territories", "Gave formerly enslaved people the right to vote", "Freed enslaved people in the Confederate (rebellious) states during the Civil War", "Ended the Civil War by granting amnesty to Confederate soldiers"],
+        answer: 2,
+        explanation: "President Lincoln's Emancipation Proclamation (January 1, 1863) declared enslaved people in Confederate states to be free. It did not immediately free all enslaved people (it did not apply to border states still in the Union). Slavery was fully abolished by the 13th Amendment in December 1865." },
+
+      { q: "What did Susan B. Anthony do?",
+        options: ["She was the first woman to serve in the US Senate", "She fought for women's rights and led the women's suffrage movement", "She founded the American Red Cross", "She wrote 'Uncle Tom's Cabin,' which changed views on slavery"],
+        answer: 1,
+        explanation: "Susan B. Anthony (1820–1906) was a leading women's suffrage activist who devoted her life to securing women's right to vote. She co-founded the National Woman Suffrage Association, was arrested for voting in 1872, and is honoured on the dollar coin. The 19th Amendment (women's suffrage, 1920) is sometimes called the 'Susan B. Anthony Amendment.'" },
+
+      { q: "What was the 13th Amendment (1865)?",
+        options: ["It gave women the right to vote", "It abolished slavery throughout the United States", "It gave formerly enslaved men the right to vote", "It prohibited alcohol production and sale"],
+        answer: 1,
+        explanation: "The 13th Amendment (ratified December 1865) abolished slavery and involuntary servitude throughout the United States, except as punishment for a crime. It completed what the Emancipation Proclamation had begun." },
+
+      // ── F. RECENT AMERICAN HISTORY ──────────────────────────────────────
+      { q: "Name one war fought by the United States in the 1900s.",
+        options: ["The Civil War and the War of 1812", "World War I, World War II, the Korean War, and the Vietnam War", "The Mexican-American War and the Spanish-American War", "The Iraq War and the Afghanistan War (both 2000s)"],
+        answer: 1,
+        explanation: "Major US wars in the 1900s include: World War I (1917–1918), World War II (1941–1945), the Korean War (1950–1953), the Vietnam War (1955–1975), and the Persian Gulf War (1991). The Iraq War and Afghanistan War began in the 2000s." },
+
+      { q: "Who was President during World War I?",
+        options: ["Theodore Roosevelt", "Woodrow Wilson", "Franklin Roosevelt", "Herbert Hoover"],
+        answer: 1,
+        explanation: "Woodrow Wilson was President from 1913 to 1921. The US entered World War I in April 1917. After the war, Wilson proposed the Fourteen Points peace plan and was instrumental in creating the League of Nations — though the Senate rejected US membership." },
+
+      { q: "Who was President during the Great Depression and World War II?",
+        options: ["Herbert Hoover", "Harry Truman", "Franklin D. Roosevelt", "Dwight D. Eisenhower"],
+        answer: 2,
+        explanation: "Franklin D. Roosevelt (FDR) served four terms (1933–1945), the only President to serve more than two. He led the country through the Great Depression (the New Deal) and most of World War II. He died in April 1945 — just before the war ended — and was succeeded by Harry Truman." },
+
+      { q: "Who did the United States fight in World War II?",
+        options: ["Great Britain, France, and the Soviet Union", "Japan, Germany, and Italy", "China, Korea, and Vietnam", "Austria, Hungary, and the Ottoman Empire"],
+        answer: 1,
+        explanation: "The United States fought the Axis Powers in World War II: Japan (in the Pacific, after the attack on Pearl Harbor on December 7, 1941), Germany (in Europe), and Italy. The US was part of the Allied Powers, which also included Great Britain, France, the Soviet Union, and others." },
+
+      { q: "Before he was President, Eisenhower was a general. In what war did he serve?",
+        options: ["World War I", "The Korean War", "World War II", "The Spanish-American War"],
+        answer: 2,
+        explanation: "Dwight D. Eisenhower served as Supreme Commander of Allied Expeditionary Forces in Europe during World War II, overseeing the D-Day invasion on June 6, 1944. He later served as the 34th President (1953–1961)." },
+
+      { q: "During the Cold War, what was the main concern of the United States?",
+        options: ["Terrorism from the Middle East", "Economic competition from Japan and Germany", "The spread of communism, especially from the Soviet Union", "Nuclear proliferation in Asia"],
+        answer: 2,
+        explanation: "The Cold War (roughly 1947–1991) was a geopolitical struggle between the US and the Soviet Union. The US sought to contain the spread of communism through the Truman Doctrine, Marshall Plan, NATO, and military interventions (Korea, Vietnam). The Cold War ended with the collapse of the Soviet Union in 1991." },
+
+      { q: "What movement tried to end racial discrimination in the United States?",
+        options: ["The Women's Suffrage Movement", "The Civil Rights Movement", "The Progressive Movement", "The Labour Rights Movement"],
+        answer: 1,
+        explanation: "The Civil Rights Movement (primarily 1954–1968) fought racial segregation and discrimination, especially in the South. Key achievements include Brown v. Board of Education (1954, school desegregation), the Civil Rights Act of 1964 (outlawing discrimination), and the Voting Rights Act of 1965." },
+
+      { q: "What did Martin Luther King, Jr. do?",
+        options: ["He was the first Black US Senator", "He served as the 38th President of the United States", "He fought for civil rights and equality for all Americans through non-violent protest", "He wrote the 14th Amendment guaranteeing equal protection"],
+        answer: 2,
+        explanation: "Dr. Martin Luther King, Jr. was the most prominent leader of the Civil Rights Movement. He organised peaceful protests and marches (including the 1963 March on Washington, where he gave his 'I Have a Dream' speech), won the Nobel Peace Prize in 1964, and was assassinated in Memphis on April 4, 1968." },
+
+      { q: "What major event happened on September 11, 2001?",
+        options: ["The United States declared war on Iraq", "Hurricane Katrina devastated New Orleans", "Terrorists attacked the United States — hijacking four planes and striking the World Trade Center, the Pentagon, and crashing in Pennsylvania", "The Oklahoma City bombing destroyed a federal building"],
+        answer: 2,
+        explanation: "On September 11, 2001, 19 al-Qaeda terrorists hijacked four commercial planes. Two struck the World Trade Center towers in New York City, one hit the Pentagon near Washington DC, and one (United 93) crashed in Shanksville, Pennsylvania after passengers fought back. Nearly 3,000 people died." },
+
+      { q: "What did the 19th Amendment (1920) accomplish?",
+        options: ["It abolished slavery in the United States", "It prohibited the manufacture and sale of alcohol", "It gave women the right to vote", "It lowered the voting age to 18"],
+        answer: 2,
+        explanation: "The 19th Amendment (ratified August 18, 1920) granted women the right to vote: 'The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.' It followed decades of campaigning by suffragists like Susan B. Anthony and Elizabeth Cady Stanton." },
+
+      { q: "What was the name of the first American satellite launched into space?",
+        options: ["Sputnik", "Explorer 1", "Apollo 1", "Mercury 7"],
+        answer: 1,
+        explanation: "Explorer 1 was the first US satellite, launched January 31, 1958, in response to the Soviet Union's Sputnik (1957). It discovered the Van Allen radiation belts. The space competition with the Soviet Union led to NASA's creation and eventually the Apollo moon programme." },
+
+      // ── G. GEOGRAPHY ────────────────────────────────────────────────────
+      { q: "What ocean is on the West Coast of the United States?",
+        options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        answer: 3,
+        explanation: "The Pacific Ocean borders the West Coast of the United States (California, Oregon, Washington, plus Alaska and Hawaii). At approximately 165 million square kilometres, the Pacific is the world's largest ocean." },
+
+      { q: "What ocean is on the East Coast of the United States?",
+        options: ["Pacific Ocean", "Caribbean Sea", "Atlantic Ocean", "Gulf of Mexico"],
+        answer: 2,
+        explanation: "The Atlantic Ocean borders the East Coast of the United States — from Maine in the north to Florida in the south. The Atlantic was crossed by European colonisers and was the main route of the transatlantic slave trade." },
+
+      { q: "Name one of the two longest rivers in the United States.",
+        options: ["The Colorado River or the Rio Grande", "The Missouri River or the Mississippi River", "The Ohio River or the Columbia River", "The Hudson River or the Potomac River"],
+        answer: 1,
+        explanation: "The Missouri River (approximately 2,341 miles) is the longest river in North America, and the Mississippi River (approximately 2,340 miles) is a close second. Together they form the largest river system in North America. Accepted USCIS answers: Missouri River or Mississippi River." },
+
+      { q: "What is the capital of the United States?",
+        options: ["New York City", "Philadelphia", "Washington, D.C.", "Boston"],
+        answer: 2,
+        explanation: "Washington, D.C. (the District of Columbia) has been the capital since 1800. It is a federal district — not part of any state — established by the Constitution. It is home to the White House, Congress (Capitol Building), and the Supreme Court." },
+
+      { q: "Name one US territory.",
+        options: ["Hawaii (it is a state, not a territory)", "Canada (it is a separate country)", "Puerto Rico", "The Bahamas (a sovereign nation)"],
+        answer: 2,
+        explanation: "US territories are areas under US sovereignty but not states. The main ones are: Puerto Rico, Guam, US Virgin Islands, American Samoa, and the Northern Mariana Islands. Puerto Rico and Guam are the most well-known. People born in most territories are US citizens." },
+
+      { q: "Name one state that borders Canada.",
+        options: ["California", "Florida", "Texas", "Michigan"],
+        answer: 3,
+        explanation: "States bordering Canada include: Maine, New Hampshire, Vermont, New York, Pennsylvania, Ohio, Michigan, Minnesota, North Dakota, Montana, Idaho, Washington, and Alaska. Michigan borders Canada via the Great Lakes. California, Florida, and Texas do not border Canada." },
+
+      { q: "Name one state that borders Mexico.",
+        options: ["Nevada", "Louisiana", "Florida", "Arizona"],
+        answer: 3,
+        explanation: "Four US states border Mexico: California, Arizona, New Mexico, and Texas. These states share the 1,954-mile US-Mexico border. Nevada, Louisiana, and Florida do not border Mexico." },
+
+      { q: "Where is the Statue of Liberty located?",
+        options: ["Boston Harbour, Massachusetts", "The Chesapeake Bay, Maryland", "New York Harbour (Liberty Island), New York", "The Delaware River, Pennsylvania"],
+        answer: 2,
+        explanation: "The Statue of Liberty stands on Liberty Island in New York Harbour. It was a gift from France, designed by sculptor Frédéric Auguste Bartholdi, and dedicated in October 1886. It symbolises freedom and democracy, and has greeted millions of immigrants arriving by sea." },
+
+      { q: "What is the name of the river that forms much of the border between the United States and Mexico?",
+        options: ["The Colorado River", "The Rio Grande", "The Pecos River", "The Gila River"],
+        answer: 1,
+        explanation: "The Rio Grande (called the Río Bravo in Mexico) forms the border between Texas and Mexico — from El Paso/Ciudad Juárez to the Gulf of Mexico. The border between California, Arizona, New Mexico, and Mexico is a land border not following a river." },
+
+      { q: "What are the Great Lakes?",
+        options: ["The five major lakes on the US-Mexico border", "The five large freshwater lakes on the US-Canada border: Superior, Michigan, Huron, Erie, and Ontario", "The major reservoirs created by dams in the American West", "A network of lakes in Florida and Louisiana"],
+        answer: 1,
+        explanation: "The Great Lakes — Superior, Michigan, Huron, Erie, and Ontario (remembered by the mnemonic HOMES) — form the largest group of freshwater lakes in the world by total area. They sit on the US-Canada border and contain about 21% of the world's surface fresh water." },
+
+      // ── H. SYMBOLS ──────────────────────────────────────────────────────
+      { q: "Why does the American flag have 13 stripes?",
+        options: ["To represent the 13 members of the first Continental Congress", "Because there were 13 original colonies that became the first states", "To represent the 13 articles of the Constitution", "The number 13 was considered lucky by the Founding Fathers"],
+        answer: 1,
+        explanation: "The 13 alternating red and white stripes on the flag represent the 13 original colonies that declared independence from Great Britain in 1776 and became the first 13 states. The stripes have remained unchanged as the number of stars (representing states) has grown." },
+
+      { q: "Why does the American flag have 50 stars?",
+        options: ["To represent the 50 years of independence from Britain when the flag was redesigned", "To represent the 50 founding members of Congress", "Because there is one star for each state — there are 50 states", "Each star represents a foreign country with which the US has a treaty"],
+        answer: 2,
+        explanation: "Each star on the flag represents one US state. The current 50-star flag has been in use since July 4, 1960, when Hawaii became the 50th state. Before that, the flag had 48 stars; before Alaska joined in 1959, and Hawaii in 1960." },
+
+      { q: "What is the name of the national anthem of the United States?",
+        options: ["America the Beautiful", "God Bless America", "The Star-Spangled Banner", "My Country, 'Tis of Thee"],
+        answer: 2,
+        explanation: "The Star-Spangled Banner was written by Francis Scott Key after witnessing the British bombardment of Fort McHenry during the War of 1812 in 1814. It became the official national anthem by a congressional resolution signed by President Herbert Hoover on March 4, 1931." },
+
+      { q: "What does the White House represent?",
+        options: ["The legislative branch — where Congress meets", "The judicial branch — where the Supreme Court meets", "The home and official office of the President of the United States", "The official residence of the Chief Justice"],
+        answer: 2,
+        explanation: "The White House at 1600 Pennsylvania Avenue NW in Washington, D.C., has been the official residence and workplace of every US President since John Adams in 1800. It includes the Oval Office (President's main office), the Cabinet Room, the Situation Room, and the First Family's private residence." },
+
+      { q: "What does the bald eagle represent?",
+        options: ["The military strength of the United States", "The freedom and spirit of the Native American peoples", "It is the national bird and symbol of the United States", "The power of the executive branch"],
+        answer: 2,
+        explanation: "The bald eagle became the national bird and symbol of the United States in 1782, when it was chosen for the Great Seal of the United States. It represents freedom, strength, and long life. It appears on the presidential seal, dollar bills, passports, and many government emblems." },
+
+      { q: "What do we call the national symbol that appears on US government buildings, money, and documents — an eagle holding arrows and an olive branch?",
+        options: ["The Liberty Bell", "The Great Seal of the United States", "The Presidential Seal", "The Congressional Medal of Honour"],
+        answer: 1,
+        explanation: "The Great Seal of the United States depicts a bald eagle holding 13 arrows (representing war and military readiness) in one talon and an olive branch (representing peace and diplomacy) in the other. The seal is used to authenticate government documents and appears on the US one-dollar bill." },
+
+      { q: "What is the Liberty Bell a symbol of?",
+        options: ["The victory of the Union in the Civil War", "American independence and freedom", "The alliance between the United States and France during the Revolution", "The establishment of the Supreme Court"],
+        answer: 1,
+        explanation: "The Liberty Bell is a symbol of American independence and freedom. It is located in Philadelphia, Pennsylvania — the city where both the Declaration of Independence and the Constitution were signed. The bell's inscription reads: 'Proclaim LIBERTY throughout all the land unto all the inhabitants thereof.'" },
+
+      { q: "What is the name of the document that begins with 'We the People of the United States, in Order to form a more perfect Union...'?",
+        options: ["The Declaration of Independence", "The Bill of Rights", "The Preamble to the Constitution", "The Articles of Confederation"],
+        answer: 2,
+        explanation: "The Preamble is the opening statement of the US Constitution. 'We the People' establishes popular sovereignty. The Preamble lists the Constitution's purposes: form a more perfect Union, establish Justice, ensure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty." },
+
+      // ── I. HOLIDAYS ──────────────────────────────────────────────────────
+      { q: "When do Americans celebrate Independence Day?",
+        options: ["June 14 (Flag Day)", "July 4", "September 17 (Constitution Day)", "November 11 (Veterans Day)"],
+        answer: 1,
+        explanation: "Independence Day (July 4th) celebrates the adoption of the Declaration of Independence on July 4, 1776. It is marked with fireworks, parades, barbecues, and patriotic events. It is one of the most widely celebrated US national holidays." },
+
+      { q: "What holiday is celebrated on the last Thursday of November?",
+        options: ["Halloween", "Veterans Day", "Thanksgiving", "Columbus Day"],
+        answer: 2,
+        explanation: "Thanksgiving is celebrated on the fourth Thursday of November. It traces its origins to a 1621 harvest feast between the Plymouth colonists and the Wampanoag people. President Lincoln declared it a national holiday in 1863. It is traditionally celebrated with a turkey dinner and expressions of gratitude." },
+
+      { q: "What holiday honours American veterans and those who have served in the military?",
+        options: ["Memorial Day (honours the fallen)", "Independence Day", "Veterans Day (November 11) and Memorial Day (last Monday in May)", "Flag Day"],
+        answer: 2,
+        explanation: "Veterans Day (November 11) honours all who have served in the US military, living and dead. Memorial Day (last Monday in May) specifically honours military members who died in service. Both are federal holidays." },
+
+      { q: "What holiday is celebrated on January 15 (or the third Monday of January)?",
+        options: ["Presidents' Day", "Martin Luther King, Jr. Day", "Columbus Day", "Veterans Day"],
+        answer: 1,
+        explanation: "Martin Luther King, Jr. Day honours the civil rights leader born on January 15, 1929. It is observed on the third Monday of January. It became a federal holiday in 1983 (signed by President Reagan), though some states were slow to adopt it." },
+
+      { q: "What are two national US holidays?",
+        options: ["Super Bowl Sunday and St. Patrick's Day", "Independence Day (July 4) and Thanksgiving", "Valentine's Day and Easter Sunday", "Black Friday and New Year's Eve"],
+        answer: 1,
+        explanation: "The 11 federal holidays are: New Year's Day, MLK Day, Presidents' Day, Memorial Day, Juneteenth, Independence Day, Labor Day, Columbus Day, Veterans Day, Thanksgiving, and Christmas Day. Independence Day and Thanksgiving are among the most well-known." },
+
+      // ── ADDITIONAL PRACTICE QUESTIONS ───────────────────────────────────
+      { q: "What is the 'separation of powers'?",
+        options: ["The division of the United States into federal and state governments", "The division of government into three branches, each with distinct responsibilities, so no single branch holds all power", "The constitutional prohibition on any religion being involved in government", "The right of states to pass their own laws independently of the federal government"],
+        answer: 1,
+        explanation: "Separation of powers divides government authority among three branches: legislative (Congress makes laws), executive (President enforces laws), and judicial (courts interpret laws). Each branch has its own powers and can check the others — preventing tyranny by any single person or group." },
+
+      { q: "What is the purpose of the census?",
+        options: ["To determine how much each citizen owes in federal taxes", "To count the population every 10 years to determine representation in the House and distribution of federal funds", "To register all eligible voters before an election", "To identify all citizens who must register for the Selective Service"],
+        answer: 1,
+        explanation: "The US Census is conducted every 10 years (in years ending in 0). It counts every person living in the US — citizens and non-citizens. The results determine how many House seats each state gets (apportionment) and how federal funds are distributed among states and communities." },
+
+      { q: "What is the Electoral College?",
+        options: ["A university that trains future politicians", "A group of 538 electors who formally elect the President and Vice President, based on the results of each state's popular vote", "The committee in Congress that supervises federal elections", "The Senate's process for confirming presidential cabinet appointments"],
+        answer: 1,
+        explanation: "The Electoral College is a process established by the Constitution. Each state has electoral votes equal to its total Congressional representation (Senators + Representatives). Most states award all their electoral votes to the popular vote winner in that state. A candidate needs 270 electoral votes to win the presidency." },
+
+      { q: "How many electoral votes are needed to win the presidency?",
+        options: ["218", "270", "300", "A simple majority of the popular vote"],
+        answer: 1,
+        explanation: "A presidential candidate needs 270 of the 538 total electoral votes to win. If no candidate reaches 270, the House of Representatives chooses the President (with each state delegation casting one vote), and the Senate chooses the Vice President. This has happened twice (1800 and 1824)." },
+
+      { q: "What is the purpose of the Senate's power to 'advise and consent'?",
+        options: ["The Senate writes laws that the House must agree to before they go to the President", "The Senate must confirm the President's appointments to the Supreme Court, federal courts, and Cabinet positions — providing a check on presidential power", "The Senate advises the President on foreign policy decisions but has no formal role in approving them", "The Senate consents to the use of military force in overseas conflicts"],
+        answer: 1,
+        explanation: "The Constitution requires the Senate to confirm (by a majority vote) the President's nominees for Supreme Court Justices, Cabinet members, ambassadors, and other high federal positions. This 'advise and consent' role is an important check on executive power." },
+
+      { q: "What is the 14th Amendment?",
+        options: ["It abolished slavery in the United States", "It gave women the right to vote", "It grants citizenship to all persons born or naturalised in the US and guarantees equal protection under the law", "It prohibited alcohol (Prohibition)"],
+        answer: 2,
+        explanation: "The 14th Amendment (1868) overturned the Dred Scott decision by granting citizenship to all persons born or naturalised in the US (including formerly enslaved people). Its Equal Protection Clause has been used to fight discrimination in countless landmark Supreme Court cases." },
+
+      { q: "What is the significance of the phrase 'equal protection under the law'?",
+        options: ["All citizens must be treated equally by law enforcement at all times", "The government must treat similarly situated people equally and cannot discriminate without sufficient legal justification — enshrined in the 14th Amendment", "Every American is guaranteed an equal share of government benefits", "All legal cases must be tried by the same type of court regardless of the crime"],
+        answer: 1,
+        explanation: "The Equal Protection Clause of the 14th Amendment prohibits states from denying any person equal protection of the laws. It has been the legal basis for ending racial segregation (Brown v. Board of Education), expanding voting rights, and many other civil rights advances." },
+
+      { q: "What is the purpose of the Bill of Rights?",
+        options: ["To define the powers of Congress and the President", "To protect the basic rights and freedoms of individuals from government interference", "To establish the Supreme Court and its procedures", "To outline the process for admitting new states"],
+        answer: 1,
+        explanation: "The Bill of Rights (the first 10 amendments, ratified 1791) was added to the Constitution to specifically protect individual liberties. Anti-Federalists had refused to support the Constitution without explicit protections for individual rights. Key rights include freedom of speech, religion, press, trial by jury, and due process." },
+
+      { q: "What does 'due process of law' mean?",
+        options: ["Laws must be passed in the correct procedural order by Congress", "The government must follow fair, established legal procedures before depriving a person of life, liberty, or property", "All court cases must be decided by a jury of the defendant's peers", "The President must consult Congress before declaring war"],
+        answer: 1,
+        explanation: "Due process (5th and 14th Amendments) means the government must follow fair legal procedures before taking action against a person. Procedural due process ensures fair hearings and notice. Substantive due process limits government power to infringe on fundamental rights. It is a cornerstone of American legal protection." },
+
+      { q: "What is impeachment?",
+        options: ["The process by which the President removes a Cabinet member from office", "The formal accusation by the House of Representatives that a government official has committed 'high crimes and misdemeanours,' beginning a removal process", "The Supreme Court overturning a law as unconstitutional", "The Senate removing a confirmed official by a simple majority vote"],
+        answer: 1,
+        explanation: "Impeachment is a two-step process: the House of Representatives votes to impeach (formally accuse) a President, Vice President, or other civil officer by a simple majority. The Senate then holds a trial; a two-thirds majority is needed to convict and remove the official. Presidents Andrew Johnson, Bill Clinton, and Donald Trump (twice) were impeached; none were convicted by the Senate." },
+
+      { q: "What does it mean for the United States to be a 'republic'?",
+        options: ["The government is run directly by the people through referenda on every issue", "Citizens elect representatives who govern on their behalf, rather than every citizen voting on every decision", "The President is chosen by a council of state governors", "All laws must be unanimously approved by elected officials"],
+        answer: 1,
+        explanation: "A republic (also called a representative democracy) means citizens elect representatives to make decisions on their behalf. The Pledge of Allegiance calls the US 'a Republic.' The Framers chose a republic rather than a direct democracy to manage the large and diverse population and to protect minority rights from 'majority tyranny.'" },
+
+      { q: "What was the Underground Railroad?",
+        options: ["The first subway system built in New York City in the 1860s", "A secret network of people and safe houses that helped enslaved people escape to freedom in the North and Canada before and during the Civil War", "A government programme to build railways through the Southern states after the Civil War", "A Confederate supply route used during the Civil War"],
+        answer: 1,
+        explanation: "The Underground Railroad was a network of secret routes and safe houses used by enslaved people to escape to free states and Canada, active from the early 19th century until the Civil War. Harriet Tubman — herself an escaped slave — was its most famous 'conductor,' making 13 missions to rescue approximately 70 enslaved people." },
+
+      { q: "What is the primary role of the federal judiciary (courts)?",
+        options: ["To write and pass federal laws", "To enforce federal laws and arrest criminals", "To interpret laws and the Constitution, and to resolve disputes under federal law", "To negotiate treaties with foreign nations"],
+        answer: 2,
+        explanation: "The federal judiciary — from district courts through circuit courts of appeals to the Supreme Court — interprets and applies federal law and the Constitution. Through judicial review (established by Marbury v. Madison, 1803), courts can strike down laws and government actions that violate the Constitution." },
+
+      { q: "What is the significance of the 'checks and balances' system?",
+        options: ["It ensures the federal budget is balanced every year", "It allows the government to verify the identity of voters at elections", "It prevents any one branch of government from accumulating too much power by giving each branch the ability to limit the others", "It requires that all three branches agree before any law takes effect"],
+        answer: 2,
+        explanation: "Checks and balances is a system in which each branch of government has powers that allow it to limit the other branches. Examples: the President can veto laws, Congress can override vetoes, the Senate confirms appointments, and courts can strike down laws as unconstitutional. This system prevents tyranny and ensures no single branch governs without accountability." },
+
+      { q: "What is the process for becoming a US citizen through naturalisation?",
+        options: ["A person born outside the US can never become a citizen", "An eligible permanent resident (green card holder) may apply after 3–5 years, pass English and civics tests, demonstrate good moral character, and take the Oath of Allegiance", "Any legal resident may apply after 1 year and pass a background check only", "Naturalisation requires a unanimous vote by the US Senate"],
+        answer: 1,
+        explanation: "To naturalise: generally, a person must be a lawful permanent resident (green card holder) for 5 years (3 years if married to a US citizen), be at least 18, demonstrate continuous residence, show good moral character, pass English and civics tests, and take the Oath of Allegiance at a naturalisation ceremony." },
+
+      { q: "What is the primary language of the United States according to federal law?",
+        options: ["English is designated the official language by federal law", "The US has no official national language by federal law, though English is the de facto common language", "Spanish is co-official in states with large Hispanic populations", "The Constitution designates English and French as the two official languages"],
+        answer: 1,
+        explanation: "The United States has no official language established by federal law. English is the de facto national language used in federal government. About 32 states have passed laws designating English as an official state language. For the USCIS civics test, the interview is conducted in English (with limited exceptions for elderly applicants)." },
+
+      { q: "What was the significance of the Civil Rights Act of 1964?",
+        options: ["It granted women the right to vote", "It abolished the poll tax in federal elections", "It outlawed discrimination based on race, colour, religion, sex, or national origin in employment and public accommodations", "It gave Native Americans US citizenship"],
+        answer: 2,
+        explanation: "The Civil Rights Act of 1964 (signed by President Lyndon B. Johnson) is landmark legislation that outlawed discrimination based on race, colour, religion, sex, or national origin. It ended racial segregation in schools, workplaces, and public accommodations, and enforced the 14th Amendment's promise of equal protection." },
+
+      { q: "What does the 1st Amendment's protection of 'freedom of the press' mean?",
+        options: ["Newspapers and media are owned by the government", "The media may report on government activities and criticise government officials without government censorship or prior restraint", "Only licensed journalists have the right to publish news", "The government subsidises all news organisations to ensure unbiased reporting"],
+        answer: 1,
+        explanation: "Freedom of the press protects the right to publish information and opinions without government censorship or prior restraint. The press serves as an informal 'fourth estate' — a watchdog on government power. It is one of the five freedoms protected by the First Amendment." },
+
+      { q: "What is the purpose of the Preamble to the Constitution?",
+        options: ["To list all the specific rights of American citizens", "To explain the goals and purposes of the Constitution and establish that its authority comes from 'We the People'", "To describe the structure and membership of Congress", "To prohibit any law establishing a state religion"],
+        answer: 1,
+        explanation: "The Preamble ('We the People of the United States, in Order to form a more perfect Union...') is the introduction to the Constitution. It identifies the source of government authority (the people), lists the purposes of the Constitution, and establishes the Constitution's legitimacy through popular sovereignty." },
+
+      { q: "How does a bill become a law?",
+        options: ["The President proposes a bill, Congress votes, and the Supreme Court approves it", "Congress passes the bill by a majority vote in both chambers; the President signs it (or Congress overrides a presidential veto by a two-thirds vote)", "The Senate passes the bill; the President signs it; the House of Representatives reviews it within one year", "Any citizen can propose a bill; if Congress votes 60% in favour, it becomes law"],
+        answer: 1,
+        explanation: "A bill must pass both the House and Senate (by simple majority in each). It then goes to the President, who can sign it into law or veto it. A vetoed bill can still become law if two-thirds of both chambers vote to override the veto. The President can also allow a bill to become law without signing it by not acting within 10 days (if Congress is in session)." },
+
+      { q: "What is the significance of Juneteenth (June 19)?",
+        options: ["It celebrates the ratification of the Constitution", "It commemorates June 19, 1865, when the last enslaved people in Texas were informed of emancipation — the effective end of slavery in the US", "It marks the anniversary of the signing of the Declaration of Independence", "It honours the service of African American veterans"],
+        answer: 1,
+        explanation: "Juneteenth (June 19) celebrates June 19, 1865, when Union soldiers arrived in Galveston, Texas, and announced that enslaved people were free — more than two months after the Civil War ended and 2.5 years after the Emancipation Proclamation. Juneteenth became a federal holiday in June 2021." },
+
+      { q: "What was the Reconstruction era (1865–1877)?",
+        options: ["The period of rebuilding US infrastructure after World War II", "The period after the Civil War during which the South was rebuilt and formerly enslaved people were granted citizenship and voting rights — though gains were largely reversed by the late 1870s", "President Lincoln's plan to reunite the country by pardoning Confederate leaders immediately after the war", "The rebuilding of American cities destroyed during the British invasion in the War of 1812"],
+        answer: 1,
+        explanation: "Reconstruction (1865–1877) was the post-Civil War period during which the federal government attempted to reunify the nation and integrate formerly enslaved people as full citizens. The 13th, 14th, and 15th Amendments were passed during this era. However, the end of Reconstruction led to Jim Crow laws and widespread disenfranchisement of Black Americans in the South." },
+
+      { q: "What is the role of the media in American democracy?",
+        options: ["To serve as an official voice of the government's policy positions", "To entertain the public — it has no formal role in democracy", "To inform the public, hold government accountable, and serve as a watchdog on power — protected by the First Amendment", "To advise Congress on legislation before it is passed"],
+        answer: 2,
+        explanation: "A free press is considered essential to democracy. The media (newspapers, television, radio, online outlets) inform citizens about government actions, investigate potential abuses of power, and facilitate public debate. The First Amendment's protection of press freedom is what makes this oversight role possible." }
     ]
   },
 
