@@ -2077,29 +2077,1016 @@ const EXAMS = {
 
   "comptia-aplus": {
     id: "comptia-aplus", title: "CompTIA A+",
-    description: "Practice for the CompTIA A+ Core 1 & 2 exams. Covers hardware, networking, operating systems, and troubleshooting.",
+    description: "200-question practice test for the CompTIA A+ Core 1 (220-1101) and Core 2 (220-1102) exams. Covers all exam domains: Mobile Devices, Networking, Hardware, Virtualization & Cloud, Hardware & Network Troubleshooting, Operating Systems, Security, Software Troubleshooting, and Operational Procedures.",
     category: "it-tech",
     questions: [
-      { q: "Which cable standard supports speeds up to 10 Gbps and is rated for data centers?",
-        options: ["Cat 5e", "Cat 6", "Cat 6a", "Cat 3"],
-        answer: 2,
-        explanation: "Cat 6a (augmented Category 6) supports 10 Gbps up to 100 meters. Regular Cat 6 supports 10 Gbps only up to 55 meters." },
-      { q: "What type of RAM module form factor is used in laptops?",
+
+      // ── CORE 1 · DOMAIN 1: MOBILE DEVICES ──────────────────────────────
+      { q: "Which laptop display technology offers the best colour accuracy and is preferred for graphic design work?",
+        options: ["TN (Twisted Nematic)", "IPS (In-Plane Switching)", "VA (Vertical Alignment)", "OLED"],
+        answer: 1,
+        explanation: "IPS panels produce accurate, consistent colours across wide viewing angles, making them the choice for colour-critical work. TN has poor viewing angles and colour; VA has the best contrast ratio; OLED has excellent contrast but can suffer burn-in." },
+
+      { q: "What component in a laptop converts DC power to the AC voltage required by a CCFL backlight?",
+        options: ["Voltage regulator module (VRM)", "Display inverter", "Power Management IC (PMIC)", "AC adapter"],
+        answer: 1,
+        explanation: "The display inverter converts the laptop's DC power supply to the high-frequency AC voltage needed to illuminate CCFL (cold cathode fluorescent lamp) backlights. LED-backlit displays do not use an inverter." },
+
+      { q: "A laptop screen is dim but an external monitor works fine. Which component is most likely faulty?",
+        options: ["The GPU", "The display inverter or backlight", "The RAM", "The CPU"],
+        answer: 1,
+        explanation: "If the external monitor works, the GPU is fine. A dim internal screen with a visible image (sometimes seen in a torch-lit screen) usually indicates a failed backlight or inverter. If no image at all, the LCD panel itself may be bad." },
+
+      { q: "What type of RAM module is used in laptops and small-form-factor desktops?",
         options: ["DIMM", "SO-DIMM", "SIMM", "RIMM"],
         answer: 1,
-        explanation: "Small Outline DIMM (SO-DIMM) is the compact form factor used in laptops and small-form-factor desktops. Standard DIMMs are used in desktop motherboards." },
-      { q: "What does POST stand for and what is its purpose?",
-        options: ["Power-On Self Test — checks hardware integrity before the OS loads", "Pre-Operating System Transfer — moves data before boot", "Power Output Stability Test — checks PSU voltage", "Peripheral Output Signal Test — verifies display output"],
-        answer: 0,
-        explanation: "POST (Power-On Self Test) runs every time a PC starts. It checks CPU, RAM, and connected hardware. A failed POST is often indicated by beep codes." },
-      { q: "Which display connector carries both digital video and audio in a single cable?",
-        options: ["VGA", "DVI-D", "HDMI", "DB-15"],
+        explanation: "SO-DIMM (Small Outline DIMM) is the compact memory form factor used in laptops and mini-PCs. Standard DIMMs are used in full-size desktop motherboards. SO-DIMMs are physically shorter — about half the length of a DIMM." },
+
+      { q: "Which mobile connector standard is reversible (can be plugged in either orientation) and supports data, video, and power delivery?",
+        options: ["Micro-USB", "Mini-USB", "USB-C", "Lightning"],
         answer: 2,
-        explanation: "HDMI (High-Definition Multimedia Interface) carries both uncompressed video and audio. VGA is analog video only; DVI-D is digital video only." },
-      { q: "What tool is used to attach RJ-45 connectors to the end of an Ethernet cable?",
-        options: ["Cable tester", "Crimping tool", "Punchdown tool", "Loopback plug"],
+        explanation: "USB-C is a symmetrical, reversible connector that supports USB 3.1/3.2/4, Thunderbolt 3/4, DisplayPort Alt Mode, and USB Power Delivery (up to 240 W). Micro-USB and Mini-USB are non-reversible; Lightning is Apple-proprietary." },
+
+      { q: "A user's laptop battery drains very quickly. Which action should be taken FIRST?",
+        options: ["Replace the battery immediately", "Check power settings and running applications for excessive drain before replacing the battery", "Reinstall the operating system", "Replace the charging adapter"],
         answer: 1,
-        explanation: "A crimping tool (crimper) presses the RJ-45 connector's pins into the cable wires. A punchdown tool is for patch panels and keystone jacks." }
+        explanation: "Always eliminate software causes first. Background apps, high screen brightness, and poor power plan settings are common causes of fast drain. If settings are optimised and drain is still abnormal, then test and potentially replace the battery." },
+
+      { q: "What is the purpose of the digitizer in a touchscreen device?",
+        options: ["To convert analog video to digital signals", "To translate physical touch input (finger or stylus position) into digital coordinates the OS can process", "To amplify the display's brightness", "To manage wireless antenna signals"],
+        answer: 1,
+        explanation: "The digitizer is a transparent layer over or integrated into the display that detects touch input and converts the physical location of a touch to X/Y coordinates. Capacitive digitizers respond to finger contact; active digitizers respond to a special stylus." },
+
+      { q: "Which wireless standard is used specifically for short-range payments and data exchange (within a few centimetres)?",
+        options: ["Bluetooth", "Wi-Fi Direct", "NFC (Near Field Communication)", "Zigbee"],
+        answer: 2,
+        explanation: "NFC operates at 13.56 MHz over distances of up to about 4 cm. It is used for contactless payments (Apple Pay, Google Pay), transit cards, and quick device pairing. Bluetooth works at longer ranges (up to ~10 m); Wi-Fi Direct is for file sharing and printing." },
+
+      { q: "A smartphone's GPS is inaccurate indoors. What is the most likely reason?",
+        options: ["The cellular radio is interfering with GPS", "GPS requires line-of-sight to satellites and is unreliable indoors; the device uses Wi-Fi and cell tower triangulation indoors instead", "The Bluetooth chip is conflicting with GPS", "The battery level affects GPS accuracy"],
+        answer: 1,
+        explanation: "GPS depends on signals from satellites, which cannot penetrate buildings well. Most smartphones use Assisted GPS (A-GPS) that combines satellite data with cell tower and Wi-Fi position data for faster indoor location. GPS alone does not work well indoors." },
+
+      { q: "Which laptop connector type is specifically designed for docking stations and allows a single cable to carry power, video, USB, and network signals?",
+        options: ["Thunderbolt / USB4", "eSATA", "VGA", "RS-232"],
+        answer: 0,
+        explanation: "Thunderbolt 3 and 4 (using USB-C connectors) can carry 40 Gbps data, DisplayPort video, PCIe, and up to 100 W power delivery simultaneously over a single cable, making them ideal for docking stations. USB4 provides similar capability." },
+
+      { q: "What does MDM (Mobile Device Management) software primarily do?",
+        options: ["Repairs hardware faults on mobile devices remotely", "Allows IT administrators to manage, configure, enforce policies, and remotely wipe corporate mobile devices", "Speeds up mobile device processors remotely", "Provides mobile antivirus scanning"],
+        answer: 1,
+        explanation: "MDM solutions (like Microsoft Intune, VMware Workspace ONE) let administrators push configurations, enforce passcode policies, restrict app installs, remotely lock or wipe lost/stolen devices, and ensure corporate data security across a fleet of mobile devices." },
+
+      { q: "A user wants to connect a laptop to two external monitors. The laptop has one HDMI port and one USB-C (Thunderbolt) port. What is the best solution?",
+        options: ["Connect both monitors to the HDMI port using a splitter — this allows two independent displays", "Connect one monitor via HDMI and use a USB-C to DisplayPort adapter or docking station for the second", "Purchase a new laptop with two HDMI ports", "Use Wi-Fi Display (Miracast) for both monitors"],
+        answer: 1,
+        explanation: "A splitter duplicates (mirrors) the display to both monitors — it doesn't create independent extended displays. Using one monitor on HDMI and a second via USB-C/Thunderbolt (through an adapter or dock) gives two fully independent extended displays, which is the correct setup for a dual-monitor workstation." },
+
+      // ── CORE 1 · DOMAIN 2: NETWORKING ──────────────────────────────────
+      { q: "Which cable standard supports speeds up to 10 Gbps over 100 metres?",
+        options: ["Cat 5e", "Cat 6", "Cat 6a", "Cat 3"],
+        answer: 2,
+        explanation: "Cat 6a (augmented Category 6) supports 10 Gbps up to 100 metres. Regular Cat 6 supports 10 Gbps only up to 55 metres before crosstalk degrades the signal, and 1 Gbps at 100 metres. Cat 5e supports 1 Gbps at 100 metres." },
+
+      { q: "What is the maximum data speed supported by a Cat 5e cable?",
+        options: ["100 Mbps", "1 Gbps", "10 Gbps", "40 Gbps"],
+        answer: 1,
+        explanation: "Cat 5e (enhanced Category 5) supports Gigabit Ethernet (1000BASE-T) at up to 1 Gbps over 100 metres. It uses all four pairs for data. Cat 5 only supported 100 Mbps; Cat 6 and above support higher speeds." },
+
+      { q: "Which Wi-Fi standard operates exclusively on the 5 GHz band and was the first to offer 54 Mbps speeds?",
+        options: ["802.11b", "802.11a", "802.11g", "802.11n"],
+        answer: 1,
+        explanation: "IEEE 802.11a (1999) operates on 5 GHz only and offers up to 54 Mbps. 802.11b (also 1999) is 2.4 GHz at 11 Mbps. 802.11g (2003) is 2.4 GHz at 54 Mbps. 802.11n (Wi-Fi 4) operates on both bands at up to 600 Mbps." },
+
+      { q: "What is the maximum theoretical throughput of Wi-Fi 5 (802.11ac)?",
+        options: ["150 Mbps", "600 Mbps", "3.5 Gbps", "9.6 Gbps"],
+        answer: 2,
+        explanation: "Wi-Fi 5 (802.11ac) operates only on 5 GHz and achieves up to 3.5 Gbps using MU-MIMO and channel bonding. Wi-Fi 6 (802.11ax) achieves up to 9.6 Gbps and adds 2.4 GHz and 6 GHz support." },
+
+      { q: "What port number does HTTPS use by default?",
+        options: ["80", "443", "8080", "8443"],
+        answer: 1,
+        explanation: "HTTPS (HTTP Secure) uses port 443 by default. Plain HTTP uses port 80. Port 8080 is a common alternative HTTP port; 8443 is a common alternative HTTPS port — both often used for web proxies and development servers." },
+
+      { q: "What port does RDP (Remote Desktop Protocol) use by default?",
+        options: ["22", "23", "3389", "5900"],
+        answer: 2,
+        explanation: "RDP (Microsoft's Remote Desktop Protocol) uses TCP port 3389 by default. SSH uses port 22; Telnet uses port 23; VNC uses port 5900. Exposing port 3389 directly to the internet is a common attack vector — it should be protected by a VPN." },
+
+      { q: "What port does SSH (Secure Shell) use?",
+        options: ["21", "22", "23", "25"],
+        answer: 1,
+        explanation: "SSH (Secure Shell) uses TCP port 22 for encrypted remote command-line access. FTP uses ports 20 and 21; Telnet uses port 23 (unencrypted, largely replaced by SSH); SMTP uses port 25." },
+
+      { q: "What is the default port for DNS?",
+        options: ["53", "67", "68", "123"],
+        answer: 0,
+        explanation: "DNS (Domain Name System) uses port 53 on both TCP and UDP. UDP 53 is used for most queries (faster, smaller packets); TCP 53 is used for large responses and zone transfers. Port 67 is DHCP server; 68 is DHCP client; 123 is NTP." },
+
+      { q: "A device has the IP address 192.168.1.45 with a subnet mask of 255.255.255.0. What is the network address?",
+        options: ["192.168.1.0", "192.168.0.0", "192.168.1.255", "192.168.1.1"],
+        answer: 0,
+        explanation: "A /24 subnet mask (255.255.255.0) means the first 3 octets identify the network. The network address is 192.168.1.0; the broadcast address is 192.168.1.255; valid host addresses range from 192.168.1.1 to 192.168.1.254." },
+
+      { q: "Which IP address range is reserved for APIPA (Automatic Private IP Addressing)?",
+        options: ["192.168.0.0/16", "10.0.0.0/8", "169.254.0.0/16", "172.16.0.0/12"],
+        answer: 2,
+        explanation: "APIPA (also called link-local addressing) uses the range 169.254.0.0/16 (169.254.0.1 to 169.254.255.254). A device self-assigns an APIPA address when it cannot reach a DHCP server. Seeing a 169.254.x.x address usually indicates a DHCP problem." },
+
+      { q: "What does DHCP stand for and what does it do?",
+        options: ["Dynamic Host Configuration Protocol — automatically assigns IP addresses and network settings to devices", "Domain Host Control Protocol — manages domain name assignments", "Dynamic Hardware Configuration Protocol — configures NIC drivers automatically", "Distributed Host Communication Protocol — enables peer-to-peer networking"],
+        answer: 0,
+        explanation: "DHCP automatically assigns IP addresses, subnet masks, default gateways, and DNS server addresses to network clients. Without DHCP, each device would need a manually configured (static) IP address. DHCP uses ports 67 (server) and 68 (client)." },
+
+      { q: "What is the purpose of a VLAN?",
+        options: ["To increase Wi-Fi signal strength between floors of a building", "To logically segment a physical network into separate broadcast domains without requiring separate physical switches", "To provide redundant internet connections for failover", "To connect two different IP address ranges using NAT"],
+        answer: 1,
+        explanation: "VLANs (Virtual Local Area Networks) allow network administrators to segment traffic on a single physical switch as if the devices were on separate switches. This improves security (isolating guest or IoT traffic), reduces broadcast traffic, and simplifies network management." },
+
+      { q: "What device operates at Layer 3 of the OSI model and routes packets between different networks?",
+        options: ["Hub", "Switch", "Router", "Access point"],
+        answer: 2,
+        explanation: "Routers operate at OSI Layer 3 (Network layer) and make forwarding decisions based on IP addresses. Switches operate at Layer 2 (Data Link) using MAC addresses. Hubs operate at Layer 1 (Physical). Access points are Layer 1/2 wireless devices." },
+
+      { q: "What is the difference between a hub and a switch?",
+        options: ["A hub sends incoming data to all ports; a switch sends data only to the port where the destination MAC address is located", "A hub operates at Layer 3; a switch at Layer 2", "A hub supports Gigabit speeds; a switch is limited to 100 Mbps", "There is no practical difference — both devices do the same job"],
+        answer: 0,
+        explanation: "A hub broadcasts all incoming frames to every port (Layer 1 — no intelligence). A switch maintains a MAC address table and forwards frames only to the port where the destination device is connected (Layer 2). Switches dramatically reduce unnecessary network traffic and collisions." },
+
+      { q: "What technology allows multiple devices to share a single public IP address when accessing the internet?",
+        options: ["DNS", "DHCP", "NAT (Network Address Translation)", "ARP"],
+        answer: 2,
+        explanation: "NAT (Network Address Translation) maps private IP addresses (like 192.168.x.x) to a single public IP address and back. It allows an entire home or office network to share one ISP-assigned public IP address. PAT (Port Address Translation) is the most common implementation." },
+
+      { q: "What is a loopback address and what is its IPv4 value?",
+        options: ["169.254.0.1 — the first APIPA address assigned to a NIC", "127.0.0.1 — used to test the local TCP/IP stack without sending traffic onto the network", "192.168.1.1 — the default gateway for most home routers", "0.0.0.0 — represents all network interfaces"],
+        answer: 1,
+        explanation: "The loopback address 127.0.0.1 (or 'localhost') routes traffic back to the sending device without it touching the physical network. Pinging 127.0.0.1 tests whether the local TCP/IP stack is functioning. The entire 127.0.0.0/8 range is reserved for loopback." },
+
+      { q: "What protocol resolves an IP address to a MAC (hardware) address on a local network?",
+        options: ["DNS", "DHCP", "ARP (Address Resolution Protocol)", "ICMP"],
+        answer: 2,
+        explanation: "ARP broadcasts a request asking 'Who has IP address X?' The device with that IP responds with its MAC address. The sender caches the result in its ARP table. ARP operates at Layer 2 and is fundamental to Ethernet communication." },
+
+      { q: "What is the purpose of a proxy server?",
+        options: ["To assign IP addresses to network clients automatically", "To act as an intermediary between clients and the internet — providing caching, content filtering, and anonymity", "To convert wireless signals to wired Ethernet signals", "To manage DNS resolution for a local network"],
+        answer: 1,
+        explanation: "A proxy server sits between clients and the internet. It can cache web content (reducing bandwidth), filter content (blocking inappropriate sites), log user activity, and provide anonymity by hiding client IP addresses. Forward proxies serve clients; reverse proxies protect servers." },
+
+      { q: "An employee connects a laptop to the company network via Ethernet but cannot access the internet. The laptop gets a 169.254.x.x IP address. What is the most likely cause?",
+        options: ["The DNS server is down", "The laptop cannot reach the DHCP server to get a valid IP address", "The default gateway is misconfigured", "The NIC driver is outdated"],
+        answer: 1,
+        explanation: "A 169.254.x.x address is APIPA — the device self-assigned an address because it couldn't reach a DHCP server. Causes include: the DHCP server is down, a cable is unplugged, the switch port is disabled, or the DHCP scope is exhausted. Check physical connectivity first, then investigate DHCP." },
+
+      // ── CORE 1 · DOMAIN 3: HARDWARE ────────────────────────────────────
+      { q: "What does POST stand for and what is its purpose?",
+        options: ["Power-On Self Test — hardware integrity check before the OS loads", "Pre-Operating System Transfer — data migration before boot", "Power Output Stability Test — PSU voltage verification", "Peripheral Output Signal Test — display output check"],
+        answer: 0,
+        explanation: "POST (Power-On Self Test) is a BIOS/UEFI diagnostic routine that runs every time a PC powers on. It checks the CPU, RAM, and essential hardware. Failures are reported via beep codes or on-screen error messages." },
+
+      { q: "What is the difference between BIOS and UEFI?",
+        options: ["BIOS supports drives larger than 2 TB; UEFI does not", "UEFI is the modern replacement for BIOS — it supports drives over 2 TB, GPT partition tables, Secure Boot, faster boot times, and a graphical mouse-driven interface", "UEFI is only available on Apple computers", "BIOS and UEFI are identical — the terms are interchangeable"],
+        answer: 1,
+        explanation: "UEFI (Unified Extensible Firmware Interface) replaced the legacy BIOS. Key differences: UEFI supports GPT disks (over 2 TB), Secure Boot (blocks unsigned bootloaders), 64-bit mode, network booting, and has a graphical/mouse-capable interface. Legacy BIOS is limited to MBR partitioning (2 TB max) and 16-bit mode." },
+
+      { q: "What is the maximum drive capacity supported by a master boot record (MBR) partition scheme?",
+        options: ["1 TB", "2 TB", "4 TB", "Unlimited"],
+        answer: 1,
+        explanation: "MBR (Master Boot Record) uses 32-bit sector addressing and supports a maximum of 2 TB. For drives larger than 2 TB, GPT (GUID Partition Table) must be used. GPT also supports more than 4 primary partitions (MBR is limited to 4 primary or 3 primary + 1 extended)." },
+
+      { q: "Which RAM type is standard in modern desktop motherboards?",
+        options: ["DDR3", "DDR4", "DDR5", "DDR2"],
+        answer: 1,
+        explanation: "DDR4 remains the most common desktop RAM type. DDR5 is the newer standard gaining adoption in Intel 12th/13th gen and AMD Ryzen 7000 platforms. DDR3 and DDR2 are legacy. Each DDR generation uses a different notch position and is not backward compatible." },
+
+      { q: "What is the key advantage of DDR5 over DDR4 RAM?",
+        options: ["DDR5 uses less power and has lower latency than DDR4", "DDR5 offers higher bandwidth (starts at 4800 MT/s vs DDR4's 3200 MT/s max), on-die ECC for data integrity, and higher density modules", "DDR5 is physically smaller and fits in SO-DIMM slots only", "DDR5 is compatible with DDR4 slots"],
+        answer: 1,
+        explanation: "DDR5 starts at 4800 MT/s (up to 8400+ MT/s) vs DDR4's ceiling of about 3200 MT/s for mainstream. DDR5 also adds on-die ECC (error correction within each module), higher per-module capacities, and a new power management architecture. It is not backward compatible with DDR4 slots." },
+
+      { q: "What type of storage interface connects M.2 NVMe SSDs directly to the CPU via PCIe lanes for maximum throughput?",
+        options: ["SATA III", "SAS", "NVMe (Non-Volatile Memory Express) over PCIe", "IDE/PATA"],
+        answer: 2,
+        explanation: "NVMe is a protocol designed specifically for flash storage, using PCIe lanes for direct CPU access. NVMe SSDs achieve sequential reads of 3,500+ MB/s (PCIe 3.0 x4) to 7,000+ MB/s (PCIe 4.0 x4), far exceeding SATA III's 600 MB/s cap." },
+
+      { q: "What is the maximum throughput of a SATA III interface?",
+        options: ["150 MB/s", "300 MB/s", "600 MB/s", "3,000 MB/s"],
+        answer: 2,
+        explanation: "SATA III (SATA 6 Gb/s) has a theoretical maximum of 6 Gbps, which translates to approximately 600 MB/s real-world throughput. SATA I supported 1.5 Gbps (150 MB/s); SATA II supported 3 Gbps (300 MB/s). All three generations are backward compatible." },
+
+      { q: "A desktop computer has a PCIe x16 slot and a PCIe x1 slot. What device is typically installed in the x16 slot?",
+        options: ["Network interface card (NIC)", "Sound card", "Discrete graphics card (GPU)", "USB expansion card"],
+        answer: 2,
+        explanation: "PCIe x16 slots provide 16 lanes of bandwidth — necessary for discrete GPUs, which require high-bandwidth access to system RAM and to transmit frame buffer data to the display. PCIe x1 slots (1 lane) are used for lower-bandwidth cards like NICs, sound cards, and USB/SATA expansion cards." },
+
+      { q: "What is the function of the thermal paste (thermal compound) applied between a CPU and its heatsink?",
+        options: ["It electrically insulates the CPU from the heatsink to prevent short circuits", "It fills microscopic surface imperfections between the CPU and heatsink to improve thermal conductivity and heat transfer", "It permanently bonds the heatsink to prevent it from falling off", "It provides a lubricant so the heatsink can be removed without damaging the CPU"],
+        answer: 1,
+        explanation: "Metal surfaces look smooth but have microscopic pits and bumps. Air in these gaps is a poor conductor of heat. Thermal paste (usually containing silver, ceramic, or carbon compounds) fills these gaps, dramatically improving the thermal interface between CPU and heatsink and enabling efficient heat dissipation." },
+
+      { q: "Which display connector carries both digital video and audio in a single cable?",
+        options: ["VGA", "DVI-D", "HDMI", "DVI-I"],
+        answer: 2,
+        explanation: "HDMI carries both uncompressed digital video and multi-channel audio in a single cable. VGA is analog video only. DVI-D is digital video only (no audio). DVI-I carries both analog and digital video but no audio." },
+
+      { q: "A user plugs an HDMI cable into a monitor but sees no image. The GPU only has a DisplayPort output. What should the technician recommend?",
+        options: ["Replace the monitor with one that has DisplayPort", "Use a DisplayPort-to-HDMI active adapter or cable", "Upgrade the GPU to one with HDMI output", "Use a VGA-to-HDMI cable instead"],
+        answer: 1,
+        explanation: "A DisplayPort-to-HDMI adapter or cable converts the DP signal to HDMI, allowing the monitor to work. Active adapters are generally more reliable for high resolutions. This is the quickest and most cost-effective solution compared to replacing either device." },
+
+      { q: "What is the purpose of a UPS (Uninterruptible Power Supply)?",
+        options: ["To regulate CPU voltage for overclocking stability", "To provide battery backup power during a power outage and protect connected equipment from power surges", "To convert AC power from the wall to DC power for computer components", "To distribute power evenly across all PCIe slots"],
+        answer: 1,
+        explanation: "A UPS provides battery-backed power so that systems can continue operating or be safely shut down during a power outage. It also conditions the power to protect against surges, spikes, and sags. They are essential for servers and critical workstations." },
+
+      { q: "What is the standard power connector from a PSU that connects to the motherboard in modern desktop PCs?",
+        options: ["20-pin ATX", "24-pin ATX", "4-pin Molex", "8-pin EPS"],
+        answer: 1,
+        explanation: "Modern ATX motherboards use a 24-pin main power connector. Older boards used a 20-pin connector. The 8-pin EPS12V (or 4+4 pin) connector provides additional 12V power specifically for the CPU/VRM. Molex is used for older drives and accessories." },
+
+      { q: "What is the purpose of the CMOS battery on a motherboard?",
+        options: ["To power the CPU when the main PSU is switched off", "To maintain BIOS/UEFI settings (system clock, boot order, hardware configuration) when the computer is unplugged", "To provide backup power for the RAM so data is not lost on shutdown", "To charge the laptop battery when AC power is connected"],
+        answer: 1,
+        explanation: "The CMOS battery (typically a CR2032 lithium coin cell) powers the CMOS memory chip that stores BIOS settings and the real-time clock when the PC is unplugged. When it dies, the PC will lose its date/time settings and BIOS configuration, often reverting to defaults." },
+
+      { q: "A technician needs to install additional RAM in a desktop. The motherboard manual states it supports dual-channel memory. How should the RAM be installed for optimal performance?",
+        options: ["Install all RAM sticks in the slots closest to the CPU", "Install matching RAM sticks in the same-coloured slots (as specified in the manual) to enable dual-channel mode", "Install RAM sticks in alternating slots regardless of colour", "Dual-channel requires special dual-channel RAM; standard DIMMs won't work"],
+        answer: 1,
+        explanation: "Dual-channel memory doubles the memory bandwidth by using two matching modules simultaneously. Most motherboards use colour-coded DIMM slots — matching modules should be placed in matching-colour slots (e.g., slots 1 and 3, or slots 2 and 4). The motherboard manual specifies the exact slots." },
+
+      { q: "What does ECC RAM stand for and what is its main benefit?",
+        options: ["Extended Capacity Cache — increases available cache memory", "Error-Correcting Code — detects and corrects single-bit memory errors, preventing data corruption in servers and workstations", "Enhanced Clock Cycle — runs at higher speeds than standard RAM", "External Cache Controller — offloads cache management from the CPU"],
+        answer: 1,
+        explanation: "ECC (Error-Correcting Code) RAM detects and automatically corrects single-bit errors, and detects (but cannot correct) multi-bit errors. It is essential in servers, workstations, and mission-critical systems where data integrity is paramount. ECC RAM requires a compatible motherboard and CPU." },
+
+      { q: "What type of optical drive format stores data using a blue-violet laser and can hold up to 25 GB per layer?",
+        options: ["DVD-DL", "HD-DVD", "Blu-ray", "CD-R"],
+        answer: 2,
+        explanation: "Blu-ray uses a 405 nm blue-violet laser (shorter wavelength = smaller data pits = more data). Single-layer Blu-ray holds 25 GB; dual-layer holds 50 GB. DVD holds 4.7 GB (single layer). CD holds ~700 MB. HD-DVD was Blu-ray's failed competitor." },
+
+      // ── CORE 1 · DOMAIN 4: VIRTUALISATION & CLOUD ──────────────────────
+      { q: "What is a hypervisor and what are the two main types?",
+        options: ["A hypervisor is a cloud storage service; Type 1 stores locally and Type 2 stores remotely", "A hypervisor is software that creates and manages virtual machines; Type 1 (bare-metal) runs directly on hardware; Type 2 (hosted) runs on top of an OS", "A hypervisor manages virtual networks; Type 1 is software-defined; Type 2 is hardware-defined", "A hypervisor is a hardware component; Type 1 is a CPU feature; Type 2 is a chipset feature"],
+        answer: 1,
+        explanation: "Type 1 (bare-metal) hypervisors — like VMware ESXi, Microsoft Hyper-V Server, Xen — run directly on the host hardware for maximum performance and efficiency, used in data centres. Type 2 (hosted) hypervisors — like VMware Workstation, VirtualBox, Parallels — run as an application on top of an existing OS, used for desktop virtualisation." },
+
+      { q: "What is the difference between IaaS, PaaS, and SaaS cloud service models?",
+        options: ["IaaS provides hardware; PaaS provides a development platform; SaaS provides complete ready-to-use software applications — each with increasing levels of management by the provider", "IaaS is for small businesses; PaaS is for medium businesses; SaaS is for enterprises", "IaaS uses public cloud; PaaS uses private cloud; SaaS uses hybrid cloud", "They are three different names for the same service"],
+        answer: 0,
+        explanation: "IaaS (e.g., AWS EC2, Azure VMs) provides raw compute, storage, and networking — you manage OS and above. PaaS (e.g., Azure App Service, Heroku) provides a managed platform for developing apps — you manage the application only. SaaS (e.g., Microsoft 365, Salesforce) provides complete applications — the provider manages everything." },
+
+      { q: "What is a 'snapshot' in virtualisation?",
+        options: ["A screenshot of the VM's desktop captured at regular intervals", "A point-in-time capture of a VM's entire state (disk, memory, settings) that allows the VM to be rolled back to that state", "A backup copy of the VM stored on a different physical server", "A performance benchmark test of VM CPU and RAM usage"],
+        answer: 1,
+        explanation: "A VM snapshot preserves the VM's exact state at a specific moment — including all disk data, RAM contents, and VM settings. If a patch or configuration change causes problems, the snapshot can be reverted instantly. Snapshots are useful for testing but are not a substitute for proper backups." },
+
+      { q: "What is the primary advantage of cloud computing's 'elasticity'?",
+        options: ["Cloud servers physically stretch to accommodate more users", "Resources (compute, storage, bandwidth) can be scaled up or down on demand to match workload — paying only for what is used", "Cloud data is automatically replicated across all continents", "Cloud providers guarantee 100% uptime SLAs"],
+        answer: 1,
+        explanation: "Elasticity allows cloud resources to automatically grow during peak demand and shrink when demand drops. This is fundamentally different from on-premises infrastructure, where you must provision for peak load and pay for that capacity even when unused. Auto-scaling groups in AWS/Azure implement this." },
+
+      { q: "What does 'multi-tenancy' mean in cloud computing?",
+        options: ["A single cloud customer renting servers in multiple data centres", "Multiple customers (tenants) sharing the same underlying physical hardware and software infrastructure, with logical isolation between their environments", "A cloud service that requires multiple administrator accounts for access", "Using multiple cloud providers simultaneously for redundancy"],
+        answer: 1,
+        explanation: "Multi-tenancy is a fundamental cloud architecture pattern where a single software instance or set of hardware serves multiple customers. Each customer's data is logically isolated from others (through virtualisation and access controls), but the physical resources are shared. This enables economies of scale." },
+
+      { q: "What is a VDI (Virtual Desktop Infrastructure)?",
+        options: ["A cloud storage solution for desktop files and documents", "A system where desktop environments run as VMs on centralised servers and are streamed to thin client devices over the network", "A protocol for connecting two computers remotely", "A virtualisation method used only on mobile devices"],
+        answer: 1,
+        explanation: "VDI hosts virtualised desktop OSes on servers in a data centre. Users connect via thin clients or repurposed PCs and receive the desktop experience over the network. Benefits: centralised management, security (data stays in the data centre), and device flexibility. Examples: VMware Horizon, Citrix Virtual Apps and Desktops." },
+
+      // ── CORE 1 · DOMAIN 5: HARDWARE & NETWORK TROUBLESHOOTING ──────────
+      { q: "A PC powers on, the fans spin, but there is no video output and the PC beeps continuously. What is the most likely cause?",
+        options: ["The hard drive has failed", "A RAM module is not properly seated or has failed — the POST beep code signals a memory error", "The operating system is corrupted", "The HDMI cable is not connected"],
+        answer: 1,
+        explanation: "Continuous or repeated beeps during POST almost always indicate a RAM problem — either modules are not seated correctly or one has failed. Reseat the RAM modules (and try them one at a time in different slots) to diagnose. The specific beep pattern varies by BIOS manufacturer." },
+
+      { q: "A user reports a burning smell from their PC. What should a technician do FIRST?",
+        options: ["Open the case and visually inspect the components", "Power off the computer immediately and unplug it from the wall before investigating", "Check the event log in Windows for error codes", "Replace the PSU without further investigation"],
+        answer: 1,
+        explanation: "Safety first: a burning smell can indicate a component failure that could cause fire or electric shock. Power off and unplug immediately. After the unit is safe, investigate the cause (look for burnt/scorched components, check for failed capacitors, blocked airflow). Do not power on again until the cause is identified and corrected." },
+
+      { q: "A technician suspects a hard drive is failing. Which tool can be used to scan the drive for bad sectors?",
+        options: ["CHKDSK (check disk) in Windows, or tools like CrystalDiskInfo that read S.M.A.R.T. data", "MSCONFIG", "REGEDIT", "Device Manager"],
+        answer: 0,
+        explanation: "CHKDSK /r scans for and attempts to recover data from bad sectors. S.M.A.R.T. (Self-Monitoring Analysis and Reporting Technology) data, readable via tools like CrystalDiskInfo or Speccy, provides the drive's self-reported health status including reallocated sector counts and pending bad sectors." },
+
+      { q: "A user complains their PC is running very slowly. Task Manager shows CPU usage is constantly at 100%. What should the technician do?",
+        options: ["Reinstall Windows immediately", "Check the Processes tab in Task Manager to identify which process is consuming CPU, then investigate (update, repair, or remove the offending application or check for malware)", "Add more RAM", "Replace the CPU"],
+        answer: 1,
+        explanation: "Task Manager's Details or Processes tab shows exactly which process is consuming CPU. The cause could be a legitimate application (like an antivirus scan or video encoder), a rogue process, a Windows Update running, or malware. Identify the cause first before taking corrective action." },
+
+      { q: "A monitor displays a vertical line running from top to bottom. The line persists across different inputs and computers. What is most likely faulty?",
+        options: ["The video cable", "The graphics card", "The monitor itself (LCD panel or display controller)", "The operating system's display driver"],
+        answer: 2,
+        explanation: "Because the line appears across different inputs and computers, the GPU and cable are eliminated. The fault is within the monitor — likely a damaged LCD panel (column driver failure) or a failed display controller board. If the line is always visible regardless of input, the monitor should be replaced." },
+
+      { q: "What is the most likely cause of a computer that randomly shuts down without warning, especially under heavy load?",
+        options: ["Corrupted Windows system files", "Overheating — the CPU or GPU thermal protection is shutting the system down to prevent damage", "A failing RAM module — causes random reboots during memory-intensive tasks", "A virus that triggers automatic shutdowns"],
+        answer: 1,
+        explanation: "Thermal shutdown is the most common cause of unexpected shutdowns under load. CPUs and GPUs have thermal protection that shuts the system down before permanent damage occurs. Check CPU/GPU temperatures using tools like HWMonitor. Clean dust from heatsinks and fans; replace dried thermal paste." },
+
+      { q: "A user's printer prints blank pages. The printer was working yesterday. Which troubleshooting step should be done FIRST?",
+        options: ["Replace all ink or toner cartridges", "Check if the ink/toner cartridges have protective tape still covering the nozzle/contact, or if they are empty or dry — then verify paper is not loaded upside down", "Reinstall the printer driver", "Send the printer for service"],
+        answer: 1,
+        explanation: "New cartridges often have protective seals that must be removed before use. Also check ink/toner levels, and whether paper is loaded correctly. These simple checks take seconds and are the most common causes of blank printing. Driver reinstallation and service are later steps if simple causes are ruled out." },
+
+      { q: "What tool should a technician use to test whether a specific network port (TCP/UDP) on a remote server is open and listening?",
+        options: ["PING — sends ICMP echo requests to test connectivity", "TRACERT — traces the route to a destination", "TELNET or NMAP — can test specific port connectivity (e.g., telnet host port)", "IPCONFIG — displays local network configuration"],
+        answer: 2,
+        explanation: "Telnet (telnet hostname port#) can test whether a specific TCP port is open — a successful connection confirms the port is listening. Nmap is more powerful, scanning multiple ports and providing service information. Ping tests ICMP reachability but tells you nothing about specific port status." },
+
+      // ── CORE 2 · DOMAIN 1: OPERATING SYSTEMS ───────────────────────────
+      { q: "Which Windows edition is required to join a domain and is targeted at business users?",
+        options: ["Windows Home", "Windows Pro", "Windows S Mode", "Windows Go"],
+        answer: 1,
+        explanation: "Windows Pro (and Pro for Workstations, Enterprise, and Education) includes the ability to join an Active Directory domain, Group Policy management, BitLocker encryption, and Remote Desktop hosting. Windows Home cannot join a domain." },
+
+      { q: "What Windows feature encrypts an entire drive to protect data from physical theft?",
+        options: ["Windows Defender", "Encrypting File System (EFS)", "BitLocker", "Windows Sandbox"],
+        answer: 2,
+        explanation: "BitLocker is Microsoft's full-disk encryption feature available in Windows Pro, Enterprise, and Education editions. It encrypts the entire volume using AES encryption. The encryption key is typically stored in a TPM (Trusted Platform Module) chip, tied to that specific hardware configuration." },
+
+      { q: "What Windows command-line tool checks and repairs Windows system files?",
+        options: ["CHKDSK", "SFC /SCANNOW", "DISKPART", "IPCONFIG /FLUSHDNS"],
+        answer: 1,
+        explanation: "SFC (System File Checker) — sfc /scannow — scans all protected system files and replaces corrupted or modified files with cached versions from the WinSxS folder. If SFC can't fix the issue, DISM (dism /online /cleanup-image /restorehealth) can repair the Windows image itself." },
+
+      { q: "What Windows tool is used to manage disk partitions from the command line?",
+        options: ["CHKDSK", "FORMAT", "DISKPART", "DEVMGMT.MSC"],
+        answer: 2,
+        explanation: "DISKPART is the command-line disk management utility in Windows, capable of creating, deleting, and formatting partitions; converting between MBR and GPT; assigning drive letters; extending volumes; and managing RAID arrays. It is more powerful than the graphical Disk Management tool." },
+
+      { q: "What does the IPCONFIG /FLUSHDNS command do?",
+        options: ["Releases and renews the DHCP lease for the network adapter", "Clears the local DNS resolver cache, forcing the OS to query the DNS server fresh on the next name resolution", "Tests connectivity to the configured DNS server", "Displays the current DNS server addresses assigned to each adapter"],
+        answer: 1,
+        explanation: "The DNS resolver cache stores previously resolved domain name lookups. If a record has changed at the DNS server but the old result is cached locally, name resolution can fail or produce incorrect results. IPCONFIG /FLUSHDNS clears this cache. /REGISTERDNS registers the computer's name with DNS." },
+
+      { q: "Which Windows command displays all active network connections, listening ports, and associated process IDs?",
+        options: ["IPCONFIG /ALL", "NETSTAT -AN", "NSLOOKUP", "PING -T"],
+        answer: 1,
+        explanation: "NETSTAT (network statistics) shows active TCP and UDP connections, ports in a LISTENING state, and — with the -O flag — the process ID (PID) associated with each connection. This is useful for identifying what applications are using the network and detecting suspicious connections." },
+
+      { q: "What Windows utility allows you to configure which programs start automatically when Windows loads?",
+        options: ["Task Scheduler", "The Startup tab in Task Manager (Windows 8 and later), or MSCONFIG (System Configuration) in older Windows versions", "Services.msc", "Regedit"],
+        answer: 1,
+        explanation: "In Windows 10/11, the Startup tab in Task Manager (Ctrl+Shift+Esc → Startup) lists and manages startup programs, showing their startup impact. In Windows 7 and earlier, MSCONFIG (System Configuration) was used. Startup items can also be managed via Registry Run keys and the Startup folder." },
+
+      { q: "A Windows user receives 'Access Denied' when trying to run a command that requires administrator privileges. What should they do?",
+        options: ["Log in as the Administrator account built into Windows", "Right-click the application or Command Prompt and choose 'Run as administrator' to elevate privileges via UAC", "Disable User Account Control (UAC) permanently", "The user needs a new account — their current account is corrupted"],
+        answer: 1,
+        explanation: "UAC (User Account Control) requires explicit elevation for administrative tasks, even for administrator accounts (to prevent accidental or malicious changes). Right-clicking and choosing 'Run as administrator' triggers a UAC prompt. This is the correct and secure approach — disabling UAC entirely is a security risk." },
+
+      { q: "What is the Windows Registry?",
+        options: ["A list of all installed applications and their file locations", "A hierarchical database that stores operating system and application configuration settings, hardware information, and user preferences", "The Windows boot loader configuration file", "A log of all user login events and security events"],
+        answer: 1,
+        explanation: "The Windows Registry is a centralised hierarchical database (accessed via regedit.exe) organised into hives (HKEY_LOCAL_MACHINE, HKEY_CURRENT_USER, etc.). It stores OS settings, hardware configuration, installed software data, and user preferences. Incorrect edits can break Windows — always back up before editing." },
+
+      { q: "Which Registry hive contains settings that apply to all users on the computer, including hardware and software configuration?",
+        options: ["HKEY_CURRENT_USER (HKCU)", "HKEY_LOCAL_MACHINE (HKLM)", "HKEY_CLASSES_ROOT (HKCR)", "HKEY_CURRENT_CONFIG (HKCC)"],
+        answer: 1,
+        explanation: "HKLM (HKEY_LOCAL_MACHINE) stores machine-wide settings: hardware device drivers, system services, software installed for all users, and security policies. HKCU stores settings for the currently logged-in user. HKCR maps file extensions to applications. HKCC contains current hardware profile info." },
+
+      { q: "What is the purpose of the Windows Task Manager?",
+        options: ["To schedule automated maintenance tasks", "To view and manage running processes, CPU/RAM/disk/network performance, startup programs, and services", "To configure user accounts and permissions", "To manage Windows Update settings"],
+        answer: 1,
+        explanation: "Task Manager (Ctrl+Shift+Esc) provides real-time monitoring of system performance (CPU, RAM, disk, GPU, network), a list of all running processes with their resource usage, startup program management, and service control. It is the primary tool for diagnosing performance issues and terminating unresponsive applications." },
+
+      { q: "In Windows, what does the acronym NTFS stand for and what is its advantage over FAT32?",
+        options: ["Network Transfer File System — works over network drives unlike FAT32", "New Technology File System — supports files larger than 4 GB, journaling for crash recovery, per-file permissions, compression, and encryption (EFS)", "Non-Temporal File Storage — optimised for SSD drives", "National Technology File Standard — the US government's required file system"],
+        answer: 1,
+        explanation: "NTFS (New Technology File System) is Windows' standard file system. Key advantages over FAT32: supports files over 4 GB (FAT32 max is ~4 GB), supports per-file/folder permissions (ACLs), has a journal for crash recovery, supports EFS encryption and compression, and handles volumes up to 256 TB." },
+
+      { q: "What Windows feature provides a quick way to restore the OS to a previous state if a change causes problems?",
+        options: ["Windows Backup and Restore", "System Restore (creates Restore Points)", "Windows Recovery Environment (WinRE)", "Refresh/Reset this PC"],
+        answer: 1,
+        explanation: "System Restore automatically creates restore points (snapshots of system files, registry, and installed programs) before major changes. It can be accessed via Control Panel or by booting into WinRE. It rolls back system settings without affecting personal data files. (Note: it does not back up personal data.)" },
+
+      { q: "What is the Linux command to list files and directories in the current directory?",
+        options: ["dir", "list", "ls", "show"],
+        answer: 2,
+        explanation: "ls (list) displays files and directories in a Linux/Unix/macOS terminal. Common flags: -l (long format with permissions, owner, size, date), -a (show hidden files beginning with '.'), -h (human-readable file sizes). The Windows equivalent is 'dir'." },
+
+      { q: "What Linux command changes file or directory permissions?",
+        options: ["chown", "chmod", "chgrp", "su"],
+        answer: 1,
+        explanation: "chmod (change mode) modifies file permissions. It uses either symbolic notation (chmod u+x file — adds execute for owner) or octal notation (chmod 755 file — rwxr-xr-x). chown changes file ownership; chgrp changes the group; su switches user accounts." },
+
+      { q: "What is the purpose of the sudo command in Linux?",
+        options: ["To switch to a different user account permanently", "To execute a command with root (superuser) privileges without logging in as root — requires the user to be in the sudo group", "To change the current directory to /root", "To search for files across the entire filesystem"],
+        answer: 1,
+        explanation: "sudo (superuser do) elevates a single command to run with root privileges. This is more secure than logging in as root, because it logs each elevated command and requires the user's own password. Users must be in the /etc/sudoers file (or sudo group) to use it." },
+
+      { q: "Which macOS utility is equivalent to Windows Task Manager for monitoring CPU, RAM, disk, and process activity?",
+        options: ["Finder", "System Preferences", "Activity Monitor", "Console"],
+        answer: 2,
+        explanation: "Activity Monitor (Applications → Utilities → Activity Monitor) shows running processes and their CPU, memory, energy, disk, and network usage — similar to Windows Task Manager. Console shows system logs. System Preferences manages system settings (equivalent to Windows Settings/Control Panel)." },
+
+      { q: "What is macOS Time Machine?",
+        options: ["A built-in macOS performance profiling tool", "macOS's built-in automated backup solution that creates hourly, daily, and weekly backups to an external drive and supports file-level restoration", "A virtualisation tool that runs Windows on a Mac", "A feature that shows the version history of documents saved in iCloud"],
+        answer: 1,
+        explanation: "Time Machine backs up a Mac's entire system automatically to an external drive or network location. It keeps hourly backups for 24 hours, daily backups for 1 month, and weekly backups for everything older. Users can 'travel back in time' to restore individual files or the entire system." },
+
+      { q: "What Windows environment variable stores the path to the current user's profile folder?",
+        options: ["%SYSTEMROOT%", "%APPDATA%", "%USERPROFILE%", "%PROGRAMFILES%"],
+        answer: 2,
+        explanation: "%USERPROFILE% points to the current user's profile folder (typically C:\\Users\\Username). %APPDATA% points to the roaming application data folder within the profile. %SYSTEMROOT% is usually C:\\Windows. %PROGRAMFILES% is usually C:\\Program Files." },
+
+      { q: "What is the purpose of DISM (Deployment Image Servicing and Management)?",
+        options: ["To deploy software to multiple computers over a network simultaneously", "To service and repair Windows images — including fixing the Windows component store (WinSxS) when SFC cannot resolve an issue", "To create disk images for backup and cloning", "To manage Windows Update rollbacks"],
+        answer: 1,
+        explanation: "DISM can mount and service Windows images (.wim/.esd files). The key repair command — dism /online /cleanup-image /restorehealth — repairs the local Windows installation by downloading files from Windows Update. It is run before or after SFC when system files are corrupted." },
+
+      // ── CORE 2 · DOMAIN 2: SECURITY ────────────────────────────────────
+      { q: "What type of malware encrypts a victim's files and demands payment (usually cryptocurrency) for the decryption key?",
+        options: ["Spyware", "Adware", "Ransomware", "Rootkit"],
+        answer: 2,
+        explanation: "Ransomware encrypts the victim's files or locks the entire system, then demands payment for the decryption key. High-profile attacks include WannaCry (2017) and REvil/Sodinokibi. Prevention: regular backups (offline/offsite), patched systems, and user education about phishing." },
+
+      { q: "What is a rootkit?",
+        options: ["Malware that displays unwanted advertisements", "Software that records keystrokes to steal passwords and credentials", "Malware that embeds itself deep in the OS (often at kernel or bootloader level) to hide itself and other malware from detection", "A type of worm that spreads across networks by exploiting open ports"],
+        answer: 2,
+        explanation: "Rootkits operate with elevated privileges and modify the OS to conceal malicious processes, files, and network connections from security tools. Kernel-level rootkits are extremely difficult to detect and remove without booting from trusted external media. Bootkits infect the boot sector, running before the OS loads." },
+
+      { q: "What social engineering attack involves an attacker impersonating a trusted entity in a fraudulent email to trick the recipient into revealing credentials or clicking a malicious link?",
+        options: ["Vishing", "Smishing", "Phishing", "Tailgating"],
+        answer: 2,
+        explanation: "Phishing uses fraudulent emails that appear to come from trusted sources (banks, Microsoft, HR) to steal credentials, install malware, or capture financial information. Spear phishing targets specific individuals; whaling targets executives. Vishing is voice-based phishing; smishing is SMS-based." },
+
+      { q: "What does MFA (Multi-Factor Authentication) require?",
+        options: ["Using a password that is at least 8 characters long with special characters", "Verification using two or more factors from different categories: something you know, something you have, and/or something you are", "Logging in from a registered device only", "Using a different password for every service"],
+        answer: 1,
+        explanation: "MFA requires at least two independent authentication factors: something you KNOW (password, PIN), something you HAVE (authenticator app, hardware token, SMS code), or something you ARE (fingerprint, face, retina). Even if a password is stolen, MFA prevents unauthorised access without the second factor." },
+
+      { q: "What is the difference between symmetric and asymmetric encryption?",
+        options: ["Symmetric uses one shared key for both encryption and decryption; asymmetric uses a mathematically related key pair (public key to encrypt, private key to decrypt)", "Symmetric is more secure; asymmetric is faster", "Symmetric uses AES; asymmetric is not used in practice", "They are the same — the terms are interchangeable"],
+        answer: 0,
+        explanation: "Symmetric encryption (e.g., AES) uses the same key to encrypt and decrypt — fast but requires a secure way to share the key. Asymmetric (e.g., RSA, ECC) uses a key pair: data encrypted with the public key can only be decrypted with the private key. HTTPS uses asymmetric to exchange a symmetric session key." },
+
+      { q: "What is a man-in-the-middle (MITM) attack?",
+        options: ["An attacker physically between two computers intercepts their cables", "An attacker secretly intercepts and potentially alters communication between two parties who believe they are communicating directly with each other", "An attack where multiple systems overwhelm a server with traffic", "A brute-force attack against a server's administrator password"],
+        answer: 1,
+        explanation: "In a MITM attack, the attacker positions themselves between the victim and a legitimate service (e.g., by ARP poisoning, rogue Wi-Fi, or compromising a router). The attacker can read, modify, or inject data into the communications. HTTPS with certificate validation mitigates most MITM attacks." },
+
+      { q: "What is a zero-day vulnerability?",
+        options: ["A vulnerability that was patched the same day it was discovered", "A security flaw in software that is unknown to the vendor and for which no patch exists — attackers can exploit it before any fix is available", "A vulnerability that only exists for 24 hours before the OS automatically mitigates it", "A flaw that affects systems that have not been powered on in zero days"],
+        answer: 1,
+        explanation: "Zero-day refers to the fact that developers have had zero days to address and patch the flaw. Zero-day exploits are extremely valuable to attackers and nation-states. Defences include network segmentation, behaviour-based endpoint detection (not just signature-based), and principle of least privilege." },
+
+      { q: "What is the principle of least privilege?",
+        options: ["Users should use strong, unique passwords with no special privilege", "Every user, process, and system should have only the minimum access rights needed to perform their job — nothing more", "Administrative accounts should have privileges revoked after business hours", "Users must request privilege escalation from IT for every action"],
+        answer: 1,
+        explanation: "Least privilege limits the damage from compromised accounts, insider threats, and malware. If an employee only needs access to their department's files, they should not have access to finance records. If a service only needs to read a database, it shouldn't have write access. This is a foundational security principle." },
+
+      { q: "What is the function of a firewall?",
+        options: ["To encrypt data sent over the internet", "To physically prevent unauthorised hardware from being connected to the network", "To monitor and control incoming and outgoing network traffic based on predefined rules — allowing legitimate traffic and blocking threats", "To back up data in the event of a ransomware attack"],
+        answer: 2,
+        explanation: "Firewalls inspect network packets and enforce rules (allow/deny) based on IP addresses, ports, protocols, and application identity. Host-based firewalls protect individual computers; network firewalls protect an entire network's perimeter. Next-generation firewalls (NGFW) add deep packet inspection and application awareness." },
+
+      { q: "What is a DMZ in network security?",
+        options: ["A network segment that is completely disconnected from the internet", "A demilitarised zone — a network segment that sits between the internet and the internal trusted network, hosting publicly accessible servers (web, email, DNS) while isolating them from internal resources", "A database of known malware signatures used by antivirus software", "A type of VPN tunnel used by remote workers"],
+        answer: 1,
+        explanation: "A DMZ places public-facing servers (web, mail, DNS) in a segment that is firewalled from both the internet AND the internal network. If a DMZ server is compromised, attackers still cannot directly access internal resources without breaking through the second firewall — limiting the blast radius." },
+
+      { q: "What is the purpose of a VPN (Virtual Private Network)?",
+        options: ["To increase internet connection speed by bypassing ISP throttling", "To create an encrypted tunnel over a public network (the internet) so remote users can securely access private network resources as if they were on-site", "To block malicious websites and advertisements", "To distribute internet traffic across multiple ISPs for redundancy"],
+        answer: 1,
+        explanation: "VPNs encrypt traffic between a remote device and a VPN server (or site-to-site between two office networks), protecting data in transit from eavesdropping on public or untrusted networks. Protocols include OpenVPN, IPSec, L2TP/IPSec, SSTP, and WireGuard." },
+
+      { q: "What type of attack attempts to overwhelm a server or network with traffic to make it unavailable to legitimate users?",
+        options: ["SQL injection", "Cross-site scripting (XSS)", "Denial of Service (DoS) / Distributed DoS (DDoS)", "Brute force attack"],
+        answer: 2,
+        explanation: "DoS attacks flood a target with traffic or exploit a vulnerability to exhaust resources (CPU, memory, bandwidth). DDoS uses thousands of compromised computers (a botnet) to amplify the attack. Mitigations include CDNs, rate limiting, IP filtering, and specialised DDoS protection services." },
+
+      { q: "What does social engineering rely on?",
+        options: ["Advanced software exploits and zero-day vulnerabilities", "Psychological manipulation of people — tricking them into revealing information or performing actions that compromise security, rather than exploiting technical vulnerabilities", "Brute-force password cracking on authentication systems", "Physical hardware installation (keyloggers, rogue devices) in the target's office"],
+        answer: 1,
+        explanation: "Social engineering exploits human psychology — trust, urgency, fear, or helpfulness — rather than technical flaws. Common tactics: phishing (email), vishing (voice), pretexting (fabricated scenario), baiting (infected USB), and tailgating (following someone through a secure door). The human element is often the weakest link." },
+
+      { q: "What is tailgating (piggybacking) in physical security?",
+        options: ["An attacker following closely behind an authorised person to enter a restricted area without using their own credentials", "An attacker observing someone entering their PIN or password from behind them", "Installing a camera near an entrance to record badge credentials", "An attacker who sends fraudulent emails to physical security personnel"],
+        answer: 0,
+        explanation: "Tailgating (piggybacking) is when an unauthorised person follows an authorised person through a secured door, exploiting politeness or distraction. Mitigations include security awareness training, mantrap entries (two-door vestibules), badge-only access, and security guards." },
+
+      { q: "What Windows feature is designed to prevent malware from making system changes without the user's knowledge?",
+        options: ["Windows Defender Antivirus", "User Account Control (UAC)", "Windows Firewall", "Windows Sandbox"],
+        answer: 1,
+        explanation: "UAC (User Account Control) prompts for confirmation or administrator credentials before allowing applications to make changes to the system. This means that even if malware runs under a standard user account, it cannot make administrative-level changes without triggering the UAC prompt." },
+
+      { q: "What is the purpose of HTTPS (versus plain HTTP)?",
+        options: ["HTTPS loads websites faster by compressing data", "HTTPS encrypts the communication between the web browser and the server using TLS, protecting data in transit from eavesdropping and tampering", "HTTPS is only required when entering passwords — all other web browsing can use HTTP", "HTTPS prevents SQL injection attacks on web servers"],
+        answer: 1,
+        explanation: "HTTPS uses TLS (Transport Layer Security) to encrypt all data between the client and server. Without encryption, anyone on the same network (coffee shop Wi-Fi, ISP) can read the plaintext traffic (MITM). TLS also provides server authentication via digital certificates, confirming you are connected to the genuine server." },
+
+      { q: "What is a TPM (Trusted Platform Module)?",
+        options: ["A type of firewall integrated into the motherboard chipset", "A dedicated hardware security chip on the motherboard that generates and stores cryptographic keys, enabling features like BitLocker and Secure Boot", "A software module that manages user authentication", "A network chip that encrypts all traffic leaving the computer"],
+        answer: 1,
+        explanation: "TPM is a tamper-resistant security chip (on the motherboard or integrated into the CPU) that stores encryption keys, certificates, and hashes. BitLocker uses TPM to seal the encryption key to the hardware — the drive cannot be decrypted by moving it to another machine. TPM 2.0 is required for Windows 11." },
+
+      { q: "A user receives a pop-up claiming their computer is infected and they should call a phone number immediately. What type of attack is this?",
+        options: ["Ransomware — their files are being encrypted", "A rogue antivirus / scareware / tech support scam — designed to frighten the user into calling scammers or paying for fake software", "A legitimate Windows Security alert", "A browser hijack that has installed a keylogger"],
+        answer: 1,
+        explanation: "Tech support scams use alarming pop-ups (often locking the browser) to scare users into calling fake 'Microsoft' or 'Apple' support numbers. Scammers then charge for fake services or gain remote access to steal data. Teach users: legitimate Microsoft security alerts never include phone numbers." },
+
+      // ── CORE 2 · DOMAIN 3: SOFTWARE TROUBLESHOOTING ────────────────────
+      { q: "A Windows PC shows a blue screen of death (BSOD) with a STOP error code. What is the FIRST step in diagnosing the cause?",
+        options: ["Reinstall Windows immediately", "Note or photograph the STOP code and module name shown, then search Microsoft's documentation or use the Windows Minidump file to identify the failing component or driver", "Replace all RAM immediately — BSODs are always a RAM issue", "Replace the hard drive — BSODs always indicate disk failure"],
+        answer: 1,
+        explanation: "The STOP code (e.g., IRQL_NOT_LESS_OR_EQUAL, PAGE_FAULT_IN_NONPAGED_AREA) and the named driver/file point directly to the cause. Minidump files in C:\\Windows\\Minidump can be analysed with WinDbg. Common causes: bad drivers (especially new installs), failing RAM, overheating, or hard drive errors." },
+
+      { q: "A computer boots very slowly and performance is poor after Windows loads. Startup Repair and SFC show no issues. What should the technician check NEXT?",
+        options: ["Replace the motherboard", "Check Startup programs (Task Manager → Startup), running services, disk health (S.M.A.R.T.), and RAM health (Windows Memory Diagnostic)", "Reinstall all applications", "Upgrade to a newer version of Windows"],
+        answer: 1,
+        explanation: "Slow boot with no OS corruption usually points to: too many startup programs, a failing drive (high read latency), insufficient RAM causing heavy paging, or malware. Check startup items first (quick win), then run chkdsk and a memory test, and verify disk health via S.M.A.R.T. data." },
+
+      { q: "An application crashes every time it opens. Other applications work fine. What should be done FIRST?",
+        options: ["Reinstall Windows", "Try repairing or reinstalling the specific application — check the application's log files or Event Viewer for error details", "Replace the RAM", "Update the BIOS"],
+        answer: 1,
+        explanation: "Application-specific crashes point to the application itself (corrupted install), a missing dependency (DLL, runtime), or an incompatible version. Check Event Viewer (Windows Logs → Application) for error codes. Try repair/reinstall before escalating to OS-level troubleshooting." },
+
+      { q: "Windows reports 'Your PC ran into a problem' on boot and cannot start normally. Which tool should be used to attempt repair?",
+        options: ["CHKDSK from within Windows", "Windows Recovery Environment (WinRE) / Startup Repair — accessible by booting from installation media or via Advanced Startup Options (hold Shift + Restart)", "System Restore from within Windows", "Safe Mode with Networking"],
+        answer: 1,
+        explanation: "When Windows cannot boot normally, WinRE (Windows Recovery Environment) provides tools: Startup Repair (automatically fixes common boot issues), System Restore, System Image Recovery, and Command Prompt access. Access via boot media or by interrupting the boot process three times to trigger Automatic Repair." },
+
+      { q: "A user reports that a folder that existed yesterday is now missing. No error messages were shown. What should the technician check FIRST?",
+        options: ["Suspect ransomware encrypted the files", "Check the Recycle Bin, then check if the folder was accidentally moved (search for it), and review backup or previous versions via File History", "Run CHKDSK immediately — the hard drive is failing", "Restore the entire system from backup"],
+        answer: 1,
+        explanation: "Users frequently accidentally delete or move files. Check the Recycle Bin first (quickest). Then search the drive. Right-clicking the parent folder and choosing 'Restore previous versions' (if File History/Shadow Copies are enabled) can recover deleted content. Only escalate to full backup restore if simpler recoveries fail." },
+
+      { q: "What Windows tool can be used to schedule automated tasks (like backups or scripts) to run at specific times or events?",
+        options: ["Services.msc", "Task Scheduler", "Group Policy Editor", "Msconfig"],
+        answer: 1,
+        explanation: "Task Scheduler (taskschd.msc) creates automated jobs triggered by time (daily, weekly), system events (startup, login), or conditions (idle, network connection). System maintenance tasks, Windows Update, antivirus scans, and many application updates use Task Scheduler." },
+
+      { q: "A user cannot print to a network printer that other users can access. The user's computer shows the printer as offline. What should be checked FIRST?",
+        options: ["Replace the printer", "Verify the user's computer can reach the printer's IP address (ping it), check if the printer driver is installed and the correct IP is configured, and check Print Spooler service is running", "Reinstall Windows on the user's computer", "Replace the network switch"],
+        answer: 1,
+        explanation: "Since others can print, the printer and network are fine. Check: Can this PC ping the printer's IP? Is the printer port configured correctly in the driver? Is the Print Spooler service running? Restarting the spooler or reinstalling the driver on this specific PC are the most common fixes." },
+
+      { q: "What is the recommended first step when troubleshooting ANY technical problem?",
+        options: ["Replace the most likely faulty component", "Reinstall the OS and all applications", "Identify the problem — gather information from the user, reproduce the issue, and determine what has recently changed", "Check online forums for similar issues"],
+        answer: 2,
+        explanation: "CompTIA's troubleshooting methodology starts with: 1) Identify the problem (interview user, document symptoms, identify what changed). 2) Establish a theory of probable cause. 3) Test the theory. 4) Establish a plan of action. 5) Implement the solution. 6) Verify full functionality. 7) Document findings." },
+
+      // ── CORE 2 · DOMAIN 4: OPERATIONAL PROCEDURES ──────────────────────
+      { q: "What does ESD stand for and why is it a concern when working with computer components?",
+        options: ["External Storage Device — a risk of data corruption", "Electrostatic Discharge — even a small static shock (undetectable to humans) can permanently damage sensitive electronic components", "Emergency Shutdown Directive — a safety procedure", "Extended Service Diagnostic — a component testing protocol"],
+        answer: 1,
+        explanation: "ESD (Electrostatic Discharge) occurs when static electricity built up on a person or surface discharges through a sensitive component. Even 10–30 volts can damage ICs, though humans don't feel static below ~3,000 volts. Prevention: antistatic wrist strap bonded to the chassis, antistatic mat, keep components in antistatic bags." },
+
+      { q: "What is the purpose of an antistatic wrist strap?",
+        options: ["To protect the technician from electric shock from the PSU", "To continuously drain static charge from the technician's body to ground through a resistor, preventing ESD damage to components", "To measure static electricity levels on the workbench", "To ground the computer chassis before working inside"],
+        answer: 1,
+        explanation: "An antistatic wrist strap has a coil cord with a 1 MΩ resistor (which prevents electrocution while still dissipating static) connected to a ground point (typically the metal chassis). Wearing one equalises the technician's and component's electrical potential, eliminating the static discharge risk." },
+
+      { q: "How should old toner cartridges and batteries be disposed of?",
+        options: ["In regular office recycling bins — they contain no hazardous materials", "In accordance with local regulations — most require special recycling programs, manufacturer take-back programs, or hazardous waste disposal (not in regular trash)", "In the general waste bin — modern landfills handle electronic waste safely", "By incineration — burning destroys the hazardous chemicals"],
+        answer: 1,
+        explanation: "Toner cartridges contain fine carbon/polymer particles that are respiratory hazards. Batteries (especially lithium, NiCd, NiMH) contain heavy metals and toxic chemicals. Most manufacturers have take-back/recycling programs. Many jurisdictions legally prohibit disposing of these items in regular trash. CompTIA emphasises proper MSDS/SDS review and local regulation compliance." },
+
+      { q: "What is the 3-2-1 backup rule?",
+        options: ["Keep 3 backups, perform them at 2 AM, and store 1 copy locally", "Keep at least 3 copies of data on at least 2 different storage media types, with at least 1 copy stored offsite", "Back up 3 times per week, 2 full backups, 1 differential", "Use 3 backup tools, schedule 2 daily, keep 1 as a spare"],
+        answer: 1,
+        explanation: "The 3-2-1 backup rule is the gold standard: 3 copies (original + 2 backups), on 2 different media types (e.g., local drive + tape, or external drive + cloud), with 1 copy offsite (protecting against local disasters like fire, flood, or theft). Ransomware attacks make the offsite/offline copy especially critical." },
+
+      { q: "A technician must work inside a server rack in a data centre. What safety precautions are essential?",
+        options: ["No special precautions are needed in a professional data centre", "Verify power is isolated before working on live circuits; use antistatic precautions; follow lockout/tagout (LOTO) procedures; be aware of heavy rack-mounted equipment (UPS units, servers); never work alone on high-voltage systems", "Always work with power on so you can test components in real time", "Only physical safety is needed — ESD is not a concern with server equipment"],
+        answer: 1,
+        explanation: "Data centre safety includes: LOTO (Lockout/Tagout) to prevent equipment from being inadvertently energised while you work; ESD protection; awareness of hot/cold aisle airflow; being careful of heavy slide-out servers and UPS batteries; following data centre entry procedures; and never modifying power systems without qualified electrical personnel." },
+
+      { q: "What is a change management process and why is it important?",
+        options: ["A HR process for managing employee role changes", "A formal process for requesting, documenting, approving, testing, and reverting changes to IT systems — preventing uncontrolled changes that could cause outages or security vulnerabilities", "A software development methodology for managing version control", "A process for managing vendor contract changes"],
+        answer: 1,
+        explanation: "Change management ensures that changes to IT systems (patches, configuration changes, new deployments) are properly evaluated for risk, approved by stakeholders, tested in a non-production environment, scheduled during maintenance windows, and accompanied by a rollback plan. Many outages result from uncontrolled 'someone just changed something.'" },
+
+      { q: "What is a ticketing system used for in IT support?",
+        options: ["Selling event tickets to technology conferences", "Tracking and managing user-reported issues, service requests, and changes — providing accountability, priority management, and a documented history of IT support activity", "Managing software licences and renewal dates", "Scheduling automated backup jobs"],
+        answer: 1,
+        explanation: "Ticketing systems (ServiceNow, Jira Service Management, Zendesk) create a documented workflow for every issue: creation, categorisation, assignment, investigation, resolution, and closure. They enable SLA tracking, trend analysis (recurring issues → systemic problems), and knowledge base development from solved tickets." },
+
+      { q: "What does PII stand for and why must it be protected?",
+        options: ["Private Internet Infrastructure — the internet backbone", "Personally Identifiable Information — data that can identify an individual (name, SSN, DOB, address, email) — protected by laws like GDPR, HIPAA, and CCPA to prevent identity theft and privacy violations", "Public IP Interface — the address used to access the internet", "Portable Installation Image — a software deployment format"],
+        answer: 1,
+        explanation: "PII includes any data that can identify a person directly (name, SSN) or indirectly (IP address, location data). Technicians frequently encounter PII on customer devices and must: handle it with care, not share it unnecessarily, follow organisational data handling policies, and understand applicable regulations (HIPAA for health data, FERPA for student records, GDPR for EU subjects)." },
+
+      { q: "A user asks a technician for help recovering a password from their manager's computer because the manager is away. What should the technician do?",
+        options: ["Help the user — it's probably a legitimate business need", "Refuse and explain they need authorisation from IT management or the appropriate manager — then follow the organisation's documented escalation and authorisation procedure", "Reset the password immediately and give it to the user", "Ask the user why they need it, and help if the reason sounds valid"],
+        answer: 1,
+        explanation: "Password resets on another user's account require proper authorisation. The request could be legitimate or could be social engineering. Technicians should never bypass security policies based on a user's verbal explanation. Follow documented procedures: verify identity, get proper authorisation from management, document the action." },
+
+      // ── ADDITIONAL HARDWARE QUESTIONS ────────────────────────────────────
+      { q: "What connector type is used to attach a SATA hard drive to the motherboard?",
+        options: ["IDE 40-pin ribbon cable", "7-pin SATA data cable", "4-pin Molex power connector", "SAS 8-pin connector"],
+        answer: 1,
+        explanation: "SATA drives use a 7-pin L-shaped data connector (and a 15-pin power connector from the PSU). IDE drives used a 40-pin ribbon cable. The 7-pin SATA connector carries data; the 15-pin provides 3.3V, 5V, and 12V power." },
+
+      { q: "What is the purpose of a KVM switch?",
+        options: ["To switch between different operating systems on a single machine", "To allow one keyboard, video monitor, and mouse to control multiple computers", "To balance network load across multiple servers", "To convert keyboard and mouse inputs to video signals"],
+        answer: 1,
+        explanation: "KVM (Keyboard, Video, Mouse) switches allow a single set of peripherals to control multiple computers — switching between them with a button press or keyboard shortcut. They are common in server rooms where multiple servers must be managed from a single console." },
+
+      { q: "A user connects a USB device and receives the message 'USB device not recognised.' What should be checked first?",
+        options: ["Replace the USB device immediately — it has failed", "Try a different USB port, try the device on another computer, check Device Manager for driver errors, and if new — install required drivers", "Reinstall Windows — USB detection is an OS-level function", "Check if the device is compatible with USB 3.0"],
+        answer: 1,
+        explanation: "Try a different port first (rules out a dead port). Try the device on another computer (rules out a faulty device). Check Device Manager for yellow exclamation marks (driver issue). Some devices require specific drivers to be installed before first connection. Restarting the computer after plugging in can also help." },
+
+      { q: "What is the difference between inkjet and laser printers?",
+        options: ["Inkjet printers are faster and cheaper to run; laser printers are slower and more expensive", "Inkjet printers spray tiny ink droplets onto paper; laser printers use electrostatic charge, toner powder, and heat/pressure fusion — lasers are faster, cheaper per page for high volume, and produce sharper text", "Inkjet printers use toner; laser printers use ink", "There is no practical difference — the terms refer to the same technology"],
+        answer: 1,
+        explanation: "Inkjet printers deposit liquid ink through microscopic nozzles — better for photo printing, lower initial cost, but higher cost-per-page and nozzles can clog if unused. Laser printers use a laser to charge a drum, attract toner, transfer to paper, then fuse with heat — faster, more durable output, lower cost-per-page at volume." },
+
+      { q: "During a laser printer's imaging process, what does the fuser assembly do?",
+        options: ["Charges the drum to attract toner", "Transfers the toner image from the drum to paper", "Melts and bonds the toner powder to the paper using heat and pressure", "Cleans residual toner from the drum after printing"],
+        answer: 2,
+        explanation: "The fuser assembly uses heat (typically 180–200°C) and pressure rollers to permanently melt and bond the toner (a polymer-carbon powder) to the paper fibres. Freshly printed laser output is hot — the paper is warm because it just exited the fuser. Fuser failure results in toner that smears or rubs off the page." },
+
+      { q: "What is the function of the imaging drum in a laser printer?",
+        options: ["It stores the toner supply for the printer", "It is a photosensitive cylinder that is selectively discharged by the laser to form a latent electrostatic image, which then attracts toner", "It provides the heat and pressure needed to fuse toner to paper", "It stores the printer's firmware and font data"],
+        answer: 1,
+        explanation: "The laser printer process: 1) Cleaning (remove old toner), 2) Conditioning (charge drum uniformly negative), 3) Writing (laser discharges areas = image), 4) Developing (toner attracted to discharged areas), 5) Transferring (toner moved to paper), 6) Fusing (heat bonds toner). The drum is the centre of steps 2–5." },
+
+      { q: "A laptop screen shows an image only when viewed at extreme angles. The image is very dim. What is most likely faulty?",
+        options: ["The LCD panel is cracked", "The display inverter or backlight has failed — the image from the LCD matrix exists but the backlight is not illuminating it", "The GPU has partially failed", "The display driver is corrupted"],
+        answer: 1,
+        explanation: "If you can see a faint image with a torch or by viewing from an angle, the LCD matrix and GPU are working correctly — it is the backlight system (inverter or backlight tube/LEDs) that has failed. This is a common laptop repair: inverter replacement or LED backlight strip replacement." },
+
+      { q: "Which port is used by the SMB (Server Message Block) protocol for Windows file sharing?",
+        options: ["21", "139 and 445", "3389", "8080"],
+        answer: 1,
+        explanation: "SMB uses port 445 (direct TCP) and historically also port 139 (over NetBIOS). It is the protocol behind Windows file shares (\\\\server\\share), print sharing, and Active Directory authentication. Port 445 should be blocked at the network perimeter — the WannaCry ransomware spread by exploiting the EternalBlue vulnerability in SMB." },
+
+      { q: "What is a RAID 1 configuration?",
+        options: ["Data is striped across two drives for maximum performance (no redundancy)", "Data is mirrored — identical copies written to two or more drives simultaneously, providing fault tolerance so the array survives a single drive failure", "Data is striped with parity across three drives — fault tolerant and fast", "A spare drive waits on standby to replace a failed drive automatically"],
+        answer: 1,
+        explanation: "RAID 1 (mirroring) writes identical data to two or more drives. If one drive fails, the array continues operating from the mirror. It provides 100% redundancy but no performance gain on writes and capacity of only one drive (total capacity = 1 × single drive size). RAID 0 stripes without parity; RAID 5 stripes with parity." },
+
+      { q: "What is RAID 5 and what is its minimum drive requirement?",
+        options: ["Mirroring across 2 drives — minimum 2 drives", "Striping with distributed parity across 3 or more drives — minimum 3 drives — providing both performance and single-drive fault tolerance", "Double parity across 4 drives — minimum 4 drives", "A hot spare that replaces failed drives automatically — minimum 2 drives"],
+        answer: 1,
+        explanation: "RAID 5 stripes data and parity information across 3+ drives. If one drive fails, the parity data allows the lost data to be reconstructed. Capacity = (n-1) × single drive size. It balances performance, capacity, and redundancy, making it popular for NAS and server storage." },
+
+      { q: "A user has a 4K monitor. Their PC has an older GPU with only a VGA port. What is the best solution?",
+        options: ["Use a VGA-to-HDMI adapter — VGA carries 4K signal when adapted", "VGA cannot support 4K; the user needs a GPU with a digital output (HDMI 2.0, DisplayPort 1.2 or higher) capable of driving 4K at an acceptable refresh rate", "Use a USB-to-VGA adapter for the 4K monitor", "Reduce the monitor's resolution to 1080p — it will then work with VGA"],
+        answer: 1,
+        explanation: "VGA is an analogue standard with practical bandwidth limits of about 1920×1200 at 60 Hz. It cannot carry a 4K digital signal regardless of adapters. For 4K at 60 Hz, HDMI 2.0 (18 Gbps) or DisplayPort 1.2+ (21.6 Gbps) is required. A GPU upgrade is the correct solution." },
+
+      { q: "What is the purpose of the Windows Event Viewer?",
+        options: ["To view real-time CPU, memory, and disk performance graphs", "To view detailed logs of system, application, and security events — including errors, warnings, and information — useful for diagnosing crashes, failed logins, and service failures", "To view the startup process sequence and boot time", "To manage scheduled tasks and their last run status"],
+        answer: 1,
+        explanation: "Event Viewer (eventvwr.msc) organises logs into: Windows Logs (System, Application, Security, Setup) and Applications and Services Logs. Error and Critical events have codes that point to the specific cause. Security logs record login attempts, privilege changes, and audit events. It is essential for post-incident investigation." },
+
+      { q: "What does the acronym CPU stand for and what is its role?",
+        options: ["Central Processing Unit — executes program instructions and performs arithmetic, logic, and control operations", "Core Processing Utility — manages storage access on the motherboard", "Central Power Unit — regulates voltage to all motherboard components", "Computational Protocol Unit — manages network communications"],
+        answer: 0,
+        explanation: "The CPU (Central Processing Unit) is the primary processor that executes instructions from software. Modern CPUs contain multiple cores (each capable of executing instructions independently), cache memory (L1/L2/L3), and integrated graphics (on many consumer CPUs). CPU speed is measured in GHz (clock cycles per second) and IPC (instructions per cycle)." },
+
+      { q: "What is CPU cache and why does it matter?",
+        options: ["Temporary storage on the hard drive used when RAM is full (same as a page file)", "High-speed memory built directly into the CPU that stores frequently accessed data and instructions, reducing the time the CPU waits for data from slower system RAM", "The CPU's instruction queue for processing multi-threaded applications", "A buffer between the CPU and GPU for graphics processing"],
+        answer: 1,
+        explanation: "CPU cache is organised in levels: L1 (smallest, fastest, per-core), L2 (larger, slightly slower, usually per-core), L3 (largest, slowest, shared between cores). Cache hit rates are critical for performance — if needed data is in L1 cache, the CPU accesses it in ~4 cycles; from RAM it may take ~200+ cycles." },
+
+      { q: "A PC is making a loud clicking noise from inside the case. What component is most likely causing this?",
+        options: ["The CPU fan — it is touching a cable", "The hard disk drive (HDD) — clicking often indicates head failure or mechanical damage, which can lead to data loss", "The optical drive — it clicks when there is no disc inserted", "The power supply fan — it needs cleaning"],
+        answer: 1,
+        explanation: "Clicking from an HDD ('the click of death') is a critical warning sign. The read/write heads may be failing to find their calibration track (audible click) repeatedly. Back up data immediately. Possible causes: failing actuator, platter damage, or head crash. SSDs have no moving parts and do not click." },
+
+      { q: "What is the purpose of Device Manager in Windows?",
+        options: ["To manage user accounts and their device assignments", "To view, manage, update, and troubleshoot hardware devices and their drivers — including disabling, uninstalling, or rolling back drivers", "To configure network shares and device mapping", "To manage power settings for connected devices"],
+        answer: 1,
+        explanation: "Device Manager (devmgmt.msc) shows all hardware devices recognised by Windows and their driver status. Yellow exclamation marks indicate driver issues; red X marks indicate disabled devices. It allows: updating/rolling back drivers, disabling devices, viewing hardware properties, and checking for hardware errors." },
+
+      { q: "What does the 'Safe Mode' Windows startup option do?",
+        options: ["Starts Windows with only critical system files and a minimal set of drivers — no third-party software, services, or drivers — used to diagnose startup problems caused by drivers or software", "Creates a backup of Windows before starting normally", "Starts Windows from a USB drive instead of the internal drive", "Prevents all network access during the Windows session"],
+        answer: 0,
+        explanation: "Safe Mode loads a minimal Windows environment (basic VGA driver, essential system services, no networking in basic Safe Mode). If Windows works in Safe Mode but not normally, a third-party driver or startup program is causing the problem. 'Safe Mode with Networking' adds basic network drivers for accessing the internet to download fixes." },
+
+      { q: "What is the difference between a 32-bit and 64-bit operating system?",
+        options: ["64-bit OSes can only run on Intel processors; 32-bit runs on any CPU", "A 64-bit OS can address more than 4 GB of RAM (32-bit is limited to ~4 GB), runs 64-bit applications natively (with better performance), and has enhanced security features like Kernel Patch Protection (KPP)", "32-bit is faster than 64-bit for most applications", "64-bit only refers to the network protocol version"],
+        answer: 1,
+        explanation: "32-bit OSes are limited to 4 GB of addressable RAM (and typically less due to hardware mapping). 64-bit OSes support terabytes of RAM, run 64-bit optimised applications, and have security features not available to 32-bit mode (ASLR, DEP, Kernel Patch Protection). 64-bit Windows can run 32-bit apps via WOW64; 32-bit Windows cannot run 64-bit apps." },
+
+      { q: "What Windows utility manages services (background processes) that start with Windows?",
+        options: ["Task Manager", "MSCONFIG", "Services.msc (Services console)", "REGEDIT"],
+        answer: 2,
+        explanation: "Services.msc (the Services console) lists all registered Windows services with their status (Running/Stopped), startup type (Automatic/Manual/Disabled), and allows starting, stopping, and configuring them. MSCONFIG's Services tab also lists them but is simpler. Critical services like Windows Update, Print Spooler, and Defender are managed here." },
+
+      { q: "What is the function of the Windows page file (pagefile.sys)?",
+        options: ["A log file that tracks all pages visited in Internet Explorer", "Virtual memory — when physical RAM is exhausted, Windows moves less-used memory pages to the page file on the hard drive to free RAM for active processes", "The file that stores Windows product activation data", "A hidden system file that stores the Windows bootloader"],
+        answer: 1,
+        explanation: "The page file acts as an overflow for RAM. When RAM is full, Windows writes (pages out) inactive memory contents to the page file on disk. This allows more processes to run than physical RAM would permit, but at the cost of speed (disk is much slower than RAM). Excessive paging ('thrashing') causes severe performance degradation." },
+
+      { q: "What does a DNS server do?",
+        options: ["Assigns IP addresses to devices on the network automatically", "Translates human-readable domain names (like www.google.com) into IP addresses that computers use to communicate", "Provides a secure tunnel for VPN connections", "Manages authentication for Active Directory domains"],
+        answer: 1,
+        explanation: "DNS (Domain Name System) is often called the 'phone book of the internet.' When you type a domain name, your computer queries a DNS resolver (often your router or ISP), which queries root servers → TLD servers → authoritative servers to find the IP address. Without DNS, users would need to type IP addresses directly." },
+
+      { q: "What is the purpose of IPCONFIG /RELEASE and IPCONFIG /RENEW?",
+        options: ["RELEASE backs up the current IP configuration; RENEW restores from backup", "RELEASE sends a DHCP release message to the server (relinquishing the current IP lease); RENEW immediately requests a new IP lease from the DHCP server", "RELEASE disables the NIC; RENEW re-enables it", "These commands only work on IPv6 interfaces"],
+        answer: 1,
+        explanation: "IPCONFIG /RELEASE tells the DHCP server the client is done with its IP address (releases the lease). IPCONFIG /RENEW broadcasts a DHCP DISCOVER, goes through the full DORA process (Discover, Offer, Request, Acknowledge), and gets a new IP configuration. Useful when a device gets a stale IP or can't reach the network." },
+
+      { q: "What is the purpose of the PING command?",
+        options: ["To list all devices connected to the network", "To test basic IP connectivity between two hosts by sending ICMP echo request packets and measuring response time and packet loss", "To display the routing table of the local machine", "To scan open ports on a remote host"],
+        answer: 1,
+        explanation: "PING sends ICMP Echo Request packets to a target and reports whether replies were received, round-trip time (latency in ms), and packet loss %. It is used to verify: IP connectivity, name resolution (pinging a hostname), and latency. If ping fails, it indicates a connectivity problem at the IP layer or ICMP being blocked by a firewall." },
+
+      { q: "What does TRACERT (Windows) / TRACEROUTE (Linux) do?",
+        options: ["Traces the path (each intermediate hop) packets take from the source to a destination, reporting each router's IP and round-trip time — used to identify where in the network a connection is failing or slow", "Traces and logs all user keyboard inputs", "Retraces failed network connection attempts to diagnose the cause", "Shows the physical cable route between two network devices"],
+        answer: 0,
+        explanation: "TRACERT/TRACEROUTE uses ICMP TTL (Time To Live) manipulation to reveal each router (hop) between source and destination. It shows the IP of each hop and the latency to it. If the path suddenly stops or latency spikes at a particular hop, that is where the network problem lies." },
+
+      { q: "What Windows command displays all current TCP/IP network interface configurations including IP, subnet mask, default gateway, and MAC address?",
+        options: ["NETSTAT -A", "IPCONFIG /ALL", "ARP -A", "NSLOOKUP"],
+        answer: 1,
+        explanation: "IPCONFIG /ALL shows full details for every network adapter: IP address, subnet mask, default gateway, DNS servers, MAC (physical) address, DHCP status (and server IP), lease obtained/expires, and IPv6 address. IPCONFIG alone shows abbreviated info; ARP -A shows the ARP cache; NSLOOKUP queries DNS." },
+
+      { q: "A technician needs to verify the MAC address of a network adapter. Which command shows this?",
+        options: ["IPCONFIG /ALL — lists the Physical Address for each adapter", "ARP -A — shows all ARP cache entries including MAC addresses", "GETMAC — specifically retrieves MAC addresses", "All of the above provide MAC address information"],
+        answer: 3,
+        explanation: "Multiple tools show MAC addresses: IPCONFIG /ALL shows the 'Physical Address' for each adapter. GETMAC.exe specifically lists MAC addresses and their associated adapters. ARP -A shows the MAC addresses cached from network communications with other hosts. Any of these can confirm a NIC's MAC address." },
+
+      { q: "What is the difference between TCP and UDP?",
+        options: ["TCP is faster but unreliable; UDP is slower but guarantees delivery", "TCP is connection-oriented with error checking, guaranteed delivery, and ordering (slower but reliable); UDP is connectionless with no delivery guarantee (faster, used for streaming, DNS, VoIP)", "TCP is used only for web browsing; UDP is used for file transfers", "They are used on different cable types — TCP on copper, UDP on fibre"],
+        answer: 1,
+        explanation: "TCP (Transmission Control Protocol) establishes a connection (3-way handshake), numbers packets for ordering, acknowledges receipt, and retransmits lost packets. It is reliable but adds overhead. UDP (User Datagram Protocol) fires packets without handshaking or acknowledgement — faster, used where speed matters more than perfection (streaming, gaming, DNS, DHCP)." },
+
+      { q: "What port does SMTP use for sending email?",
+        options: ["25 (SMTP) and 587 (SMTP with STARTTLS submission)", "110 (POP3)", "143 (IMAP)", "993 (IMAPS)"],
+        answer: 0,
+        explanation: "SMTP (Simple Mail Transfer Protocol) uses port 25 (server-to-server email relay), port 587 (client submission with STARTTLS encryption), and port 465 (SMTPS — SMTP with SSL, legacy). POP3 uses 110 (995 for SSL); IMAP uses 143 (993 for SSL)." },
+
+      { q: "What is the key difference between POP3 and IMAP for receiving email?",
+        options: ["POP3 is encrypted; IMAP is not", "POP3 downloads email to the local device and typically removes it from the server; IMAP keeps email on the server and syncs across all devices", "POP3 is for sending email; IMAP is for receiving", "IMAP is only compatible with Microsoft Outlook"],
+        answer: 1,
+        explanation: "POP3 (Post Office Protocol 3) downloads messages to one device and by default deletes them from the server — problematic if you access email from multiple devices. IMAP (Internet Message Access Protocol) keeps messages on the server and syncs read/unread/folder status across all devices — the standard for modern multi-device email." },
+
+      { q: "What command is used in Linux to display the current directory path?",
+        options: ["cd", "ls", "pwd", "dir"],
+        answer: 2,
+        explanation: "pwd (Print Working Directory) displays the full path of the current directory in Linux/macOS terminals. cd changes the directory; ls lists contents; dir is the Windows equivalent of ls." },
+
+      { q: "In Linux, what does the command 'chmod 755 filename' do?",
+        options: ["Sets the file to be readable and writable by everyone", "Sets owner permissions to rwx (7), group permissions to r-x (5), and other/world permissions to r-x (5) — owner can read/write/execute; group and others can read/execute", "Gives the file 755 kilobytes of allocated space", "Transfers ownership of the file to user 755"],
+        answer: 1,
+        explanation: "chmod uses octal notation: each digit is the sum of r(4) + w(2) + x(1). 7 = 4+2+1 = rwx; 5 = 4+0+1 = r-x; 5 = r-x. So 755 means owner: full access; group: read and execute; others: read and execute. This is the standard permission for executable files and web server document roots." },
+
+      { q: "What is a patch and why is software patching important?",
+        options: ["A patch is a hardware upgrade kit; patching prevents physical wear", "A patch is a software update that fixes bugs, closes security vulnerabilities, and may add features — regular patching is the single most effective defence against known exploits", "A patch is a configuration file backup created before major changes", "A patch is a test version of software released before the final version"],
+        answer: 1,
+        explanation: "Unpatched software is the leading cause of successful cyberattacks — attackers exploit known vulnerabilities for which patches already exist but haven't been applied. The time between patch release and exploitation is shrinking. Patch management (identifying, testing, deploying patches promptly) is a foundational security practice." },
+
+      { q: "A user is unable to access a specific website but can access all other websites. Other users on the same network can access the site. What should the technician check?",
+        options: ["Replace the user's network cable", "Check the user's local hosts file for incorrect entries, flush the DNS cache (ipconfig /flushdns), clear the browser cache, and check browser proxy settings", "Restart the network switch", "Contact the ISP about the specific website being blocked"],
+        answer: 1,
+        explanation: "Since others can access the site, the problem is client-specific. The hosts file (C:\\Windows\\System32\\drivers\\etc\\hosts) can redirect specific domains to incorrect IPs. Stale DNS cache can point to an old IP. Browser proxy misconfiguration can block specific sites. Try a different browser and incognito mode to isolate cache/extension issues." },
+
+      { q: "What is the purpose of virtualization's 'live migration' feature?",
+        options: ["To move a VM's files from HDD to SSD while it is powered off", "To move a running VM from one physical host to another with no downtime — enabling hardware maintenance without service interruption", "To clone a VM from a template in real time", "To replicate a VM to a disaster recovery site"],
+        answer: 1,
+        explanation: "Live migration (called vMotion in VMware, Live Migration in Hyper-V) transfers a running VM between physical hosts without downtime. The VM's memory, CPU state, and disk state are transferred while it continues running, then the VM is cut over in milliseconds. This enables maintenance windows without service disruption." },
+
+      { q: "What is the function of the Windows 'net use' command?",
+        options: ["To display all current network statistics", "To connect a drive letter to a network share (e.g., net use Z: \\\\server\\share) or display current network connections", "To configure network adapter settings", "To create a new user account on a remote server"],
+        answer: 1,
+        explanation: "net use maps a drive letter to a UNC network path (net use Z: \\\\server\\share /persistent:yes) or connects to a printer share. net use alone lists all current mappings. net use Z: /delete disconnects the mapping. This is the command-line equivalent of the 'Map Network Drive' GUI function." },
+
+      { q: "What is a host file and how can it affect name resolution?",
+        options: ["A file that stores all user passwords in a hashed format", "A local text file (C:\\Windows\\System32\\drivers\\etc\\hosts) that maps hostnames to IP addresses — checked before DNS, so malware often modifies it to redirect users to malicious sites", "A configuration file for the DHCP server", "A list of approved hosts allowed to connect to the local network"],
+        answer: 1,
+        explanation: "The hosts file is a legacy name resolution mechanism that predates DNS. Windows checks it before querying DNS. Malware commonly modifies hosts files to: redirect banking sites to fake phishing pages, block antivirus update URLs, or redirect update servers. It is a common place to check when users report strange website behaviour." },
+
+      { q: "What Windows component manages the font cache, spooling of print jobs, and communication between the OS and printer drivers?",
+        options: ["Windows Imaging Component (WIC)", "Print Spooler service (spoolsv.exe)", "Device Association Framework", "Windows Presentation Foundation (WPF)"],
+        answer: 1,
+        explanation: "The Print Spooler service manages the print queue and communicates between applications and printer drivers. If printing fails, restarting the Print Spooler (Services.msc or 'net stop spooler / net start spooler') clears stuck jobs and often resolves printing issues. The spooler spool folder is typically C:\\Windows\\System32\\spool\\PRINTERS." },
+
+      // ── ADDITIONAL QUESTIONS: CONNECTORS & PORTS ────────────────────────
+      { q: "What is the maximum data transfer speed of USB 2.0?",
+        options: ["12 Mbps", "480 Mbps", "5 Gbps", "10 Gbps"],
+        answer: 1,
+        explanation: "USB 2.0 (Hi-Speed USB) maxes out at 480 Mbps. USB 1.1 was 12 Mbps (Full Speed). USB 3.0/3.1 Gen 1 = 5 Gbps (SuperSpeed); USB 3.1 Gen 2 = 10 Gbps; USB 3.2 Gen 2×2 = 20 Gbps; USB4 = 40 Gbps." },
+
+      { q: "What speed does USB 3.0 (USB 3.1 Gen 1) support?",
+        options: ["480 Mbps", "5 Gbps", "10 Gbps", "40 Gbps"],
+        answer: 1,
+        explanation: "USB 3.0 — officially renamed USB 3.1 Gen 1, then USB 3.2 Gen 1 — runs at 5 Gbps (SuperSpeed). Ports are identified by the blue colour of the plastic insert inside the connector. USB 3.2 Gen 2 runs at 10 Gbps; USB4 runs at 40 Gbps." },
+
+      { q: "What is the maximum throughput of Thunderbolt 3 and Thunderbolt 4?",
+        options: ["10 Gbps", "20 Gbps", "40 Gbps", "80 Gbps"],
+        answer: 2,
+        explanation: "Both Thunderbolt 3 and Thunderbolt 4 use USB-C connectors and support 40 Gbps bandwidth. This allows a single cable to carry PCIe data (for external GPUs or NVMe drives), DisplayPort video (up to two 4K monitors), USB, and 100 W of power delivery simultaneously." },
+
+      { q: "What type of connector does a VGA (Video Graphics Array) cable use?",
+        options: ["HDMI Type A (19-pin flat)", "DB-15 (DE-15) — a 15-pin D-shaped connector", "DVI-D (24+1 pin)", "DisplayPort (20-pin)"],
+        answer: 1,
+        explanation: "VGA uses a DB-15 (also called DE-15 or HD-15) trapezoidal 15-pin D-sub connector. VGA is an analogue video standard introduced in 1987, capable of up to 2048×1536 resolution but limited by analogue signal quality. It has been largely replaced by digital connections (HDMI, DisplayPort)." },
+
+      { q: "What is the main characteristic of a DisplayPort connector compared to HDMI?",
+        options: ["DisplayPort carries audio but not video; HDMI carries both", "DisplayPort uses a locking mechanism and supports daisy-chaining multiple monitors (MST), and is the standard on PCs and GPUs; HDMI is the standard on TVs and consumer electronics", "HDMI supports higher resolutions than DisplayPort", "DisplayPort is only available on Apple devices"],
+        answer: 1,
+        explanation: "DisplayPort (DP) supports Multi-Stream Transport (MST) — daisy-chaining up to 6 monitors from one port. It is the standard for PC monitors and has a locking connector. DisplayPort 2.1 supports 80 Gbps, enabling 8K at 60 Hz or 4K at 240 Hz. HDMI dominates consumer electronics (TVs, projectors). Mini DisplayPort is the smaller variant." },
+
+      { q: "What is PoE (Power over Ethernet)?",
+        options: ["A protocol for managing network traffic prioritisation", "The ability to deliver electrical power to devices (like IP phones, cameras, and access points) over standard Ethernet cables — eliminating the need for a separate power supply", "A high-speed Ethernet standard requiring special shielded cable", "A method of bonding multiple Ethernet links for increased bandwidth"],
+        answer: 1,
+        explanation: "PoE (IEEE 802.3af/at/bt) delivers DC power over the same Cat cable used for data. PoE (802.3af) provides up to 15.4 W; PoE+ (802.3at) up to 30 W; PoE++ (802.3bt) up to 90 W. PoE switches and injectors power IP cameras, VoIP phones, and Wi-Fi access points — simplifying installation where power outlets are not available." },
+
+      { q: "Which cable type uses light signals through glass or plastic strands and is immune to electromagnetic interference?",
+        options: ["Cat 6a (STP)", "Coaxial cable (RG-6)", "Fibre optic cable", "Shielded twisted pair (STP)"],
+        answer: 2,
+        explanation: "Fibre optic cables transmit data as pulses of light, making them immune to EMI and enabling much longer distances than copper (multimode: up to ~550 m at 10 Gbps; single-mode: up to 40+ km). Fibre is used for backbone links, data centres, and ISP infrastructure. It requires special tools for termination and repair." },
+
+      { q: "What is the purpose of a cable tester?",
+        options: ["To measure the exact length of a network cable", "To verify that a network cable is wired correctly — checking that each pin maps to the correct wire at the other end, detecting opens, shorts, and crossed wires", "To measure the maximum data speed a cable can carry", "To clean and inspect cable connectors with a magnifying tool"],
+        answer: 1,
+        explanation: "A cable tester sends a signal on each pin (wire) and verifies it arrives at the correct corresponding pin at the far end. It detects miswires (wrong order), opens (broken wire), shorts (two wires touching), and split pairs. Advanced testers (Fluke LinkIQ, Versiv) can certify cable performance to Cat 6a/7 standards." },
+
+      // ── ADDITIONAL: MOBILE & WIRELESS ────────────────────────────────────
+      { q: "What is the difference between 2.4 GHz and 5 GHz Wi-Fi bands?",
+        options: ["2.4 GHz is faster; 5 GHz has a longer range", "2.4 GHz has longer range and better wall penetration but slower speeds and more interference; 5 GHz has shorter range but much faster speeds and less interference from other devices", "They are the same speed; only the frequency differs", "5 GHz is only available on Wi-Fi 6 routers"],
+        answer: 1,
+        explanation: "2.4 GHz has longer wavelengths that penetrate walls and travel farther — but only 3 non-overlapping channels (1, 6, 11) and heavy co-channel interference from neighbours, microwaves, and Bluetooth. 5 GHz has 25 non-overlapping channels (in the US), much faster speeds, but shorter range and worse penetration through walls." },
+
+      { q: "What Bluetooth version introduced Low Energy (BLE) for IoT devices, wearables, and beacons?",
+        options: ["Bluetooth 2.0", "Bluetooth 3.0 + HS", "Bluetooth 4.0 (introduced BLE)", "Bluetooth 5.0"],
+        answer: 2,
+        explanation: "Bluetooth 4.0 introduced Bluetooth Low Energy (BLE/Bluetooth Smart), designed for devices that transmit small amounts of data infrequently — heart rate monitors, beacons, smartwatches, and IoT sensors. BLE dramatically reduces power consumption, allowing coin-cell batteries to last years." },
+
+      { q: "A mobile device syncs correctly with one computer but not another. Which setting should be checked first?",
+        options: ["The USB charging cable amperage", "Whether the USB cable is a data+charge cable (not a charge-only cable), and whether the correct sync software/driver is installed on the second computer", "Whether the device's Airplane mode is on", "Whether the device battery is above 50%"],
+        answer: 1,
+        explanation: "Many USB cables are charge-only (they only carry power, no data lines). Ensure the cable has data capabilities. Additionally, sync software (iTunes, Android File Transfer, specific vendor drivers) must be installed on the computer. Some devices also require the user to select 'File Transfer' mode on the device after connecting." },
+
+      { q: "What does 'jailbreaking' an iOS device or 'rooting' an Android device do?",
+        options: ["Removes the device's battery limiter to allow faster charging", "Removes manufacturer and carrier restrictions, granting root/superuser access to the OS — bypassing security controls and voiding the warranty", "Restores the device to factory default settings", "Enables the device to use a different carrier's SIM card"],
+        answer: 1,
+        explanation: "Jailbreaking (iOS) and rooting (Android) exploit OS vulnerabilities to gain unrestricted superuser access. This allows installing unauthorized apps, customising the OS deeply, and removing carrier restrictions. Risks: voided warranty, inability to receive OTA security updates, exposure to malware, and instability." },
+
+      { q: "What is MDM containerisation used for in a BYOD (Bring Your Own Device) environment?",
+        options: ["Creating a virtual machine on the mobile device for corporate use", "Separating and encrypting corporate data and applications in an isolated container on the personal device — preventing corporate data from mixing with personal apps", "Monitoring all personal applications installed on the device", "Remotely wiping the entire device including personal data"],
+        answer: 1,
+        explanation: "Containerisation creates a secure, encrypted 'corporate workspace' on a personal device. Corporate email, contacts, and apps are isolated in the container; personal apps and data are outside it. If the device is lost, IT can selectively wipe only the corporate container, leaving personal data intact. This is the cornerstone of BYOD security." },
+
+      // ── ADDITIONAL: SECURITY ─────────────────────────────────────────────
+      { q: "What is a brute-force attack?",
+        options: ["A physical attack where someone forces their way into a server room", "Systematically trying every possible password or key combination until the correct one is found — mitigated by account lockout policies, MFA, and strong passwords", "Flooding a server with traffic to deny service", "Tricking users into revealing passwords via fake emails"],
+        answer: 1,
+        explanation: "Brute-force attacks try every possible combination of characters. A dictionary attack is more targeted, using lists of common passwords and words. Modern GPUs can try billions of combinations per second against offline hashes. Mitigations: long, complex passwords; account lockout after N failures; CAPTCHA; MFA; and salted password hashing (bcrypt, Argon2)." },
+
+      { q: "What is a dictionary attack?",
+        options: ["An attack that uses a precompiled list of common words and passwords to guess credentials — more efficient than a pure brute-force attack", "An attack that intercepts network traffic to extract plaintext passwords", "An attack that modifies the Windows hosts file to redirect websites", "An attack that exploits dictionary.com for credential harvesting"],
+        answer: 0,
+        explanation: "Dictionary attacks use wordlists (common passwords, English words, previously leaked passwords from breaches) rather than trying every character combination. Tools like Hashcat and John the Ripper use GPU acceleration to test billions of dictionary entries per second against password hashes." },
+
+      { q: "What is the purpose of password salting?",
+        options: ["Encrypting passwords with AES-256 before storing them", "Adding a random value (salt) to each password before hashing — ensuring identical passwords produce different hashes, defeating rainbow table attacks", "Requiring passwords to contain salt-related special characters", "Storing passwords in a separate encrypted database"],
+        answer: 1,
+        explanation: "Without salting, identical passwords produce identical hashes — attackers can use precomputed rainbow tables to quickly reverse hashes to passwords. A unique random salt appended/prepended to each password before hashing ensures every hash is unique, making rainbow tables useless and forcing per-password brute-forcing." },
+
+      { q: "What is a honeynet or honeypot in cybersecurity?",
+        options: ["A database of known malware signatures used by antivirus software", "A decoy system or network designed to attract attackers — allowing security teams to study attack methods, gather threat intelligence, and detect intrusions in progress", "An encrypted network tunnel used to protect sensitive data transfers", "A SIEM tool that correlates security events from multiple sources"],
+        answer: 1,
+        explanation: "A honeypot is a deliberately vulnerable decoy system. Honeynets are networks of honeypots. Any interaction with a honeypot is suspicious (legitimate users have no reason to access it). They detect reconnaissance and attacks that evade perimeter defences, and provide detailed insight into attacker techniques, tools, and objectives." },
+
+      { q: "Which protocol is used to securely transfer files using SSH encryption?",
+        options: ["FTP (File Transfer Protocol)", "TFTP (Trivial File Transfer Protocol)", "SFTP (SSH File Transfer Protocol) or SCP (Secure Copy Protocol)", "HTTP with TLS"],
+        answer: 2,
+        explanation: "SFTP (SSH File Transfer Protocol) runs over SSH (port 22) and provides encrypted file transfer, directory listing, and file management. SCP (Secure Copy) also uses SSH for encrypted file copying. Regular FTP (ports 20/21) transmits data in plaintext. FTPS is FTP with TLS/SSL encryption — a different protocol from SFTP." },
+
+      { q: "What is 'defence in depth' as a security strategy?",
+        options: ["Installing the most expensive security software available", "Layering multiple, different security controls so that if one layer fails, others still protect the system — combining perimeter firewalls, endpoint protection, encryption, user training, and monitoring", "Having a deep network perimeter with a single very strong firewall", "Burying servers deep underground for physical security"],
+        answer: 1,
+        explanation: "Defence in depth (also called layered security) applies the military concept of multiple defensive lines. In IT: physical security → network perimeter (firewall) → network segmentation (VLANs) → endpoint protection (AV/EDR) → application security → data encryption → user awareness training → monitoring (SIEM). Defeating all layers simultaneously is far harder than defeating one." },
+
+      { q: "What is the purpose of an IDS (Intrusion Detection System) versus an IPS (Intrusion Prevention System)?",
+        options: ["IDS prevents all attacks; IPS only logs them for review", "IDS passively monitors network traffic and alerts on suspicious activity (it detects but does not block); IPS sits inline in the traffic flow and actively blocks threats in real time", "They are the same system with different names", "IDS is software-based; IPS is hardware-only"],
+        answer: 1,
+        explanation: "IDS monitors a copy of traffic (out of band) — it analyses and alerts but cannot block traffic since it is not inline. This makes it safer (a false positive won't disrupt traffic) but slower to respond. IPS sits inline and can drop malicious packets in real time but a false positive can block legitimate traffic. NGFW/IDPS combines both." },
+
+      // ── ADDITIONAL: OPERATING SYSTEMS ────────────────────────────────────
+      { q: "What is the Windows Subsystem for Linux (WSL)?",
+        options: ["A virtual machine that runs full Linux distributions alongside Windows", "A compatibility layer that allows Linux binary executables to run natively on Windows 10/11 without a traditional VM — providing a Linux command-line environment integrated with Windows", "A tool to convert Linux servers to Windows Server", "A partitioning tool for dual-booting Linux and Windows"],
+        answer: 1,
+        explanation: "WSL (WSL 1 and WSL 2) lets developers run a Linux environment (Ubuntu, Debian, Kali, etc.) directly in Windows. WSL 2 uses a lightweight Hyper-V VM for full Linux kernel compatibility. It integrates with the Windows filesystem, allowing cross-OS file access and running Linux tools (grep, curl, git) from Windows Terminal." },
+
+      { q: "What is the function of the Group Policy Editor (gpedit.msc) in Windows?",
+        options: ["To edit the Windows Registry directly", "To configure hundreds of Windows OS and application settings centrally — from password policies and software restrictions to desktop lockdown and security auditing", "To manage user accounts and group memberships", "To configure Windows Defender firewall rules"],
+        answer: 1,
+        explanation: "Group Policy allows administrators to configure Windows settings across many computers in an Active Directory domain (via domain GPOs) or on a single machine (Local Group Policy). Settings include: password complexity requirements, account lockout, software installation, screen lock timeout, restricting access to Control Panel, and disabling USB drives." },
+
+      { q: "What is the purpose of the Windows 'msconfig' (System Configuration) tool?",
+        options: ["To manage device drivers and hardware resources", "To configure startup options, boot settings (Safe Mode, number of processors), and manage startup services and programs — commonly used for troubleshooting", "To manage Windows network configuration", "To view and clear Windows Event logs"],
+        answer: 1,
+        explanation: "MSCONFIG provides tabs for: General (startup selection), Boot (boot options including Safe Mode, number of CPUs/RAM for boot), Services (enable/disable services), Startup (in Windows 7 — moved to Task Manager in Windows 8+), and Tools (shortcuts to common admin tools). It is frequently used for clean-boot troubleshooting." },
+
+      { q: "What Windows command repairs the Boot Configuration Data (BCD) store, which can prevent Windows from starting?",
+        options: ["SFC /SCANNOW", "BOOTREC /REBUILDBCD or BCDEDIT", "DISKPART", "CHKDSK /R"],
+        answer: 1,
+        explanation: "BOOTREC.EXE is run from WinRE Command Prompt. Key switches: /FIXMBR (repairs the Master Boot Record), /FIXBOOT (writes a new boot sector), /REBUILDBCD (scans for Windows installations and adds them to the BCD). BCDEDIT is used for manual BCD configuration. These fix 'BOOTMGR is missing' and similar errors." },
+
+      { q: "In Active Directory, what is the difference between a local user account and a domain user account?",
+        options: ["Local accounts are more secure; domain accounts are used only for servers", "A local account exists only on a single machine and is authenticated by that machine; a domain account is stored in Active Directory and can authenticate to any computer joined to that domain using the same credentials", "Domain accounts can only log in remotely; local accounts are for in-person use only", "They are identical — the terms are interchangeable in Windows 10"],
+        answer: 1,
+        explanation: "Local accounts (stored in the SAM database) grant access only to the local machine. Domain accounts (stored in Active Directory on Domain Controllers) allow single-sign-on across all domain-joined computers and resources (file servers, printers, applications), subject to Group Policy. Domain accounts are the standard in corporate environments." },
+
+      { q: "What is the purpose of the Windows Credential Manager?",
+        options: ["To manage Wi-Fi network passwords only", "To store and manage usernames and passwords for websites, network resources, and applications — allowing Windows to automatically authenticate to those resources", "To manage certificate authorities and SSL certificates", "To control which applications can access the webcam and microphone"],
+        answer: 1,
+        explanation: "Credential Manager (Control Panel → User Accounts → Credential Manager) stores saved credentials: Windows credentials (network shares, domain resources) and Web credentials (IE/Edge). If a user's password changes but old credentials are cached, authentication will fail — clearing or updating the stored credential resolves this." },
+
+      { q: "What does the acronym NTLM stand for, and why is it considered less secure than Kerberos?",
+        options: ["Network Transfer and Licence Manager — less secure because it uses older encryption", "NT LAN Manager — an older Windows authentication protocol that is vulnerable to pass-the-hash attacks and replay attacks; Kerberos uses mutual authentication and ticket-based tokens, reducing exposure of credentials", "Network Technology Layer Management — deprecated in Windows Vista", "Non-Trusted Login Method — designed for workgroups only"],
+        answer: 1,
+        explanation: "NTLM is a challenge-response authentication protocol. Captured NTLM hashes can be used in pass-the-hash attacks (replayed without knowing the actual password). Kerberos (used in Active Directory domains) uses tickets issued by a KDC with time-limited validity and mutual authentication — making replay attacks far harder." },
+
+      // ── ADDITIONAL: HARDWARE TROUBLESHOOTING ─────────────────────────────
+      { q: "A user's computer randomly restarts without warning or BSOD. Which hardware components should be tested?",
+        options: ["Only the hard drive — random restarts always indicate disk failure", "The power supply (insufficient or unstable power under load), RAM (run Windows Memory Diagnostic or MemTest86), and check for overheating — all three are common causes of random restarts", "The CPU only — random restarts are exclusively a CPU problem", "The GPU — random restarts only occur during graphics-intensive tasks"],
+        answer: 1,
+        explanation: "Random restarts without BSOD often point to: a failing PSU (voltage sag under load), RAM errors, or thermal shutdown (overheating). A PSU may pass a basic voltage test but fail under load. MemTest86 (run from USB, tests outside Windows) is the gold standard for RAM testing. Check CPU/GPU temps with HWMonitor." },
+
+      { q: "A customer's monitor displays a permanently lit (white or coloured) pixel that never changes. What is this called?",
+        options: ["A dead pixel — a pixel that is permanently off (black)", "A stuck pixel — a pixel stuck in an on state (always lit, often red, green, or blue)", "A hot pixel — a heat-related temporary display artifact", "A ghosted pixel — a display memory error causing afterimages"],
+        answer: 1,
+        explanation: "A stuck pixel is permanently lit (stuck in the on state, displaying a single colour). A dead pixel is permanently off (black). Stuck pixels may sometimes be fixed by running a rapidly colour-cycling video or using software that rapidly flashes colours. Dead pixels generally cannot be fixed without panel replacement. Most manufacturers have a minimum count of dead/stuck pixels before honouring a warranty claim." },
+
+      { q: "A technician notices significant dust buildup inside a PC that has been running hot. What is the correct cleaning procedure?",
+        options: ["Use a regular household vacuum cleaner to remove dust from components", "Use compressed air (canned air or ESD-safe electric duster) in a well-ventilated area to blow dust from the heatsinks, fans, and vents — keep fans from spinning freely while blowing", "Use a damp cloth to wipe dust from the motherboard and components", "Leave the dust — it acts as an insulator and actually reduces heat"],
+        answer: 1,
+        explanation: "Compressed air removes dust safely without static discharge risk and without introducing moisture. Important: hold fans stationary while blowing (over-spinning fans with compressed air can damage bearings). Do this outdoors or with good ventilation — ejected dust is fine particulate. Never use a vacuum (generates static); never use a damp cloth on electronics." },
+
+      { q: "What does it mean when a hard drive is 'clicking' and also has very slow file access times?",
+        options: ["The drive is working normally — clicking indicates head movement during heavy read/write activity", "The drive is failing — clicking combined with slow access indicates read/write head problems or platter damage. Back up data immediately and replace the drive", "The drive needs defragmentation — run DEFRAG to resolve clicking", "A SATA cable is loose — reseating it will stop the clicking"],
+        answer: 1,
+        explanation: "A clicking HDD combined with slow performance is a critical failure warning. The read/write heads may be failing to locate data (audible seek errors). Data loss is imminent. Action: back up immediately (if still possible), replace the drive. Consider a professional data recovery service if backup fails. An SSD will not click — if an SSD is 'slow,' check its S.M.A.R.T. data for pending bad sectors or worn cells." },
+
+      { q: "A laser printer produces output with a vertical streak running down every page. What is the most likely cause?",
+        options: ["The paper tray is misaligned", "A scratch or foreign object on the imaging drum, or a worn/dirty toner cartridge — the defect tracks the drum's rotation, producing a repeating vertical streak", "The fuser roller is worn and needs replacement", "The printer driver is corrupted and needs reinstallation"],
+        answer: 1,
+        explanation: "Vertical streaks in laser printing are almost always caused by the toner cartridge or imaging drum — a scratch, worn spot, or obstruction that interferes with toner deposition consistently at one location as the drum rotates. Remove and gently shake the toner cartridge (redistributes toner), and if the streak persists, replace the cartridge or drum unit." },
+
+      { q: "What happens when thermal paste dries out or is applied incorrectly on a CPU?",
+        options: ["The CPU will operate at lower voltages to compensate", "The thermal interface degrades, heat transfer from the CPU to the heatsink becomes poor, and the CPU throttles (reduces clock speed) to stay within thermal limits — causing performance degradation and potential instability", "The CPU will run faster because it generates less electrical resistance", "Dried thermal paste is electrically conductive and will short the CPU"],
+        answer: 1,
+        explanation: "Degraded thermal paste leads to higher CPU temperatures. Modern CPUs throttle frequency (reduce clock speed) to avoid thermal damage — called 'thermal throttling.' Extreme overheating triggers emergency shutdown. Replacing dried thermal paste is a routine laptop and desktop maintenance task that can dramatically improve performance and stability." },
+
+      // ── ADDITIONAL: CLOUD & VIRTUALISATION ──────────────────────────────
+      { q: "What is the purpose of a VLAN in a virtualised environment?",
+        options: ["To isolate VMs from the physical network completely", "To segment virtual machine network traffic — keeping VMs on different logical networks even when they share the same physical host and switch, providing security and traffic isolation", "To increase the speed of VM-to-VM communication on the same host", "To prevent VMs from accessing the host OS network stack"],
+        answer: 1,
+        explanation: "In virtualised environments, virtual switches (vSwitch in VMware, Hyper-V Virtual Switch) support VLAN tagging. VMs assigned to different VLANs cannot communicate directly even on the same host, providing the same security segmentation as physical VLANs. This is critical for multi-tenant environments and security zones." },
+
+      { q: "What is a 'private cloud' compared to a 'public cloud'?",
+        options: ["A private cloud uses no encryption; a public cloud uses TLS", "A private cloud is dedicated infrastructure operated exclusively for one organisation (on-premises or hosted); a public cloud is shared infrastructure operated by a provider (AWS, Azure, GCP) serving many customers", "Private clouds are less reliable than public clouds", "A private cloud is hosted in another country; a public cloud is hosted locally"],
+        answer: 1,
+        explanation: "Private cloud gives one organisation dedicated resources with full control — higher security and customisation, but higher cost and less elasticity. Public cloud is shared infrastructure with virtually unlimited elasticity and low upfront cost, but data resides on shared physical hardware. Hybrid cloud mixes both." },
+
+      { q: "What is containerisation (e.g., Docker) and how does it differ from virtualisation?",
+        options: ["Containers are virtual machines that include a full OS; VMs share the host OS kernel", "Containers share the host OS kernel and package only the application and its dependencies — much lighter and faster to start than VMs, which virtualise complete hardware and run a full guest OS", "Containers are used for desktop applications; VMs are only for server workloads", "They are the same technology with different names"],
+        answer: 1,
+        explanation: "VMs include a full guest OS (GBs in size, boot in minutes). Containers share the host OS kernel and package only the app and libraries (MBs in size, start in seconds). Docker is the dominant container platform. Containers are ideal for microservices and DevOps; VMs provide stronger isolation (different OS kernels, hardware-level isolation)." },
+
+      // ── ADDITIONAL: NETWORKING ────────────────────────────────────────────
+      { q: "What is the purpose of the OSI model?",
+        options: ["A physical cable standard for connecting network devices", "A conceptual seven-layer framework that standardises network communication functions, helping different vendors' equipment interoperate and technicians troubleshoot network issues layer by layer", "A security framework for classifying network threats by severity", "A software library used by Windows for network communication"],
+        answer: 1,
+        explanation: "The OSI (Open Systems Interconnection) model has 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application (mnemonic: Please Do Not Throw Sausage Pizza Away). It helps technicians isolate problems: 'Can the device ping by IP but not by name?' — that's a Layer 7/Application (DNS) problem, not a Layer 3 problem." },
+
+      { q: "What OSI layer do switches operate at, and what information do they use to forward frames?",
+        options: ["Layer 1 — they forward electrical signals without reading any address", "Layer 2 (Data Link) — they use MAC addresses in their CAM table to forward Ethernet frames only to the correct port", "Layer 3 (Network) — they use IP addresses to route between subnets", "Layer 4 (Transport) — they use TCP port numbers to direct traffic"],
+        answer: 1,
+        explanation: "Managed switches operate at Layer 2 (Data Link) and maintain a Content Addressable Memory (CAM) table mapping MAC addresses to switch ports. When a frame arrives, the switch looks up the destination MAC and forwards it only to that port (unicast). Unknown destinations are flooded to all ports. Layer 3 switches can also route between VLANs." },
+
+      { q: "What is a subnet mask used for?",
+        options: ["To encrypt data transmitted between subnets", "To identify which portion of an IP address represents the network and which portion represents the host — used by devices to determine whether a destination is local or must be sent to the default gateway", "To prevent devices on different subnets from communicating at all", "To assign the default gateway address automatically"],
+        answer: 1,
+        explanation: "A subnet mask (e.g., 255.255.255.0 = /24) uses binary AND with the IP address to extract the network portion. If the destination IP's network portion matches the sender's, they're on the same subnet (communicate directly). If not, the packet goes to the default gateway (router) for routing to the remote network." },
+
+      { q: "What is the purpose of the default gateway in a network configuration?",
+        options: ["It is the primary DNS server for resolving domain names", "It is the router's IP address that hosts send traffic to when the destination is on a different network — the gateway routes the packet toward its destination", "It is the server that assigns IP addresses via DHCP", "It is the IP address of the local host used for loopback testing"],
+        answer: 1,
+        explanation: "The default gateway is the router interface on the local subnet. When a host determines the destination IP is not on its local network (via subnet mask comparison), it forwards the packet to the default gateway. The router then uses its routing table to forward the packet toward the destination network." },
+
+      { q: "What wireless security protocol is currently recommended as the strongest available on consumer Wi-Fi?",
+        options: ["WEP (Wired Equivalent Privacy)", "WPA (Wi-Fi Protected Access)", "WPA2 (with AES/CCMP)", "WPA3 (Personal or Enterprise)"],
+        answer: 3,
+        explanation: "WPA3 is the current Wi-Fi Alliance standard (introduced 2018). WPA3-Personal uses SAE (Simultaneous Authentication of Equals) — replacing WPA2's PSK and resisting offline dictionary attacks. WPA3-Enterprise uses 192-bit security for sensitive environments. WEP is broken (crackable in minutes); WPA1 and WPA2-TKIP are deprecated." },
+
+      { q: "What is the purpose of a wireless access point (WAP)?",
+        options: ["To route traffic between different IP subnets wirelessly", "To extend a wired network wirelessly — connecting wireless client devices (phones, laptops) to the existing wired Ethernet network infrastructure", "To replace a router in small office environments", "To provide DHCP services to wireless clients only"],
+        answer: 1,
+        explanation: "A WAP bridges wireless clients onto the wired LAN. The WAP has an Ethernet uplink to the switch and broadcasts an SSID for wireless clients to connect to. It operates at Layer 1/2. Routers with built-in WAPs (home 'wireless routers') combine routing, switching, and WAP functionality — but a standalone WAP is only the radio/bridge component." },
+
+      { q: "What does SSID stand for and what is its purpose?",
+        options: ["Secure System Identification Data — the Wi-Fi password", "Service Set Identifier — the human-readable name of a wireless network that clients scan and select to connect to", "Subnet Separation and Internet Distribution — the DHCP scope name", "Secondary Signal Infrastructure Device — a Wi-Fi range extender"],
+        answer: 1,
+        explanation: "SSID (Service Set Identifier) is the network name broadcasted by a WAP (e.g., 'HomeNetwork' or 'CompanyWiFi'). Clients scan for SSIDs and select the one they want to connect to. SSIDs can be hidden (not broadcasted) for minimal security — though this is easily defeated by wireless scanning tools and is not a strong security measure." },
+
+      { q: "What is channel bonding in Wi-Fi?",
+        options: ["Bonding two wireless adapters in one device for redundancy", "Combining two adjacent radio frequency channels to double bandwidth — 802.11n can bond two 20 MHz channels into a 40 MHz channel; 802.11ac/ax support up to 160 MHz channels", "Securing a wireless channel with WPA3 encryption", "Assigning a single channel exclusively to one wireless client"],
+        answer: 1,
+        explanation: "Channel bonding (or channel aggregation) combines adjacent channels to increase throughput. 802.11n: 20 MHz × 2 = 40 MHz (doubles throughput). 802.11ac: up to 160 MHz. 802.11ax (Wi-Fi 6): up to 160 MHz. Wider channels increase throughput but also increase interference risk — wider channels are practical on 5 GHz where there are more non-overlapping channels." }
     ]
   },
 
