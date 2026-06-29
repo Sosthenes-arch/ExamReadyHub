@@ -590,29 +590,312 @@ const EXAMS = {
 
   "motorcycle": {
     id: "motorcycle", title: "Motorcycle License Test",
-    description: "Practice questions for the motorcycle endorsement written exam. Covers riding techniques, gear, and road hazards.",
+    description: "50-question practice test for the motorcycle endorsement (M1/M2) written knowledge exam. Covers all tested topics: protective gear, T-CLOCS pre-ride inspection, braking, lane positioning, cornering, group riding, road hazards, passengers, night riding, and emergency techniques — based on MSF course content and official state handbooks.",
     category: "driving",
     questions: [
+
+      // ── PROTECTIVE GEAR ────────────────────────────────────────────────────
+      { q: "What is the single most important piece of protective equipment for a motorcyclist?",
+        options: ["Gloves", "A DOT-approved helmet", "An abrasion-resistant jacket", "Over-the-ankle boots"],
+        answer: 1,
+        explanation: "Head injuries are the leading cause of motorcyclist fatalities. A DOT-approved helmet reduces the risk of fatal head injury by about 37% and brain injury by 69%. It is the most critical piece of gear you can wear." },
+
+      { q: "What does the DOT symbol on a helmet mean?",
+        options: ["The helmet was designed and made in the USA", "The manufacturer certifies the helmet meets Federal Motor Vehicle Safety Standard 218 — the minimum legal safety standard", "The helmet is approved for racing use only", "The helmet has been independently lab-tested and received the highest possible rating"],
+        answer: 1,
+        explanation: "DOT (Department of Transportation) on a helmet means the manufacturer self-certifies compliance with FMVSS 218. SNELL and ECE certifications involve independent lab testing and are considered higher standards, but DOT is the legal minimum required in most states." },
+
+      { q: "A properly fitted motorcycle helmet should:",
+        options: ["Rotate freely on your head so it doesn't restrict your vision", "Feel slightly loose so it won't cause headaches on long rides", "Sit level on your head, feel snug all around, not move when you push up on the chin bar, and have no pressure points", "Be one size too large so you can wear a hat underneath in cold weather"],
+        answer: 2,
+        explanation: "A helmet that moves on your head provides far less protection in a crash. It should sit level, feel firmly snug with no gaps, and the chin bar shouldn't move more than about an inch when pushed upward. Break-in is normal; buying loose anticipating it is not." },
+
+      { q: "Which type of motorcycle helmet provides the most protection?",
+        options: ["Half helmet (beanie/skull cap)", "Three-quarter helmet (open face)", "Full-face helmet with chin bar and face shield", "Modular/flip-up helmet with chin bar raised"],
+        answer: 2,
+        explanation: "Full-face helmets protect the entire head, face, and chin — the area that takes a significant share of impacts in crashes. Studies show the chin bar is struck in about 35% of helmet impacts. Open-face and half helmets leave the face unprotected." },
+
+      { q: "Eye protection while riding is important because:",
+        options: ["It is required by law in all 50 states", "Wind, dust, insects, and debris at speed can impair vision or injure the eyes — and a watering eye can cause you to lose control", "Sunglasses provide sufficient protection for daytime riding", "It only matters at highway speeds"],
+        answer: 1,
+        explanation: "An insect hitting an unprotected eye at 60 mph can momentarily blind or seriously injure a rider. A face shield or proper goggles seal against the wind and debris. Regular glasses and sunglasses do not seal the eye area. Eye protection is required by law in most states." },
+
+      { q: "Motorcycle-specific jackets and gloves protect riders primarily by:",
+        options: ["Making the rider more aerodynamic", "Providing abrasion resistance — the single biggest injury in non-fatal crashes is road rash from sliding on pavement", "Keeping the rider warm, which is their only benefit", "Reducing fatigue on long rides"],
+        answer: 1,
+        explanation: "Road rash (abrasion injuries from sliding across pavement) is the most common injury in survivable crashes. Leather and CE-rated textile gear provide critical abrasion resistance. Gear with armour at shoulders, elbows, and knees also absorbs impact energy." },
+
+      { q: "Why should motorcycle boots cover the ankle?",
+        options: ["They look more professional", "The ankle is the most commonly broken bone in motorcycle crashes — over-the-ankle boots provide critical support and protection", "They make it easier to operate the foot controls", "They are required by state law in all jurisdictions"],
+        answer: 1,
+        explanation: "Ankle fractures and injuries are extremely common in motorcycle crashes. Purpose-built motorcycle boots with over-the-ankle coverage, reinforced toes and heels, and non-slip soles protect feet and ankles. Sneakers, sandals, and thin dress shoes offer almost no protection." },
+
+      { q: "Bright or fluorescent riding gear is recommended because:",
+        options: ["It is required by law on highways", "It dramatically increases your visibility to other drivers, especially at dawn, dusk, and in low-light conditions", "Dark gear absorbs heat and keeps you warmer", "State inspection requires reflective gear"],
+        answer: 1,
+        explanation: "Conspicuity is a key motorcycle safety concept. Bright colours (high-visibility yellow-green, orange) and reflective materials make riders significantly more visible to other road users. Studies show conspicuous riders are involved in fewer crashes at intersections." },
+
+      // ── PRE-RIDE INSPECTION: T-CLOCS ───────────────────────────────────────
+      { q: "What does the MSF T-CLOCS pre-ride inspection checklist stand for?",
+        options: ["Throttle, Clutch, Lights, Oil, Chain, Suspension", "Tyres & wheels, Controls, Lights & electrics, Oil & fluids, Chassis & frame, Stands", "Traction, Cornering, Lane, Observation, Control, Speed", "Tyres, Clutch, Licence, Oil, Chain, Speed"],
+        answer: 1,
+        explanation: "T-CLOCS is the MSF's systematic pre-ride inspection: Tyres & wheels (pressure, tread, condition), Controls (levers, throttle, cables, hoses), Lights & electrics (headlight, brake light, signals, horn), Oil & fluids (engine oil, brake fluid, coolant), Chassis & frame (frame, suspension, chain/belt/shaft), Stands (side stand, centre stand springs and operation)." },
+
+      { q: "Before every ride you should check your tyre pressure because:",
+        options: ["It is only needed before long trips", "Tyres lose pressure naturally; incorrect pressure reduces handling, increases tyre wear, and raises the risk of a blowout or loss of control", "The tyre pressure warning light will illuminate if there is a problem", "Only cold tyres need checking; warm tyres adjust pressure automatically"],
+        answer: 1,
+        explanation: "Tyres lose 1–2 psi per month and can lose pressure quickly due to temperature changes. Under-inflated tyres reduce handling precision, increase heat build-up, and raise blowout risk. Over-inflation reduces the contact patch and grip. Always check tyre pressure cold (before riding) using a reliable gauge." },
+
+      { q: "When checking your motorcycle's throttle before riding, what should you verify?",
+        options: ["That it makes a clicking sound when turned", "That it turns smoothly, snaps closed completely when released, and has minimal play", "That it is stiff enough that it won't slip in rain", "That it is adjusted to the highest friction setting"],
+        answer: 1,
+        explanation: "A throttle must open smoothly and — critically — snap closed when released. A sticky throttle can cause sudden unintended acceleration. The cable must have a small amount of free play (typically 2–3 mm) but not so much that response is delayed. Check it every ride." },
+
+      { q: "Why should you test your brakes before every ride?",
+        options: ["To warm up the brake pads for better performance", "To verify that both front and rear brakes engage firmly and the levers/pedal do not go to the handlebar or floor — indicating a fluid or mechanical problem", "Only drum brakes need testing before rides", "To 'seat' the brake pads against the discs"],
+        answer: 1,
+        explanation: "Brake levers or pedals that travel to the bar or floor indicate loss of hydraulic pressure (fluid leak or air in lines) or mechanical failure — a life-threatening condition. Squeeze both brakes firmly before moving to confirm they are working. Check for any leaks around callipers and hoses." },
+
+      // ── MOTORCYCLE CONTROLS ────────────────────────────────────────────────
+      { q: "The front brake on a motorcycle provides approximately what percentage of total stopping power?",
+        options: ["25–30%", "40–50%", "70–75%", "90–100%"],
+        answer: 2,
+        explanation: "Under hard braking on dry pavement, the front brake provides approximately 70–75% of total stopping power because weight transfers forward, increasing front tyre contact and grip. Never use the front brake alone in a turn or on loose/slippery surfaces — but in a straight-line emergency stop, it is your most powerful tool." },
+
+      { q: "What does pulling in the clutch lever do?",
+        options: ["Applies the rear brake", "Disconnects the engine's power from the rear wheel, allowing you to change gears or stop the engine from driving the wheel", "Locks the front wheel", "Activates the engine cut-off switch"],
+        answer: 1,
+        explanation: "The clutch disengages the engine from the gearbox/drive train. You must pull it in to change gears smoothly, to prevent the engine from stalling when stopping, and in emergencies (like a stuck throttle) to immediately cut power to the rear wheel." },
+
+      { q: "What is engine braking on a motorcycle?",
+        options: ["Using the kill switch to slow the engine", "The natural slowing effect that occurs when you release the throttle — the engine's compression resistance slows the rear wheel", "Applying only the rear brake while downshifting", "Using high engine revs to accelerate quickly out of corners"],
+        answer: 1,
+        explanation: "Engine braking occurs whenever you release the throttle — the engine's internal resistance slows the motorcycle. Downshifting increases this effect. Engine braking is useful for slowing on downgrades and in slippery conditions, but it acts only on the rear wheel and can cause rear-wheel skids on very slippery surfaces." },
+
+      { q: "To make a smooth start from a complete stop on a motorcycle, you should:",
+        options: ["Release the clutch quickly and apply full throttle simultaneously", "Gradually release the clutch while smoothly rolling on a small amount of throttle until you feel the engine begin to engage (friction zone), then fully release the clutch as speed builds", "Apply the rear brake while releasing the clutch to prevent wheelies", "Rev the engine high, then drop the clutch for a quick launch"],
+        answer: 1,
+        explanation: "The 'friction zone' is the range of clutch lever travel where the clutch plates are partially engaged. Find it by slowly releasing until you feel the bike start to move. Coordinate gradual clutch release with smooth throttle application. Rushing either causes stalling or jerky takeoffs." },
+
+      // ── BRAKING & STOPPING ─────────────────────────────────────────────────
       { q: "Which braking technique is most effective on a motorcycle in a controlled stop?",
-        options: ["Front brake only", "Rear brake only", "Both front and rear brakes together", "Engine braking only"],
+        options: ["Front brake only — it provides 70% of stopping power", "Rear brake only — safer because front braking can cause a front-wheel skid", "Both front and rear brakes applied together progressively", "Engine braking only — avoids all wheel-lock risk"],
         answer: 2,
-        explanation: "Using both brakes together provides maximum stopping power. The front brake alone provides about 70% of stopping power, but both together give optimal, balanced braking." },
-      { q: "What riding formation is recommended when motorcycles travel in a group?",
-        options: ["Single file", "Side by side", "Staggered formation", "V-formation"],
-        answer: 2,
-        explanation: "Staggered formation keeps riders visible to each other and to traffic, while maintaining safe following distances and enough space to maneuver." },
-      { q: "What is the most common cause of motorcycle accidents involving another vehicle?",
-        options: ["Motorcycle speeding", "Failure of other drivers to see the motorcycle", "Road surface defects", "Mechanical failure"],
+        explanation: "Using both brakes together provides maximum stopping power. The front brake provides ~70% of stopping force; the rear provides stability and control. Apply both progressively — squeeze the front, press the rear — increasing pressure as weight transfers forward. Practice this until it is automatic." },
+
+      { q: "If the front wheel locks up during emergency braking (on a non-ABS motorcycle), you should:",
+        options: ["Keep it locked and steer to the side of the road", "Immediately release the front brake lever completely, then reapply with firm, progressive pressure", "Simultaneously apply the rear brake harder to compensate", "Pull in the clutch and release both brakes"],
         answer: 1,
-        explanation: "Studies consistently show other drivers failing to detect motorcycles at intersections is the leading cause. Ride with your headlight on and position yourself to be seen." },
-      { q: "If your throttle sticks open, what should you do?",
-        options: ["Steer off the road immediately", "Apply the front brake hard", "Pull in the clutch and apply both brakes firmly", "Downshift repeatedly"],
+        explanation: "A locked front wheel causes an immediate loss of steering control and the bike will typically fall. Release the lever instantly to restore tyre rotation and grip, then reapply more carefully. With ABS, you can apply maximum brake pressure and the system prevents lock-up automatically." },
+
+      { q: "If the rear wheel locks during braking on a motorcycle, you should:",
+        options: ["Immediately release the rear brake to restore steering", "Keep the rear brake applied and maintain a straight-line path — releasing a locked rear can cause a high-side crash", "Apply more front brake to compensate", "Pull in the clutch and release both brakes immediately"],
+        answer: 1,
+        explanation: "A locked rear wheel can be controlled if the motorcycle is travelling in a straight line. Releasing a locked rear wheel while turning can cause a violent 'high-side' crash. Keep it locked, maintain your direction, and apply more front brake to stop. If you are in a curve when it locks, straighten first, then brake." },
+
+      { q: "What is a motorcycle ABS (Anti-lock Braking System) designed to do?",
+        options: ["Increase the overall braking force beyond what a rider could achieve manually", "Automatically prevent wheel lock-up under hard braking by rapidly modulating brake pressure — allowing maximum braking while maintaining steering control", "Apply both brakes simultaneously when you press only one", "Work only at highway speeds above 40 mph"],
+        answer: 1,
+        explanation: "ABS modulates brake pressure many times per second to keep tyres on the verge of locking — maintaining the maximum grip available. This allows riders to apply maximum brake pressure in emergencies without losing steering control. Studies show ABS-equipped motorcycles have significantly lower fatal crash rates." },
+
+      { q: "At higher speeds, stopping distance increases because:",
+        options: ["Brakes become less effective at highway speeds", "Stopping distance increases roughly with the square of your speed — doubling your speed quadruples the distance required to stop", "Tyres generate less heat at higher speeds, reducing grip", "Traffic is denser at highway speeds, reducing effective braking distance"],
+        answer: 1,
+        explanation: "Kinetic energy (which must be absorbed by brakes to stop) increases with the square of speed. At 20 mph you might stop in about 20 feet; at 60 mph (3× the speed) it takes about 180 feet (9× the distance). Always adjust your speed — and following distance — for how long it will take to stop." },
+
+      { q: "In an emergency stop situation, where should your eyes be focused?",
+        options: ["On your brake lever to ensure you are applying the right pressure", "Far ahead where you want to stop — looking where you want to go helps the brain steer toward safety", "On the object you are trying to avoid", "On the road surface immediately in front of your tyre"],
+        answer: 1,
+        explanation: "Look well ahead to where you want to stop or steer. This is the opposite of 'target fixation' — the dangerous tendency to steer toward whatever you are focusing on. Train yourself to look at the escape route, not the hazard." },
+
+      // ── LANE POSITIONING ───────────────────────────────────────────────────
+      { q: "A motorcycle lane is divided into three positions (1, 2, and 3). Position 1 refers to:",
+        options: ["The right third of the lane, nearest the road edge", "The centre of the lane", "The left third of the lane", "The lane to the left of your current lane"],
         answer: 2,
-        explanation: "Pulling in the clutch cuts engine power to the rear wheel. Simultaneously apply both brakes to slow and stop. Then shut off the engine." },
+        explanation: "Lane position 1 = left third; position 2 = centre; position 3 = right third. Position 1 (left third) is used most often — it gives the best forward visibility, keeps you out of the oil-contaminated centre strip, and puts you in the best position to be seen." },
+
+      { q: "Which part of the lane should you generally avoid because it collects oil, fuel, and other slippery fluids from vehicles?",
+        options: ["The left third of the lane (position 1)", "The right third of the lane (position 3)", "The centre of the lane (position 2)", "The lane edge markings"],
+        answer: 2,
+        explanation: "The centre strip of the lane collects oil drips, antifreeze, and other fluids that fall from the centres of cars and trucks. These fluids create a slick stripe, especially when wet. Riding in position 1 or 3 keeps your tyres on cleaner, grippier pavement." },
+
+      { q: "When following a car or truck, which lane position gives you the best view of the road ahead?",
+        options: ["Position 3 (right third)", "Position 2 (centre)", "Position 1 (left third) — allows you to see past the left side of the vehicle ahead", "It makes no difference — all positions have the same forward view"],
+        answer: 2,
+        explanation: "Riding in position 1 (left third) lets you look past the left side of the vehicle ahead, giving you the earliest possible view of hazards, traffic signals, and your own stopping distance. It also places you in the best position to be seen in the driver's left mirror." },
+
+      { q: "When approaching an intersection, the best lane position for a motorcyclist is generally:",
+        options: ["Position 3 (right) — keeps you away from oncoming traffic", "Position 2 (centre) — the most neutral position", "Position 1 (left) — increases your visibility to crossing traffic and approaching left-turners", "Any position — lane position does not affect intersection safety for motorcycles"],
+        answer: 2,
+        explanation: "At intersections — where most motorcycle accidents occur — position 1 (left third) maximises your visibility to drivers on cross streets and to oncoming vehicles considering a left turn. It also gives you the most space to manoeuvre if evasive action is needed." },
+
+      { q: "When riding through a curve, you should choose a path that:",
+        options: ["Cuts the inside of the curve as tightly as possible to minimise lean angle", "Enters wide, apexes late, and exits wide — giving you the best view through the curve and the most gradual change in direction", "Stays in the centre of the lane regardless of curve shape", "Follows the tyre tracks left by cars for the best grip"],
+        answer: 1,
+        explanation: "The wide-tight-wide (or late apex) line gives you the straightest, most gradual path through a curve, reducing the lean angle needed, giving you a better view of what's ahead as you turn in, and leaving room for correction if you encounter gravel or a tighter radius than expected." },
+
+      // ── CORNERING & TURNING ────────────────────────────────────────────────
       { q: "How should you position yourself when riding through a curve?",
-        options: ["Lean the bike but keep your body upright", "Lean both body and bike together as a unit", "Move your body to the outside of the curve", "Stay in the center of your lane at all times"],
+        options: ["Lean the bike but keep your body upright to reduce lean angle", "Lean both body and bike together as a unit for the most stable, controlled arc", "Move your body to the outside of the curve to counterbalance", "Stay rigidly upright in the saddle and let only the bike lean"],
         answer: 1,
-        explanation: "Counter-steering and leaning the bike and body together as a unit gives the most stable, controlled path through a curve at moderate speeds." }
+        explanation: "Leaning body and bike together as a unit produces the most balanced and controlled cornering. At moderate speeds this is the correct technique. Advanced riders sometimes use slight body offsets, but the basic principle of unified lean remains the foundation of safe cornering." },
+
+      { q: "What is counter-steering on a motorcycle (at speeds above about 12 mph)?",
+        options: ["Turning the handlebars in the opposite direction of a skid to regain control", "Pressing forward on the right handlebar to lean and turn right; pressing the left bar to lean and turn left", "Using opposite throttle inputs to stabilise the bike in a crosswind", "Braking in the opposite direction of a turn to slow down more effectively"],
+        answer: 1,
+        explanation: "At speeds above ~12 mph, motorcycles steer by counter-steering: push the right grip forward/down to lean right and turn right; push left to turn left. This is the fundamental steering input at speed. Trying to 'turn' the bars like a bicycle does the opposite of what you intend." },
+
+      { q: "What is 'target fixation' and why is it dangerous for motorcyclists?",
+        options: ["Staring at the road surface to detect hazards — it narrows your vision too much", "The tendency to steer toward whatever you are looking at — causing riders to ride directly into the hazard they are trying to avoid", "Riding too close behind a vehicle you are planning to pass", "Keeping both eyes on your instruments rather than the road"],
+        answer: 1,
+        explanation: "Target fixation is a well-documented phenomenon: where you look is where you go. Focusing on a pothole, a barrier, or another vehicle often causes riders to steer straight into it. The fix: look where you WANT to go, not at the hazard. Your bike will naturally follow your vision." },
+
+      { q: "When should you reduce your speed before entering a curve?",
+        options: ["In the middle of the curve, when you can see its full radius", "At the exit of the curve, where extra speed is safe", "Before entering the curve — set your speed on the approach, then roll on the throttle smoothly through the turn", "Speed adjustment is not necessary if you lean correctly"],
+        answer: 2,
+        explanation: "Braking mid-corner forces the bike to stand up and run wide — exactly the opposite of what you need. Set a safe entry speed before the curve, lean in, then gradually roll on the throttle through the corner. This keeps the tyres loaded and the suspension settled for maximum grip." },
+
+      { q: "On a curve you have never ridden before, the safest approach is:",
+        options: ["Enter at your normal speed and trust your instincts to judge the curve", "Enter at the outside of your lane and late-apex to give yourself a clear view of the curve's exit before committing to full lean", "Enter on the inside of the curve to take the shortest path", "Brake heavily mid-corner if the curve tightens unexpectedly"],
+        answer: 1,
+        explanation: "On an unfamiliar curve, enter wide (outside of the lane) and delay turning in. This gives you the earliest and widest view of the curve ahead. A tighter radius than expected is one of the most common causes of cornering crashes. Wide entry gives you more options and time to adjust." },
+
+      // ── GROUP RIDING ───────────────────────────────────────────────────────
+      { q: "What riding formation is recommended when motorcycles travel in a group on the open road?",
+        options: ["Single file with 2-second gaps between all riders", "Side by side with each rider occupying half the lane", "Staggered formation — leader in position 1, second rider in position 3, alternating — with 2-second gap to the rider directly ahead", "V-formation with the most experienced rider at the front point"],
+        answer: 2,
+        explanation: "Staggered formation (1-3-1-3) keeps each rider visible, provides individual reaction time, and prevents the group from bunching up. Each rider maintains a 2-second following distance to the rider directly in front of them, giving a full 4-second gap before the next same-position rider." },
+
+      { q: "When must a group of motorcycles abandon the staggered formation and ride single file?",
+        options: ["On any road narrower than four lanes", "In turns, curves, railroad crossings, and on-ramps — where each rider needs the full lane width to manoeuvre safely", "On highways above 55 mph for better aerodynamics", "Only when directed by a police officer"],
+        answer: 1,
+        explanation: "Staggered formation works on straight roads but should be dropped in curves, turns, railroad crossings, and other situations that require individual lane positioning. Riders drop to single file so each person has their full lane width to navigate the hazard safely." },
+
+      { q: "Who typically controls the pace of a group ride?",
+        options: ["The most experienced rider, who accelerates out front and waits at junctions", "The leader sets a comfortable pace for the entire group; the sweep rider (last in group) ensures no one is left behind — the group's pace is limited to the slowest rider's comfort", "Each rider chooses their own pace and the group reconvenes at the destination", "The newest or least experienced rider leads so others can watch for problems"],
+        answer: 1,
+        explanation: "The leader sets pace and monitors conditions ahead. The sweep (tail-end Charlie) is typically experienced and monitors the group from behind. A good group never leaves anyone behind. Riders should pre-plan a 'lost' signal and meeting points. The leader adjusts pace so the least experienced rider is comfortable." },
+
+      // ── ROAD HAZARDS ───────────────────────────────────────────────────────
+      { q: "The safest way to cross railroad tracks on a motorcycle is:",
+        options: ["Parallel to the tracks at low speed", "At a 90-degree angle (perpendicular) or as close to it as practical — ideally at least 45 degrees", "At high speed to minimise the time spent on the slippery surface", "Using the edge of your tyre for maximum grip on the rail"],
+        answer: 1,
+        explanation: "Crossing parallel or at a shallow angle risks your front tyre dropping into the groove between rail and pavement, causing an instant front-wheel trap and crash. Crossing at 90 degrees (or at least 45 degrees) takes your tyre straight across without catching the groove. Slow to a safe crossing speed, keep the bike upright, and cross with minimal steering input." },
+
+      { q: "When riding over gravel, sand, or loose debris, you should:",
+        options: ["Brake firmly and swerve around the debris if possible", "Reduce speed before reaching it; keep the bike upright or with minimal lean; avoid hard braking or steering inputs while on the surface; roll through smoothly", "Accelerate — higher speed provides gyroscopic stability", "Move to the centre of the lane where gravel is least likely to be found"],
+        answer: 1,
+        explanation: "Loose surfaces dramatically reduce traction. Enter slowly, keep the bike as upright as possible, avoid braking or steering sharply while on the debris, and apply power gently. Hard inputs on loose surfaces cause immediate loss of control." },
+
+      { q: "Painted road markings, metal surfaces (manhole covers, bridge grates), and wet leaves are hazardous for motorcyclists because:",
+        options: ["They are invisible to motorcycle headlights", "They reduce tyre traction significantly, especially when wet — sometimes to near zero", "They are legally exempt from road maintenance requirements", "They cause permanent tyre damage"],
+        answer: 1,
+        explanation: "These surfaces can be almost frictionless when wet. A painted crosswalk or manhole cover in the rain can have a friction coefficient as low as ice. Approach them with minimal lean, avoid braking on them, and cross with the bike as upright as possible." },
+
+      { q: "The road surface is most slippery for a motorcyclist at the beginning of a rain shower because:",
+        options: ["Rain changes the chemical composition of asphalt", "Oil, diesel, and rubber residue that has built up on the road surface rises and mixes with water before eventually being washed away, creating a highly slippery film", "Cold rainwater contracts the asphalt surface", "Visibility is worst at the start of rain"],
+        answer: 1,
+        explanation: "After a dry spell, roads accumulate a film of oil, fuel drips, and rubber dust. When rain starts, water lifts this film before enough rain falls to wash it clear — creating conditions more slippery than a steady downpour. Slow down significantly at the start of rain and be especially cautious for the first 20–30 minutes." },
+
+      { q: "When your motorcycle encounters a large pothole or road debris that cannot be avoided, the recommended technique is:",
+        options: ["Brake hard immediately before impact to absorb the hit with the brakes", "Rise slightly off the seat, grip the tank with your knees, relax your arms, and let the suspension absorb the impact rather than transmitting it rigidly through a stiff body", "Steer sharply around the obstacle at the last moment", "Apply full throttle to jump the obstacle"],
+        answer: 1,
+        explanation: "Rising off the seat (the 'attack position' or 'motorcycle stance') turns your legs into shock absorbers and prevents the impact from jarring the handlebars and causing a loss of control. Relaxed arms also prevent overcorrecting after impact. Tensing up transmits the shock directly to the bars." },
+
+      // ── INTERSECTIONS & VISIBILITY ─────────────────────────────────────────
+      { q: "What is the most common cause of motorcycle accidents involving another vehicle?",
+        options: ["Motorcycles speeding through intersections", "Failure of other drivers to see the motorcycle — particularly a car or truck turning left in front of a motorcycle", "Road surface defects that affect only motorcycles", "Mechanical failure of motorcycle components"],
+        answer: 1,
+        explanation: "Studies consistently identify the left-turning vehicle as the #1 motorcycle fatality scenario. A driver underestimates the motorcycle's speed and turns left across its path. Always ride as if you are invisible; position yourself to be seen; cover your brakes approaching intersections; have an escape plan." },
+
+      { q: "To maximise your visibility to other drivers, you should:",
+        options: ["Always ride in the right lane so drivers expect you in that position", "Wear bright or fluorescent gear, keep your headlight on at all times, ride in position 1 (left third of lane) to be seen in mirrors, and avoid sitting in blind spots", "Flash your high beams approaching intersections", "Ride as close behind vehicles as possible so they see you in their mirror"],
+        answer: 1,
+        explanation: "Conspicuity (being visible) is your best protection. High-visibility gear, a headlight on in daylight, and smart lane positioning all help. Position 1 (left third) keeps you in the best line of sight for drivers ahead and in other lanes. Never linger in another vehicle's blind spot." },
+
+      { q: "When a driver in an oncoming lane appears to be about to turn left in front of you, you should:",
+        options: ["Flash your lights and sound your horn, then proceed at your current speed", "Immediately cover the brakes and clutch, assess whether to brake hard in a straight line or combine braking with a swerve — and execute the best option based on available space", "Accelerate to pass before they complete the turn", "Swerve left to go around behind their vehicle"],
+        answer: 1,
+        explanation: "This is the #1 crash scenario. Covering the brakes means your fingers are on the lever before you need to squeeze — saving critical reaction time. Both hard braking and a swerve (rarely both simultaneously) can avoid the collision depending on your speed and distance. This is why you always have an escape plan at intersections." },
+
+      { q: "Motorcycles are difficult for other drivers to judge in traffic because:",
+        options: ["Motorcycles are legally allowed to exceed speed limits, so their speeds are unpredictable", "The narrow profile of a motorcycle creates an optical illusion that makes it appear farther away and slower than it actually is", "Motorcycle headlights are dimmer than car headlights", "Motorcycles move more erratically than cars"],
+        answer: 1,
+        explanation: "Size cues help humans estimate distance and speed: larger objects appear closer and faster. A narrow motorcycle appears smaller than a car, so drivers chronically underestimate how close it is and how fast it is travelling. This contributes directly to the left-turn crash problem. Wearing bright gear and riding with a headlight on helps reduce this effect." },
+
+      // ── PASSENGERS & CARGO ─────────────────────────────────────────────────
+      { q: "Before carrying a passenger on a motorcycle, you should instruct them to:",
+        options: ["Sit as far back on the seat as possible and lean back for comfort", "Mount after you have started the engine and given the signal; hold your waist or passenger handgrips; keep feet on footpegs at all times; lean with the motorcycle in turns; and not lean out or make sudden moves", "Hold onto the seat or tail section rather than the rider to maintain rider independence", "Extend their legs outward for balance when stopping"],
+        answer: 1,
+        explanation: "A passenger who moves unexpectedly or leans against the motorcycle's natural lean in a turn can cause a crash. Footpegs must stay on the pegs at all stops — even at low speed. Brief passenger-hold positions (hands on waist or grab rail) depend on motorcycle design. Always instruct passengers before mounting." },
+
+      { q: "How does carrying a passenger change your motorcycle's handling?",
+        options: ["It improves stability due to the added weight", "It increases total weight and raises the centre of gravity — requiring more stopping distance, wider cornering lines, different suspension setup, and greater care in acceleration", "It only affects straight-line acceleration; cornering and braking are unchanged", "The effect is negligible if the passenger weighs under 120 pounds"],
+        answer: 1,
+        explanation: "A passenger can add 30–40% to total motorcycle weight. This increases stopping distance significantly, requires more throttle/brake input, changes suspension behaviour, and needs wider cornering lines. Adjust tyre pressure and suspension preload as recommended in your owner's manual when carrying a passenger." },
+
+      { q: "When loading cargo onto a motorcycle, heavy items should be placed:",
+        options: ["Over the rear wheel for traction", "As high as possible on the bike for stability", "Low on the motorcycle, centred between the wheels, and close to the frame — and never hung from the handlebars or extending past the rear axle", "Equally split between the front and rear to preserve the factory weight balance"],
+        answer: 2,
+        explanation: "Low, centred, and secure cargo has the least effect on handling. High cargo raises the centre of gravity, reducing stability. Anything hung from handlebars interferes with steering. Cargo extending past the rear axle changes weight distribution dangerously. Use luggage designed for motorcycles with proper tie-down straps." },
+
+      // ── NIGHT & ADVERSE-CONDITION RIDING ───────────────────────────────────
+      { q: "When riding at night, you should increase your following distance because:",
+        options: ["Headlights illuminate a shorter distance than your stopping distance at normal highway speeds — you may not see a hazard in time to stop for it", "Night vision is better from a distance than up close", "Other drivers travel faster at night, requiring more space", "Night temperatures affect tyre pressure and require longer stopping distances"],
+        answer: 0,
+        explanation: "At 60 mph, a motorcycle headlight typically illuminates 150–200 feet ahead, but stopping from 60 mph takes about 180+ feet. This means you can be 'over-driving your headlights' — unable to stop in time for what your lights reveal. Reduce speed and increase following distance significantly at night." },
+
+      { q: "In wet conditions, which parts of the road surface are most slippery for a motorcycle?",
+        options: ["The left edge of the lane", "The centre of the lane (oil build-up), painted lines, metal surfaces (manhole covers, bridge grates), and wet leaves", "Fresh asphalt — it soaks up water best", "Road surfaces with clear water flowing across them"],
+        answer: 1,
+        explanation: "These surfaces are notoriously treacherous in the wet. A metal plate or painted crosswalk can be as slippery as ice when wet. Approach them with the bike upright, minimal lean angle, and avoid braking on them. The centre of the lane also collects vehicle fluid drips." },
+
+      { q: "When riding in strong crosswinds, you should:",
+        options: ["Increase speed to generate more gyroscopic stability from the wheels", "Reduce speed, grip the tank firmly with your knees, keep arms relaxed (not rigid), lean slightly into the wind, and be ready for sudden gusts especially near gaps in buildings or trees", "Move to the extreme upwind side of your lane", "Brake frequently to maintain control of direction"],
+        answer: 1,
+        explanation: "Crosswinds can push a motorcycle out of its lane, especially when emerging from sheltered areas (between buildings, on bridges, or past tall vehicles). Knee grip stabilises your body-bike unit; relaxed arms allow the bike to move slightly without upsetting balance; a slight lean into the wind counters its push." },
+
+      { q: "If you begin to feel fatigued while riding, you should:",
+        options: ["Increase your speed slightly — alertness usually rises with the challenge of higher speed", "Open your visor for cold air on your face as a reliable countermeasure", "Pull off the road at the next safe location, rest, and not ride again until you are fully alert — there is no safe substitute for rest", "Drink a caffeinated beverage and continue to your destination"],
+        answer: 2,
+        explanation: "Rider fatigue is a major crash contributor. A fatigued rider has delayed reactions, poor judgement, and may micro-sleep. Unlike driving a car, a momentary lapse on a motorcycle is rarely recoverable. Stop, rest, eat if needed, and only ride when alert. Plan long trips with regular breaks every 1–2 hours." },
+
+      // ── ALCOHOL, DRUGS & RIDING ────────────────────────────────────────────
+      { q: "How does alcohol affect motorcycle riding compared to driving a car?",
+        options: ["The effects are identical for both activities", "Alcohol is more dangerous on a motorcycle because riding demands continuous balance, fine motor coordination, and rapid hazard response — all severely degraded even at low BAC levels", "Motorcycles are designed with wider stability margins that compensate for mild impairment", "Alcohol only significantly affects driving above 0.08% BAC — moderate consumption is safe"],
+        answer: 1,
+        explanation: "Motorcycle riding requires continuous physical balance adjustments, fine clutch/brake/throttle coordination, and near-instant reactions. Alcohol degrades all of these at BAC levels well below the legal limit. Motorcyclists are over-represented in drunk-driving fatality statistics. Even one drink can be the difference between recovery and a crash." },
+
+      { q: "Alcohol is involved in what proportion of fatal motorcycle crashes?",
+        options: ["About 5%", "About 15%", "About 27–30% — a rate significantly higher than for car crashes", "About 50%"],
+        answer: 2,
+        explanation: "According to NHTSA data, alcohol impairment is a factor in approximately 27–30% of fatal motorcycle crashes — significantly higher than for passenger vehicles. Motorcyclists have a disproportionate presence in alcohol-related fatalities because of the unforgiving nature of balance and control requirements." },
+
+      { q: "Prescription and over-the-counter medications can affect riding safety because:",
+        options: ["Only narcotic prescriptions cause impairment; common medications do not", "Many medications — including antihistamines, antidepressants, cold medicines, and sleep aids — cause drowsiness, delayed reactions, blurred vision, or dizziness that impair motorcycle operation", "Medications only affect driving ability for the first 30 minutes after ingestion", "If a medication does not warn specifically about 'operating motorcycles,' it is safe"],
+        answer: 1,
+        explanation: "Many legal medications carry warnings about operating machinery precisely because they impair judgement and reaction time. Antihistamines, muscle relaxants, pain medications, and even some blood pressure drugs can cause effects dangerous on a motorcycle. Read all labels and consult a pharmacist or doctor before riding if you take any medication." },
+
+      // ── EMERGENCY TECHNIQUES ───────────────────────────────────────────────
+      { q: "If your throttle sticks open while riding, what should you do?",
+        options: ["Immediately steer off the road", "Apply only the front brake to slow quickly", "Pull in the clutch to cut power to the rear wheel, simultaneously apply both brakes firmly to slow and stop, then shut off the engine", "Rapidly downshift to use engine braking"],
+        answer: 2,
+        explanation: "Pulling in the clutch immediately disconnects engine power from the rear wheel regardless of throttle position. This is the fastest way to neutralise a stuck throttle. Apply both brakes to stop, then shut off the engine switch. Do not panic-steer — keep the bike upright through the stop." },
+
+      { q: "To stop quickly in the shortest possible distance without ABS, you should:",
+        options: ["Apply only the front brake as hard as possible, since it provides 70% of stopping power", "Apply the rear brake first, then the front brake after the rear takes hold", "Squeeze the front brake progressively to maximum pressure as weight transfers forward, while simultaneously pressing the rear brake firmly — releasing if either wheel locks", "Apply brakes in short pumps to simulate ABS manually"],
+        answer: 2,
+        explanation: "Maximum braking requires using both brakes together. Apply the front progressively (not suddenly — a sudden grab can lock the wheel) while simultaneously applying the rear. As the bike decelerates, weight shifts forward, increasing front tyre load and the amount of front brake you can safely use. This progressive technique achieves near-maximum stopping force without lockup." },
+
+      { q: "What is the recommended technique to swerve around a sudden obstacle on a motorcycle?",
+        options: ["Brake hard first, then swerve once speed is reduced", "Counter-steer sharply to one side and immediately counter-steer back — do not apply brakes during the swerve, as braking while leaning sharply can cause loss of control", "Steer toward the obstacle to minimise the lane change required", "Apply rear brake only and steer around the obstacle simultaneously"],
+        answer: 1,
+        explanation: "A quick swerve requires a rapid push-release-push counter-steer: push right bar to lean right, immediately push left bar to straighten. Braking and swerving simultaneously is extremely dangerous at lean angle. The MSF teaches swerving and braking as separate techniques: choose one or the other based on available space." },
+
+      { q: "The MSF 'SEE' strategy stands for what, and why is it important?",
+        options: ["Stop, Evaluate, Execute — used only when approaching hazards", "Search, Evaluate, Execute — a continuous mental process of scanning the road, assessing risks, and acting on them before they become emergencies", "Signal, Enter, Exit — the proper procedure for lane changes", "Speed, Escape route, Exit — used in emergency avoidance situations"],
+        answer: 1,
+        explanation: "SEE (Search, Evaluate, Execute) is the MSF's core hazard management strategy. Search constantly and far ahead (12+ seconds); Evaluate how hazards may affect your path; Execute a plan before reaching the hazard. Riders who use SEE continuously have more time to respond and make better decisions — turning potential crashes into manageable situations." }
     ]
   },
 
