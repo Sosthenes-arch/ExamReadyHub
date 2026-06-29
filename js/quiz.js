@@ -1,51 +1,49 @@
-// Quiz engine for exam.html
+// Quiz engine — works on both exam.html?id=xxx and exams/{id}.html
 
 (function () {
   const LETTERS = ['A', 'B', 'C', 'D'];
   let exam, currentQ, score, answered, results;
 
+  // window.EXAM_ID is set by individual exam pages (exams/{id}.html)
+  // window.EXAM_BASE is "../" for pages in the exams/ subdirectory, "" for root
+  const BASE = (typeof window.EXAM_BASE === 'string') ? window.EXAM_BASE : '';
+
   function init() {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
+    const id = window.EXAM_ID || new URLSearchParams(window.location.search).get('id');
 
     if (!id || !EXAMS[id]) {
       document.getElementById('quiz-container').innerHTML =
         `<div class="exam-intro-card" style="text-align:center">
            <h1>Exam not found</h1>
            <p class="exam-intro-desc">The exam ID "<strong>${id || 'none'}</strong>" does not exist.</p>
-           <a href="index.html" class="btn btn-primary" style="margin-top:20px">← Back to all exams</a>
+           <a href="${BASE}index.html" class="btn btn-primary" style="margin-top:20px">&larr; Back to all exams</a>
          </div>`;
       return;
     }
 
     exam = EXAMS[id];
-    currentQ = 0;
-    score = 0;
-    answered = false;
-    results = [];
+    currentQ = 0; score = 0; answered = false; results = [];
 
-    // Update page-level meta for SEO
-    document.title = exam.title + ' Practice Test — ExamReadyHub';
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.content =
-      `Free practice test for ${exam.title}. ${exam.description} Instant feedback on every question. No login required.`;
-
-    // Set canonical and OG tags to this specific exam URL
-    const examUrl = `https://www.examreadyhub.com/exam.html?id=${exam.id}`;
-    const canonical = document.getElementById('canonical-tag');
-    if (canonical) canonical.href = examUrl;
-    const ogUrl = document.getElementById('og-url');
-    if (ogUrl) ogUrl.content = examUrl;
-    const ogTitle = document.getElementById('og-title');
-    if (ogTitle) ogTitle.content = `${exam.title} Practice Test — ExamReadyHub`;
-    const ogDesc = document.getElementById('og-desc');
-    if (ogDesc) ogDesc.content =
-      `Free multiple-choice practice test for ${exam.title}. ${exam.description} Instant feedback, no login required.`;
+    // Only update dynamic meta when on exam.html?id= (not on individual static pages)
+    if (!window.EXAM_ID) {
+      document.title = `${exam.title} Practice Test — ExamReadyHub`;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.content =
+        `Free practice test for ${exam.title}. ${exam.description} Instant feedback on every question. No login required.`;
+      const examUrl = `https://www.examreadyhub.com/exams/${exam.id}.html`;
+      const canonical = document.getElementById('canonical-tag');
+      if (canonical) canonical.href = examUrl;
+      const ogUrl   = document.getElementById('og-url');   if (ogUrl)   ogUrl.content   = examUrl;
+      const ogTitle = document.getElementById('og-title'); if (ogTitle) ogTitle.content = `${exam.title} Practice Test — ExamReadyHub`;
+      const ogDesc  = document.getElementById('og-desc');  if (ogDesc)  ogDesc.content  = `Free multiple-choice practice test for ${exam.title}. Instant feedback, no login required.`;
+    }
 
     // Breadcrumb
     const cat = CATEGORIES.find(c => c.id === exam.category);
-    document.getElementById('breadcrumb-category').textContent = cat ? cat.name : exam.category;
-    document.getElementById('breadcrumb-exam').textContent = exam.title;
+    const catEl = document.getElementById('breadcrumb-category');
+    if (catEl) catEl.textContent = cat ? cat.name : exam.category;
+    const examEl = document.getElementById('breadcrumb-exam');
+    if (examEl) examEl.textContent = exam.title;
 
     showIntro();
   }
@@ -55,7 +53,7 @@
     document.getElementById('quiz-container').innerHTML = `
       <div class="exam-intro-card">
         <div class="exam-meta-pill">
-          ${cat ? cat.icon + ' ' + cat.name : ''} &nbsp;·&nbsp; ${exam.questions.length} Questions
+          ${cat ? cat.icon + ' ' + cat.name : ''} &nbsp;&middot;&nbsp; ${exam.questions.length} Questions
         </div>
         <h1>${exam.title}</h1>
         <p class="exam-intro-desc">${exam.description}</p>
@@ -63,10 +61,8 @@
           Answer each question and get instant feedback with an explanation.
           Your score is shown at the end.
         </p>
-        <button class="btn btn-primary" id="start-btn" style="margin-top:8px">
-          Start Quiz →
-        </button>
-        <a href="index.html" class="btn btn-ghost" style="margin-top:8px">← All Exams</a>
+        <button class="btn btn-primary" id="start-btn" style="margin-top:8px">Start Quiz &rarr;</button>
+        <a href="${BASE}index.html" class="btn btn-ghost" style="margin-top:8px">&larr; All Exams</a>
       </div>`;
     document.getElementById('start-btn').addEventListener('click', renderQuestion);
   }
@@ -74,7 +70,7 @@
   function renderQuestion() {
     answered = false;
     const q = exam.questions[currentQ];
-    const progress = ((currentQ) / exam.questions.length) * 100;
+    const progress = (currentQ / exam.questions.length) * 100;
 
     document.getElementById('quiz-container').innerHTML = `
       <div class="quiz-progress-wrap">
@@ -102,7 +98,7 @@
 
       <div class="quiz-actions">
         <button class="btn btn-primary hidden" id="next-btn">
-          ${currentQ + 1 < exam.questions.length ? 'Next Question →' : 'See Results →'}
+          ${currentQ + 1 < exam.questions.length ? 'Next Question &rarr;' : 'See Results &rarr;'}
         </button>
       </div>`;
 
@@ -120,23 +116,18 @@
     if (isCorrect) score++;
     results.push({ q: q.q, chosen, correct: q.answer, isCorrect, explanation: q.explanation });
 
-    // Style all buttons
     document.querySelectorAll('.option-btn').forEach((btn, i) => {
       btn.disabled = true;
       if (i === q.answer) btn.classList.add('correct');
       else if (i === chosen && !isCorrect) btn.classList.add('wrong');
     });
 
-    // Feedback
     document.getElementById('feedback-area').innerHTML = `
       <div class="feedback-box ${isCorrect ? 'correct-fb' : 'wrong-fb'}">
-        <div class="feedback-title">
-          ${isCorrect ? '✓ Correct!' : '✗ Incorrect'}
-        </div>
+        <div class="feedback-title">${isCorrect ? '&#10003; Correct!' : '&#10007; Incorrect'}</div>
         <div>${q.explanation}</div>
       </div>`;
 
-    // Reveal next button
     const nextBtn = document.getElementById('next-btn');
     nextBtn.classList.remove('hidden');
     nextBtn.addEventListener('click', advance);
@@ -152,7 +143,7 @@
     const pct = Math.round((score / exam.questions.length) * 100);
     const ringClass = pct >= 80 ? 'great' : pct >= 60 ? 'ok' : 'poor';
     const message = pct === 100 ? 'Perfect score! Outstanding work.' :
-                    pct >= 80  ? 'Great job! You\'re well prepared.' :
+                    pct >= 80  ? "Great job! You're well prepared." :
                     pct >= 60  ? 'Good effort — review the explanations and try again.' :
                                  'Keep studying — review each explanation carefully.';
 
@@ -160,7 +151,7 @@
       <tr>
         <td>${i + 1}. ${r.q}</td>
         <td style="white-space:nowrap">
-          <span class="result-icon">${r.isCorrect ? '✓' : '✗'}</span>
+          <span class="result-icon">${r.isCorrect ? '&#10003;' : '&#10007;'}</span>
           ${exam.questions[i].options[r.correct]}
         </td>
       </tr>`).join('');
@@ -181,14 +172,12 @@
 
         <!-- ADSENSE PLACEHOLDER: Results screen -->
         <div class="adsense-placeholder" style="margin:0 0 24px" aria-hidden="true">
-          <!-- Google AdSense: Insert responsive ad unit here (e.g., 300x250 or responsive) -->
-          <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
-          <!-- <ins class="adsbygoogle" ...></ins> -->
+          <!-- Google AdSense: Insert responsive ad unit here -->
         </div>
 
         <div class="results-actions">
-          <button class="btn btn-primary" id="retry-btn">↺ Retry Quiz</button>
-          <a href="index.html" class="btn btn-outline">← All Exams</a>
+          <button class="btn btn-primary" id="retry-btn">&#8635; Retry Quiz</button>
+          <a href="${BASE}index.html" class="btn btn-outline">&larr; All Exams</a>
         </div>
       </div>`;
 
@@ -197,11 +186,9 @@
       renderQuestion();
     });
 
-    // Smooth scroll to top of results
     document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // Boot
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

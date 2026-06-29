@@ -101,6 +101,13 @@
     </div>
   </footer>
 
+  <script>
+    // Redirect old exam.html?id=xxx links to the canonical exams/{id}.html pages
+    (function () {
+      const id = new URLSearchParams(window.location.search).get('id');
+      if (id) window.location.replace('exams/' + id + '.html');
+    })();
+  </script>
   <script src="data/exams.js"></script>
   <script src="js/quiz.js"></script>
   <script>

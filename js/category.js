@@ -47,7 +47,7 @@
   const exams = cat.exams.filter(id => EXAMS[id]).map(id => EXAMS[id]);
 
   const cards = exams.map(e => `
-    <a class="exam-card" href="exam.html?id=${e.id}">
+    <a class="exam-card" href="exams/${e.id}.html">
       <div class="exam-card-top">
         <span class="exam-title">${e.title}</span>
         <span class="exam-badge">${e.questions.length} Qs</span>

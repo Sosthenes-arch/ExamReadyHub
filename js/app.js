@@ -10,7 +10,7 @@
     const examCards = validExams.map(id => {
       const e = EXAMS[id];
       return `
-        <a class="exam-card" href="exam.html?id=${e.id}"
+        <a class="exam-card" href="exams/${e.id}.html"
            data-title="${e.title.toLowerCase()}"
            data-desc="${(e.description || '').toLowerCase()}">
           <div class="exam-card-top">
