@@ -30,7 +30,8 @@
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.content =
         `Free practice test for ${exam.title}. ${exam.description} Instant feedback on every question. No login required.`;
-      const examUrl = `https://www.examreadyhub.com/exams/${exam.id}.html`;
+      const slug = (typeof EXAM_META !== 'undefined' && EXAM_META[id] && EXAM_META[id].slug) ? EXAM_META[id].slug : exam.id;
+      const examUrl = `https://www.examreadyhub.com/exams/${slug}.html`;
       const canonical = document.getElementById('canonical-tag');
       if (canonical) canonical.href = examUrl;
       const ogUrl   = document.getElementById('og-url');   if (ogUrl)   ogUrl.content   = examUrl;
@@ -50,6 +51,18 @@
 
   function showIntro() {
     const cat = CATEGORIES.find(c => c.id === exam.category);
+    const meta = (typeof EXAM_META !== 'undefined') ? EXAM_META[exam.id] : null;
+    const overviewHtml = meta && meta.overview
+      ? `<p class="exam-intro-desc" style="margin-top:12px">${meta.overview}</p>`
+      : '';
+    const tipsHtml = meta && meta.tips && meta.tips.length
+      ? `<div class="exam-tips" style="margin-top:16px;text-align:left">
+           <strong style="display:block;margin-bottom:6px">&#128161; Success Tips</strong>
+           <ul style="margin:0;padding-left:20px;line-height:1.7">
+             ${meta.tips.map(t => `<li>${t}</li>`).join('')}
+           </ul>
+         </div>`
+      : '';
     document.getElementById('quiz-container').innerHTML = `
       <div class="exam-intro-card">
         <div class="exam-meta-pill">
@@ -57,7 +70,9 @@
         </div>
         <h1>${exam.title}</h1>
         <p class="exam-intro-desc">${exam.description}</p>
-        <p class="exam-intro-desc" style="margin-top:8px">
+        ${overviewHtml}
+        ${tipsHtml}
+        <p class="exam-intro-desc" style="margin-top:12px">
           Answer each question and get instant feedback with an explanation.
           Your score is shown at the end.
         </p>

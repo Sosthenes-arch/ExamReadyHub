@@ -46,18 +46,21 @@
   // Render exam cards
   const exams = cat.exams.filter(id => EXAMS[id]).map(id => EXAMS[id]);
 
-  const cards = exams.map(e => `
-    <a class="exam-card" href="exams/${e.id}.html">
-      <div class="exam-card-top">
-        <span class="exam-title">${e.title}</span>
-        <span class="exam-badge">${e.questions.length} Qs</span>
-      </div>
-      <p class="exam-desc">${e.description}</p>
-      <div class="exam-card-footer">
-        <span class="exam-q-count">${e.questions.length} practice questions</span>
-        <span class="exam-start-link">Start Quiz</span>
-      </div>
-    </a>`).join('');
+  const cards = exams.map(e => {
+    const slug = (typeof EXAM_META !== 'undefined' && EXAM_META[e.id] && EXAM_META[e.id].slug)
+      ? EXAM_META[e.id].slug : e.id;
+    const card = '<a class="exam-card" href="exams/' + slug + '.html">'
+      + '<div class="exam-card-top">'
+      + '<span class="exam-title">' + e.title + '</span>'
+      + '<span class="exam-badge">' + e.questions.length + ' Qs</span>'
+      + '</div>'
+      + '<p class="exam-desc">' + e.description + '</p>'
+      + '<div class="exam-card-footer">'
+      + '<span class="exam-q-count">' + e.questions.length + ' practice questions</span>'
+      + '<span class="exam-start-link">Start Quiz</span>'
+      + '</div></a>';
+    return card;
+  }).join('');
 
   container.innerHTML = `
     <div class="category-page-header">

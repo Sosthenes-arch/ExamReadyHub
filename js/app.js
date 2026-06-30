@@ -9,8 +9,9 @@
     const validExams = cat.exams.filter(id => EXAMS[id]);
     const examCards = validExams.map(id => {
       const e = EXAMS[id];
+      const slug = (typeof EXAM_META !== 'undefined' && EXAM_META[id] && EXAM_META[id].slug) ? EXAM_META[id].slug : id;
       return `
-        <a class="exam-card" href="exams/${e.id}.html"
+        <a class="exam-card" href="exams/${slug}.html"
            data-title="${e.title.toLowerCase()}"
            data-desc="${(e.description || '').toLowerCase()}">
           <div class="exam-card-top">
